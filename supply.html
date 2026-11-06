@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supply & Equipment Trading | VisionTech Engineering Ltd. (VEL)</title>
+  <meta name="description" content="Substation power transformers, HT/LT switchgears, CRP panels, DC battery banks, and precast cable protection slabs supplied by VisionTech.">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              void: '#030712',
+              dark: '#050b14',
+              surface: '#0b1324',
+              card: '#0f1b33',
+              amber: '#f59e0b',
+              gold: '#fbbf24',
+              bronze: '#d97706',
+              cyan: '#38bdf8',
+              blue: '#2563eb'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=2.1">
+</head>
+<body class="bg-brand-dark text-slate-200 antialiased selection:bg-amber-500 selection:text-slate-950 flex flex-col min-h-screen tech-grid-bg">
+
+  <!-- TOP BAR -->
+  <div class="bg-brand-void/90 border-b border-slate-800/80 text-xs py-2 px-4 backdrop-blur-md hidden md:block">
+    <div class="max-w-7xl mx-auto flex justify-between items-center text-slate-400">
+      <div>Headquarters: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217</div>
+      <div class="flex items-center gap-6">
+        <a href="tel:+8801730335002" class="hover:text-amber-400 font-semibold text-slate-300"><i class="fa-solid fa-phone text-amber-500 mr-1.5"></i> +88 01730 335002</a>
+        <a href="mailto:info@visiontech-bd.com" class="hover:text-amber-400 text-slate-300"><i class="fa-solid fa-envelope text-amber-500 mr-1.5"></i> info@visiontech-bd.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="mainHeader" class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <a href="index.html" class="flex items-center gap-3.5 group">
+          <div class="bg-white p-2 rounded-xl shadow-lg border border-white/20">
+            <img src="assets/images/logo.png" alt="VisionTech Logo" class="h-10 sm:h-11 w-auto object-contain">
+          </div>
+        </a>
+
+                        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium text-slate-300 whitespace-nowrap shrink-0">
+          <a href="index.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Home</a>
+          
+          <!-- Dropdown About Us -->
+          <div class="relative group">
+            <a href="about.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5">
+              <span>About Us</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-64 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="about.html#overview" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Company Overview & Governance</a>
+              <a href="investors.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Strategic Investment Proposal</a>
+              <a href="about.html#values" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">VISIONTECH Core Values</a>
+              <a href="about.html#leadership" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Executive Leadership Bench</a>
+              <a href="about.html#advisors" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Distinguished Advisory Board</a>
+              <a href="about.html#ehs" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Zero-Harm EHS Policy</a>
+            </div>
+          </div>
+
+          <!-- Dropdown EPC Services -->
+          <div class="relative group">
+            <a href="services.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5">
+              <span>EPC Services</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="services.html#power" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">132/33kV Substations & Cable Laying</a>
+              <a href="services.html#civil" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Heavy Civil Infrastructure & Foundations</a>
+              <a href="services.html#mep" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Electro-Mechanical (MEP) & Interior</a>
+              <a href="services.html#industrial" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Pre-Engineered Steel Buildings (PEB)</a>
+            </div>
+          </div>
+
+          <a href="projects.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Projects</a>
+          <a href="supply.html" class="px-4 py-2 rounded-xl text-amber-400 bg-amber-500/10 border border-amber-500/30 font-semibold transition">Supply & Trading</a>
+          <a href="sister-concern.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Sister Concern</a>
+          <a href="investors.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition text-amber-400 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span>Investors</span></a>
+          <a href="media.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Media</a>
+          <a href="contact.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="btn-shimmer hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-display font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow">
+            <i class="fa-solid fa-file-contract"></i>
+            <span>Request Quote</span>
+          </a>
+          <button id="mobileMenuBtn" type="button" class="lg:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 text-sm backdrop-blur-2xl">
+      <a href="index.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">About Us</a>
+      <a href="services.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">EPC Services</a>
+      <a href="projects.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Projects</a>
+      <a href="supply.html" class="block px-3 py-2 rounded-xl text-amber-400 bg-amber-500/10 font-semibold">Supply & Trading</a>
+      <a href="sister-concern.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Sister Concern</a>
+        <a href="investors.html" class="block px-3 py-2 rounded-xl text-amber-400 font-bold hover:bg-slate-800">Strategic Investors</a>
+      <a href="media.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Media</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="py-20 subtle-blueprint relative border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono text-xs font-semibold uppercase tracking-wider mb-5">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <span>Industrial Supply & OEM Trading Division</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-display tracking-tight leading-tight">
+        High-Voltage Substation Equipment & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">Power Plant Spares</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-3xl leading-relaxed">
+        Direct authorized indenting, supply, and nationwide distribution of high-voltage transmission substation equipment, protection switchgear, turbine capital parts, and transformer maintenance components engineered for Bangladesh's energy sector.
+      </p>
+
+      <!-- Stats Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+        <div class="spotlight-card rounded-2xl p-5 border border-slate-800/80">
+          <div class="text-2xl sm:text-3xl font-black text-amber-400 font-display">132kV / 33kV</div>
+          <div class="text-xs text-slate-400 mt-1">High-Voltage Substation Apparatus</div>
+        </div>
+        <div class="spotlight-card rounded-2xl p-5 border border-slate-800/80">
+          <div class="text-2xl sm:text-3xl font-black text-white font-display">100% Tested</div>
+          <div class="text-xs text-slate-400 mt-1">IEC / IEEE / PGCB Standard Compliance</div>
+        </div>
+        <div class="spotlight-card rounded-2xl p-5 border border-slate-800/80">
+          <div class="text-2xl sm:text-3xl font-black text-amber-400 font-display">Turbine & Plant</div>
+          <div class="text-xs text-slate-400 mt-1">Capital Blades, Bearings & Valves</div>
+        </div>
+        <div class="spotlight-card rounded-2xl p-5 border border-slate-800/80">
+          <div class="text-2xl sm:text-3xl font-black text-white font-display">Rapid Delivery</div>
+          <div class="text-xs text-slate-400 mt-1">Warehouse Stock & Global OEM Indenting</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT CATALOG MAIN SECTION -->
+  <section class="py-20 bg-brand-surface border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- CATEGORY 1: PRIMARY SUBSTATION APPARATUS -->
+      <div class="mb-20">
+        <div class="border-b border-slate-800 pb-4 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div class="text-xs font-mono font-bold uppercase tracking-widest text-amber-400">Section 01</div>
+            <h2 class="text-2xl sm:text-3xl font-black text-white font-display">Primary Substation Equipment & Switchgear</h2>
+          </div>
+          <p class="text-xs text-slate-400 max-w-md">
+            Heavy power handling equipment conforming to BPDB, PGCB, and BREB technical specifications.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Product 1: Transformers -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-bolt-lightning"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Power & Distribution Transformers</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Step-up and step-down substation power transformers ranging from 10/14MVA to 80/120MVA (132/33kV) and 33/11kV distribution units. Fitted with automated On-Load Tap Changers (OLTC), Buchholz relays, and oil level temperature sensors.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Ratings:</span> 33/11kV, 132/33kV, 230/132kV</div>
+                <div><span class="text-amber-400">Standards:</span> IEC 60076, IEEE C57</div>
+                <div><span class="text-amber-400">Cooling:</span> ONAN / ONAF / OFAF</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> PGCB/BREB Spec</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 2: Switchgears (HT & LT Panels) -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-toggle-on"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Switchgears (HT & LT Panels)</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Indoor and outdoor metal-clad HT switchgear panels (33kV & 11kV) and Low-Tension (LT) distribution boards. Equipped with vacuum circuit breakers (VCB), SF6 breakers, copper busbars, and motorized withdrawable racking mechanisms.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Voltage:</span> 33kV, 11kV, 0.415kV</div>
+                <div><span class="text-amber-400">Breaking Cap:</span> Up to 31.5kA / 3 sec</div>
+                <div><span class="text-amber-400">Protection:</span> IP4X / IP54 Rated Enclosure</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Fully Type-Tested</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 3: Control Relay Panels (CRP) -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Control Relay Panels (CRP)</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Simplex and duplex control relay panels engineered with microprocessor-based numerical protection relays, trip circuit supervision, synchronizing instrumentation, annunciators, and SCADA IEC 61850 communication protocol integration.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Protocol:</span> IEC 61850 / Modbus / DNP3</div>
+                <div><span class="text-amber-400">Relay Makes:</span> ABB, Siemens, Schneider</div>
+                <div><span class="text-amber-400">Features:</span> Distance, Diff & O/C Earth Fault</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Automation Ready</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 4: Potential Transformers (PT) -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Potential Transformers (PT / VT)</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                High-precision outdoor inductive voltage transformers and capacitive voltage transformers (CVT) designed for billing metering and high-voltage grid protection systems with hermetically sealed expansion bellows.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Voltage Class:</span> 33kV, 132kV, 230kV</div>
+                <div><span class="text-amber-400">Accuracy Class:</span> 0.2, 0.2S, 3P, 6P</div>
+                <div><span class="text-amber-400">Insulation:</span> Oil-Impregnated Paper / Resin</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> High Precision</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 5: Current Transformers (CT) -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-arrows-split-up-and-left"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Current Transformers (CT)</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Single-phase outdoor oil-immersed and epoxy-cast indoor current transformers engineered for heavy fault currents. Configured with dedicated metering and multi-core protection classes (5P20, PS class) for differential protection.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Current Ratio:</span> Up to 3000/5A or 1A</div>
+                <div><span class="text-amber-400">Dynamic Withstand:</span> Up to 63kA peak</div>
+                <div><span class="text-amber-400">Application:</span> Revenue & Busbar Protection</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Multi-Core Certified</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 6: Disconnecting Switch (DS/ES) & Isolators -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-power-off"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Disconnecting / Disconnected Switch (DS/ES) & Isolators</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Horizontal center-break, double-break, and vertical-break outdoor gang-operated isolator switches with integral earthing switches (ES). Complete with motorized operating mechanisms and mechanical interlocks for safety isolation.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Voltage:</span> 33kV, 132kV, 230kV</div>
+                <div><span class="text-amber-400">Rated Current:</span> 1250A to 3150A</div>
+                <div><span class="text-amber-400">Operation:</span> Motorized & Manual Override</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Interlocked Safety</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CATEGORY 2: PROTECTION, CAPACITANCE & TRANSMISSION HARDWARE -->
+      <div class="mb-20">
+        <div class="border-b border-slate-800 pb-4 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div class="text-xs font-mono font-bold uppercase tracking-widest text-amber-400">Section 02</div>
+            <h2 class="text-2xl sm:text-3xl font-black text-white font-display">Grid Protection, Capacitance & Structural Hardware</h2>
+          </div>
+          <p class="text-xs text-slate-400 max-w-md">
+            Heavy-duty surge suppression, power factor correction, galvanized steel gantries, and cable protection products.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Product 7: Power Factor Improvement (PFI Panel / PFI Panels) -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Power Factor Improvement (PFI Panel / PFI Panels)</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Automated multi-stage capacitor banks fitted with detuned harmonic filter reactors, microprocessor reactive power controllers, high-speed switching contactors, and temperature-controlled internal ventilation fans.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Capacity:</span> 100 kVAR to 2400 kVAR</div>
+                <div><span class="text-amber-400">Harmonics:</span> 7% & 14% Detuned Reactors</div>
+                <div><span class="text-amber-400">Target PF:</span> Maintain 0.98+ Lagging</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Energy Saving</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 8: Surge Arresters & Post Insulators (Polymer / Porcelain) -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Surge Arresters & Post Insulators (Polymer / Porcelain)</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Gapless metal-oxide (ZnO) station-class surge arresters with polymer or porcelain housings. Engineered for high energy absorption against lightning strokes and switching overvoltages. Supplied with surge counters and leakage ammeters.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Voltage:</span> 11kV, 33kV, 132kV, 230kV</div>
+                <div><span class="text-amber-400">Discharge:</span> 10kA & 20kA Class</div>
+                <div><span class="text-amber-400">Features:</span> Polymer Housing & Surge Counter</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> High Energy Class</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 9: Substation Steel Structures & Cable Trays -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Galvanized Steel Structures & Cable Trays</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Heavy lattice towers, gantry beams, and equipment support structures fabricated to ASTM A123 hot-dip galvanized standards. Complete with perforated and ladder-type heavy-duty galvanized cable trays, covers, and unistrut brackets.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Zinc Coating:</span> ≥ 610 g/m² (ASTM A123)</div>
+                <div><span class="text-amber-400">Cable Trays:</span> Perforated & Ladder Type</div>
+                <div><span class="text-amber-400">Design:</span> Wind load & short-circuit withstand</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Hot-Dip Galvanized</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 10: Precast Cable Protection Slabs -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-cubes"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">Precast Cable Protection Slabs</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                High-density interlocking reinforced concrete (RCC) cable protection slabs manufactured in our dedicated facility. Fully compliant with DPDC and PGCB high-voltage underground transmission specifications with engraved danger warnings.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Strength:</span> Cylinder Compressive > 30 MPa</div>
+                <div><span class="text-amber-400">Features:</span> Heavy interlocking lugs & hooks</div>
+                <div><span class="text-amber-400">Application:</span> 132kV, 33kV & 11kV Lines</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> DPDC/PGCB Approved</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 11: XLPE Cables & Termination Kits -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-network-wired"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">XLPE Cables & Termination Kits</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                High-voltage XLPE insulated copper cables (132kV, 33kV, 11kV) and cold-shrink / heat-shrink cable jointing kits, straight-through joints, indoor and outdoor terminations, bimetallic lugs, and stress-control sleeves.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Voltage:</span> 11kV, 33kV, 132kV</div>
+                <div><span class="text-amber-400">Technology:</span> Cold-Shrink & Heat-Shrink</div>
+                <div><span class="text-amber-400">Components:</span> Shear-bolt lugs & joint boxes</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> CENELEC HD 629.1</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+          <!-- Product 12: 110V DC Battery & Charger Systems -->
+          <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-car-battery"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display">110V DC Substation Battery & Chargers</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Industrial VRLA / Ni-Cd substation battery banks paired with dual-redundant SCR/Thyristor float-cum-boost battery charger cubicles for continuous, uninterruptible trip circuit and SCADA control power during blackouts.
+              </p>
+              <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1">
+                <div><span class="text-amber-400">Chemistry:</span> VRLA Gel & Ni-Cd Pocket Plate</div>
+                <div><span class="text-amber-400">Voltage:</span> 110V DC (100Ah to 600Ah)</div>
+                <div><span class="text-amber-400">Charger:</span> Dual Float / Boost SCR Cubicle</div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Zero-Interruption</span>
+              <a href="contact.html" class="text-amber-400 hover:text-amber-300 font-semibold">RFQ <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CATEGORY 3: POWER PLANT CAPITAL SPARES & SUBSTATION MAINTENANCE -->
+      <div>
+        <div class="border-b border-slate-800 pb-4 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div class="text-xs font-mono font-bold uppercase tracking-widest text-amber-400">Section 03</div>
+            <h2 class="text-2xl sm:text-3xl font-black text-white font-display">Power Plant Capital Spares & Substation Consumables</h2>
+          </div>
+          <p class="text-xs text-slate-400 max-w-md">
+            Critical rotating turbine components, high-temperature seals, SF6 gas, and transformer overhaul parts.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Power Plant Capital Spares Card -->
+          <div class="spotlight-card rounded-3xl p-6 sm:p-8 border border-slate-800">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white font-display">Thermal & Gas Turbine Power Plant Spares</h3>
+                <div class="text-xs text-amber-400 font-mono">Heavy Rotation & High-Temperature Alloys</div>
+              </div>
+            </div>
+
+            <div class="space-y-4 text-xs text-slate-300">
+              <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-white mb-1"><i class="fa-solid fa-fan text-amber-400 mr-1.5"></i> Turbine Rotating Capital Parts</div>
+                <p class="text-slate-400 leading-relaxed">
+                  High-Pressure Turbine (HPT) and Low-Pressure Turbine (LPT) rotating blades, stationary nozzles, shrouds, and diaphragm assemblies fabricated from superalloy materials.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-white mb-1"><i class="fa-solid fa-circle-notch text-amber-400 mr-1.5"></i> Bearings & Labyrinth Packing</div>
+                <p class="text-slate-400 leading-relaxed">
+                  Steam/gas turbine labyrinth shaft packing segments, plain journal bearings, tilting-pad sleeve bearings, lash adjusters, and wear rings with babbit lining.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-white mb-1"><i class="fa-solid fa-faucet-drip text-amber-400 mr-1.5"></i> High-Pressure Pumps & Control Valves</div>
+                <p class="text-slate-400 leading-relaxed">
+                  Boiler feed pumps, generator lube oil pressure regulating valves, pilot solenoid valves, non-return check valves, and high-pressure steam bypass systems.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-white mb-1"><i class="fa-solid fa-fire text-amber-400 mr-1.5"></i> Combustion & Electrical Controls</div>
+                <p class="text-slate-400 leading-relaxed">
+                  Thyristor power semiconductor stacks, UV/IR optical flame detectors, high-energy spark ignitors, magnetic speed sensors, and flue gas damper actuators.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-800 mt-6 flex items-center justify-between">
+              <span class="text-xs text-slate-400">Custom Sourcing for ABB, GE, Siemens, Hitachi</span>
+              <a href="contact.html" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition">Inquire Turbine Spares</a>
+            </div>
+          </div>
+
+          <!-- Substation & Transformer Overhaul Spares Card -->
+          <div class="spotlight-card rounded-3xl p-6 sm:p-8 border border-slate-800">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-oil-well"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white font-display">Substation & Transformer Overhaul Spares</h3>
+                <div class="text-xs text-amber-400 font-mono">Routine Maintenance & Capital Overhaul</div>
+              </div>
+            </div>
+
+            <div class="space-y-4 text-xs text-slate-300">
+              <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-white mb-1"><i class="fa-solid fa-bolt text-amber-400 mr-1.5"></i> Transformer Bushings (33kV, 11.5kV & 132kV)</div>
+                <p class="text-slate-400 leading-relaxed">
+                  High-voltage porcelain and oil-impregnated paper (OIP) / resin-impregnated synthetic bushings with high creepage distances suited for contaminated industrial environments.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-white mb-1"><i class="fa-solid fa-sliders text-amber-400 mr-1.5"></i> On-Load Tap Changer (OLTC) Spares</div>
+                <p class="text-slate-400 leading-relaxed">
+                  Moving and fixed silver-plated copper contacts, transition resistors, motorized driving gearboxes, tap position transmitters, and diverter switch components.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-white mb-1"><i class="fa-solid fa-droplet text-amber-400 mr-1.5"></i> Insulating Mineral Oil & Breathers</div>
+                <p class="text-slate-400 leading-relaxed">
+                  Uninhibited and inhibited virgin mineral insulating oils meeting IEC 60296 with BDV > 70 kV, silica gel dehydrating breathers, and oil level/temperature gauge assemblies.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-white mb-1"><i class="fa-solid fa-wind text-amber-400 mr-1.5"></i> SF6 Gas & Circuit Breaker Spares</div>
+                <p class="text-slate-400 leading-relaxed">
+                  Pressurized cylinders of 99.9% pure SF6 gas conforming to DIN 3188, molecular sieve moisture filter bags, complete breaker pole units, closing/trip coils, spring charge motor, and auxiliary contacts.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-800 mt-6 flex items-center justify-between">
+              <span class="text-xs text-slate-400">Immediate Despatch for Scheduled Outages</span>
+              <a href="contact.html" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition">Inquire Substation Spares</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<footer class="bg-brand-void text-slate-400 text-xs border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>&copy; 2026 VisionTech Engineering Ltd. (VEL). All Rights Reserved.</div>
+      <div class="flex gap-4">
+        <a href="index.html" class="hover:text-amber-400">Home</a>
+        <a href="about.html" class="hover:text-amber-400">About</a>
+        <a href="projects.html" class="hover:text-amber-400">Projects</a>
+        <a href="contact.html" class="hover:text-amber-400">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=2.1"></script>
+</body>
+</html>

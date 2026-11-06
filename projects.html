@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Portfolio | VisionTech Engineering Ltd. (VEL)</title>
+  <meta name="description" content="Explore VisionTech Engineering Ltd.'s verified projects: DPDC underground cable protection, Petroleum Transmission Co. renovation, BREB substations, and RHD bridges.">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              void: '#030712',
+              dark: '#050b14',
+              surface: '#0b1324',
+              card: '#0f1b33',
+              amber: '#f59e0b',
+              gold: '#fbbf24',
+              bronze: '#d97706',
+              cyan: '#38bdf8',
+              blue: '#2563eb'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=2.1">
+</head>
+<body class="bg-brand-dark text-slate-200 antialiased selection:bg-amber-500 selection:text-slate-950 flex flex-col min-h-screen tech-grid-bg">
+
+  <!-- TOP BAR -->
+  <div class="bg-brand-void/90 border-b border-slate-800/80 text-xs py-2 px-4 backdrop-blur-md hidden md:block">
+    <div class="max-w-7xl mx-auto flex justify-between items-center text-slate-400">
+      <div>Headquarters: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217</div>
+      <div class="flex items-center gap-6">
+        <a href="tel:+8801730335002" class="hover:text-amber-400 font-semibold text-slate-300"><i class="fa-solid fa-phone text-amber-500 mr-1.5"></i> +88 01730 335002</a>
+        <a href="mailto:info@visiontech-bd.com" class="hover:text-amber-400 text-slate-300"><i class="fa-solid fa-envelope text-amber-500 mr-1.5"></i> info@visiontech-bd.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="mainHeader" class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <a href="index.html" class="flex items-center gap-3.5 group">
+          <div class="bg-white p-2 rounded-xl shadow-lg border border-white/20">
+            <img src="assets/images/logo.png" alt="VisionTech Logo" class="h-10 sm:h-11 w-auto object-contain">
+          </div>
+        </a>
+
+                        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium text-slate-300 whitespace-nowrap shrink-0">
+          <a href="index.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Home</a>
+          
+          <!-- Dropdown About Us -->
+          <div class="relative group">
+            <a href="about.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5">
+              <span>About Us</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-64 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="about.html#overview" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Company Overview & Governance</a>
+              <a href="investors.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Strategic Investment Proposal</a>
+              <a href="about.html#values" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">VISIONTECH Core Values</a>
+              <a href="about.html#leadership" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Executive Leadership Bench</a>
+              <a href="about.html#advisors" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Distinguished Advisory Board</a>
+              <a href="about.html#ehs" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Zero-Harm EHS Policy</a>
+            </div>
+          </div>
+
+          <!-- Dropdown EPC Services -->
+          <div class="relative group">
+            <a href="services.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5">
+              <span>EPC Services</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="services.html#power" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">132/33kV Substations & Cable Laying</a>
+              <a href="services.html#civil" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Heavy Civil Infrastructure & Foundations</a>
+              <a href="services.html#mep" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Electro-Mechanical (MEP) & Interior</a>
+              <a href="services.html#industrial" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Pre-Engineered Steel Buildings (PEB)</a>
+            </div>
+          </div>
+
+          <a href="projects.html" class="px-4 py-2 rounded-xl text-amber-400 bg-amber-500/10 border border-amber-500/30 font-semibold transition">Projects</a>
+          <a href="supply.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Supply & Trading</a>
+          <a href="sister-concern.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Sister Concern</a>
+          <a href="investors.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition text-amber-400 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span>Investors</span></a>
+          <a href="media.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Media</a>
+          <a href="contact.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="btn-shimmer hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-display font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow">
+            <i class="fa-solid fa-file-contract"></i>
+            <span>Request Quote</span>
+          </a>
+          <button id="mobileMenuBtn" type="button" class="lg:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 text-sm backdrop-blur-2xl">
+      <a href="index.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">About Us</a>
+      <a href="services.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">EPC Services</a>
+      <a href="projects.html" class="block px-3 py-2 rounded-xl text-amber-400 bg-amber-500/10 font-semibold">Projects</a>
+      <a href="supply.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Supply & Trading</a>
+      <a href="sister-concern.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Sister Concern</a>
+        <a href="investors.html" class="block px-3 py-2 rounded-xl text-amber-400 font-bold hover:bg-slate-800">Strategic Investors</a>
+      <a href="media.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Media</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- HERO HEADER -->
+  <section class="py-20 subtle-blueprint relative border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono text-xs font-semibold uppercase tracking-wider mb-5">
+        <i class="fa-solid fa-award"></i>
+        <span>Verified Engineering Portfolio & Master Register</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-display tracking-tight leading-tight">
+        National Infrastructure Landmarks & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">Turnkey EPC Track Record</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-3xl leading-relaxed">
+        Over 40+ high-voltage grid substations (400kV/230kV/132kV/33kV), combined cycle power plants, national bridge auxiliary works, and underground transmission networks delivered in partnership with PGCB, DPDC, BREB, CNTIC, Energypac, and BPC.
+      </p>
+
+      <!-- Key Project Statistics -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+        <div class="spotlight-card rounded-2xl p-5 border border-slate-800/80">
+          <div class="text-2xl sm:text-3xl font-black text-amber-400 font-display">400kV / 230kV</div>
+          <div class="text-xs text-slate-400 mt-1">Extra High Voltage Grid Substations</div>
+        </div>
+        <div class="spotlight-card rounded-2xl p-5 border border-slate-800/80">
+          <div class="text-2xl sm:text-3xl font-black text-white font-display">360 MW</div>
+          <div class="text-xs text-slate-400 mt-1">Power Plant Civil Infrastructure</div>
+        </div>
+        <div class="spotlight-card rounded-2xl p-5 border border-slate-800/80">
+          <div class="text-2xl sm:text-3xl font-black text-amber-400 font-display">100,000+ Pcs</div>
+          <div class="text-xs text-slate-400 mt-1">Underground Cable Protection Slabs</div>
+        </div>
+        <div class="spotlight-card rounded-2xl p-5 border border-slate-800/80">
+          <div class="text-2xl sm:text-3xl font-black text-white font-display">100% EHS</div>
+          <div class="text-xs text-slate-400 mt-1">Zero-Loss-Time Incident Track Record</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SHOWCASE SECTION -->
+  <section class="py-20 bg-brand-surface border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Heading & Filter Description -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div class="text-xs font-mono font-semibold uppercase tracking-widest text-amber-400 mb-2">Verified Field Execution</div>
+          <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+            Flagship Turnkey Projects
+          </h2>
+        </div>
+        <div class="text-xs text-slate-400 max-w-md">
+          Every project reflects direct turnkey execution or tier-one consortium partnership adhering to PGCB, DPDC, and international engineering quality standards.
+        </div>
+      </div>
+
+      <!-- PROJECT CARDS GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+
+        <!-- Project 1: Bhulta 400/230/132kV Project -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-bhulta-400kv.jpg" alt="Bhulta 400/230/132kV Grid Substation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                400/230/132kV GIS
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Bhulta, Narayanganj
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PGCB | Main Contractor: CNTIC</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Bhulta 400/230/132kV Grid Substation Turnkey Civil Works
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Complete civil construction of 400kV and 230kV GIS control room buildings, heavy transformer foundations, cable trenches, internal asphalt roads, drainage systems, and switchyard graveling works for PGCB's apex national grid node.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-shield-check text-emerald-400 mr-1"></i> 100% Compliant</span>
+            <span class="text-amber-400 font-semibold">Flagship Grid Landmark</span>
+          </div>
+        </div>
+
+        <!-- Project 2: Purbasadipur, Dinajpur 230/132kV & 132/33kV GIS Substation -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-purbasadipur.jpg" alt="Purbasadipur 230/132kV GIS Substation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                230/132kV Turnkey
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Purbasadipur, Dinajpur
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PGCB | Main Contractor: CNTIC (Pkg 1.1)</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Purbasadipur 230/132kV & 132/33kV GIS Substation
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              In charge of entire civil construction: 230kV & 132kV GIS Control Room Buildings, massive 230/132kV transformer plinths, piling works, deep civil foundations, cable trenches, internal roads, and complete switchyard finishing.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-diagram-project text-amber-400 mr-1"></i> Full Civil Scope</span>
+            <span class="text-emerald-400 font-semibold">Delivered 2024</span>
+          </div>
+        </div>
+
+        <!-- Project 3: Madunaghat, Chittagong 132kV to 230kV Upgradation -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-madunaghat.jpg" alt="Madunaghat 230kV GIS Substation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                230kV GIS Upgradation
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Madunaghat, Chittagong
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PGCB | Main Contractor: CNTIC</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Madunaghat 132kV to 230kV GIS Substation Upgradation
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Design, supply, installation, testing and commissioning civil works: Construction of new 230kV GIS Control Room Building, live dismantling of existing 132kV switchyard equipment, cable trenches, civil foundations, and drainage.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-bolt text-amber-400 mr-1"></i> Live Grid Brownfield</span>
+            <span class="text-emerald-400 font-semibold">Delivered 2024</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Feni, Chittagong 230/132kV GIS Substation -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-feni-gis.jpg" alt="Feni 230/132kV GIS Substation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                230/132kV GIS Turnkey
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Feni, Chittagong
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PGCB | Main Contractor: CNTIC</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Feni 230/132kV GIS Substation Construction
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Execution of entire turnkey civil package: Multistory 230kV GIS Control Room Building, RCC cable trenches, high-capacity road and drainage infrastructure, heavy equipment foundations, and 230kV switchyard finishing.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-gears text-amber-400 mr-1"></i> Multi-Discipline Civil</span>
+            <span class="text-emerald-400 font-semibold">Delivered 2024</span>
+          </div>
+        </div>
+
+        <!-- Project 5: Maijdee, Noakhali 132/33kV GIS Substation -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-maijdee-gis.jpg" alt="Maijdee 132/33kV GIS Substation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                132/33kV GIS Cluster
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Maijdee & Coastal Grid
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PGCB | Main Contractor: CNTIC</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Maijdee & Regional Coastal Substation Cluster
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Design, supply, installation, testing and commissioning civil works across coastal grid substations including Chowmuhoni (230/132kV) and 132/33kV substations at Maijdee, Patiya, Anandabazar, Daganbhuiyan, and Halishahar.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-cubes-stacked text-amber-400 mr-1"></i> Multi-District Cluster</span>
+            <span class="text-emerald-400 font-semibold">Completed 2023-24</span>
+          </div>
+        </div>
+
+        <!-- Project 6: Bheramara, Kushtia 360MW Combined Cycle Power Plant -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-bheramara-360mw.jpg" alt="Bheramara 360MW Power Plant" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                360MW Power Plant
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Bheramara, Kushtia
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PGCB | Main Contractor: Energypac</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Bheramara 360MW Combined Cycle Power Plant Civil Works
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Complete civil engineering works for one of Bangladesh's premier base-load power stations, including heavy machinery foundations, pump stations, cable trenches, civil containment, and auxiliary structural works.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-industry text-amber-400 mr-1"></i> Base-Load Generation</span>
+            <span class="text-emerald-400 font-semibold">Completed</span>
+          </div>
+        </div>
+
+        <!-- Project 7: Bibiyana-II, Sylhet 400kV Substation -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-transformer-yard.jpg" alt="Bibiyana-II 400kV Substation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                400kV Grid Hub
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Bibiyana-II, Sylhet
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PGCB | Main Contractor: Energypac</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Bibiyana-II 400kV Grid Substation Civil Construction
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Complete civil work execution at the Bibiyana 400kV grid hub evacuating bulk power from major gas-fired power stations into the national transmission backbone. Heavy equipment foundations, earthmat grid trenching, and switchyard leveling.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-tower-broadcast text-amber-400 mr-1"></i> 400kV Evacuation</span>
+            <span class="text-emerald-400 font-semibold">Completed</span>
+          </div>
+        </div>
+
+        <!-- Project 8: DPDC Underground Cable Line (Signboard to Siddhirganj) -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-switchgear-site.jpg" alt="DPDC Underground Cable Line" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                Underground Transmission
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Signboard to Siddhirganj, Dhaka
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: DPDC | Main Contractor: TBEA Co. Ltd.</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                DPDC Underground Cable Line (Package-2, Lot-15)
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Strengthening of Power System Network under DPDC Area (1-A-8 Signboard to Siddhirganj). High-density urban underground cable line construction, deep trenching, backfilling, duct bank installation, and joint bay chamber civil construction.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-plug text-amber-400 mr-1"></i> Official TBEA Partner</span>
+            <span class="text-amber-400 font-semibold">Active Execution</span>
+          </div>
+        </div>
+
+        <!-- Project 9: 132/33kV Precast Cable Protection Slab Manufacture & Installation -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-cable-slab.jpg" alt="Cable Protection Slab Manufacture" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                BDT 18,300,000.00
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Dhaka Metropolitan Transmission
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PGCB | Partner: TBEA & Mars / VisionTech</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Manufacture & Installation of 132/33kV Cable Protection Slabs
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Precision precast manufacture, dynamic impact testing, transportation, and trench-line placement of high-density interlocking RCC cable protection slabs protecting critical 132/33kV extra-high-voltage underground lines across the capital.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-shield text-amber-400 mr-1"></i> 100,000+ Slabs Delivered</span>
+            <span class="text-emerald-400 font-semibold">Completed</span>
+          </div>
+        </div>
+
+        <!-- Project 10: BREB Nationwide Rural Substation Bundles -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-substation-breb.jpg" alt="BREB Rural Substation Projects" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                World Bank & JICA Bundles
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Multi-District Nationwide
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: BREB | Main Contractor: Energypac</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                BREB Nationwide 33/11kV Substation Switching Stations
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Turnkey civil construction of 2-storied control room buildings and switching stations across dozens of sites: Kashiani-2 & 3, Modhukhali-3, Pangsha, Gozaria (Cumilla PBS 2x10/14MVA), Kotalipara, Faridpur, Alfadanga, Saltha, Porsha, Akkelpur, Badalgachi, Dhamurhat, Jibonnagar, and Coat Chandpur.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-network-wired text-amber-400 mr-1"></i> 20+ Substation Sites</span>
+            <span class="text-emerald-400 font-semibold">Completed</span>
+          </div>
+        </div>
+
+        <!-- Project 11: Kanchpur, Meghna and Gumti 2nd Bridges (Package PW-01) -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-bridge-kanchpur.jpg" alt="Kanchpur Meghna Gumti Bridge Project" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                Megastructure Civil
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Dhaka-Chittagong Highway (N1)
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: RHD | Main Contractor: B & F Engineering</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Kanchpur, Meghna & Gumti 2nd Bridge Auxiliary Works
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Construction of Kanchpur, Meghna and Gumti 2nd Bridge and Existing Bridge Rehabilitation Project (Package PW-01). Subcontractor for approach civil construction, structural concrete work, and critical bridge auxiliary civil infrastructure.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-road-bridge text-amber-400 mr-1"></i> National Highway Landmark</span>
+            <span class="text-emerald-400 font-semibold">Completed</span>
+          </div>
+        </div>
+
+        <!-- Project 12: Petroleum Transmission Company PLC (PTC PLC) -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-building-renovation.jpg" alt="PTC PLC Building Renovation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                BDT 7,250,000.00
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Dhaka Headquarters
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PTC PLC (Subsidiary of BPC) | Turnkey: VEL</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                PTC PLC Corporate Facility Renovation & Upgradation
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Comprehensive turnkey civil, sanitary, electrical, interior architectural renovation, glass partitions, executive reception panels, kitchen cabinetry, air-conditioning (AC) systems, collapsible gates, and enterprise CCTV surveillance setup.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-building-circle-check text-amber-400 mr-1"></i> Turnkey General Contractor</span>
+            <span class="text-emerald-400 font-semibold">Completed</span>
+          </div>
+        </div>
+
+        <!-- Project 13: Onin Textile Mills Industrial Complex -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-site-work.jpg" alt="Onin Textile Mills Project" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                BDT 12,600,000.00
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Industrial Manufacturing Zone
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: Onin Textile Mills | Main Contractor: VEL</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Industrial Perimeter Boundary Wall & Electromechanical Works
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Deep-foundation reinforced concrete industrial security boundary wall, integrated drainage systems, high-voltage plant power distribution, external lighting poles, security gates, and heavy electromechanical facility integration.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-industry text-amber-400 mr-1"></i> Industrial Civil & MEP</span>
+            <span class="text-emerald-400 font-semibold">Completed</span>
+          </div>
+        </div>
+
+        <!-- Project 14: Bangladesh Supreme Court Interior -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-office-interior.jpg" alt="Supreme Court Interior" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                BDT 650,000.00
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Supreme Court, Dhaka
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: Bangladesh Supreme Court | Contractor: VEL</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Supreme Court Interior Architecture & Specialized Fabrication
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Design, material procurement, precision wood and metal fabrication, acoustic treatment, executive chamber furnishings, and turnkey architectural interior execution for the apex judicial facility of Bangladesh.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-landmark text-amber-400 mr-1"></i> Apex Government Facility</span>
+            <span class="text-emerald-400 font-semibold">Completed</span>
+          </div>
+        </div>
+
+        <!-- Project 15: Kaliganj 132/33kV AIS Substation Graveling Works -->
+        <div class="spotlight-card rounded-3xl p-6 border border-slate-800 flex flex-col justify-between group hover:border-amber-500/50 transition">
+          <div class="space-y-4">
+            <div class="relative rounded-2xl overflow-hidden h-52 bg-slate-900 border border-slate-800/80">
+              <img src="assets/images/project-electrical-mep.jpg" alt="Kaliganj Substation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/90 text-slate-950 uppercase">
+                132/33kV AIS
+              </span>
+              <span class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Kaliganj, Gazipur
+              </span>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider">Client: PGCB | Subcontractor: VEL</span>
+              <h3 class="font-bold text-white text-lg leading-snug font-display mt-1">
+                Kaliganj 132/33kV Substation Graveling & Earth Surface Works
+              </h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Switchyard surface treatment, step-and-touch potential safety layer graveling, geo-textile membrane laying, perimeter drainage integration, and switchyard leveling under PGCB grid strengthening programs.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 mt-4 flex items-center justify-between text-xs">
+            <span class="text-slate-400"><i class="fa-solid fa-bolt-lightning text-amber-400 mr-1"></i> Grid Safety Compliance</span>
+            <span class="text-emerald-400 font-semibold">Completed</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MASTER PROJECT REGISTER TABLE -->
+      <div class="spotlight-card rounded-3xl p-6 sm:p-8 border border-slate-800">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h3 class="text-xl font-bold text-white font-display flex items-center gap-2">
+              <i class="fa-solid fa-table-list text-amber-400"></i>
+              Verified Project Experience Master Register
+            </h3>
+            <p class="text-xs text-slate-400 mt-1">
+              Comprehensive statutory record of completed and ongoing turnkey civil, power, and logistics contracts.
+            </p>
+          </div>
+          <div class="text-xs font-mono text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-xl self-start sm:self-auto">
+            16 Verified Contracts Documented
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left">
+            <thead>
+              <tr class="bg-slate-900 text-amber-400 font-display font-bold uppercase tracking-wider border-b border-slate-800">
+                <th class="py-3.5 px-4">#</th>
+                <th class="py-3.5 px-4">Project Title & Technical Scope</th>
+                <th class="py-3.5 px-4">Client / Authority</th>
+                <th class="py-3.5 px-4">Main Contractor / Role</th>
+                <th class="py-3.5 px-4">Contract Value (BDT)</th>
+                <th class="py-3.5 px-4">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 text-slate-300">
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">1</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Bhulta 400/230/132kV Turnkey GIS Substation Project</div>
+                  <div class="text-[11px] text-slate-400">Construction of 400kV & 230kV GIS Control Room Buildings, Transformer Foundations, Cable Trenches, Road, Drainage & Switchyard Works</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Power Grid Company of Bangladesh (PGCB)</td>
+                <td class="py-3.5 px-4 text-slate-300">China National Technical Import & Export Corp (CNTIC) / VEL-MIL</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">Mega Project</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">2</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Purbasadipur, Dinajpur 230/132kV & 132/33kV GIS Substation (Package 1.1)</div>
+                  <div class="text-[11px] text-slate-400">230/132kV GIS Control Room Building, 230 & 132kV Transformer Foundations, Piling Works, Civil Foundations & Internal Roads</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Power Grid Company of Bangladesh (PGCB)</td>
+                <td class="py-3.5 px-4 text-slate-300">China National Technical Import & Export Corp (CNTIC) / VEL-MIL</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">Turnkey Civil</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">3</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Madunaghat, Chittagong 132kV to 230kV GIS Substation Upgradation</div>
+                  <div class="text-[11px] text-slate-400">230kV GIS Control Room Building, Live 132kV Switchyard Equipment Dismantling, Cable Trenches & Civil Foundations</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Power Grid Company of Bangladesh (PGCB)</td>
+                <td class="py-3.5 px-4 text-slate-300">China National Technical Import & Export Corp (CNTIC) / VEL-MIL</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">Grid Upgrade</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">4</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Feni, Chittagong 230/132kV GIS Substation Construction</div>
+                  <div class="text-[11px] text-slate-400">230kV GIS Control Room Building, Cable Trenches, Road, Drainage & 230kV Switchyard Finishing</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Power Grid Company of Bangladesh (PGCB)</td>
+                <td class="py-3.5 px-4 text-slate-300">China National Technical Import & Export Corp (CNTIC) / VEL-MIL</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">Turnkey GIS</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">5</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Maijdee, Noakhali & Regional Coastal GIS Substations</div>
+                  <div class="text-[11px] text-slate-400">Chowmuhoni 230/132kV & Maijdee, Patiya, Anandabazar, Daganbhuiyan, Halishahar 132/33kV GIS Substations</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Power Grid Company of Bangladesh (PGCB)</td>
+                <td class="py-3.5 px-4 text-slate-300">China National Technical Import & Export Corp (CNTIC) / VEL-MIL</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">Cluster Package</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">6</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Bheramara, Kushtia 360MW Combined Cycle Power Plant</div>
+                  <div class="text-[11px] text-slate-400">Complete Civil Infrastructure Works, Heavy Machinery Foundations, Pump Houses, and Switchyard Structures</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Power Grid Company of Bangladesh (PGCB)</td>
+                <td class="py-3.5 px-4 text-slate-300">Energypac Engineering Limited / VEL</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">Major Power Plant</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">7</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Bibiyana-II, Sylhet 400kV Substation Civil Works</div>
+                  <div class="text-[11px] text-slate-400">Complete Civil Engineering Works for 400kV Power Evacuation Substation Switchyard & Control Structures</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Power Grid Company of Bangladesh (PGCB)</td>
+                <td class="py-3.5 px-4 text-slate-300">Energypac Engineering Limited / VEL</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">400kV Hub</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">8</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">132/33kV Underground Cable Protection Slab Manufacture & Installation</div>
+                  <div class="text-[11px] text-slate-400">Manufacture, Supply, Transportation and Interlocking Installation of Reinforced Cable Slabs</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Power Grid Company of Bangladesh (PGCB)</td>
+                <td class="py-3.5 px-4 text-slate-300">TBEA Co. Ltd. & Mars / VisionTech</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">18,300,000.00</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">9</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">DPDC Signboard to Siddhirganj Underground Cable Line (Package-2 Lot-15)</div>
+                  <div class="text-[11px] text-slate-400">Trenching, Cable Ducting, Cable Laying & Joint Bay Civil Infrastructure for Network Strengthening</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Dhaka Power Distribution Company (DPDC)</td>
+                <td class="py-3.5 px-4 text-slate-300">TBEA Co. Ltd. / Mars-VisionTech (Enlisted Subcontractor)</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">Contract Package</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-semibold">In Progress</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">10</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Renovation & Upgradation of Corporate Facility under PTC PLC (BPC)</div>
+                  <div class="text-[11px] text-slate-400">Civil, Sanitary, Electrical, Glass Partitioning, Ceiling, Kitchen, AC Installation & CCTV Systems</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Petroleum Transmission Company PLC (PTC PLC - BPC)</td>
+                <td class="py-3.5 px-4 text-slate-300">VisionTech Engineering Ltd. (Direct Turnkey)</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">7,250,000.00</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">11</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Industrial Boundary Wall Construction & Electromechanical Works</div>
+                  <div class="text-[11px] text-slate-400">Reinforced Concrete Perimeter Boundary Wall, Internal Drainage & Plant Electromechanical Infrastructure</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Onin Textile Mills</td>
+                <td class="py-3.5 px-4 text-slate-300">VisionTech Engineering Ltd. (Main)</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">12,600,000.00</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">12</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Design, Supply, Fabrication & Installation of Full Interior Works</div>
+                  <div class="text-[11px] text-slate-400">Acoustic Paneling, Custom Woodwork, Architectural Partitions & Executive Furnishing</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Bangladesh Supreme Court</td>
+                <td class="py-3.5 px-4 text-slate-300">VisionTech Engineering Ltd.</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">650,000.00</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">13</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">BREB Rural 33/11kV Substation Bundles (World Bank & JICA Projects)</div>
+                  <div class="text-[11px] text-slate-400">Control Room Buildings & Civil Works at Kashiani-2/3, Modhukhali-3, Pangsha, Kotalipara, Faridpur, Alfadanga, Saltha, Porsha, Akkelpur, Badalgachi, Dhamurhat, Jibonnagar, Coat Chandpur</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Bangladesh Rural Electrification Board (BREB)</td>
+                <td class="py-3.5 px-4 text-slate-300">Energypac Engineering Limited / Associate</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">Bundle Contracts</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">14</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Cumilla PBS 33/11kV, 2x10/14MVA Indoor Substation at Gozaria</div>
+                  <div class="text-[11px] text-slate-400">Complete Civil Works, Multi-Storied Control Room & Indoor Switchgear Floor Foundations</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">BREB / Cumilla Palli Bidyut Samity</td>
+                <td class="py-3.5 px-4 text-slate-300">Energypac Engineering Limited / Associate</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">Turnkey Civil</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">15</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">Kanchpur, Meghna and Gumti 2nd Bridge Package PW-01 Auxiliary Civil Works</div>
+                  <div class="text-[11px] text-slate-400">Approach Civil Foundations, Concrete Median Structures & Existing Bridge Rehabilitation Civil Support</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Roads and Highways Department (RHD)</td>
+                <td class="py-3.5 px-4 text-slate-300">B & F Engineering & Construction Limited</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">National Highway</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-400">16</td>
+                <td class="py-3.5 px-4">
+                  <div class="font-semibold text-white">4-Storied Commercial & Residential Building Turnkey Renovation & AC Supply</div>
+                  <div class="text-[11px] text-slate-400">Full Civil, Plumbing, Electrical, Architectural Finishing & Walton AC System Supply at Mirpur-12, Dhaka</div>
+                </td>
+                <td class="py-3.5 px-4 font-medium text-slate-200">Private Sector Infrastructure (Md. Rayhan Ahamad)</td>
+                <td class="py-3.5 px-4 text-slate-300">VisionTech Engineering Ltd. (Main)</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-400">990,000.00</td>
+                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<footer class="bg-brand-void text-slate-400 text-xs border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>&copy; 2026 VisionTech Engineering Ltd. (VEL). All Rights Reserved.</div>
+      <div class="flex gap-4">
+        <a href="index.html" class="hover:text-amber-400">Home</a>
+        <a href="about.html" class="hover:text-amber-400">About</a>
+        <a href="services.html" class="hover:text-amber-400">Services</a>
+        <a href="contact.html" class="hover:text-amber-400">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=2.1"></script>
+</body>
+</html>

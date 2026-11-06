@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionTech Engineering Ltd. (VEL) | A Trusted EPC Partner in Civil & Electro-Mechanical Solutions</title>
+  <meta name="description" content="VisionTech Engineering Ltd. is a leading EPC contractor in Bangladesh specializing in turnkey infrastructure, 132/33kV power substations, underground cable protection, civil engineering, and heavy logistics.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Fonts: Space Grotesk & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              void: '#030712',
+              dark: '#050b14',
+              surface: '#0a1324',
+              card: '#0e1a32',
+              amber: '#f59e0b',
+              gold: '#fbbf24',
+              bronze: '#d97706',
+              cyan: '#38bdf8',
+              blue: '#2563eb'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=2.1">
+</head>
+<body class="bg-brand-dark text-slate-200 antialiased selection:bg-amber-500 selection:text-slate-950 flex flex-col min-h-screen tech-grid-bg">
+
+  <!-- TOP BAR (Structure inspired by top engineering portals) -->
+  <div class="bg-brand-void/95 border-b border-slate-800 text-xs py-2 px-4 backdrop-blur-md hidden md:block">
+    <div class="max-w-7xl mx-auto flex justify-between items-center text-slate-400">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-2">
+          <i class="fa-solid fa-location-dot text-amber-500"></i>
+          <span class="text-slate-300">Corporate HQ: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217</span>
+        </span>
+        <span class="text-slate-700">|</span>
+        <span class="flex items-center gap-1.5 text-slate-300">
+          <i class="fa-solid fa-certificate text-amber-500"></i>
+          <span>Govt. Reg. Limited Company • ISO & EHS Compliant</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="tel:+8801730335002" class="hover:text-amber-400 transition flex items-center gap-1.5 text-slate-300 font-semibold">
+          <i class="fa-solid fa-phone-volume text-amber-500"></i> +88 01730 335002
+        </a>
+        <a href="mailto:info@visiontech-bd.com" class="hover:text-amber-400 transition flex items-center gap-1.5 text-slate-300">
+          <i class="fa-solid fa-envelope text-amber-500"></i> info@visiontech-bd.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY NAVIGATION HEADER WITH DROPDOWN ARROWS -->
+  <header id="mainHeader" class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Brand Identity -->
+        <a href="index.html" class="flex items-center gap-3.5 group">
+          <div class="bg-white p-2 rounded-xl shadow-lg border border-white/20 group-hover:border-amber-500/50 transition">
+            <img src="assets/images/logo.png" alt="VisionTech Logo" class="h-10 sm:h-11 w-auto object-contain">
+          </div>
+        </a>
+
+                <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium text-slate-300 whitespace-nowrap shrink-0">
+          <a href="index.html" class="px-4 py-2 rounded-xl text-amber-400 bg-amber-500/10 border border-amber-500/30 font-semibold transition">Home</a>
+          
+          <!-- Dropdown About Us -->
+          <div class="relative group">
+            <a href="about.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5">
+              <span>About Us</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-64 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="about.html#overview" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Company Overview & Governance</a>
+              <a href="investors.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-amber-400 hover:text-amber-300 font-semibold transition">Strategic Investment Proposal</a>
+              <a href="about.html#values" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">VISIONTECH Core Values</a>
+              <a href="about.html#leadership" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Executive Leadership Bench</a>
+              <a href="about.html#advisors" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Distinguished Advisory Board</a>
+              <a href="about.html#ehs" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Zero-Harm EHS Policy</a>
+            </div>
+          </div>
+
+          <!-- Dropdown EPC Services -->
+          <div class="relative group">
+            <a href="services.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5">
+              <span>EPC Services</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="services.html#power" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">132/33kV Substations & Cable Laying</a>
+              <a href="services.html#civil" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Heavy Civil Infrastructure & Foundations</a>
+              <a href="services.html#mep" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Electro-Mechanical (MEP) & Interior</a>
+              <a href="services.html#industrial" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Pre-Engineered Steel Buildings (PEB)</a>
+            </div>
+          </div>
+
+          <a href="projects.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Projects</a>
+          <a href="supply.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Supply & Trading</a>
+          <a href="sister-concern.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Sister Concern</a>
+          <a href="investors.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition text-amber-400 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span>Investors</span></a>
+          <a href="media.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Media</a>
+          <a href="contact.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Contact</a>
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="flex items-center gap-3">
+          <button class="open-quote-modal btn-shimmer hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-display font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 transform hover:-translate-y-0.5 transition">
+            <i class="fa-solid fa-file-signature"></i>
+            <span>Request Tender Quote</span>
+          </button>
+          
+          <button id="mobileMenuBtn" type="button" class="lg:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 text-sm backdrop-blur-2xl">
+      <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Navigation Menu</span>
+        <button id="closeMobileMenu" class="text-slate-400 hover:text-white p-1"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+      <a href="index.html" class="block px-3 py-2 rounded-xl text-amber-400 bg-amber-500/10 font-semibold">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">About Us</a>
+      <a href="services.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">EPC Services</a>
+      <a href="projects.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Projects</a>
+      <a href="supply.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Supply & Trading</a>
+      <a href="sister-concern.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Sister Concern (Swadesh Carrying)</a>
+      <a href="investors.html" class="block px-3 py-2 rounded-xl text-amber-400 font-bold hover:bg-slate-800 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span>Strategic Investors</span></a>
+      <a href="media.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Media & Brochures</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Contact Us</a>
+      <div class="pt-2">
+        <button class="open-quote-modal w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-xs uppercase tracking-wider">
+          Request RFQ / Quotation
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION (High-Impact Engineering Slider Structure) -->
+  <section class="relative min-h-[88vh] flex items-center py-20 lg:py-24 overflow-hidden subtle-blueprint bg-brand-void">
+    
+    <!-- Background Engineering Video Layer -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+      <video id="heroBgVideo" autoplay loop muted playsinline poster="assets/videos/building_poster.jpg" class="w-full h-full object-cover opacity-85 filter brightness-100 contrast-105">
+        <source src="assets/videos/hero-engineering-bg.mp4" type="video/mp4">
+        <source src="assets/videos/buildings-under-construction-4010.mp4" type="video/mp4">
+      </video>
+      <!-- Soft Vignette: ensures crisp text legibility while keeping the building construction vivid -->
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/30"></div>
+    </div>
+    <div class="absolute top-1/4 -left-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 -right-40 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-3xl space-y-6">
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/40 text-xs font-semibold text-amber-400 shadow-xl backdrop-blur-md">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500 status-pulse"></span>
+            <span class="tracking-widest uppercase font-display text-[11px]">LEADING EPC CONTRACTOR IN BANGLADESH</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-white leading-[1.1] tracking-tight">
+            A Trusted EPC Partner in <br>
+            <span class="text-metallic-gold">Civil & Electro-Mechanical</span> Solutions.
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl font-normal">
+            <strong>VisionTech Engineering Ltd. (VEL)</strong> is a dynamic EPC contractor delivering turnkey engineering, 132/33kV power substations, underground transmission cable protection, and heavy logistics for government utilities and private industrial leaders across Bangladesh.
+          </p>
+
+          <div class="grid grid-cols-3 gap-3.5 pt-1 max-w-xl">
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-center">
+              <i class="fa-solid fa-bolt text-amber-400 text-lg mb-1"></i>
+              <div class="text-[11px] font-bold text-white uppercase tracking-wider">132/33kV Power</div>
+              <div class="text-[10px] text-slate-400">Substations & Grids</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-center">
+              <i class="fa-solid fa-trowel-bricks text-amber-400 text-lg mb-1"></i>
+              <div class="text-[11px] font-bold text-white uppercase tracking-wider">Heavy Civil</div>
+              <div class="text-[10px] text-slate-400">Foundations & Bridges</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-center">
+              <i class="fa-solid fa-truck-monster text-amber-400 text-lg mb-1"></i>
+              <div class="text-[11px] font-bold text-white uppercase tracking-wider">Heavy Cargo</div>
+              <div class="text-[10px] text-slate-400">Swadesh Carrying</div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a href="services.html" class="btn-shimmer inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-display font-bold text-xs uppercase tracking-wider shadow-2xl shadow-amber-500/30 transform hover:-translate-y-0.5 transition">
+              <span>Explore EPC Disciplines</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="projects.html" class="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white font-display font-bold text-xs uppercase tracking-wider border border-slate-700/80 hover:border-amber-500/50 transition">
+              <i class="fa-solid fa-shield-halved text-amber-400"></i>
+              <span>Landmark Projects</span>
+            </a>
+
+            <button class="open-quote-modal inline-flex items-center gap-2 px-4 py-4 rounded-xl text-amber-400 hover:text-amber-300 text-xs font-bold uppercase tracking-wider transition">
+              <i class="fa-solid fa-calculator"></i>
+              <span>Tender RFQ</span>
+            </button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. STATS & LANDMARK INFRASTRUCTURE SECTION -->
+  <section id="statsSection" class="py-8 bg-slate-950 text-white relative border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <!-- Landmark Infrastructure Showcase (One-Line Strip) -->
+      <div class="spotlight-card rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-2xl bg-slate-900/40">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-5">
+          
+          <!-- 1. Thumbnail with Substation Badges -->
+          <div class="relative rounded-xl overflow-hidden w-full lg:w-72 h-44 lg:h-28 shrink-0 group">
+            <img src="assets/images/substation-hero.jpg" alt="132/33kV Power Substation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+            
+            <div class="absolute top-2 left-2 right-2 flex justify-between items-center text-[9px] font-mono">
+              <span class="px-2 py-0.5 rounded bg-slate-950/85 border border-emerald-500/40 text-emerald-400 font-semibold backdrop-blur-md flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> GRID FREQ: 50Hz ACTIVE
+              </span>
+              <span class="px-2 py-0.5 rounded bg-slate-950/85 border border-slate-700 text-slate-300 backdrop-blur-md">
+                132/33kV SUBSTATION
+              </span>
+            </div>
+          </div>
+
+          <!-- 2. Landmark Information -->
+          <div class="flex-1 min-w-0 space-y-1 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 text-amber-400 font-display font-bold text-xs uppercase tracking-wider">
+              <i class="fa-solid fa-bolt text-[11px]"></i>
+              <span>Power Infrastructure Landmark</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white font-display truncate">
+              Underground Cable Protection & Substations
+            </h3>
+            <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+              Complete EPC engineering and cable protection slab manufacture under DPDC, PGCB, and BREB nationwide programs.
+            </p>
+          </div>
+
+          <!-- 3. Accreditations / Advisory Badges in One Line -->
+          <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0">
+            <div class="px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-sm font-bold shrink-0">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <div class="text-left">
+                <div class="font-bold text-white text-xs">40+ Yrs</div>
+                <div class="text-[10px] text-slate-400 whitespace-nowrap">Advisory Depth</div>
+              </div>
+            </div>
+
+            <div class="px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm font-bold shrink-0">
+                <i class="fa-solid fa-shield-virus"></i>
+              </div>
+              <div class="text-left">
+                <div class="font-bold text-white text-xs">100% EHS</div>
+                <div class="text-[10px] text-slate-400 whitespace-nowrap">Zero Incident Record</div>
+              </div>
+            </div>
+
+            <a href="projects.html" class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold shadow-lg shadow-amber-500/20 transition duration-300 shrink-0" title="View Landmark Project">
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-2 border-t border-slate-800/80">
+        
+        <div class="spotlight-card p-6 rounded-2xl text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-amber-400 mb-2">
+            <span class="stat-counter" data-target="50" data-suffix="+">50+</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest text-slate-200 font-bold">Completed Projects</div>
+          <p class="text-[11px] text-slate-400 mt-1">Substations, Civil & Turnkey Works</p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-amber-400 mb-2">
+            <span class="stat-counter" data-target="40" data-suffix="+">40+</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest text-slate-200 font-bold">Years Advisory Depth</div>
+          <p class="text-[11px] text-slate-400 mt-1">Led by CUET, BUET & RUET Engineers</p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-amber-400 mb-2">
+            <span class="stat-counter" data-target="100" data-suffix="%">100%</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest text-slate-200 font-bold">Zero-Harm Safety</div>
+          <p class="text-[11px] text-slate-400 mt-1">ISO 45001 & 9001 Standardized</p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-amber-400 mb-2">
+            <span class="stat-counter" data-target="64" data-suffix=" Districts">64</span>
+          </div>
+          <div class="text-xs uppercase tracking-widest text-slate-200 font-bold">Nationwide Fleet</div>
+          <p class="text-[11px] text-slate-400 mt-1">Heavy Haulage via Swadesh Carrying</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ABOUT US / WHO WE ARE (epac.bd structural split) -->
+  <section class="py-20 bg-brand-surface border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left: Image Composition -->
+        <div class="lg:col-span-5 relative">
+          <div class="spotlight-card rounded-3xl p-3 border border-slate-700 shadow-2xl">
+            <img src="assets/images/project-control-room.jpg" alt="VisionTech Control Room" class="rounded-2xl w-full h-80 object-cover">
+          </div>
+          <div class="absolute -bottom-6 -right-4 w-2/3 spotlight-card rounded-2xl p-2 border border-slate-700 shadow-2xl hidden sm:block">
+            <img src="assets/images/project-electrical-mep.jpg" alt="Electrical Installations" class="rounded-xl w-full h-36 object-cover">
+          </div>
+        </div>
+
+        <!-- Right: Corporate Narrative -->
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display flex items-center gap-2">
+            <i class="fa-solid fa-building-flag"></i> WHO WE ARE
+          </span>
+          
+          <h2 class="text-3xl sm:text-4xl font-black text-white font-display leading-tight">
+            Engineering Excellence Driven by Integrity, Innovation & Sustainability.
+          </h2>
+
+          <p class="text-slate-300 text-sm leading-relaxed">
+            <strong>VISIONTECH Engineering Ltd.</strong> represents a company driven by value, innovation, and sustainability, delivering excellence through advanced technology and integrated engineering solutions in civil and electro-mechanical sectors across Bangladesh.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="spotlight-card p-5 rounded-2xl border border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-2">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <h4 class="font-bold text-white text-sm font-display mb-1">Our Mission</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                To provide reliable, innovative, and sustainable engineering solutions in civil and electro-mechanical sectors, ensuring quality, safety, and client satisfaction in every project.
+              </p>
+            </div>
+
+            <div class="spotlight-card p-5 rounded-2xl border border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg mb-2">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <h4 class="font-bold text-white text-sm font-display mb-1">Our Vision</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                To become a leading EPC contractor in Bangladesh and beyond, recognized for excellence, innovation, and contribution to national infrastructure and energy development.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="about.html" class="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider font-display">
+              <span>Read Full Corporate Profile & Leadership</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. CORE EPC SERVICES (Structured 6-Grid like epac.bd Services) -->
+  <section id="services" class="py-20 bg-brand-dark border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div class="space-y-3 max-w-2xl">
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display">
+            OUR CAPABILITIES
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+            Core Engineering & EPC Services
+          </h2>
+          <p class="text-slate-300 text-sm">
+            End-to-end turnkey delivery: from feasibility analysis and detailed engineering design to international procurement, on-site construction, and testing & commissioning.
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider">
+            <span>View All Engineering Disciplines</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Project 1: Bhulta 400/230/132kV GIS Substation -->
+        <div class="project-card spotlight-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="power">
+          <div>
+            <div class="relative h-56 overflow-hidden bg-slate-950">
+              <img src="assets/images/project-bhulta-400kv.jpg" alt="Bhulta 400/230/132kV GIS Substation" class="w-full h-full object-cover">
+              <div class="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-display font-bold text-xs uppercase px-3 py-1 rounded-lg shadow">
+                400/230/132kV GIS
+              </div>
+              <div class="absolute top-3 right-3 bg-emerald-600/90 text-white font-semibold text-[10px] px-2.5 py-1 rounded-md backdrop-blur-md">
+                Completed
+              </div>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] font-bold text-amber-400 font-display uppercase tracking-wider">
+                PGCB / CNTIC Turnkey Package
+              </div>
+              <h3 class="font-bold text-white text-base leading-snug font-display">
+                Bhulta 400/230/132kV Turnkey GIS Substation Civil Works
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                Complete civil execution of 400kV & 230kV GIS Control Room Buildings, heavy transformer foundations, cable trenches, internal roads, and switchyard graveling for PGCB's apex national grid hub.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-800/80 mt-4 flex items-center justify-between">
+            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Bhulta, Narayanganj</span>
+            <button class="open-project-modal text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5"
+              data-title="Bhulta 400/230/132kV Turnkey GIS Substation"
+              data-client="Power Grid Company of Bangladesh (PGCB) / CNTIC"
+              data-value="National Grid Landmark"
+              data-scope="Turnkey civil construction of 400kV & 230kV GIS control room buildings, 400kV/230kV transformer foundations, cable trenches, drainage, and switchyard works."
+              data-img="assets/images/project-bhulta-400kv.jpg">
+              <span>View Specs</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: Purbasadipur 230/132kV GIS Substation -->
+        <div class="project-card spotlight-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="power">
+          <div>
+            <div class="relative h-56 overflow-hidden bg-slate-950">
+              <img src="assets/images/project-purbasadipur.jpg" alt="Purbasadipur 230/132kV GIS Substation" class="w-full h-full object-cover">
+              <div class="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-display font-bold text-xs uppercase px-3 py-1 rounded-lg shadow">
+                230/132kV Turnkey
+              </div>
+              <div class="absolute top-3 right-3 bg-emerald-600/90 text-white font-semibold text-[10px] px-2.5 py-1 rounded-md backdrop-blur-md">
+                Completed
+              </div>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] font-bold text-amber-400 font-display uppercase tracking-wider">
+                PGCB / CNTIC (Package 1.1)
+              </div>
+              <h3 class="font-bold text-white text-base leading-snug font-display">
+                Purbasadipur 230/132kV & 132/33kV GIS Substation
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                Full civil scope including 230kV & 132kV GIS control buildings, transformer foundations, piling works, cable trenches, internal roads, and switchyard finishing.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-800/80 mt-4 flex items-center justify-between">
+            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Dinajpur</span>
+            <button class="open-project-modal text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5"
+              data-title="Purbasadipur 230/132kV GIS Substation"
+              data-client="Power Grid Company of Bangladesh (PGCB) / CNTIC"
+              data-value="Turnkey Substation Package"
+              data-scope="Design, supply, installation, testing and commissioning civil works for 230/132kV and 132/33kV GIS substation control rooms, piling, and transformer plinths."
+              data-img="assets/images/project-purbasadipur.jpg">
+              <span>View Specs</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3: Bheramara 360MW Combined Cycle Power Plant -->
+        <div class="project-card spotlight-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="civil">
+          <div>
+            <div class="relative h-56 overflow-hidden bg-slate-950">
+              <img src="assets/images/project-bheramara-360mw.jpg" alt="Bheramara 360MW Combined Cycle Power Plant" class="w-full h-full object-cover">
+              <div class="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-display font-bold text-xs uppercase px-3 py-1 rounded-lg shadow">
+                360 MW Combined Cycle
+              </div>
+              <div class="absolute top-3 right-3 bg-emerald-600/90 text-white font-semibold text-[10px] px-2.5 py-1 rounded-md backdrop-blur-md">
+                Completed
+              </div>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] font-bold text-amber-400 font-display uppercase tracking-wider">
+                PGCB / Energypac Engineering Ltd.
+              </div>
+              <h3 class="font-bold text-white text-base leading-snug font-display">
+                Bheramara 360MW Combined Cycle Power Plant Civil Works
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                Complete civil infrastructure works, heavy equipment foundations, pump houses, cable trenches, and auxiliary power generation structures for national base-load power.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-800/80 mt-4 flex items-center justify-between">
+            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Bheramara, Kushtia</span>
+            <button class="open-project-modal text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5"
+              data-title="Bheramara 360MW Combined Cycle Power Plant"
+              data-client="Power Grid Company of Bangladesh (PGCB) / Energypac"
+              data-value="Power Plant Civil Landmark"
+              data-scope="Civil infrastructure, heavy machine foundations, auxiliary buildings, cable raceways, and site civil works for 360MW combined cycle generation station."
+              data-img="assets/images/project-bheramara-360mw.jpg">
+              <span>View Specs</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4: DPDC Underground Cable Slab -->
+        <div class="project-card spotlight-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="power">
+          <div>
+            <div class="relative h-56 overflow-hidden bg-slate-950">
+              <img src="assets/images/project-cable-slab.jpg" alt="DPDC Underground Cable Slab" class="w-full h-full object-cover">
+              <div class="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-display font-bold text-xs uppercase px-3 py-1 rounded-lg shadow">
+                BDT 18,300,000
+              </div>
+              <div class="absolute top-3 right-3 bg-emerald-600/90 text-white font-semibold text-[10px] px-2.5 py-1 rounded-md backdrop-blur-md">
+                Completed
+              </div>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] font-bold text-amber-400 font-display uppercase tracking-wider">
+                DPDC / TBEA Co. Ltd. (Package-2, Lot-15)
+              </div>
+              <h3 class="font-bold text-white text-base leading-snug font-display">
+                132/33 kV Underground Cable Protection Slab Works
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                Strengthening of Power System Network under DPDC area. Manufacture, supply, transportation and interlocking installation of reinforced concrete protective slabs for 132/33 kV underground transmission (Signboard to Siddhirganj).
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-800/80 mt-4 flex items-center justify-between">
+            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Signboard to Siddhirganj</span>
+            <button class="open-project-modal text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5"
+              data-title="132/33 kV Underground Cable Protection Slab Works"
+              data-client="Dhaka Power Distribution Company Limited (DPDC) / TBEA Co. Ltd."
+              data-value="BDT 18,300,000.00"
+              data-scope="Strengthening of Power System Network under DPDC area. Manufacture, supply, transportation and installation of cable protection slab for 132/33 kV underground cable laying project (Package-2, Lot-15, Signboard to Siddhirganj)."
+              data-img="assets/images/project-cable-slab.jpg">
+              <span>View Specs</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 5: Petroleum Transmission Company PLC -->
+        <div class="project-card spotlight-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="renovation">
+          <div>
+            <div class="relative h-56 overflow-hidden bg-slate-950">
+              <img src="assets/images/project-building-renovation.jpg" alt="Petroleum Transmission Co. Upgradation" class="w-full h-full object-cover">
+              <div class="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-display font-bold text-xs uppercase px-3 py-1 rounded-lg shadow">
+                BDT 7,250,000
+              </div>
+              <div class="absolute top-3 right-3 bg-emerald-600/90 text-white font-semibold text-[10px] px-2.5 py-1 rounded-md backdrop-blur-md">
+                Completed
+              </div>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] font-bold text-amber-400 font-display uppercase tracking-wider">
+                PTC PLC (Subsidiary of BPC)
+              </div>
+              <h3 class="font-bold text-white text-base leading-snug font-display">
+                Corporate Office Building Renovation & Modernization
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                Full-scope turnkey EPC civil works, sanitary systems, modern electrical infrastructure, AC installation, glass partitioning, reception architecture, and CCTV surveillance networks.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-800/80 mt-4 flex items-center justify-between">
+            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> BPC Headquarters</span>
+            <button class="open-project-modal text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5"
+              data-title="Renovation and Upgradation of Existing Building"
+              data-client="Petroleum Transmission Company PLC (Subsidiary of BPC)"
+              data-value="BDT 7,250,000.00"
+              data-scope="Comprehensive civil renovation, brickwork, sanitary setups, complete electrical rewiring, glass partitions, executive interior, kitchen cabinetry, and AC & CCTV installation."
+              data-img="assets/images/project-building-renovation.jpg">
+              <span>View Specs</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 6: Onin Textile Mills -->
+        <div class="project-card spotlight-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="civil">
+          <div>
+            <div class="relative h-56 overflow-hidden bg-slate-950">
+              <img src="assets/images/project-site-work.jpg" alt="Onin Textile Mills" class="w-full h-full object-cover">
+              <div class="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-display font-bold text-xs uppercase px-3 py-1 rounded-lg shadow">
+                BDT 12,600,000
+              </div>
+              <div class="absolute top-3 right-3 bg-emerald-600/90 text-white font-semibold text-[10px] px-2.5 py-1 rounded-md backdrop-blur-md">
+                Completed
+              </div>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] font-bold text-amber-400 font-display uppercase tracking-wider">
+                Onin Textile Mills Ltd.
+              </div>
+              <h3 class="font-bold text-white text-base leading-snug font-display">
+                Industrial Perimeter Boundary Wall & MEP Works
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                Main contractor executing deep foundation boundary enclosures, soil compaction, storm drainage channels, security cable networks, and outdoor industrial lighting.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-800/80 mt-4 flex items-center justify-between">
+            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Industrial Zone</span>
+            <button class="open-project-modal text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5"
+              data-title="Boundary Wall Construction & Electromechanical Works"
+              data-client="Onin Textile Mills"
+              data-value="BDT 12,600,000.00"
+              data-scope="Extensive perimeter boundary wall construction, earthwork compaction, drainage conduits, high-power outdoor illumination, and electrical infrastructure."
+              data-img="assets/images/project-site-work.jpg">
+              <span>View Specs</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div class="text-center mt-10">
+        <a href="projects.html" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-500 text-white font-display font-bold text-xs uppercase tracking-wider transition">
+          <span>View Verified Project Master Register</span>
+          <i class="fa-solid fa-arrow-right text-amber-400"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. WHY CHOOSE VISIONTECH / EHS & QUALITY PILLARS -->
+  <section class="py-20 bg-brand-surface border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display">THE VISIONTECH COMMITMENT</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+          Why Choose VisionTech Engineering
+        </h2>
+        <p class="text-slate-300 text-sm">
+          Strict international standards, zero-compromise safety, and multidisciplinary engineering depth.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <div class="spotlight-card p-6 rounded-2xl text-center border border-slate-800">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-4 border border-amber-500/20">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h4 class="font-bold text-white font-display text-base mb-1">Turnkey Accountability</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Eliminating coordination gaps between civil builders and electrical installers under single-window management.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl text-center border border-slate-800">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl mb-4 border border-blue-500/20">
+            <i class="fa-solid fa-shield-virus"></i>
+          </div>
+          <h4 class="font-bold text-white font-display text-base mb-1">Zero-Harm Safety (EHS)</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            100% safety record with strict PPE compliance and ISO 45001 & ISO 9001 aligned management regimes.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl text-center border border-slate-800">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-4 border border-emerald-500/20">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <h4 class="font-bold text-white font-display text-base mb-1">40+ Yrs Advisory Bench</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Technical guidance from veteran chief engineers of DPDC, Energypac, BUET, and Canadian thermal specialists.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl text-center border border-slate-800">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-4 border border-amber-500/20">
+            <i class="fa-solid fa-truck-moving"></i>
+          </div>
+          <h4 class="font-bold text-white font-display text-base mb-1">Integrated Heavy Logistics</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Swadesh Carrying ensures direct port clearance at Chittagong & Mongla and multi-axle trailer site delivery.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. SISTER CONCERN HIGHLIGHT: SWADESH CARRYING -->
+  <section class="py-16 bg-slate-950 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="spotlight-card rounded-3xl p-8 sm:p-12 border border-slate-800 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-8 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider font-display">
+              <i class="fa-solid fa-truck-fast"></i> SISTER CONCERN LOGISTICS
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+              Swadesh Carrying & Logistics Solutions
+            </h2>
+
+            <div class="p-4 rounded-2xl bg-slate-900/90 border border-amber-500/40 text-amber-300 italic text-sm font-semibold max-w-2xl">
+              "Your equipment is safe with VISIONTECH like a baby on its mother's lap. We take care of your valued equipment from our soul."
+            </div>
+
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-2xl">
+              Founded in 2000, Swadesh Carrying handles heavy-lift cargo, port stevedoring, and multi-axle trailer transportation across Chittagong, Mongla, Payra and all land ports of Bangladesh with 24/7 armed pilot escorts.
+            </p>
+
+            <div class="pt-2">
+              <a href="sister-concern.html" class="btn-shimmer inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-display font-bold text-xs uppercase tracking-wider shadow">
+                <span>View Heavy Transport Capabilities</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
+            <img src="assets/images/project-heavy-lift.jpg" alt="Swadesh Heavy Transport" class="w-full h-64 object-cover">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- 9. STRATEGIC INVESTMENT & INVESTOR RELATIONS (Institutional Growth Proposal) -->
+  <section id="investors" class="py-20 bg-brand-dark border-b border-slate-800 relative overflow-hidden">
+    <!-- Ambient Engineering Glow Background -->
+    <div class="absolute -top-40 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+        <div class="max-w-3xl space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/40 text-amber-400 text-xs font-semibold uppercase tracking-wider backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+            <span class="font-display">STRATEGIC CAPITAL & PARTNERSHIP</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display leading-tight">
+            Strategic Investment & <br>
+            <span class="text-metallic-gold">Investor Relations</span>
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            VisionTech Engineering Ltd. invites institutional investors, private equity partners, and infrastructure funds to participate in a high-growth <strong class="text-amber-400">$50M phased expansion program</strong> capitalizing on Bangladesh's national power grid modernizations, mega-highway corridors, and multimodal transit infrastructure.
+          </p>
+        </div>
+
+        <!-- Download Proposal Button & Meeting CTA -->
+        <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0">
+          <a href="investors.html" class="btn-shimmer inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-display font-bold text-xs uppercase tracking-wider shadow-xl shadow-amber-500/20 transition transform hover:-translate-y-0.5">
+            <span>Explore Investor Portal</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="assets/docs/VisionTech-Investor-Proposal.pdf" download="VisionTech-Investor-Proposal.pdf" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white border border-slate-700/80 hover:border-amber-500/50 text-xs font-display font-bold uppercase tracking-wider transition">
+            <i class="fa-solid fa-file-pdf text-amber-400"></i>
+            <span>Deck (PDF)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Financial Pillars (4 Strategic Projections from Proposal) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+        
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 bg-slate-900/60 text-center relative group">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mx-auto mb-3 text-lg">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-black font-display text-white group-hover:text-amber-400 transition mb-1">$50M</div>
+          <div class="text-xs uppercase tracking-wider font-bold text-amber-400">Target Investment</div>
+          <p class="text-[11px] text-slate-400 mt-1">3-Year Capital Expansion across Power, Roads & Transit</p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 bg-slate-900/60 text-center relative group">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto mb-3 text-lg">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-black font-display text-white group-hover:text-emerald-400 transition mb-1">35%</div>
+          <div class="text-xs uppercase tracking-wider font-bold text-emerald-400">Revenue Growth</div>
+          <p class="text-[11px] text-slate-400 mt-1">Projected Year-over-Year Expansion over 5-Year Horizon</p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 bg-slate-900/60 text-center relative group">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mx-auto mb-3 text-lg">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-black font-display text-white group-hover:text-blue-400 transition mb-1">28%</div>
+          <div class="text-xs uppercase tracking-wider font-bold text-blue-400">EBITDA Margin</div>
+          <p class="text-[11px] text-slate-400 mt-1">Disciplined Operating Margin Achieved via Turnkey EPC Execution</p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 bg-slate-900/60 text-center relative group">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mx-auto mb-3 text-lg">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-black font-display text-white group-hover:text-amber-400 transition mb-1">3.2 Yrs</div>
+          <div class="text-xs uppercase tracking-wider font-bold text-amber-400">Payback Period</div>
+          <p class="text-[11px] text-slate-400 mt-1">Full Capital Recovery Supported by Long-Term O&M Contracts</p>
+        </div>
+
+      </div>
+
+      <!-- Capital Allocation Strategy & 3-Year Growth Horizon -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Allocation Strategy (Left Column) -->
+        <div class="lg:col-span-7 spotlight-card rounded-3xl p-6 sm:p-8 border border-slate-800 bg-slate-900/50 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <span class="text-xs uppercase font-bold tracking-widest text-amber-400 font-display">CAPITAL DEPLOYMENT</span>
+                <h3 class="text-xl sm:text-2xl font-bold text-white font-display mt-0.5">Investment Allocation Strategy</h3>
+              </div>
+              <span class="px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold">100% ALLOCATED</span>
+            </div>
+
+            <div class="space-y-5">
+              <!-- Pillar 1 -->
+              <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80">
+                <div class="flex justify-between items-center mb-2">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-sm"><i class="fa-solid fa-bolt"></i></span>
+                    <span class="font-bold text-white text-sm">Power & Energy Modernization</span>
+                  </div>
+                  <span class="font-display font-black text-amber-400 text-base">40%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden mb-2">
+                  <div class="bg-gradient-to-r from-amber-500 to-amber-400 h-full rounded-full" style="width: 40%"></div>
+                </div>
+                <p class="text-[11px] text-slate-400">Solar & wind grid integration, 132/33kV substations, and underground transmission protection.</p>
+              </div>
+
+              <!-- Pillar 2 -->
+              <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80">
+                <div class="flex justify-between items-center mb-2">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm"><i class="fa-solid fa-bridge"></i></span>
+                    <span class="font-bold text-white text-sm">Civil & Highway Infrastructure</span>
+                  </div>
+                  <span class="font-display font-black text-emerald-400 text-base">35%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden mb-2">
+                  <div class="bg-gradient-to-r from-emerald-500 to-emerald-400 h-full rounded-full" style="width: 35%"></div>
+                </div>
+                <p class="text-[11px] text-slate-400">National highway widening, heavy civil foundations, bridge approaches, and major government tenders.</p>
+              </div>
+
+              <!-- Pillar 3 -->
+              <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80">
+                <div class="flex justify-between items-center mb-2">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center text-sm"><i class="fa-solid fa-train"></i></span>
+                    <span class="font-bold text-white text-sm">Transportation & Heavy Haulage Fleet</span>
+                  </div>
+                  <span class="font-display font-black text-blue-400 text-base">25%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden mb-2">
+                  <div class="bg-gradient-to-r from-blue-500 to-blue-400 h-full rounded-full" style="width: 25%"></div>
+                </div>
+                <p class="text-[11px] text-slate-400">Railway modernization, multi-axle hydraulic trailers, port handling, and intermodal transport corridors.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-check text-emerald-400"></i> Conservative Assumptions & 15% Contingency Buffer</span>
+            <span class="font-mono text-amber-400 font-semibold">Audited Projections</span>
+          </div>
+        </div>
+
+        <!-- 3-Year Scaled Growth Roadmap (Right Column) -->
+        <div class="lg:col-span-5 spotlight-card rounded-3xl p-6 sm:p-8 border border-slate-800 bg-slate-900/50 flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase font-bold tracking-widest text-amber-400 font-display">PHASED ROADMAP</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-white font-display mt-0.5 mb-6">3-Year Expansion Horizon</h3>
+
+            <div class="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800">
+              
+              <!-- Year 1 -->
+              <div class="relative">
+                <span class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-amber-500 border-2 border-slate-950"></span>
+                <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Year 1: Foundation & Capitalization</div>
+                <div class="text-sm font-bold text-white mt-0.5">Heavy Equipment Acquisition & 5 Major Utility Awards</div>
+                <p class="text-xs text-slate-400 mt-1">Expanding heavy crawler cranes, specialized GIS testing kits, and securing 5 landmark tenders with DPDC & PGCB.</p>
+              </div>
+
+              <!-- Year 2 -->
+              <div class="relative">
+                <span class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-slate-950"></span>
+                <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Year 2: Scaled Growth</div>
+                <div class="text-sm font-bold text-white mt-0.5">12+ Concurrent National EPC Projects</div>
+                <p class="text-xs text-slate-400 mt-1">Establishing regional execution hubs in Chittagong, Khulna, and Sylhet. Scaling multi-disciplinary project workforce to 500+ engineers.</p>
+              </div>
+
+              <!-- Year 3 -->
+              <div class="relative">
+                <span class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-blue-500 border-2 border-slate-950"></span>
+                <div class="text-xs font-bold text-blue-400 uppercase tracking-wider">Year 3: Market Expansion & PPP</div>
+                <div class="text-sm font-bold text-white mt-0.5">Cross-Border Ventures & Public-Private Partnerships</div>
+                <p class="text-xs text-slate-400 mt-1">Co-investing in long-term BOT/BOOT infrastructure models, regional power corridors, and institutional investor exit readiness.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="mt-6 pt-5 border-t border-slate-800 flex items-center justify-between text-xs">
+            <div class="text-slate-400">
+              <span class="text-slate-200 font-semibold">Direct Investor Desk:</span>
+              <a href="mailto:investor.relations@visiontech-bd.com" class="text-amber-400 hover:underline ml-1">investor.relations@visiontech-bd.com</a>
+            </div>
+            <a href="assets/docs/VisionTech-Investor-Proposal.pdf" download="VisionTech-Investor-Proposal.pdf" class="text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1">
+              <span>Deck</span> <i class="fa-solid fa-arrow-down-to-bracket text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. EXECUTIVE LEADERSHIP BENCH -->
+  <section class="py-20 bg-brand-surface border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display">EXECUTIVE BENCH</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+          Board of Directors & Senior Leadership
+        </h2>
+        <p class="text-slate-300 text-sm">
+          Distinguished engineers and executives leading national infrastructure delivery with technical integrity.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        
+        <div class="spotlight-card rounded-2xl p-6 text-center space-y-3">
+          <div class="w-20 h-20 mx-auto rounded-full bg-slate-900 border-2 border-amber-500 flex items-center justify-center text-slate-300 text-2xl shadow-xl">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base font-display">Engr. S. M. Aminul Hoque</h4>
+            <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Chairman</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">B.Sc. Engg. in EEE (CUET), FIEB-6723</div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed pt-2 border-t border-slate-800">
+            Over three decades of premier leadership in mega engineering sales, high-voltage contracts, and quality systems.
+          </p>
+        </div>
+
+        <div class="spotlight-card rounded-2xl p-6 text-center space-y-3">
+          <div class="w-20 h-20 mx-auto rounded-full bg-slate-900 border-2 border-amber-500 flex items-center justify-center text-slate-300 text-2xl shadow-xl">
+            <i class="fa-solid fa-user-gear"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base font-display">Engr. Khondaker Belal Hossain</h4>
+            <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Managing Director</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">B.Sc. Engg. in ME (CUET)</div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed pt-2 border-t border-slate-800">
+            Specialist in mechanical systems, heavy foundations, quality assurance, and professional project execution.
+          </p>
+        </div>
+
+        <div class="spotlight-card rounded-2xl p-6 text-center space-y-3">
+          <div class="w-20 h-20 mx-auto rounded-full bg-slate-900 border-2 border-amber-500 flex items-center justify-center text-slate-300 text-2xl shadow-xl">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base font-display">Md. Atiqur Rahman</h4>
+            <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Chief Executive Officer</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">MBA, University of Dhaka</div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed pt-2 border-t border-slate-800">
+            Strategic management of civil and electro-mechanical operations, contract management, QA/QC, and EHS compliance.
+          </p>
+        </div>
+
+        <div class="spotlight-card rounded-2xl p-6 text-center space-y-3">
+          <div class="w-20 h-20 mx-auto rounded-full bg-slate-900 border-2 border-amber-500 flex items-center justify-center text-slate-300 text-2xl shadow-xl">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base font-display">Sharif Mohammad Anisuzzaman</h4>
+            <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Director (Technical)</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">B.Sc. Engg. in EEE (BUET), MBA (DU), MIEB</div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed pt-2 border-t border-slate-800">
+            25+ years in power substation engineering, high-voltage transmission lines, and technical audits.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Distinguished Advisory Callout -->
+      <div class="spotlight-card rounded-3xl p-8 border border-amber-500/30 bg-slate-950 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display">DISTINGUISHED ADVISORY BOARD</span>
+          <h3 class="text-xl font-bold text-white font-display mt-1">Backed by 40+ Years Power Sector Authorities</h3>
+          <p class="text-xs text-slate-300 mt-1 max-w-3xl">
+            Our engineering designs receive direct peer review from <strong>Engr. Aminul Islam Mukul</strong> (Ex-DPDC Senior Executive, 40+ yrs exp), <strong>Engr. Md. Abdur Razzak</strong> (Ex-Energypac GM, 30+ yrs exp), <strong>Dr. Khandoker Abul Hossain</strong> (Thermal Systems, PhD Canada, P.Eng. Alberta), and <strong>Mohammad Omar Faruk</strong> (FCA, CIPFA).
+          </p>
+        </div>
+        <a href="about.html#advisors" class="whitespace-nowrap px-6 py-3 rounded-xl bg-slate-900 border border-amber-500/50 hover:bg-amber-500 hover:text-slate-950 text-amber-400 font-display font-bold text-xs uppercase tracking-wider transition">
+          Inspect Advisors
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. CLIENTS & PARTNERS LOGO MARQUEE -->
+  <section class="py-12 bg-brand-void border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 mb-4 text-center">
+      <span class="text-[10px] uppercase font-bold tracking-widest text-slate-500">
+        STRATEGIC CLIENTELE & TENDER PARTNERS ACROSS BANGLADESH
+      </span>
+    </div>
+    
+    <div class="marquee-container py-2">
+      <div class="marquee-content items-center text-xs font-display font-bold text-slate-400 tracking-wider">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-amber-500"></i> DHAKA POWER DISTRIBUTION COMPANY (DPDC)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-tower-broadcast text-amber-500"></i> POWER GRID COMPANY OF BANGLADESH (PGCB)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-oil-well text-amber-500"></i> BANGLADESH PETROLEUM CORPORATION (BPC)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-building text-amber-500"></i> PETROLEUM TRANSMISSION COMPANY PLC (PTC)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-plug-circle-bolt text-amber-500"></i> BANGLADESH RURAL ELECTRIFICATION BOARD (BREB)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-road text-amber-500"></i> ROADS & HIGHWAYS DEPARTMENT (RHD)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-industry text-amber-500"></i> TBEA CO. LTD.</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-gears text-amber-500"></i> ENERGYPAC ENGINEERING LTD.</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-landmark text-amber-500"></i> SUPREME COURT OF BANGLADESH</span>
+        <span class="text-slate-700">•</span>
+      </div>
+
+      <div class="marquee-content items-center text-xs font-display font-bold text-slate-400 tracking-wider" aria-hidden="true">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-amber-500"></i> DHAKA POWER DISTRIBUTION COMPANY (DPDC)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-tower-broadcast text-amber-500"></i> POWER GRID COMPANY OF BANGLADESH (PGCB)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-oil-well text-amber-500"></i> BANGLADESH PETROLEUM CORPORATION (BPC)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-building text-amber-500"></i> PETROLEUM TRANSMISSION COMPANY PLC (PTC)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-plug-circle-bolt text-amber-500"></i> BANGLADESH RURAL ELECTRIFICATION BOARD (BREB)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-road text-amber-500"></i> ROADS & HIGHWAYS DEPARTMENT (RHD)</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-industry text-amber-500"></i> TBEA CO. LTD.</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-gears text-amber-500"></i> ENERGYPAC ENGINEERING LTD.</span>
+        <span class="text-slate-700">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-landmark text-amber-500"></i> SUPREME COURT OF BANGLADESH</span>
+        <span class="text-slate-700">•</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. TENDER RFQ & INQUIRY FORM (epac.bd Contact Section Structure) -->
+  <section id="contact" class="py-20 bg-brand-dark relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display flex items-center gap-2">
+            <i class="fa-solid fa-headset"></i> CONNECT WITH ENGINEERING
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+            Initiate a Tender Assessment or Engineering Consultation
+          </h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Our technical estimation and procurement department reviews project drawings, bill of quantities (BOQ), and tender specifications with swift turnaround.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center shrink-0 border border-slate-800">
+                <i class="fa-solid fa-building"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400 uppercase font-semibold">Corporate Headquarters:</div>
+                <div class="text-sm font-semibold text-white">284, Boro Mogbazar (2nd Fl.), Dhaka-1217, Bangladesh</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center shrink-0 border border-slate-800">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400 uppercase font-semibold">Registered Office:</div>
+                <div class="text-sm font-semibold text-white">23/2-C, Shah Ali Bagh, Mirpur-1, Dhaka-1216</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center shrink-0 border border-slate-800">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400 uppercase font-semibold">Hotlines & Direct Lines:</div>
+                <div class="text-sm font-semibold text-amber-400">+88 01730 335002 • +88 01711 336533</div>
+                <div class="text-xs text-slate-400">Landline: +8802 224 458478</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center shrink-0 border border-slate-800">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400 uppercase font-semibold">Official Inquiries:</div>
+                <div class="text-sm font-semibold text-white">info@visiontech-bd.com | visiontech.ceo@gmail.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="spotlight-card rounded-3xl p-8 border border-slate-700/80 shadow-2xl">
+            <h3 class="text-xl font-bold text-white font-display mb-1">Request an Official EPC Quotation / Inquiry</h3>
+            <p class="text-xs text-slate-400 mb-6">
+              Please enter your technical requirements below for review by our Chief Engineering Officer.
+            </p>
+
+            <form class="ajax-form space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1.5">Your Name *</label>
+                  <input type="text" required placeholder="Engr. Rafiqul Islam" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1.5">Company / Agency *</label>
+                  <input type="text" required placeholder="Organization Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-amber-500">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1.5">Official Email *</label>
+                  <input type="email" required placeholder="name@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1.5">Mobile Phone *</label>
+                  <input type="tel" required placeholder="+88 01XXXXXXXXX" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-amber-500">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1.5">Project Vertical *</label>
+                  <select required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-amber-500">
+                    <option value="">Select Vertical</option>
+                    <option>132/33kV Power Substation & Cable Protection</option>
+                    <option>Turnkey EPC Contractor Agreement</option>
+                    <option>Heavy Civil Infrastructure & Foundations</option>
+                    <option>Electro-Mechanical (MEP) & Interior Renovation</option>
+                    <option>Equipment Supply (Transformers, Switchgears)</option>
+                    <option>Swadesh Carrying Heavy Lift Logistics</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1.5">Tender Status</label>
+                  <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-amber-500">
+                    <option>Active Tender / Immediate Requirement</option>
+                    <option>Budgetary Estimate / Feasibility</option>
+                    <option>Subcontracting Partnership</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">Project Scope & Specifications *</label>
+                <textarea rows="3" required placeholder="Provide location, specifications, estimated volume or required equipment..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-amber-500"></textarea>
+              </div>
+
+              <button type="submit" class="btn-shimmer w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-display font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-xl transition">
+                <i class="fa-solid fa-paper-plane mr-2"></i> Transmit Specifications to Engineering Desk
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 12. CORPORATE FOOTER (4-Column Layout like epac.bd) -->
+  <footer class="bg-brand-void text-slate-400 text-xs border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+        
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="bg-white p-1.5 rounded-xl shadow">
+              <img src="assets/images/logo.png" alt="VisionTech Logo" class="h-9 w-auto">
+            </div>
+            <div>
+              <span class="block text-white font-display font-bold text-base leading-tight">VisionTech Engineering Ltd.</span>
+              <span class="block text-amber-400 text-[10px] font-bold uppercase tracking-wider">A Trusted EPC Partner</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Leading engineering solutions provider delivering turnkey EPC execution, 132/33kV power substations, underground transmission cable protection slabs, civil infrastructure, and nationwide heavy cargo transportation across Bangladesh.
+          </p>
+          <div class="flex items-center gap-3 pt-1">
+            <a href="#" class="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500 hover:text-amber-400 flex items-center justify-center text-slate-400 transition" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500 hover:text-amber-400 flex items-center justify-center text-slate-400 transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="mailto:info@visiontech-bd.com" class="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500 hover:text-amber-400 flex items-center justify-center text-slate-400 transition" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="text-white font-display font-bold text-sm uppercase tracking-wider">Quick Links</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-amber-400 transition">Home Portal</a></li>
+            <li><a href="about.html" class="hover:text-amber-400 transition">About Company</a></li>
+            <li><a href="services.html" class="hover:text-amber-400 transition">EPC Services</a></li>
+            <li><a href="projects.html" class="hover:text-amber-400 transition">Projects Portfolio</a></li>
+            <li><a href="supply.html" class="hover:text-amber-400 transition">Supply & Trading</a></li>
+            <li><a href="sister-concern.html" class="hover:text-amber-400 transition">Sister Concern (Swadesh)</a>
+            <li><a href="investors.html" class="hover:text-amber-400 transition">Strategic Investors & Deck</a></li></li>
+            <li><a href="media.html" class="hover:text-amber-400 transition">Media & Publications</a></li>
+            <li><a href="contact.html" class="hover:text-amber-400 transition">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-white font-display font-bold text-sm uppercase tracking-wider">Core Specializations</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li>132/33kV Power Substations</li>
+            <li>Underground Cable Protection Slabs</li>
+            <li>Switching Stations Civil Concrete</li>
+            <li>Bridge Rehabilitation & Auxiliary Works</li>
+            <li>Industrial Electro-Mechanical (MEP)</li>
+            <li>Power Transformers & Switchgear Sourcing</li>
+            <li>Swadesh Heavy Haulage & Seaport Clearance</li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-white font-display font-bold text-sm uppercase tracking-wider">Corporate Offices</h4>
+          <div class="space-y-2.5 text-xs text-slate-400">
+            <div>
+              <strong class="text-slate-200 block text-xs">Corporate Headquarters:</strong>
+              284, Boro Mogbazar (2nd Fl.), Dhaka-1217
+            </div>
+            <div>
+              <strong class="text-slate-200 block text-xs">Registered Office:</strong>
+              23/2-C, Shah Ali Bagh, Mirpur-1, Dhaka-1216
+            </div>
+            <div class="pt-1 text-amber-400 font-bold">
+              +88 01730 335002 | +88 01711 336533
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-500">
+        <div>
+          &copy; 2026 VisionTech Engineering Ltd. (VEL). All Rights Reserved.
+        </div>
+        <div class="flex items-center gap-4 text-slate-400">
+          <span>Incorporation: Limited Company</span>
+          <span>•</span>
+          <span>Zero-Harm EHS Standard</span>
+          <span>•</span>
+          <span>Web: www.visiontech-bd.com</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT QUICK VIEW MODAL -->
+  <div id="projectModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="spotlight-card rounded-3xl w-full max-w-2xl overflow-hidden border border-slate-700 shadow-2xl relative text-white">
+      <button class="close-project-modal absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-900/80 border border-slate-700 text-slate-300 hover:text-white flex items-center justify-center">
+        <i class="fa-solid fa-xmark text-base"></i>
+      </button>
+
+      <div class="h-64 bg-slate-950 relative overflow-hidden">
+        <img id="modalProjectImg" src="" alt="Project Photo" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+        <div class="absolute bottom-4 left-6">
+          <span id="modalProjectValue" class="px-3 py-1 rounded-lg bg-amber-500 text-slate-950 font-display font-bold text-xs uppercase shadow"></span>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-4">
+        <div>
+          <div id="modalProjectClient" class="text-xs font-bold text-amber-400 font-display uppercase tracking-wider"></div>
+          <h3 id="modalProjectTitle" class="text-xl font-bold text-white font-display mt-1"></h3>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Contractual Scope:</h4>
+          <p id="modalProjectScope" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+        </div>
+        <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+          <span class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Formally Verified Completion</span>
+          <button class="close-project-modal px-5 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-700 text-slate-300 hover:bg-slate-800">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REQUEST A QUOTE (RFQ) MODAL POPUP -->
+  <div id="quoteModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="spotlight-card rounded-3xl w-full max-w-lg p-6 sm:p-8 border border-slate-700 shadow-2xl relative text-white">
+      <button class="close-quote-modal absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/80 border border-slate-700 text-slate-300 hover:text-white flex items-center justify-center">
+        <i class="fa-solid fa-xmark text-base"></i>
+      </button>
+
+      <div class="mb-5">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display">TENDER RFQ PORTAL</span>
+        <h3 class="text-xl font-bold text-white font-display mt-1">Request an Official EPC Quotation</h3>
+        <p class="text-xs text-slate-400">Direct transmission to VisionTech Engineering Ltd. Chief Engineering Office.</p>
+      </div>
+
+      <form class="ajax-form space-y-3.5">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name *</label>
+          <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Company / Authority *</label>
+            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Phone Number *</label>
+            <input type="tel" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Scope Category</label>
+          <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+            <option>132/33kV Power Substation & Cable Protection</option>
+            <option>Turnkey EPC Contractor Project</option>
+            <option>Heavy Civil Infrastructure & Foundations</option>
+            <option>Electro-Mechanical & Commercial Renovation</option>
+            <option>Transformers & Switchgear Sourcing</option>
+            <option>Swadesh Carrying Heavy Cargo Haulage</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Scope Details</label>
+          <textarea rows="3" required placeholder="Describe location, specifications, or bill of quantities..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500"></textarea>
+        </div>
+        <div class="pt-2 flex justify-end gap-3">
+          <button type="button" class="close-quote-modal px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white">Cancel</button>
+          <button type="submit" class="btn-shimmer px-6 py-2.5 rounded-xl text-xs font-display font-bold bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 uppercase tracking-wider">Transmit RFQ</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="backToTop" class="fixed bottom-6 left-6 z-40 hidden p-3.5 rounded-2xl bg-slate-950/90 text-amber-400 border border-amber-500/30 shadow-2xl hover:bg-amber-500 hover:text-slate-950 transition-all backdrop-blur-md" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up text-base"></i>
+  </button>
+
+  <script src="assets/js/main.js?v=2.1"></script>
+</body>
+</html>

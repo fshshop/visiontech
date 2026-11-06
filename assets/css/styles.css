@@ -1,0 +1,547 @@
+/* VisionTech Engineering Ltd. - Luxury Executive Corporate Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --bg-deep: #050b14;
+  --bg-surface: #0a1324;
+  --bg-card: rgba(14, 25, 48, 0.75);
+  --gold-primary: #f59e0b;
+  --gold-metallic: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #b45309 100%);
+  --blue-glow: rgba(59, 130, 246, 0.25);
+  --gold-glow: rgba(245, 158, 11, 0.3);
+  --border-glass: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-deep);
+  color: #f1f5f9;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1e293b, #334155);
+  border-radius: 6px;
+  border: 2px solid #030712;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* High-Tech Blueprint & Mesh Gradients */
+.tech-grid-bg {
+  background-color: #050b14;
+  background-image: 
+    linear-gradient(rgba(245, 158, 11, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 158, 11, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.subtle-blueprint {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 100% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+}
+
+/* Text Shimmers */
+.text-metallic-gold {
+  background: linear-gradient(135deg, #ffffff 0%, #fde68a 30%, #f59e0b 70%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #e0f2fe 0%, #38bdf8 50%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism Cards with Neon Shimmer */
+.glass-panel {
+  background: rgba(11, 20, 38, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 25px 50px -12px rgba(245, 158, 11, 0.15), 0 0 20px rgba(245, 158, 11, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Luxury Card Hover Spotlight */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(13, 24, 46, 0.65);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.3s ease;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.spotlight-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 25px 35px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(245, 158, 11, 0.12);
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Glowing Neon Elements */
+.glow-gold {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+}
+.glow-blue {
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.35);
+}
+
+/* Pulsing Status Dot */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.status-pulse {
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+/* Endless Infinite Marquee */
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 2rem;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 2rem;
+  animation: scroll-marquee 28s linear infinite;
+}
+
+@keyframes scroll-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Shimmer Button */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.3) 25%,
+    transparent 30%
+  );
+  transform: rotate(30deg) translateY(-100%);
+  transition: transform 0.75s ease;
+}
+
+.btn-shimmer:hover::after {
+  transform: rotate(30deg) translateY(100%);
+}
+
+/* Floating Animation */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+/* Metric Progress Bar */
+.progress-fill {
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Interactive Filter Active */
+.filter-pill.active {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #030712;
+  font-weight: 700;
+  border-color: #f59e0b;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+}
+
+/* ========================================================
+   WIDESCREEN FLUID CANVAS OPTIMIZATION
+   Eliminates excessive empty side margins on desktop screens
+   ======================================================== */
+
+/* Fluid Header & Top Bar - stretch gracefully across the widescreen canvas */
+#mainHeader > div,
+header > div,
+.border-b.border-slate-800 > div.max-w-7xl,
+.border-b.border-slate-800\/80 > div.max-w-7xl,
+.border-b.border-slate-800\/90 > div.max-w-7xl,
+.border-b.border-slate-800\/95 > div.max-w-7xl {
+  max-width: 96% !important;
+  width: 100% !important;
+}
+
+/* Strictly prevent navbar links from breaking into two lines */
+#mainHeader nav,
+header nav {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+#mainHeader nav a,
+header nav a,
+#mainHeader nav div.relative.group,
+header nav div.relative.group,
+#mainHeader nav span,
+header nav span {
+  white-space: nowrap !important;
+}
+
+/* Responsive navbar item spacing for laptops & standard screens */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  #mainHeader nav {
+    gap: 0.25rem !important;
+  }
+  #mainHeader nav a {
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+    font-size: 0.8125rem !important; /* 13px */
+  }
+  #mainHeader .open-quote-modal,
+  #mainHeader .btn-shimmer {
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+    font-size: 0.72rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #mainHeader > div,
+  header > div,
+  .border-b.border-slate-800 > div.max-w-7xl,
+  .border-b.border-slate-800\/80 > div.max-w-7xl,
+  .border-b.border-slate-800\/90 > div.max-w-7xl,
+  .border-b.border-slate-800\/95 > div.max-w-7xl {
+    max-width: 1820px !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  /* ========================================================
+   COMPACT ENGINEERING CROSSHAIR & BUTTON HAMMER CURSOR
+   No Outer Circles & Interactive Hammer Strike Animation
+   ======================================================== */
+
+.eng-crosshair-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 999999;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 0.12s ease;
+}
+
+.eng-crosshair-wrap.active {
+  opacity: 1 !important;
+}
+
+/* 1. Compact Sleek Crosshair Box (24x24 px, centered at 12,12) - NO CIRCLES */
+.eng-reticle-box {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  transform-origin: 12px 12px;
+  will-change: transform;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.eng-crosshair-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 6px rgba(245, 158, 11, 0.45));
+}
+
+/* Hide crosshair when hovering buttons (switches to hammer) */
+.eng-crosshair-wrap.hover-button .eng-reticle-box {
+  opacity: 0 !important;
+  transform: scale(0.2) !important;
+}
+
+/* 2. Construction Hammer (Strikes down repeatedly on buttons) */
+.eng-hammer-box {
+  position: absolute;
+  top: -12px;
+  left: -8px;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  display: none;
+  transform-origin: 28px 32px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 12px rgba(245, 158, 11, 0.5));
+  will-change: transform;
+}
+
+.eng-crosshair-wrap.hover-button .eng-hammer-box {
+  display: block !important;
+  animation: hammerStrikeCycle 0.36s cubic-bezier(0.2, 0.05, 0.2, 1) infinite;
+}
+
+/* Repeated Hammer Hitting Animation (Wind-up -> Slam -> Recoil) */
+@keyframes hammerStrikeCycle {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  30% {
+    /* Wind up backwards & upwards */
+    transform: rotate(-38deg) translate(-5px, -8px);
+  }
+  48% {
+    /* Impact strike directly down on button! */
+    transform: rotate(35deg) translate(3px, 7px);
+  }
+  62% {
+    /* Spring recoil bounce */
+    transform: rotate(18deg) translate(1px, 3px);
+  }
+  78% {
+    /* Settle */
+    transform: rotate(0deg) translate(0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+}
+
+/* Impact Sparks Flashing on Each Strike */
+.hammer-sparks {
+  position: absolute;
+  top: 11px;
+  left: 1px;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.eng-crosshair-wrap.hover-button .hammer-sparks {
+  animation: sparksBurst 0.36s ease-out infinite;
+}
+
+@keyframes sparksBurst {
+  0%, 44% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  48% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.hammer-sparks .spark {
+  position: absolute;
+  background: #fef08a;
+  border-radius: 9999px;
+  box-shadow: 0 0 5px #f59e0b;
+}
+
+.hammer-sparks .s1 { width: 7px; height: 1.5px; top: 0px; left: -4px; transform: rotate(-30deg); }
+.hammer-sparks .s2 { width: 8px; height: 1.5px; top: -3px; left: 5px; transform: rotate(45deg); }
+.hammer-sparks .s3 { width: 6px; height: 1.5px; top: 9px; left: -3px; transform: rotate(-70deg); }
+.hammer-sparks .s4 { width: 7px; height: 1.5px; top: 7px; left: 9px; transform: rotate(30deg); }
+
+/* Hide Default Desktop Cursor When Custom Cursor Is Active */
+@media (hover: hover) and (pointer: fine) {
+  body.has-eng-cursor,
+  body.has-eng-cursor a,
+  body.has-eng-cursor button,
+  body.has-eng-cursor select,
+  body.has-eng-cursor .btn-shimmer,
+  body.has-eng-cursor .filter-pill,
+  body.has-eng-cursor .service-tab-btn,
+  body.has-eng-cursor [role="button"],
+  body.has-eng-cursor input[type="submit"],
+  body.has-eng-cursor input[type="button"] {
+    cursor: none !important;
+  }
+
+  body.has-eng-cursor input[type="text"],
+  body.has-eng-cursor input[type="email"],
+  body.has-eng-cursor input[type="tel"],
+  body.has-eng-cursor textarea {
+    cursor: text !important;
+  }
+}
+
+/* Disable Custom Cursor on Touch Devices & Reduced Motion */
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .eng-crosshair-wrap {
+    display: none !important;
+  }
+  body {
+    cursor: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Smooth Section Rise-Up on Scroll (Repeatable Two-Way Scroll Reveal)
+   ========================================================================== */
+.scroll-rise-section {
+  opacity: 0;
+  transform: translateY(90px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.scroll-rise-section.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Elegant micro-elevation for inner cards when section rises up */
+.scroll-rise-section.is-revealed .spotlight-card,
+.scroll-rise-section.is-revealed .service-card,
+.scroll-rise-section.is-revealed .project-card {
+  animation: cardElevate 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardElevate {
+  from {
+    opacity: 0.6;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-rise-section,
+  .scroll-rise-section.is-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .scroll-rise-section.is-revealed .spotlight-card,
+  .scroll-rise-section.is-revealed .service-card,
+  .scroll-rise-section.is-revealed .project-card {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
+
+/* ==========================================================================
+   DESKTOP NAVIGATION DROPDOWN CONTINUITY & HOVER BRIDGE
+   Prevents premature closing when moving mouse from trigger to submenu options
+   ========================================================================== */
+header .group {
+  position: relative;
+}
+
+/* Ensure the dropdown container has an invisible hover bridge */
+header .group > .absolute {
+  top: 100% !important;
+}
+
+/* Invisible hover hitbox spanning 18px above the menu across the air gap */
+header .group > .absolute::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: transparent;
+  pointer-events: auto !important;
+}
+
+@media (min-width: 1024px) {
+  /* Smooth dropdown appearance and persistent hover state */
+  header .group > .absolute {
+    display: block !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+    pointer-events: none;
+  }
+
+  header .group:hover > .absolute,
+  header .group.is-open > .absolute {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+}

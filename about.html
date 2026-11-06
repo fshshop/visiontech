@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | VisionTech Engineering Ltd. (VEL)</title>
+  <meta name="description" content="Corporate profile, executive board, distinguished advisors, organogram, and Zero-Harm EHS policy of VisionTech Engineering Ltd.">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              void: '#030712',
+              dark: '#050b14',
+              surface: '#0b1324',
+              card: '#0f1b33',
+              amber: '#f59e0b',
+              gold: '#fbbf24',
+              bronze: '#d97706',
+              cyan: '#38bdf8',
+              blue: '#2563eb'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=2.1">
+</head>
+<body class="bg-brand-dark text-slate-200 antialiased selection:bg-amber-500 selection:text-slate-950 flex flex-col min-h-screen tech-grid-bg">
+
+  <!-- TOP NOTIFICATION BAR -->
+  <div class="bg-brand-void/90 border-b border-slate-800/80 text-xs py-2 px-4 backdrop-blur-md hidden md:block">
+    <div class="max-w-7xl mx-auto flex justify-between items-center text-slate-400">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 status-pulse"></span>
+          <span class="text-slate-300 font-medium">Headquarters: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="tel:+8801730335002" class="hover:text-amber-400 transition flex items-center gap-1.5 text-slate-300 font-semibold">
+          <i class="fa-solid fa-phone-volume text-amber-500"></i> +88 01730 335002
+        </a>
+        <a href="mailto:info@visiontech-bd.com" class="hover:text-amber-400 transition flex items-center gap-1.5 text-slate-300">
+          <i class="fa-solid fa-envelope text-amber-500"></i> info@visiontech-bd.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="mainHeader" class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <a href="index.html" class="flex items-center gap-3.5 group">
+          <div class="bg-white p-2 rounded-xl shadow-lg border border-white/20 group-hover:border-amber-500/50 transition">
+            <img src="assets/images/logo.png" alt="VisionTech Logo" class="h-10 sm:h-11 w-auto object-contain">
+          </div>
+        </a>
+
+                        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium text-slate-300 whitespace-nowrap shrink-0">
+          <a href="index.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Home</a>
+          
+          <!-- Dropdown About Us -->
+          <div class="relative group">
+            <a href="about.html" class="px-4 py-2 rounded-xl text-amber-400 bg-amber-500/10 border border-amber-500/30 font-semibold transition flex items-center gap-1.5">
+              <span>About Us</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-64 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="about.html#overview" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Company Overview & Governance</a>
+              <a href="investors.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Strategic Investment Proposal</a>
+              <a href="about.html#values" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">VISIONTECH Core Values</a>
+              <a href="about.html#leadership" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Executive Leadership Bench</a>
+              <a href="about.html#advisors" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Distinguished Advisory Board</a>
+              <a href="about.html#ehs" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Zero-Harm EHS Policy</a>
+            </div>
+          </div>
+
+          <!-- Dropdown EPC Services -->
+          <div class="relative group">
+            <a href="services.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5">
+              <span>EPC Services</span>
+              <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="services.html#power" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">132/33kV Substations & Cable Laying</a>
+              <a href="services.html#civil" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Heavy Civil Infrastructure & Foundations</a>
+              <a href="services.html#mep" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Electro-Mechanical (MEP) & Interior</a>
+              <a href="services.html#industrial" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Pre-Engineered Steel Buildings (PEB)</a>
+            </div>
+          </div>
+
+          <a href="projects.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Projects</a>
+          <a href="supply.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Supply & Trading</a>
+          <a href="sister-concern.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Sister Concern</a>
+          <a href="investors.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition text-amber-400 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span>Investors</span></a>
+          <a href="media.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Media</a>
+          <a href="contact.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="btn-shimmer hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-display font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow">
+            <i class="fa-solid fa-file-contract"></i>
+            <span>Get in Touch</span>
+          </a>
+          <button id="mobileMenuBtn" type="button" class="lg:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 text-sm backdrop-blur-2xl">
+      <a href="index.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded-xl text-amber-400 bg-amber-500/10 font-semibold">About Us</a>
+      <a href="services.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">EPC Services</a>
+      <a href="projects.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Projects</a>
+      <a href="supply.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Supply & Trading</a>
+      <a href="sister-concern.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Sister Concern</a>
+        <a href="investors.html" class="block px-3 py-2 rounded-xl text-amber-400 font-bold hover:bg-slate-800">Strategic Investors</a>
+      <a href="media.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Media</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="py-20 subtle-blueprint relative border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl space-y-3">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display flex items-center gap-2">
+          <i class="fa-solid fa-landmark"></i> CORPORATE HERITAGE & PROFILE
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-black text-white font-display">
+          Leadership, Values & Strategic Governance
+        </h1>
+        <p class="text-slate-300 text-base leading-relaxed">
+          VisionTech Engineering Ltd. delivers turnkey engineering excellence backed by four decades of power-sector advisory leadership and strict quality regimes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW & FACT REGISTER -->
+  <section id="overview" class="py-16 bg-brand-surface border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display">
+            MASTER CORPORATE NARRATIVE
+          </span>
+          <h2 class="text-3xl font-black text-white font-display leading-tight">
+            Single-Point Turnkey Accountability in Infrastructure
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <strong>VISIONTECH Engineering Ltd. (VEL)</strong> is a dynamic EPC contractor specializing in civil and electro-mechanical works across Bangladesh. The company delivers high-quality, cost-effective, and sustainable engineering solutions across infrastructure, power transmission, and industrial sectors.
+          </p>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Through strategic synergy with sister concern <strong>Swadesh Carrying</strong>, VisionTech unites heavy foundation civil casting, high-voltage substation switchgear setup, and heavy multi-axle port logistics under one coordinated roof.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="spotlight-card p-5 rounded-2xl border border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-2">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <h4 class="font-bold text-white font-display text-sm mb-1">Corporate Mission</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                To provide reliable, innovative, and sustainable engineering solutions in civil and electro-mechanical sectors, ensuring quality, safety, and client satisfaction in every project.
+              </p>
+            </div>
+
+            <div class="spotlight-card p-5 rounded-2xl border border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg mb-2">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <h4 class="font-bold text-white font-display text-sm mb-1">Corporate Vision</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                To become a leading EPC contractor in Bangladesh and beyond, recognized for excellence, innovation, and contribution to national infrastructure and energy development.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Corporate Facts Card -->
+        <div class="lg:col-span-5">
+          <div class="spotlight-card p-6 sm:p-8 rounded-3xl border border-slate-700/80 shadow-2xl space-y-4">
+            <h3 class="font-bold text-base text-amber-400 font-display border-b border-slate-800 pb-3 flex items-center gap-2">
+              <i class="fa-solid fa-shield-halved"></i> Corporate Fact Register
+            </h3>
+
+            <div class="space-y-3 text-xs">
+              <div class="flex justify-between border-b border-slate-800/80 pb-2">
+                <span class="text-slate-400">Official Name:</span>
+                <span class="text-white font-bold font-display">VisionTech Engineering Ltd.</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-800/80 pb-2">
+                <span class="text-slate-400">Corporate Abbreviation:</span>
+                <span class="text-amber-400 font-bold">VEL</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-800/80 pb-2">
+                <span class="text-slate-400">Legal Constitution:</span>
+                <span class="text-white font-semibold">Limited Company</span>
+              </div>
+              <div class="border-b border-slate-800/80 pb-2">
+                <span class="text-slate-400 block mb-0.5">Corporate Headquarters:</span>
+                <span class="text-slate-200">284, Boro Mogbazar (2nd Fl.), Dhaka-1217</span>
+              </div>
+              <div class="border-b border-slate-800/80 pb-2">
+                <span class="text-slate-400 block mb-0.5">Registered Office:</span>
+                <span class="text-slate-200">23/2-C, Shah Ali Bagh, Mirpur-1, Dhaka-1216</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-800/80 pb-2">
+                <span class="text-slate-400">Primary Phone:</span>
+                <span class="text-amber-400 font-semibold">+88 01730 335002</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-800/80 pb-2">
+                <span class="text-slate-400">Alternate Hotlines:</span>
+                <span class="text-slate-200">+88 01711 336533, +88 01328 952275</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-800/80 pb-2">
+                <span class="text-slate-400">Landline:</span>
+                <span class="text-slate-200">+8802 224 458478</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Website:</span>
+                <span class="text-amber-400 font-semibold">www.visiontech-bd.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LEADERSHIP SECTION -->
+  <section id="leadership" class="py-20 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display">BOARD OF DIRECTORS</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+          Executive Leadership Bench
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="spotlight-card rounded-2xl p-6 border border-slate-800 space-y-3">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-amber-500/50 flex items-center justify-center text-amber-400 text-xl font-bold shrink-0">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base font-display">Engr. S. M. Aminul Hoque</h4>
+              <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Chairman</div>
+              <div class="text-[11px] text-slate-400">B.Sc. Engg. in EEE (CUET), FIEB-6723</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
+            More than 30 years of high-level project sales, execution, and engineering stewardship. Directs quality, safety, timely delivery, and sustainable human-capital development.
+          </p>
+        </div>
+
+        <div class="spotlight-card rounded-2xl p-6 border border-slate-800 space-y-3">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-amber-500/50 flex items-center justify-center text-amber-400 text-xl font-bold shrink-0">
+              <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base font-display">Engr. Khondaker Belal Hossain</h4>
+              <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Managing Director</div>
+              <div class="text-[11px] text-slate-400">B.Sc. Engg. in ME (CUET)</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
+            Drives mechanical system integrity, infrastructure innovation, and professional project delivery while upholding sustainable and environmentally responsible engineering.
+          </p>
+        </div>
+
+        <div class="spotlight-card rounded-2xl p-6 border border-slate-800 space-y-3">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-amber-500/50 flex items-center justify-center text-amber-400 text-xl font-bold shrink-0">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base font-display">Md. Atiqur Rahman</h4>
+              <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Chief Executive Officer</div>
+              <div class="text-[11px] text-slate-400">MBA, University of Dhaka</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
+            Strategic management of civil and electro-mechanical operations, contract management, QA/QC, EHS compliance, financial administration, and stakeholder relationships.
+          </p>
+        </div>
+
+        <div class="spotlight-card rounded-2xl p-6 border border-slate-800 space-y-3">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-amber-500/50 flex items-center justify-center text-amber-400 text-xl font-bold shrink-0">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base font-display">Sharif Mohammad Anisuzzaman</h4>
+              <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Director (Technical)</div>
+              <div class="text-[11px] text-slate-400">B.Sc. Engg. in EEE (BUET), MBA (DU), MIEB</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
+            25+ years in power substations, transmission lines, project auditing, and design governance. Oversees technical design vetting and engineering innovations.
+          </p>
+        </div>
+
+        <div class="spotlight-card rounded-2xl p-6 border border-slate-800 space-y-3">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-amber-500/50 flex items-center justify-center text-amber-400 text-xl font-bold shrink-0">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base font-display">S. M. Anamul Hoque</h4>
+              <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Director (Business Development)</div>
+              <div class="text-[11px] text-slate-400">12+ Years Industry Experience</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
+            Spearheads strategic alliances, market expansion, government tender prequalifications, and commercial partnerships across infrastructure sectors.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DISTINGUISHED ADVISORY BOARD -->
+  <section id="advisors" class="py-20 bg-brand-surface border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display">DISTINGUISHED ADVISORY COUNCIL</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+          Senior Technical & Financial Advisors
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div class="spotlight-card p-6 rounded-3xl border border-slate-700/80 space-y-3">
+          <div class="flex items-start justify-between">
+            <div>
+              <h4 class="font-bold text-white text-lg font-display">Engr. Aminul Islam Mukul</h4>
+              <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Honorable Advisor - Mega Project Implementation</div>
+              <div class="text-[11px] text-slate-400">B.Sc. Engg. in EEE (RUET)</div>
+            </div>
+            <span class="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold font-display">40+ Yrs Exp</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Former senior executive at DPDC with four decades of experience in 400kV transmission and distribution networks, grid substations, SCADA automation, and underground cable laying.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-3xl border border-slate-700/80 space-y-3">
+          <div class="flex items-start justify-between">
+            <div>
+              <h4 class="font-bold text-white text-lg font-display">Engr. Md. Abdur Razzak</h4>
+              <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Honorable Advisor - Project Sales & Implementation</div>
+              <div class="text-[11px] text-slate-400">B.Sc. Engg. in EEE (RUET)</div>
+            </div>
+            <span class="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold font-display">30+ Yrs Exp</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            30+ years in power and energy infrastructure, including tenure as General Manager (Private Sales) at Energypac Engineering Ltd. Guides technical sales and commercial contracting.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-3xl border border-slate-700/80 space-y-3">
+          <div class="flex items-start justify-between">
+            <div>
+              <h4 class="font-bold text-white text-lg font-display">Engr. Dr. Khandoker Abul Hossain</h4>
+              <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Honorable Advisor - Mechanical & Thermal Design</div>
+              <div class="text-[11px] text-slate-400">B.Sc. Engg. (CUET), PhD (Canada), P.Eng. (Alberta)</div>
+            </div>
+            <span class="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold font-display">25+ Yrs Exp</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Specialist in thermal fluid systems and mechanical infrastructure with senior engineering appointments across North America and Memorial University of Newfoundland.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-3xl border border-slate-700/80 space-y-3">
+          <div class="flex items-start justify-between">
+            <div>
+              <h4 class="font-bold text-white text-lg font-display">Mohammad Omar Faruk</h4>
+              <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Honorable Advisor - Finance</div>
+              <div class="text-[11px] text-slate-400">FCA, CIPFA (Affil.)</div>
+            </div>
+            <span class="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold font-display">24+ Yrs Exp</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Chartered accountant with 24 years advising on project finance, audit regimes, taxation, bank consortiums, and automated ERP financial accounting.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+    <!-- CORPORATE LEGAL, TAXATION & REGULATORY AFFAIRS WING -->
+  <section id="legal" class="py-20 bg-brand-surface border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-mono flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-scale-balanced"></i> STATUTORY GOVERNANCE & COMPLIANCE
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+            Corporate Legal, Taxation & Regulatory Affairs Wing
+          </h2>
+        </div>
+        <p class="text-xs text-slate-400 max-w-md leading-relaxed">
+          Guaranteeing comprehensive statutory security, cross-border corporate compliance, NBR tax clearance, and sovereign liaison for VisionTech and consortium partners.
+        </p>
+      </div>
+
+      <!-- Legal Advisor Leadership Profile -->
+      <div class="spotlight-card rounded-3xl p-6 sm:p-8 border border-slate-800 mb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-4 flex flex-col items-center text-center p-6 rounded-2xl bg-slate-900 border border-slate-800">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-amber-500 to-amber-300 p-1 mb-4 shadow-xl shadow-amber-500/10">
+              <div class="w-full h-full rounded-full bg-slate-950 flex items-center justify-center text-3xl text-amber-400 font-bold font-display">
+                <i class="fa-solid fa-user-tie"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white font-display">Md. Rana Mahedi-Tuhin</h3>
+            <div class="text-xs text-amber-400 font-semibold mt-1">Legal Advisor & Regulatory Compliance Specialist</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">Proprietor, Adiba International</div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800 w-full text-left space-y-2 text-xs">
+              <div class="flex items-center gap-2 text-slate-300">
+                <i class="fa-solid fa-graduation-cap text-amber-500 text-[11px]"></i>
+                <span>LL.B (National Univ.) | M.S.S (Barisal Univ.)</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-300">
+                <i class="fa-solid fa-briefcase text-amber-500 text-[11px]"></i>
+                <span>22+ Years Professional Experience</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-500 text-[11px]"></i>
+                <span class="truncate">Mouchak Tower (12th Fl.), Dhaka</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 font-mono text-[11px] font-semibold">
+              <i class="fa-solid fa-certificate"></i> Ex-Manager (Project Commercial), Energypac Engineering Ltd. (2004–2024)
+            </div>
+            <h4 class="text-xl font-bold text-white font-display">
+              Two Decades of Corporate Engineering Commercial & Regulatory Authority
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              With over 20 years leading project commercial operations at Energypac Engineering Ltd. and founding Adiba International, Md. Rana Mahedi-Tuhin oversees VisionTech's entire statutory architecture. His expertise bridges multi-tier governmental liaisons, National Board of Revenue (NBR) corporate tax tribunals, BIDA foreign investment permissions, and complex EPC subcontract risk management.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs">
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-amber-400 font-mono">20+ Yrs</div>
+                <div class="text-[11px] text-slate-400">Energypac Commercial Bench</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-emerald-400 font-mono">100% Audit</div>
+                <div class="text-[11px] text-slate-400">Statutory Tax & BIN Clearance</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="font-bold text-amber-400 font-mono">BIDA / NBR</div>
+                <div class="text-[11px] text-slate-400">Expat Visas & Security Clearances</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Areas 6-Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Practice 1 -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-4">
+            <i class="fa-solid fa-file-contract"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-display mb-2">Corporate Legal & Dispute Resolution</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Vetting commercial contracts, EPC subcontracts, consortium agreements, Joint Stock (RJSC) statutory filings, share transfers, and corporate governance compliance.
+          </p>
+        </div>
+
+        <!-- Practice 2 -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-4">
+            <i class="fa-solid fa-passport"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-display mb-2">Expatriate & Local Income Tax</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            End-to-end tax assessment for international engineering expats, AIT/TDS management, wealth statements, and professional representation before NBR Appellate Tribunals.
+          </p>
+        </div>
+
+        <!-- Practice 3 -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-4">
+            <i class="fa-solid fa-receipt"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-display mb-2">Monthly VAT & BIN Submissions</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            VAT Business Identification Number (BIN) management, monthly Mushak 9.1 filings, Mushak 6.3 registers, Withholding VAT (VDS) audits, and rebate claims.
+          </p>
+        </div>
+
+        <!-- Practice 4 -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-4">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-display mb-2">BIDA Approvals & Work Permits</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Establishing foreign Liaison and Branch offices, Bangladesh Investment Development Authority approvals, NSI / Special Branch (SB) clearances, and work permit renewals.
+          </p>
+        </div>
+
+        <!-- Practice 5 -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-4">
+            <i class="fa-solid fa-stamp"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-display mb-2">Industrial & Environmental Licensing</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Acquisition and renewal of Import Registration Certificates (IRC), Export (ERC), Indenting, Fire License, and Department of Environment (DoE) Environmental Clearance Certificates (ECC).
+          </p>
+        </div>
+
+        <!-- Practice 6 -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-4">
+            <i class="fa-solid fa-handshake"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-display mb-2">Chamber & Institutional Memberships</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Active memberships and representations with Dhaka Chamber of Commerce & Industry (DCCI), BGMEA, BKMEA, BARVIDA, and the Export Promotion Bureau (EPB).
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+<!-- EHS & ZERO-HARM POLICY -->
+  <section id="ehs" class="py-20 bg-brand-dark border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display flex items-center gap-2">
+            <i class="fa-solid fa-shield-virus"></i> HEALTH, SAFETY & ENVIRONMENT
+          </span>
+          <h2 class="text-3xl font-black text-white font-display">
+            Zero-Harm EHS Standard & QA/QC
+          </h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            VisionTech maintains an unblemished zero fatal-incident record across all power and civil infrastructure sites. Our operations comply with ISO 9001 and ISO 45001 international management standards.
+          </p>
+
+          <div class="space-y-2 text-xs text-slate-300 pt-2">
+            <div class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-amber-500"></i> Mandatory PPE: Certified arc-flash helmets, 33kV dielectric footwear, fall harnesses</div>
+            <div class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-amber-500"></i> Pre-work Job Safety Analysis (JSA) prior to any excavation or energized panel work</div>
+            <div class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-amber-500"></i> Rigorous concrete core crushing tests and insulation resistance verification</div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div class="spotlight-card p-5 rounded-2xl text-center">
+            <div class="w-12 h-12 mx-auto rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-3">
+              <i class="fa-solid fa-hard-hat"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm font-display">100% Certified PPE</h4>
+            <p class="text-[11px] text-slate-400 mt-1">Full compliance across all engineers, technicians and craftsmen.</p>
+          </div>
+
+          <div class="spotlight-card p-5 rounded-2xl text-center">
+            <div class="w-12 h-12 mx-auto rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-3">
+              <i class="fa-solid fa-vial-circle-check"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm font-display">QA/QC Testing Lab</h4>
+            <p class="text-[11px] text-slate-400 mt-1">Dielectric oil breakdown, earth resistance, and torque validation.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-void text-slate-400 text-xs border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>&copy; 2026 VisionTech Engineering Ltd. (VEL). All Rights Reserved.</div>
+      <div class="flex gap-4">
+        <a href="index.html" class="hover:text-amber-400">Home</a>
+        <a href="services.html" class="hover:text-amber-400">Services</a>
+        <a href="projects.html" class="hover:text-amber-400">Projects</a>
+        <a href="contact.html" class="hover:text-amber-400">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=2.1"></script>
+</body>
+</html>
