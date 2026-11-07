@@ -23,9 +23,9 @@ function initHeroVideo() {
   video.defaultMuted = true;
   video.playsInline = true;
 
-  // Calm, cinematic engineering playback speed (0.5x for steady, elegant presentation)
+  // Calm, cinematic engineering playback speed (0.3x for steady, elegant presentation)
   const setPlaybackRate = () => {
-    video.playbackRate = 0.5;
+    video.playbackRate = 0.3;
   };
 
   setPlaybackRate();
