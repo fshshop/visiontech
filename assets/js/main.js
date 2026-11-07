@@ -22,10 +22,23 @@ function initHeroVideo() {
   video.muted = true;
   video.defaultMuted = true;
   video.playsInline = true;
+
+  // Calm, cinematic engineering playback speed (0.5x for steady, elegant presentation)
+  const setPlaybackRate = () => {
+    video.playbackRate = 0.5;
+  };
+
+  setPlaybackRate();
+  video.addEventListener('loadedmetadata', setPlaybackRate);
+  video.addEventListener('play', setPlaybackRate);
+  video.addEventListener('playing', setPlaybackRate);
+  video.addEventListener('canplay', setPlaybackRate);
+
   const playPromise = video.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
       video.muted = true;
+      setPlaybackRate();
       video.play();
     });
   }
