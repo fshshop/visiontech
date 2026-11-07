@@ -545,3 +545,87 @@ header .group > .absolute::before {
     pointer-events: auto !important;
   }
 }
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS & PIXEL-PERFECT AUDIT ENHANCEMENTS
+   Ensures flawless experience across 320px, 360px, 390px, 412px, 768px, 1024px
+   ========================================================================== */
+
+/* Prevent horizontal overflow completely across whole site */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Ensure images, SVGs and videos never break parent bounds */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Table Responsive Scrolling Container */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* Mobile Dropdown Menu Animations & Elevation */
+#mobileMenu {
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Form inputs & tap target sizing for mobile touch ergonomics */
+@media (max-width: 768px) {
+  /* Prevent iOS zoom on input focus by guaranteeing 16px minimum */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Safe tap target sizes for buttons and links */
+  #mobileMenu a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Modal responsiveness on small screens */
+  #quoteModal > div,
+  #projectModal > div {
+    max-height: 92vh;
+    overflow-y: auto;
+    margin: auto 12px;
+    padding: 1.25rem !important;
+  }
+
+  /* Hero Section padding on small mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Fluid typography protection for ultra small screens (e.g. iPhone SE, Galaxy Fold 320px) */
+@media (max-width: 380px) {
+  h1 {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+  }
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}
