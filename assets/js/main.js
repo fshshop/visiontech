@@ -23,22 +23,29 @@ function initHeroVideo() {
   video.defaultMuted = true;
   video.playsInline = true;
 
-  // Calm, cinematic engineering playback speed (0.3x for steady, elegant presentation)
-  const setPlaybackRate = () => {
-    video.playbackRate = 0.3;
+  // Ultra-calm engineering playback speed (0.15x) so fast-forward timelapse moves gracefully
+  const TARGET_SPEED = 0.15;
+  const applyRate = () => {
+    try {
+      if (video.playbackRate !== TARGET_SPEED) {
+        video.playbackRate = TARGET_SPEED;
+      }
+    } catch(e) {}
   };
 
-  setPlaybackRate();
-  video.addEventListener('loadedmetadata', setPlaybackRate);
-  video.addEventListener('play', setPlaybackRate);
-  video.addEventListener('playing', setPlaybackRate);
-  video.addEventListener('canplay', setPlaybackRate);
+  applyRate();
+  ['loadstart', 'loadedmetadata', 'loadeddata', 'canplay', 'play', 'playing', 'timeupdate', 'seeked'].forEach(evt => {
+    video.addEventListener(evt, applyRate);
+  });
+
+  // Continuous lock interval to prevent browser reset on loop
+  setInterval(applyRate, 150);
 
   const playPromise = video.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
       video.muted = true;
-      setPlaybackRate();
+      applyRate();
       video.play();
     });
   }
