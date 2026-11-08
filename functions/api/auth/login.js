@@ -1,11 +1,8 @@
-import defaultData from '../../data/siteData.json';
-
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
     const { username, password } = body;
 
-    // Check stored custom password in KV if available, else fallback to default
     let validUser = 'admin';
     let validPass = 'admin@visiontech';
 
