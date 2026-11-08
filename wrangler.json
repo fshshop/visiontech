@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "visiontech",
+  "pages_build_output_dir": ".",
+  "compatibility_date": "2026-11-04",
+  "kv_namespaces": [
+    {
+      "binding": "SITE_DATA_KV",
+      "id": "a4dd97154e7e4c63a2dc2c8de5104c89"
+    }
+  ]
+}

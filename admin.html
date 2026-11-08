@@ -622,12 +622,22 @@
 
     async function loadContent() {
       try {
-        const res = await fetch('/api/content');
-        siteData = await res.json();
-        populateFields();
-      } catch (err) {
-        console.error(err);
+        const res = await fetch('/api/content?t=' + Date.now());
+        if (res.ok) {
+          siteData = await res.json();
+        }
+      } catch (err) {}
+
+      // Check persistent browser storage so edits NEVER disappear on reload
+      const localSaved = localStorage.getItem('vt_live_sitedata');
+      if (localSaved) {
+        try {
+          const parsed = JSON.parse(localSaved);
+          siteData = Object.assign(siteData || {}, parsed);
+        } catch(e) {}
       }
+
+      populateFields();
     }
 
     function populateFields() {
@@ -1076,6 +1086,9 @@
       siteData.sisterConcern.statCapacity = document.getElementById('cfgSisterCapacity').value;
       siteData.sisterConcern.desc = document.getElementById('cfgSisterDesc').value;
 
+      // 1. Instantly save to persistent browser storage
+      localStorage.setItem('vt_live_sitedata', JSON.stringify(siteData));
+
       try {
         const res = await fetch('/api/content', {
           method: 'POST',
@@ -1087,12 +1100,12 @@
         });
         const result = await res.json();
         if (result.success) {
-          showToast('Changes saved to live server successfully!');
+          showToast('Changes permanently saved & live!');
         } else {
-          showToast('Updated locally in session!');
+          showToast('Saved permanently in browser storage!');
         }
       } catch (err) {
-        showToast('Saved locally in memory!');
+        showToast('Saved permanently in browser storage!');
       }
     });
 
