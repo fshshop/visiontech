@@ -6,7 +6,7 @@
     "hqAddress": "Corporate HQ: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217",
     "phone": "+88 01730 335002",
     "email": "info@visiontech-bd.com",
-    "regInfo": "Govt. Reg. Limited Company • ISO & EHS Compliant",
+    "regInfo": "Govt. Reg. Limited Company \u2022 ISO & EHS Compliant",
     "logoUrl": "assets/images/logo.png"
   },
   "hero": {
@@ -35,10 +35,26 @@
     }
   },
   "stats": [
-    { "value": "40+", "label": "Grid Substations Delivered", "sub": "400kV / 230kV / 132kV / 33kV" },
-    { "value": "360 MW", "label": "Power Plant Civil Works", "sub": "Combined Cycle & Heavy Industrial" },
-    { "value": "100,000+", "label": "Pcs Precast Cable Slabs", "sub": "Underground Transmission Safety" },
-    { "value": "100%", "label": "EHS Compliance Track Record", "sub": "Zero-Loss-Time Incident Mandate" }
+    {
+      "value": "40+",
+      "label": "Grid Substations Delivered",
+      "sub": "400kV / 230kV / 132kV / 33kV"
+    },
+    {
+      "value": "360 MW",
+      "label": "Power Plant Civil Works",
+      "sub": "Combined Cycle & Heavy Industrial"
+    },
+    {
+      "value": "100,000+",
+      "label": "Pcs Precast Cable Slabs",
+      "sub": "Underground Transmission Safety"
+    },
+    {
+      "value": "100%",
+      "label": "EHS Compliance Track Record",
+      "sub": "Zero-Loss-Time Incident Mandate"
+    }
   ],
   "services": [
     {
@@ -78,7 +94,7 @@
       "category": "Substations",
       "location": "Dhaka Region",
       "value": "Turnkey EPC Subcontract",
-      "img": "assets/images/substation-hero.jpg",
+      "img": "assets/images/project-bhulta-400kv.jpg",
       "scope": "Civil foundations, control building construction, GIS equipment erection, transformer bay earthing, and drainage infrastructure."
     },
     {
@@ -88,7 +104,7 @@
       "category": "Power Plants",
       "location": "Narayanganj",
       "value": "Major Civil Works",
-      "img": "assets/images/projects/4.jpg",
+      "img": "assets/images/project-bheramara-360mw.jpg",
       "scope": "Heavy machinery foundations, dynamic load vibration absorption pits, circulating cooling water trenches, and auxiliary steel structural framing."
     },
     {
@@ -98,7 +114,7 @@
       "category": "Transmission",
       "location": "Metropolitan Dhaka",
       "value": "Safety & Trenching Contract",
-      "img": "assets/images/projects/2.jpg",
+      "img": "assets/images/project-cable-slab.jpg",
       "scope": "Trench excavation in dense urban corridors, RCC duct bank placement, and installation of 100,000+ pcs proprietary precast interlocking protection slabs."
     },
     {
@@ -108,7 +124,7 @@
       "category": "PEB Steel",
       "location": "Gazipur Industrial Zone",
       "value": "Full PEB Turnkey",
-      "img": "assets/images/projects/6.jpg",
+      "img": "assets/images/project-site-work.jpg",
       "scope": "Clear-span PEB steel building design, fabrication, on-site erection, heavy overhead crane girder installation, and high-spec industrial flooring."
     }
   ],
