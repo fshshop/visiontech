@@ -140,5 +140,62 @@
     "targetCapital": "$5,000,000 USD",
     "projectedRoi": "22% - 28% IRR",
     "status": "Active Capital Round Open for Accredited Strategic Partners"
+  },
+  "mediaSection": {
+    "headline": "Publications, Brochures & Site Gallery",
+    "leadText": "Download official EPC pre-qualification dossiers, equipment specifications, and inspect our active high-voltage substation project gallery.",
+    "brochures": [
+      {
+        "id": 1,
+        "title": "Corporate Fact Sheet & Profile",
+        "size": "PDF \u2022 2.4 MB",
+        "desc": "Official engineering credentials, management profile, bank solvency certificates, and company registry.",
+        "fileUrl": "assets/docs/VisionTech-Corporate-Profile.pdf"
+      },
+      {
+        "id": 2,
+        "title": "EPC Turnkey Capabilities Deck",
+        "size": "PDF \u2022 4.1 MB",
+        "desc": "132/33kV substations, underground transmission cable laying methods, and civil construction machinery.",
+        "fileUrl": "assets/docs/VisionTech-EPC-Capabilities.pdf"
+      },
+      {
+        "id": 3,
+        "title": "Swadesh Carrying Logistics Deck",
+        "size": "PDF \u2022 1.8 MB",
+        "desc": "Specialized multi-axle trailer fleet, river barge charters, and heavy cargo transit insurance policies.",
+        "fileUrl": "assets/docs/Swadesh-Logistics-Brochure.pdf"
+      }
+    ],
+    "gallery": [
+      {
+        "title": "Bhulta 400kV Substation Earthwork",
+        "img": "assets/images/project-bhulta-400kv.jpg"
+      },
+      {
+        "title": "Bheramara 360MW Turbine Foundation",
+        "img": "assets/images/project-bheramara-360mw.jpg"
+      },
+      {
+        "title": "High Voltage Cable Protection Slabs",
+        "img": "assets/images/project-cable-slab.jpg"
+      },
+      {
+        "title": "Madunaghat Switchgear Erection",
+        "img": "assets/images/project-madunaghat.jpg"
+      },
+      {
+        "title": "Maijdee GIS Control Center",
+        "img": "assets/images/project-maijdee-gis.jpg"
+      },
+      {
+        "title": "Purbasadipur Transformer Rigging",
+        "img": "assets/images/project-purbasadipur.jpg"
+      }
+    ]
+  },
+  "adminAuth": {
+    "username": "admin",
+    "passwordHash": ""
   }
 }

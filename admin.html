@@ -57,7 +57,6 @@
     .custom-scroll::-webkit-scrollbar-thumb:hover {
       background: #f59e0b;
     }
-    /* Technical form inputs */
     input, textarea, select {
       background-color: #050b14 !important;
       border: 1px solid #1e293b !important;
@@ -76,13 +75,12 @@
   <!-- ================= AUTHENTICATION MODAL (LOGIN) ================= -->
   <div id="loginOverlay" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4">
     <div class="w-full max-w-md p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl relative overflow-hidden">
-      <!-- Glow effect -->
       <div class="absolute -top-20 -right-20 w-44 h-44 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -bottom-20 -left-20 w-44 h-44 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="flex items-center gap-3 mb-6">
         <div class="bg-white p-2 rounded-xl shadow-md">
-          <img src="assets/images/logo.png" alt="Logo" class="h-8 w-auto">
+          <img id="loginLogoPreview" src="assets/images/logo.png" alt="Logo" class="h-8 w-auto">
         </div>
         <div>
           <h2 class="text-lg font-bold font-display text-white">VisionTech Admin</h2>
@@ -125,14 +123,13 @@
             <i class="fa-solid fa-images text-amber-400"></i>
             <span>Select Image from Server Gallery</span>
           </h3>
-          <p class="text-xs text-slate-400">Click any image to instantly assign it to the project.</p>
+          <p class="text-xs text-slate-400">Click any image to instantly assign it.</p>
         </div>
         <button id="closeImagePicker" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <!-- Image Grid -->
       <div id="galleryGrid" class="flex-1 overflow-y-auto custom-scroll py-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         <!-- Rendered dynamically -->
       </div>
@@ -148,12 +145,12 @@
 
       <div class="flex items-center gap-3">
         <div class="bg-white p-1.5 rounded-xl shadow-md">
-          <img src="assets/images/logo.png" alt="Logo" class="h-7 w-auto">
+          <img id="navLogoPreview" src="assets/images/logo.png" alt="Logo" class="h-7 w-auto">
         </div>
         <div>
           <h1 class="text-sm font-bold font-display text-white flex items-center gap-2">
             <span>VisionTech Control Suite</span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">v3.5 Live</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">v4.0 Live</span>
           </h1>
           <p class="text-[11px] text-slate-400 hidden sm:block">Civil & Electro-Mechanical Infrastructure CMS</p>
         </div>
@@ -188,7 +185,7 @@
 
         <button data-tab="tab-general" class="nav-tab active w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition text-left bg-amber-500/10 text-amber-400 border border-amber-500/30">
           <i class="fa-solid fa-sliders w-4 text-center"></i>
-          <span>Global Branding & HQ</span>
+          <span>Global Branding & Logo</span>
         </button>
 
         <button data-tab="tab-hero" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
@@ -213,12 +210,17 @@
 
         <button data-tab="tab-media" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
           <i class="fa-solid fa-photo-film w-4 text-center text-emerald-400"></i>
-          <span>Media & Upload Center</span>
+          <span>Media, Brochures & Photos</span>
         </button>
 
         <button data-tab="tab-sister" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
           <i class="fa-solid fa-truck-monster w-4 text-center text-orange-400"></i>
           <span>Swadesh Logistics Fleet</span>
+        </button>
+
+        <button data-tab="tab-security" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-shield-halved w-4 text-center text-rose-400"></i>
+          <span>Security & Password</span>
         </button>
 
         <button data-tab="tab-inquiries" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
@@ -227,7 +229,6 @@
         </button>
       </div>
 
-      <!-- Quick Server Info -->
       <div class="p-3 rounded-2xl bg-slate-900/60 border border-slate-800/80 text-[11px] text-slate-400 space-y-1">
         <div class="flex justify-between items-center">
           <span>Engine</span>
@@ -249,27 +250,41 @@
         <span id="toastText">Changes successfully saved!</span>
       </div>
 
-      <!-- ================= TAB 1: GLOBAL BRANDING & HQ ================= -->
+      <!-- ================= TAB 1: GLOBAL BRANDING & LOGO ================= -->
       <div id="tab-general" class="tab-panel space-y-6">
         <div class="border-b border-slate-800 pb-4">
-          <h2 class="text-xl font-bold font-display text-white">Global Branding & Company Contacts</h2>
-          <p class="text-xs text-slate-400">Edit company title, address, topbar details, and brand logo.</p>
+          <h2 class="text-xl font-bold font-display text-white">Global Branding, Logo & HQ</h2>
+          <p class="text-xs text-slate-400">Update company logo, official legal title, headquarter address, and hotline.</p>
+        </div>
+
+        <!-- LOGO MANAGER BOX -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+          <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-id-card"></i> Website Master Logo
+          </h3>
+          <div class="flex flex-col sm:flex-row items-center gap-6">
+            <div class="bg-white p-3 rounded-2xl shadow-xl border border-white/20 shrink-0">
+              <img id="logoEditorPreview" src="assets/images/logo.png" alt="VisionTech Logo Preview" class="h-16 w-auto object-contain">
+            </div>
+            <div class="space-y-2 flex-1 w-full">
+              <label class="block text-xs font-semibold text-slate-300">Upload New Logo (PNG / SVG / JPG)</label>
+              <input type="file" id="logoUploadInput" accept="image/*" class="block w-full text-xs text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400 cursor-pointer">
+              <p class="text-[11px] text-slate-400">Upload a crisp transparent PNG for best appearance on header and footer.</p>
+            </div>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
             <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider">Company Identity</h3>
-            
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Company Official Name</label>
               <input type="text" id="cfgSiteName" class="w-full px-4 py-2.5 rounded-xl text-sm">
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Tagline</label>
               <input type="text" id="cfgTagline" class="w-full px-4 py-2.5 rounded-xl text-sm">
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Government Reg & Certifications</label>
               <input type="text" id="cfgRegInfo" class="w-full px-4 py-2.5 rounded-xl text-sm">
@@ -278,17 +293,14 @@
 
           <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
             <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">Contact & Headquarters</h3>
-            
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Headquarters Address</label>
               <input type="text" id="cfgHqAddress" class="w-full px-4 py-2.5 rounded-xl text-sm">
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Primary Hotline</label>
               <input type="text" id="cfgPhone" class="w-full px-4 py-2.5 rounded-xl text-sm">
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Official Inquiry Email</label>
               <input type="email" id="cfgEmail" class="w-full px-4 py-2.5 rounded-xl text-sm">
@@ -307,12 +319,10 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
             <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider">Video Configuration</h3>
-            
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Background Video Path</label>
               <input type="text" id="cfgVideoUrl" class="w-full px-4 py-2.5 rounded-xl text-sm font-mono text-xs">
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Video Playback Speed (PlaybackRate)</label>
               <div class="flex items-center gap-4">
@@ -321,7 +331,6 @@
               </div>
               <p class="text-[11px] text-slate-400 mt-1">Recommended: 0.15x for smooth, slow timelapse playback without fast-forward jumping.</p>
             </div>
-
             <div class="pt-2">
               <label class="block text-xs font-semibold text-slate-300 mb-2">Upload New Video Clip</label>
               <input type="file" id="heroVideoUploadInput" accept="video/mp4" class="block w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400 cursor-pointer">
@@ -330,12 +339,10 @@
 
           <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
             <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">Headlines & Narrative</h3>
-            
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Top Badge Label</label>
               <input type="text" id="cfgHeroBadge" class="w-full px-4 py-2.5 rounded-xl text-sm">
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Lead Narrative Text</label>
               <textarea id="cfgHeroLead" rows="4" class="w-full px-4 py-2.5 rounded-xl text-sm"></textarea>
@@ -395,7 +402,63 @@
         </div>
       </div>
 
-      <!-- ================= TAB 6: SWADESH LOGISTICS FLEET ================= -->
+      <!-- ================= TAB 6: MEDIA, BROCHURES & SITE GALLERY ================= -->
+      <div id="tab-media" class="tab-panel hidden space-y-8">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-xl font-bold font-display text-white">Media, Brochures & Site Photography Manager</h2>
+          <p class="text-xs text-slate-400">Edit downloadable corporate decks, brochures, and live site photo gallery.</p>
+        </div>
+
+        <!-- Section 1: Corporate Literature & Brochures -->
+        <div class="space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf"></i> Downloadable Corporate Literature & Decks
+            </h3>
+            <button id="addBrochureBtn" class="px-3 py-1 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 hover:bg-amber-500/25 text-xs font-bold flex items-center gap-1">
+              <i class="fa-solid fa-plus"></i> Add Brochure
+            </button>
+          </div>
+
+          <div id="brochuresList" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Section 2: Live Engineering Site Photography -->
+        <div class="space-y-4 pt-4 border-t border-slate-800">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-camera"></i> Live Engineering Site Photography Gallery
+            </h3>
+            <button id="addSitePhotoBtn" class="px-3 py-1 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-400 hover:bg-sky-500/25 text-xs font-bold flex items-center gap-1">
+              <i class="fa-solid fa-plus"></i> Add Site Photo
+            </button>
+          </div>
+
+          <div id="sitePhotosList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Section 3: Universal Asset Uploader -->
+        <div class="p-8 rounded-2xl bg-slate-900/60 border border-dashed border-slate-700 text-center space-y-4">
+          <div class="w-14 h-14 mx-auto rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Upload Any File (PDF, Video, Image)</h3>
+            <p class="text-xs text-slate-400">Supported: MP4, JPG, PNG, WEBP, PDF</p>
+          </div>
+          <input type="file" id="genericUploadInput" class="hidden">
+          <button onclick="document.getElementById('genericUploadInput').click()" class="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider">
+            Browse Computer Files
+          </button>
+          <div id="uploadResult" class="text-xs text-emerald-400 font-mono"></div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 7: SWADESH LOGISTICS FLEET ================= -->
       <div id="tab-sister" class="tab-panel hidden space-y-6">
         <div class="border-b border-slate-800 pb-4">
           <h2 class="text-xl font-bold font-display text-white">Sister Concern: Swadesh Carrying Agency</h2>
@@ -407,12 +470,10 @@
             <label class="block text-xs font-semibold text-slate-300 mb-1">Sister Concern Official Name</label>
             <input type="text" id="cfgSisterName" class="w-full px-4 py-2.5 rounded-xl text-sm">
           </div>
-
           <div>
             <label class="block text-xs font-semibold text-slate-300 mb-1">Specialization Subtitle</label>
             <input type="text" id="cfgSisterSubtitle" class="w-full px-4 py-2.5 rounded-xl text-sm">
           </div>
-
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Fleet Capacity Metric</label>
@@ -423,7 +484,6 @@
               <input type="text" id="cfgSisterCapacity" class="w-full px-4 py-2.5 rounded-xl text-sm">
             </div>
           </div>
-
           <div>
             <label class="block text-xs font-semibold text-slate-300 mb-1">Operations Narrative</label>
             <textarea id="cfgSisterDesc" rows="4" class="w-full px-4 py-2.5 rounded-xl text-sm"></textarea>
@@ -431,30 +491,36 @@
         </div>
       </div>
 
-      <!-- ================= TAB 7: MEDIA & UPLOAD CENTER ================= -->
-      <div id="tab-media" class="tab-panel hidden space-y-6">
+      <!-- ================= TAB 8: SECURITY & PASSWORD ================= -->
+      <div id="tab-security" class="tab-panel hidden space-y-6">
         <div class="border-b border-slate-800 pb-4">
-          <h2 class="text-xl font-bold font-display text-white">Direct Media & Asset Uploader</h2>
-          <p class="text-xs text-slate-400">Upload high-res photography, CAD drawings, certificates and videos directly into the server assets.</p>
+          <h2 class="text-xl font-bold font-display text-white">Security & Admin Password Manager</h2>
+          <p class="text-xs text-slate-400">Change your administrative password securely.</p>
         </div>
 
-        <div class="p-8 rounded-2xl bg-slate-900/60 border border-dashed border-slate-700 text-center space-y-4">
-          <div class="w-14 h-14 mx-auto rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
-            <i class="fa-solid fa-cloud-arrow-up"></i>
-          </div>
-          <div>
-            <h3 class="text-sm font-bold text-white">Select Any Media to Upload</h3>
-            <p class="text-xs text-slate-400">Supported: MP4, JPG, PNG, WEBP, PDF</p>
-          </div>
-          <input type="file" id="genericUploadInput" class="hidden">
-          <button onclick="document.getElementById('genericUploadInput').click()" class="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider">
-            Browse Computer Files
-          </button>
-          <div id="uploadResult" class="text-xs text-emerald-400 font-mono"></div>
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4 max-w-md">
+          <form id="changePasswordForm" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Admin Username</label>
+              <input type="text" id="secUsername" value="admin" readonly class="w-full px-4 py-2.5 rounded-xl text-sm opacity-70 cursor-not-allowed">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">New Password</label>
+              <input type="password" id="secNewPassword" required minlength="6" placeholder="Enter new password (min 6 chars)" class="w-full px-4 py-2.5 rounded-xl text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Confirm New Password</label>
+              <input type="password" id="secConfirmPassword" required minlength="6" placeholder="Re-type new password" class="w-full px-4 py-2.5 rounded-xl text-sm">
+            </div>
+            <div id="passwordMsg" class="text-xs font-semibold hidden"></div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition">
+              <i class="fa-solid fa-lock mr-1"></i> Update Admin Password
+            </button>
+          </form>
         </div>
       </div>
 
-      <!-- ================= TAB 8: RFQ INQUIRIES ================= -->
+      <!-- ================= TAB 9: RFQ INQUIRIES ================= -->
       <div id="tab-inquiries" class="tab-panel hidden space-y-6">
         <div class="border-b border-slate-800 pb-4">
           <h2 class="text-xl font-bold font-display text-white">Tender RFQ & Client Inquiries Inbox</h2>
@@ -487,15 +553,15 @@
     let siteData = {};
     let authToken = localStorage.getItem('vt_admin_token') || '';
     let currentPickingProjectIndex = null;
+    let currentPickingPhotoIndex = null;
 
-    // Check Login
     if (authToken) {
       document.getElementById('loginOverlay').classList.add('hidden');
       loadContent();
       loadInquiries();
     }
 
-    // Login Form Submit
+    // Login Form
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const user = document.getElementById('loginUsername').value;
@@ -525,13 +591,11 @@
       }
     });
 
-    // Logout
     document.getElementById('logoutBtn').addEventListener('click', () => {
       localStorage.removeItem('vt_admin_token');
       location.reload();
     });
 
-    // Mobile Sidebar Toggle
     document.getElementById('sidebarToggle').addEventListener('click', () => {
       const sb = document.getElementById('adminSidebar');
       sb.classList.toggle('hidden');
@@ -556,7 +620,6 @@
       });
     });
 
-    // Fetch site data
     async function loadContent() {
       try {
         const res = await fetch('/api/content');
@@ -568,7 +631,7 @@
     }
 
     function populateFields() {
-      // General
+      // General & Logo
       if (siteData.general) {
         document.getElementById('cfgSiteName').value = siteData.general.siteName || '';
         document.getElementById('cfgTagline').value = siteData.general.tagline || '';
@@ -576,6 +639,11 @@
         document.getElementById('cfgHqAddress').value = siteData.general.hqAddress || '';
         document.getElementById('cfgPhone').value = siteData.general.phone || '';
         document.getElementById('cfgEmail').value = siteData.general.email || '';
+        if (siteData.general.logoUrl) {
+          document.getElementById('logoEditorPreview').src = siteData.general.logoUrl;
+          document.getElementById('navLogoPreview').src = siteData.general.logoUrl;
+          document.getElementById('loginLogoPreview').src = siteData.general.logoUrl;
+        }
       }
 
       // Hero
@@ -600,9 +668,24 @@
       renderStats();
       renderServices();
       renderProjects();
+      renderMediaSection();
     }
 
-    // Video speed slider listener
+    // Logo Upload handler
+    document.getElementById('logoUploadInput').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        siteData.general = siteData.general || {};
+        siteData.general.logoUrl = evt.target.result;
+        document.getElementById('logoEditorPreview').src = evt.target.result;
+        document.getElementById('navLogoPreview').src = evt.target.result;
+        showToast('Logo updated! Click Save Changes to apply.');
+      };
+      reader.readAsDataURL(file);
+    });
+
     document.getElementById('cfgVideoSpeed').addEventListener('input', (e) => {
       document.getElementById('videoSpeedDisplay').textContent = e.target.value + 'x';
     });
@@ -620,7 +703,7 @@
             <button onclick="deleteStat(${idx})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i> Delete</button>
           </div>
           <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Primary Value (e.g. 40+, 360 MW)</label>
+            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Primary Value</label>
             <input type="text" value="${st.value}" onchange="siteData.stats[${idx}].value = this.value" class="w-full px-3 py-2 rounded-xl text-lg font-bold text-amber-400 font-display">
           </div>
           <div>
@@ -643,11 +726,7 @@
 
     document.getElementById('addStatBtn').addEventListener('click', () => {
       siteData.stats = siteData.stats || [];
-      siteData.stats.push({
-        value: "100+",
-        label: "Engineering Milestone Completed",
-        sub: "Verified EPC National Track Record"
-      });
+      siteData.stats.push({ value: "100+", label: "Engineering Milestone", sub: "Verified EPC National Track Record" });
       renderStats();
     });
 
@@ -676,7 +755,7 @@
       });
     }
 
-    // Render Projects with 1-CLICK SELECT IMAGE & UPLOAD BUTTONS
+    // Render Projects
     function renderProjects() {
       const container = document.getElementById('projectsList');
       container.innerHTML = '';
@@ -694,7 +773,6 @@
               </div>
             </div>
 
-            <!-- Quick Action Buttons for Image Selection -->
             <div class="flex gap-2">
               <button onclick="openGalleryPicker(${idx})" type="button" class="flex-1 py-2 px-2 rounded-xl bg-amber-500/15 border border-amber-500/30 hover:bg-amber-500/25 text-amber-400 font-bold text-[11px] flex items-center justify-center gap-1.5 transition">
                 <i class="fa-solid fa-photo-film"></i> Gallery Pick
@@ -705,7 +783,6 @@
             </div>
             
             <input type="file" id="directUploadInput_${idx}" accept="image/*" class="hidden" onchange="handleDirectUpload(event, ${idx})">
-            
             <div class="text-[10px] text-slate-500 font-mono truncate" title="${prj.img || ''}">${prj.img || 'No image set'}</div>
           </div>
 
@@ -745,6 +822,97 @@
       });
     }
 
+    // Render Media Section (Brochures & Live Site Photography)
+    function renderMediaSection() {
+      siteData.mediaSection = siteData.mediaSection || { brochures: [], gallery: [] };
+      
+      // 1. Brochures
+      const bContainer = document.getElementById('brochuresList');
+      bContainer.innerHTML = '';
+      (siteData.mediaSection.brochures || []).forEach((br, idx) => {
+        const card = document.createElement('div');
+        card.className = 'p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3';
+        card.innerHTML = `
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Brochure #${idx+1}</span>
+            <button onclick="deleteBrochure(${idx})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i></button>
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Document Title</label>
+            <input type="text" value="${br.title}" onchange="siteData.mediaSection.brochures[${idx}].title = this.value" class="w-full px-3 py-1.5 rounded-xl text-xs font-bold text-white">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">File Specs (e.g. PDF • 2.4 MB)</label>
+            <input type="text" value="${br.size || ''}" onchange="siteData.mediaSection.brochures[${idx}].size = this.value" class="w-full px-3 py-1.5 rounded-xl text-xs text-amber-400">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">File Path / URL</label>
+            <input type="text" value="${br.fileUrl || ''}" onchange="siteData.mediaSection.brochures[${idx}].fileUrl = this.value" class="w-full px-3 py-1.5 rounded-xl text-[11px] font-mono text-slate-300">
+          </div>
+        `;
+        bContainer.appendChild(card);
+      });
+
+      // 2. Site Photos
+      const pContainer = document.getElementById('sitePhotosList');
+      pContainer.innerHTML = '';
+      (siteData.mediaSection.gallery || []).forEach((photo, idx) => {
+        const pCard = document.createElement('div');
+        pCard.className = 'p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3';
+        pCard.innerHTML = `
+          <div class="h-32 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 relative group">
+            <img src="${photo.img}" onerror="this.src='assets/images/logo.png'" class="w-full h-full object-cover">
+            <button onclick="openPhotoGalleryPicker(${idx})" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-bold text-amber-400">
+              <i class="fa-solid fa-images mr-1"></i> Pick from Gallery
+            </button>
+          </div>
+          <div class="flex justify-between items-center gap-2">
+            <input type="text" value="${photo.title}" onchange="siteData.mediaSection.gallery[${idx}].title = this.value" placeholder="Caption title" class="w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold text-white">
+            <button onclick="deleteSitePhoto(${idx})" class="text-rose-400 hover:text-rose-300 text-xs px-2"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        `;
+        pContainer.appendChild(pCard);
+      });
+    }
+
+    window.deleteBrochure = (idx) => {
+      siteData.mediaSection.brochures.splice(idx, 1);
+      renderMediaSection();
+    };
+
+    window.deleteSitePhoto = (idx) => {
+      siteData.mediaSection.gallery.splice(idx, 1);
+      renderMediaSection();
+    };
+
+    document.getElementById('addBrochureBtn').addEventListener('click', () => {
+      siteData.mediaSection.brochures = siteData.mediaSection.brochures || [];
+      siteData.mediaSection.brochures.push({
+        title: "New Technical Specification Dossier",
+        size: "PDF • 3.0 MB",
+        desc: "Official engineering brochure",
+        fileUrl: "assets/docs/VisionTech-Capabilities.pdf"
+      });
+      renderMediaSection();
+    });
+
+    document.getElementById('addSitePhotoBtn').addEventListener('click', () => {
+      siteData.mediaSection.gallery = siteData.mediaSection.gallery || [];
+      siteData.mediaSection.gallery.push({
+        title: "Live Substation Project Construction",
+        img: "assets/images/project-bhulta-400kv.jpg"
+      });
+      renderMediaSection();
+    });
+
+    window.openPhotoGalleryPicker = (idx) => {
+      currentPickingPhotoIndex = idx;
+      openGalleryModal((path) => {
+        siteData.mediaSection.gallery[idx].img = path;
+        renderMediaSection();
+      });
+    };
+
     // Direct Upload trigger
     window.triggerDirectUpload = (idx) => {
       document.getElementById('directUploadInput_' + idx).click();
@@ -753,10 +921,8 @@
     window.handleDirectUpload = (event, idx) => {
       const file = event.target.files[0];
       if (!file) return;
-
       const reader = new FileReader();
       reader.onload = (e) => {
-        // Set immediately as preview & base64 / path
         siteData.projects[idx].img = e.target.result;
         renderProjects();
         showToast('Image updated successfully!');
@@ -765,52 +931,88 @@
     };
 
     // Open Gallery Modal
-    window.openGalleryPicker = async (idx) => {
-      currentPickingProjectIndex = idx;
+    let galleryCallback = null;
+    function openGalleryModal(cb) {
+      galleryCallback = cb;
       const modal = document.getElementById('imagePickerModal');
       const grid = document.getElementById('galleryGrid');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
 
-      try {
-        const res = await fetch('/api/gallery');
-        const images = await res.json();
-        grid.innerHTML = '';
-        images.forEach(img => {
-          const thumb = document.createElement('div');
-          thumb.className = 'group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-950 cursor-pointer hover:border-amber-400 transition aspect-video';
-          thumb.innerHTML = `
-            <img src="${img.path}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
-            <div class="absolute bottom-1.5 left-2 right-2 text-[10px] font-bold text-white truncate">${img.name}</div>
-          `;
-          thumb.addEventListener('click', () => {
-            selectGalleryImage(img.path);
+      fetch('/api/gallery')
+        .then(res => res.json())
+        .then(images => {
+          grid.innerHTML = '';
+          images.forEach(img => {
+            const thumb = document.createElement('div');
+            thumb.className = 'group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-950 cursor-pointer hover:border-amber-400 transition aspect-video';
+            thumb.innerHTML = `
+              <img src="${img.path}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+              <div class="absolute bottom-1.5 left-2 right-2 text-[10px] font-bold text-white truncate">${img.name}</div>
+            `;
+            thumb.addEventListener('click', () => {
+              if (galleryCallback) galleryCallback(img.path);
+              closeGallery();
+            });
+            grid.appendChild(thumb);
           });
-          grid.appendChild(thumb);
         });
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    function selectGalleryImage(path) {
-      if (currentPickingProjectIndex !== null && siteData.projects[currentPickingProjectIndex]) {
-        siteData.projects[currentPickingProjectIndex].img = path;
-        renderProjects();
-        showToast('Image applied from gallery!');
-      }
-      closeGallery();
     }
+
+    window.openGalleryPicker = (idx) => {
+      openGalleryModal((path) => {
+        siteData.projects[idx].img = path;
+        renderProjects();
+        showToast('Project image selected!');
+      });
+    };
 
     function closeGallery() {
       const modal = document.getElementById('imagePickerModal');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
-      currentPickingProjectIndex = null;
     }
-
     document.getElementById('closeImagePicker').addEventListener('click', closeGallery);
+
+    // Change Password Handler
+    document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const newPass = document.getElementById('secNewPassword').value;
+      const confPass = document.getElementById('secConfirmPassword').value;
+      const msg = document.getElementById('passwordMsg');
+
+      if (newPass !== confPass) {
+        msg.textContent = 'Passwords do not match!';
+        msg.className = 'text-xs font-semibold text-rose-400 block';
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/auth/change-password', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + authToken
+          },
+          body: JSON.stringify({ newPassword: newPass, username: 'admin' })
+        });
+        const result = await res.json();
+        if (result.success) {
+          msg.textContent = 'Password successfully changed!';
+          msg.className = 'text-xs font-semibold text-emerald-400 block';
+          showToast('Admin password updated!');
+          document.getElementById('secNewPassword').value = '';
+          document.getElementById('secConfirmPassword').value = '';
+        } else {
+          msg.textContent = result.error || 'Failed to update';
+          msg.className = 'text-xs font-semibold text-rose-400 block';
+        }
+      } catch (err) {
+        msg.textContent = 'Error connecting to server';
+        msg.className = 'text-xs font-semibold text-rose-400 block';
+      }
+    });
 
     window.deleteService = (idx) => {
       siteData.services.splice(idx, 1);
@@ -850,7 +1052,7 @@
 
     // Save All Changes to Server
     document.getElementById('saveGlobalBtn').addEventListener('click', async () => {
-      // Gather general
+      // General
       siteData.general = siteData.general || {};
       siteData.general.siteName = document.getElementById('cfgSiteName').value;
       siteData.general.tagline = document.getElementById('cfgTagline').value;
@@ -859,14 +1061,14 @@
       siteData.general.phone = document.getElementById('cfgPhone').value;
       siteData.general.email = document.getElementById('cfgEmail').value;
 
-      // Gather hero
+      // Hero
       siteData.hero = siteData.hero || {};
       siteData.hero.videoUrl = document.getElementById('cfgVideoUrl').value;
       siteData.hero.videoSpeed = parseFloat(document.getElementById('cfgVideoSpeed').value);
       siteData.hero.badge = document.getElementById('cfgHeroBadge').value;
       siteData.hero.leadText = document.getElementById('cfgHeroLead').value;
 
-      // Gather Sister Concern
+      // Sister Concern
       siteData.sisterConcern = siteData.sisterConcern || {};
       siteData.sisterConcern.name = document.getElementById('cfgSisterName').value;
       siteData.sisterConcern.subtitle = document.getElementById('cfgSisterSubtitle').value;
