@@ -1,5 +1,7 @@
 // VisionTech Engineering Ltd. - Executive Corporate Interactive Engine
 document.addEventListener('DOMContentLoaded', () => {
+  syncLiveCMS();
+  initRFQApiBridge();
   initHeroVideo();
   initNavDropdowns();
   initCustomCursor();
@@ -640,5 +642,54 @@ function initNavDropdowns() {
 
     group.addEventListener('focusin', openMenu);
     group.addEventListener('focusout', closeMenu);
+  });
+}
+
+
+// Dynamically Synchronize Frontend with CMS Server Data (if API is available)
+async function syncLiveCMS() {
+  try {
+    const res = await fetch('/api/content');
+    if (!res.ok) return;
+    const data = await res.json();
+    
+    // 1. Sync General Branding
+    if (data.general) {
+      document.querySelectorAll('.site-brand-name').forEach(el => el.textContent = data.general.siteName);
+      document.querySelectorAll('.site-phone').forEach(el => el.textContent = data.general.phone);
+      document.querySelectorAll('.site-email').forEach(el => el.textContent = data.general.email);
+    }
+
+    // 2. Sync Hero Section Video & Pacing
+    if (data.hero) {
+      const v = document.getElementById('heroBgVideo');
+      if (v) {
+        if (data.hero.videoSpeed) {
+          const sp = parseFloat(data.hero.videoSpeed);
+          v.playbackRate = sp;
+        }
+      }
+    }
+  } catch(e) {
+    // Offline / Static fallback continues smoothly
+  }
+}
+
+// Intercept RFQ modal form submissions to store in CMS
+function initRFQApiBridge() {
+  const forms = document.querySelectorAll('#quoteModal form, #contactForm');
+  forms.forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      const formData = new FormData(form);
+      const payload = {};
+      formData.forEach((val, key) => payload[key] = val);
+      try {
+        await fetch('/api/inquiries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch(err) {}
+    });
   });
 }

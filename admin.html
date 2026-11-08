@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionTech Control Portal | Executive CMS & EPC Admin</title>
+  
+  <!-- Google Fonts & Tailwind CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              void: '#030712',
+              dark: '#050b14',
+              surface: '#0c1629',
+              card: '#111f38',
+              gold: '#f59e0b',
+              cyan: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #030712;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #050b14;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #f59e0b;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-brand-dark antialiased selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- ================= AUTHENTICATION MODAL (LOGIN) ================= -->
+  <div id="loginOverlay" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4">
+    <div class="w-full max-w-md p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl relative overflow-hidden">
+      <!-- Glow effect -->
+      <div class="absolute -top-20 -right-20 w-44 h-44 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -left-20 w-44 h-44 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex items-center gap-3 mb-6">
+        <div class="bg-white p-2 rounded-xl shadow-md">
+          <img src="assets/images/logo.png" alt="Logo" class="h-8 w-auto">
+        </div>
+        <div>
+          <h2 class="text-lg font-bold font-display text-white">VisionTech Admin</h2>
+          <p class="text-xs text-amber-400 font-semibold uppercase tracking-wider">Master CMS Portal</p>
+        </div>
+      </div>
+
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Username</label>
+          <div class="relative">
+            <i class="fa-solid fa-user absolute left-3.5 top-3.5 text-slate-500 text-xs"></i>
+            <input type="text" id="loginUsername" required value="admin" class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:border-amber-500 focus:outline-none transition">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Password</label>
+          <div class="relative">
+            <i class="fa-solid fa-lock absolute left-3.5 top-3.5 text-slate-500 text-xs"></i>
+            <input type="password" id="loginPassword" required value="admin@visiontech" class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:border-amber-500 focus:outline-none transition">
+          </div>
+        </div>
+
+        <div id="loginError" class="text-xs text-rose-400 font-semibold hidden"></div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-display font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 transition transform active:scale-95">
+          <i class="fa-solid fa-key mr-1.5"></i> Authenticate & Enter CMS
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800 px-4 sm:px-8 py-3.5 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <button id="sidebarToggle" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="flex items-center gap-3">
+        <div class="bg-white p-1.5 rounded-xl shadow-md">
+          <img src="assets/images/logo.png" alt="Logo" class="h-7 w-auto">
+        </div>
+        <div>
+          <h1 class="text-sm font-bold font-display text-white flex items-center gap-2">
+            <span>VisionTech Control Suite</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">v3.0 Live</span>
+          </h1>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Civil & Electro-Mechanical Infrastructure CMS</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-3">
+      <a href="/" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5">
+        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-amber-400"></i>
+        <span class="hidden md:inline">View Public Website</span>
+      </a>
+
+      <button id="saveGlobalBtn" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition flex items-center gap-1.5">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <span>Save Changes</span>
+      </button>
+
+      <button id="logoutBtn" class="p-2 rounded-xl bg-slate-900 hover:bg-rose-950/40 border border-slate-800 hover:border-rose-800 text-slate-400 hover:text-rose-400 transition" title="Logout">
+        <i class="fa-solid fa-power-off text-sm"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= MAIN LAYOUT WITH SIDEBAR ================= -->
+  <div class="flex-1 flex overflow-hidden">
+    
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="adminSidebar" class="w-64 bg-slate-950/80 border-r border-slate-800 p-4 space-y-2 flex-col justify-between shrink-0 hidden lg:flex custom-scroll overflow-y-auto">
+      <div class="space-y-1">
+        <div class="text-[10px] uppercase font-bold text-slate-500 tracking-wider px-3 mb-2">Editor Modules</div>
+
+        <button data-tab="tab-general" class="nav-tab active w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition text-left bg-amber-500/10 text-amber-400 border border-amber-500/30">
+          <i class="fa-solid fa-sliders w-4 text-center"></i>
+          <span>Global Branding & HQ</span>
+        </button>
+
+        <button data-tab="tab-hero" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-film w-4 text-center text-sky-400"></i>
+          <span>Hero Video & Headlines</span>
+        </button>
+
+        <button data-tab="tab-stats" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-chart-line w-4 text-center text-amber-400"></i>
+          <span>Engineering Track Record</span>
+        </button>
+
+        <button data-tab="tab-services" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-bolt w-4 text-center text-sky-400"></i>
+          <span>EPC Services (Power/Civil)</span>
+        </button>
+
+        <button data-tab="tab-projects" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-city w-4 text-center text-amber-400"></i>
+          <span>Landmark Projects</span>
+        </button>
+
+        <button data-tab="tab-media" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-photo-film w-4 text-center text-emerald-400"></i>
+          <span>Media & Upload Center</span>
+        </button>
+
+        <button data-tab="tab-sister" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-truck-monster w-4 text-center text-orange-400"></i>
+          <span>Swadesh Logistics Fleet</span>
+        </button>
+
+        <button data-tab="tab-inquiries" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-inbox w-4 text-center text-indigo-400"></i>
+          <span>Tender Inquiries (RFQ)</span>
+        </button>
+      </div>
+
+      <!-- Quick Server Info -->
+      <div class="p-3 rounded-2xl bg-slate-900/60 border border-slate-800/80 text-[11px] text-slate-400 space-y-1">
+        <div class="flex justify-between items-center">
+          <span>Storage</span>
+          <span class="text-emerald-400 font-mono">Encrypted Local JSON</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span>Engine</span>
+          <span class="text-amber-400 font-mono">Node.js Express v24</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENT EDITING AREA -->
+    <main class="flex-1 p-4 sm:p-8 custom-scroll overflow-y-auto">
+      
+      <!-- Notification Toast -->
+      <div id="toastMessage" class="fixed bottom-6 right-6 z-50 px-5 py-3 rounded-2xl bg-emerald-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-2xl transition-all transform translate-y-24 opacity-0 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastText">Changes successfully saved!</span>
+      </div>
+
+      <!-- ================= TAB 1: GLOBAL BRANDING & HQ ================= -->
+      <div id="tab-general" class="tab-panel space-y-6">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-xl font-bold font-display text-white">Global Branding & Company Contacts</h2>
+          <p class="text-xs text-slate-400">Edit company title, address, topbar details, and brand logo.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider">Company Identity</h3>
+            
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Company Official Name</label>
+              <input type="text" id="cfgSiteName" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:border-amber-500 focus:outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Tagline</label>
+              <input type="text" id="cfgTagline" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:border-amber-500 focus:outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Government Reg & Certifications</label>
+              <input type="text" id="cfgRegInfo" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:border-amber-500 focus:outline-none">
+            </div>
+          </div>
+
+          <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">Contact & Headquarters</h3>
+            
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Headquarters Address</label>
+              <input type="text" id="cfgHqAddress" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:border-amber-500 focus:outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Primary Hotline</label>
+              <input type="text" id="cfgPhone" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:border-amber-500 focus:outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Official Inquiry Email</label>
+              <input type="email" id="cfgEmail" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:border-amber-500 focus:outline-none">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 2: HERO VIDEO & HEADLINES ================= -->
+      <div id="tab-hero" class="tab-panel hidden space-y-6">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-xl font-bold font-display text-white">Hero Section Video & Cinematic Speed</h2>
+          <p class="text-xs text-slate-400">Configure the background video URL, playback pacing, and hero headlines.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider">Video Configuration</h3>
+            
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Background Video Path</label>
+              <input type="text" id="cfgVideoUrl" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:border-amber-500 focus:outline-none font-mono text-xs">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Video Playback Speed (PlaybackRate)</label>
+              <div class="flex items-center gap-4">
+                <input type="range" id="cfgVideoSpeed" min="0.05" max="1.0" step="0.05" class="w-full accent-amber-500">
+                <span id="videoSpeedDisplay" class="font-mono text-amber-400 font-bold text-sm min-w-16">0.15x</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">Recommended: 0.15x for smooth, slow timelapse playback without fast-forward jumping.</p>
+            </div>
+
+            <div class="pt-2">
+              <label class="block text-xs font-semibold text-slate-300 mb-2">Upload New Video Clip</label>
+              <input type="file" id="heroVideoUploadInput" accept="video/mp4" class="block w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400 cursor-pointer">
+            </div>
+          </div>
+
+          <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">Headlines & Narrative</h3>
+            
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Top Badge Label</label>
+              <input type="text" id="cfgHeroBadge" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:border-amber-500 focus:outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Lead Narrative Text</label>
+              <textarea id="cfgHeroLead" rows="4" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:border-amber-500 focus:outline-none"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 3: EPC SERVICES ================= -->
+      <div id="tab-services" class="tab-panel hidden space-y-6">
+        <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+          <div>
+            <h2 class="text-xl font-bold font-display text-white">EPC Services Catalog</h2>
+            <p class="text-xs text-slate-400">Manage 132/33kV substations, civil engineering, MEP & steel buildings.</p>
+          </div>
+          <button id="addServiceBtn" class="px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 hover:bg-amber-400">
+            <i class="fa-solid fa-plus"></i> Add Service
+          </button>
+        </div>
+
+        <div id="servicesList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- ================= TAB 4: LANDMARK PROJECTS ================= -->
+      <div id="tab-projects" class="tab-panel hidden space-y-6">
+        <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+          <div>
+            <h2 class="text-xl font-bold font-display text-white">Landmark Projects Portfolio</h2>
+            <p class="text-xs text-slate-400">PGCB, DPDC, Power Plants & Infrastructure Contracts.</p>
+          </div>
+          <button id="addProjectBtn" class="px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 hover:bg-amber-400">
+            <i class="fa-solid fa-plus"></i> Add Project
+          </button>
+        </div>
+
+        <div id="projectsList" class="space-y-4">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- ================= TAB 5: MEDIA & UPLOAD CENTER ================= -->
+      <div id="tab-media" class="tab-panel hidden space-y-6">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-xl font-bold font-display text-white">Direct Media & Asset Uploader</h2>
+          <p class="text-xs text-slate-400">Upload high-res photography, CAD drawings, certificates and videos directly into the server assets.</p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-slate-900/60 border border-dashed border-slate-700 text-center space-y-4">
+          <div class="w-14 h-14 mx-auto rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Select Any Media to Upload</h3>
+            <p class="text-xs text-slate-400">Supported: MP4, JPG, PNG, WEBP, PDF</p>
+          </div>
+          <input type="file" id="genericUploadInput" class="hidden">
+          <button onclick="document.getElementById('genericUploadInput').click()" class="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider">
+            Browse Computer Files
+          </button>
+          <div id="uploadResult" class="text-xs text-emerald-400 font-mono"></div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 6: RFQ INQUIRIES ================= -->
+      <div id="tab-inquiries" class="tab-panel hidden space-y-6">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-xl font-bold font-display text-white">Tender RFQ & Client Inquiries Inbox</h2>
+          <p class="text-xs text-slate-400">Live stream of official quotation submissions received from website forms.</p>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-950/60">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-900 text-amber-400 font-bold uppercase tracking-wider border-b border-slate-800">
+              <tr>
+                <th class="p-3.5">Date</th>
+                <th class="p-3.5">Name / Company</th>
+                <th class="p-3.5">Email & Phone</th>
+                <th class="p-3.5">Service Requested</th>
+                <th class="p-3.5">Project Details</th>
+              </tr>
+            </thead>
+            <tbody id="inquiriesTableBody" class="divide-y divide-slate-800 text-slate-300">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- JavaScript Admin Logic -->
+  <script>
+    let siteData = {};
+    let authToken = localStorage.getItem('vt_admin_token') || '';
+
+    // Check Login
+    if (authToken) {
+      document.getElementById('loginOverlay').classList.add('hidden');
+      loadContent();
+      loadInquiries();
+    }
+
+    // Login Form Submit
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const user = document.getElementById('loginUsername').value;
+      const pass = document.getElementById('loginPassword').value;
+      const errBox = document.getElementById('loginError');
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: user, password: pass })
+        });
+        const data = await res.json();
+        if (data.success) {
+          authToken = data.token;
+          localStorage.setItem('vt_admin_token', authToken);
+          document.getElementById('loginOverlay').classList.add('hidden');
+          loadContent();
+          loadInquiries();
+        } else {
+          errBox.textContent = data.error || 'Authentication Failed';
+          errBox.classList.remove('hidden');
+        }
+      } catch (err) {
+        errBox.textContent = 'Server connection error';
+        errBox.classList.remove('hidden');
+      }
+    });
+
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('vt_admin_token');
+      location.reload();
+    });
+
+    // Tab Navigation
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.nav-tab').forEach(b => {
+          b.classList.remove('active', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/30');
+          b.classList.add('text-slate-400', 'border-transparent');
+        });
+        btn.classList.add('active', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/30');
+        btn.classList.remove('text-slate-400', 'border-transparent');
+
+        const tabId = btn.getAttribute('data-tab');
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        document.getElementById(tabId).classList.remove('hidden');
+      });
+    });
+
+    // Fetch site data
+    async function loadContent() {
+      try {
+        const res = await fetch('/api/content');
+        siteData = await res.json();
+        populateFields();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function populateFields() {
+      if (siteData.general) {
+        document.getElementById('cfgSiteName').value = siteData.general.siteName || '';
+        document.getElementById('cfgTagline').value = siteData.general.tagline || '';
+        document.getElementById('cfgRegInfo').value = siteData.general.regInfo || '';
+        document.getElementById('cfgHqAddress').value = siteData.general.hqAddress || '';
+        document.getElementById('cfgPhone').value = siteData.general.phone || '';
+        document.getElementById('cfgEmail').value = siteData.general.email || '';
+      }
+
+      if (siteData.hero) {
+        document.getElementById('cfgVideoUrl').value = siteData.hero.videoUrl || '';
+        const speed = siteData.hero.videoSpeed || 0.15;
+        document.getElementById('cfgVideoSpeed').value = speed;
+        document.getElementById('videoSpeedDisplay').textContent = speed + 'x';
+        document.getElementById('cfgHeroBadge').value = siteData.hero.badge || '';
+        document.getElementById('cfgHeroLead').value = siteData.hero.leadText || '';
+      }
+
+      renderServices();
+      renderProjects();
+    }
+
+    // Video speed slider listener
+    document.getElementById('cfgVideoSpeed').addEventListener('input', (e) => {
+      document.getElementById('videoSpeedDisplay').textContent = e.target.value + 'x';
+    });
+
+    // Render Services
+    function renderServices() {
+      const container = document.getElementById('servicesList');
+      container.innerHTML = '';
+      (siteData.services || []).forEach((srv, idx) => {
+        const card = document.createElement('div');
+        card.className = 'p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3';
+        card.innerHTML = `
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">${srv.badge || 'Service'}</span>
+            <button onclick="deleteService(${idx})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i></button>
+          </div>
+          <input type="text" value="${srv.title}" onchange="siteData.services[${idx}].title = this.value" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-sm font-bold text-white">
+          <textarea rows="3" onchange="siteData.services[${idx}].desc = this.value" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300">${srv.desc}</textarea>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Render Projects
+    function renderProjects() {
+      const container = document.getElementById('projectsList');
+      container.innerHTML = '';
+      (siteData.projects || []).forEach((prj, idx) => {
+        const item = document.createElement('div');
+        item.className = 'p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col md:flex-row gap-5 items-start';
+        item.innerHTML = `
+          <img src="${prj.img || 'assets/images/logo.png'}" class="w-full md:w-36 h-24 object-cover rounded-xl border border-slate-700 shrink-0">
+          <div class="flex-1 space-y-2 w-full">
+            <div class="flex justify-between items-center">
+              <input type="text" value="${prj.title}" onchange="siteData.projects[${idx}].title = this.value" class="w-3/4 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-sm font-bold text-white">
+              <button onclick="deleteProject(${idx})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i> Delete</button>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <input type="text" value="${prj.client}" placeholder="Client" onchange="siteData.projects[${idx}].client = this.value" class="px-2 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-300">
+              <input type="text" value="${prj.category}" placeholder="Category" onchange="siteData.projects[${idx}].category = this.value" class="px-2 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-300">
+            </div>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    window.deleteService = (idx) => {
+      siteData.services.splice(idx, 1);
+      renderServices();
+    };
+
+    window.deleteProject = (idx) => {
+      siteData.projects.splice(idx, 1);
+      renderProjects();
+    };
+
+    document.getElementById('addServiceBtn').addEventListener('click', () => {
+      siteData.services = siteData.services || [];
+      siteData.services.push({
+        id: 'new-' + Date.now(),
+        title: 'New EPC Engineering Service',
+        desc: 'Comprehensive engineering scope description goes here.',
+        badge: 'EPC Division',
+        icon: 'fa-bolt'
+      });
+      renderServices();
+    });
+
+    document.getElementById('addProjectBtn').addEventListener('click', () => {
+      siteData.projects = siteData.projects || [];
+      siteData.projects.push({
+        id: Date.now(),
+        title: 'New Turnkey Project Contract',
+        client: 'Government Utility / Private Conglomerate',
+        category: 'Power Grid',
+        img: 'assets/images/substation-hero.jpg'
+      });
+      renderProjects();
+    });
+
+    // Save All Changes to Server
+    document.getElementById('saveGlobalBtn').addEventListener('click', async () => {
+      // Gather general
+      siteData.general = siteData.general || {};
+      siteData.general.siteName = document.getElementById('cfgSiteName').value;
+      siteData.general.tagline = document.getElementById('cfgTagline').value;
+      siteData.general.regInfo = document.getElementById('cfgRegInfo').value;
+      siteData.general.hqAddress = document.getElementById('cfgHqAddress').value;
+      siteData.general.phone = document.getElementById('cfgPhone').value;
+      siteData.general.email = document.getElementById('cfgEmail').value;
+
+      // Gather hero
+      siteData.hero = siteData.hero || {};
+      siteData.hero.videoUrl = document.getElementById('cfgVideoUrl').value;
+      siteData.hero.videoSpeed = parseFloat(document.getElementById('cfgVideoSpeed').value);
+      siteData.hero.badge = document.getElementById('cfgHeroBadge').value;
+      siteData.hero.leadText = document.getElementById('cfgHeroLead').value;
+
+      try {
+        const res = await fetch('/api/content', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + authToken
+          },
+          body: JSON.stringify(siteData)
+        });
+        const result = await res.json();
+        if (result.success) {
+          showToast('Changes saved to live server successfully!');
+        } else {
+          alert('Error: ' + result.error);
+        }
+      } catch (err) {
+        alert('Server unreachable');
+      }
+    });
+
+    // Generic file upload
+    document.getElementById('genericUploadInput').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append('mediaFile', file);
+
+      try {
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + authToken },
+          body: formData
+        });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('uploadResult').textContent = 'Uploaded successfully: ' + data.filePath;
+          showToast('File uploaded: ' + data.filename);
+        }
+      } catch (err) {
+        alert('Upload failed');
+      }
+    });
+
+    // Video specific upload
+    document.getElementById('heroVideoUploadInput').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const formData = new FormData();
+      formData.append('mediaFile', file);
+      try {
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + authToken },
+          body: formData
+        });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('cfgVideoUrl').value = data.filePath;
+          showToast('New video uploaded and selected!');
+        }
+      } catch (err) {
+        alert('Upload failed');
+      }
+    });
+
+    // Load Inquiries
+    async function loadInquiries() {
+      try {
+        const res = await fetch('/api/inquiries', {
+          headers: { 'Authorization': 'Bearer ' + authToken }
+        });
+        const inquiries = await res.json();
+        const tbody = document.getElementById('inquiriesTableBody');
+        tbody.innerHTML = '';
+        if (inquiries.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" class="p-4 text-center text-slate-500">No inquiry submissions recorded yet.</td></tr>';
+          return;
+        }
+        inquiries.forEach(inq => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-900/50 transition';
+          tr.innerHTML = `
+            <td class="p-3.5 font-mono text-slate-400">${new Date(inq.date).toLocaleDateString()}</td>
+            <td class="p-3.5 font-bold text-white">${inq.name || 'Anonymous'} <div class="text-[10px] text-slate-400 font-normal">${inq.company || ''}</div></td>
+            <td class="p-3.5 text-amber-400">${inq.email || ''} <div class="text-[10px] text-slate-300">${inq.phone || ''}</div></td>
+            <td class="p-3.5"><span class="px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 text-[10px]">${inq.service || 'EPC RFQ'}</span></td>
+            <td class="p-3.5 max-w-xs truncate">${inq.message || inq.scope || '-'}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (err) {}
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toastMessage');
+      document.getElementById('toastText').textContent = text;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

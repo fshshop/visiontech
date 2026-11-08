@@ -1,0 +1,128 @@
+{
+  "general": {
+    "siteName": "VisionTech Engineering Ltd.",
+    "tagline": "Civil & Electro-Mechanical Solutions",
+    "subtitle": "A TRUSTED EPC PARTNER IN CIVIL & ELECTRO-MECHANICAL INFRASTRUCTURE",
+    "hqAddress": "Corporate HQ: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217",
+    "phone": "+88 01730 335002",
+    "email": "info@visiontech-bd.com",
+    "regInfo": "Govt. Reg. Limited Company • ISO & EHS Compliant",
+    "logoUrl": "assets/images/logo.png"
+  },
+  "hero": {
+    "badge": "CIVIL & ELECTRO-MECHANICAL EPC LEADER",
+    "titlePart1": "A Trusted EPC Partner in",
+    "titleGradient": "Civil & Electro-Mechanical",
+    "titlePart2": "Solutions.",
+    "leadText": "VisionTech Engineering Ltd. (VEL) is a dynamic EPC contractor delivering turnkey engineering, 132/33kV power substations, underground transmission cable protection, and heavy logistics for government utilities and private industrial leaders across Bangladesh.",
+    "videoUrl": "assets/videos/hero-engineering-bg.mp4",
+    "videoPoster": "assets/videos/building_poster.jpg",
+    "videoSpeed": 0.15,
+    "featureCard1": {
+      "icon": "fa-bolt-lightning",
+      "title": "Electro-Mechanical",
+      "subtitle": "132/33kV Grids & MEP"
+    },
+    "featureCard2": {
+      "icon": "fa-trowel-bricks",
+      "title": "Heavy Civil",
+      "subtitle": "Deep Foundations & PEB"
+    },
+    "featureCard3": {
+      "icon": "fa-truck-ramp-box",
+      "title": "Heavy Cargo",
+      "subtitle": "Swadesh Carrying Fleet"
+    }
+  },
+  "stats": [
+    { "value": "40+", "label": "Grid Substations Delivered", "sub": "400kV / 230kV / 132kV / 33kV" },
+    { "value": "360 MW", "label": "Power Plant Civil Works", "sub": "Combined Cycle & Heavy Industrial" },
+    { "value": "100,000+", "label": "Pcs Precast Cable Slabs", "sub": "Underground Transmission Safety" },
+    { "value": "100%", "label": "EHS Compliance Track Record", "sub": "Zero-Loss-Time Incident Mandate" }
+  ],
+  "services": [
+    {
+      "id": "power",
+      "title": "132/33kV Substations & Cable Laying",
+      "desc": "Turnkey transmission grid substations, GIS/AIS installations, high-voltage underground cable trenching, jointing, and precast protection slabs.",
+      "icon": "fa-bolt-lightning",
+      "badge": "High Voltage"
+    },
+    {
+      "id": "civil",
+      "title": "Heavy Civil Infrastructure & Foundations",
+      "desc": "Deep pile foundations, heavy equipment machine foundations, water reservoirs, drainage retaining structures, and national bridge auxiliary civil works.",
+      "icon": "fa-trowel-bricks",
+      "badge": "Heavy Civil"
+    },
+    {
+      "id": "mep",
+      "title": "Electro-Mechanical (MEP) & Interior",
+      "desc": "Industrial HVAC ventilation, electrical busbar trunking, emergency power generation synchronization, fire hydrant protection, and corporate fit-outs.",
+      "icon": "fa-gears",
+      "badge": "Industrial MEP"
+    },
+    {
+      "id": "industrial",
+      "title": "Pre-Engineered Steel Buildings (PEB)",
+      "desc": "Heavy structural steel fabrication, industrial multi-story factories, logistics warehouses, and large-span covered warehouses built to international ASTM standards.",
+      "icon": "fa-industry",
+      "badge": "PEB Steel"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "400/230/132kV GIS Grid Substation Project",
+      "client": "Power Grid Company of Bangladesh (PGCB)",
+      "category": "Substations",
+      "location": "Dhaka Region",
+      "value": "Turnkey EPC Subcontract",
+      "img": "assets/images/substation-hero.jpg",
+      "scope": "Civil foundations, control building construction, GIS equipment erection, transformer bay earthing, and drainage infrastructure."
+    },
+    {
+      "id": 2,
+      "title": "360 MW Combined Cycle Power Plant Foundations",
+      "client": "Haripur / Strategic Consortium Partner",
+      "category": "Power Plants",
+      "location": "Narayanganj",
+      "value": "Major Civil Works",
+      "img": "assets/images/projects/4.jpg",
+      "scope": "Heavy machinery foundations, dynamic load vibration absorption pits, circulating cooling water trenches, and auxiliary steel structural framing."
+    },
+    {
+      "id": 3,
+      "title": "132kV Underground Transmission Cable Route Protection",
+      "client": "Dhaka Power Distribution Company (DPDC)",
+      "category": "Transmission",
+      "location": "Metropolitan Dhaka",
+      "value": "Safety & Trenching Contract",
+      "img": "assets/images/projects/2.jpg",
+      "scope": "Trench excavation in dense urban corridors, RCC duct bank placement, and installation of 100,000+ pcs proprietary precast interlocking protection slabs."
+    },
+    {
+      "id": 4,
+      "title": "Heavy Industrial Pre-Engineered Steel Manufacturing Facility",
+      "client": "Premier Industrial Group",
+      "category": "PEB Steel",
+      "location": "Gazipur Industrial Zone",
+      "value": "Full PEB Turnkey",
+      "img": "assets/images/projects/6.jpg",
+      "scope": "Clear-span PEB steel building design, fabrication, on-site erection, heavy overhead crane girder installation, and high-spec industrial flooring."
+    }
+  ],
+  "sisterConcern": {
+    "name": "Swadesh Carrying Agency",
+    "subtitle": "Heavy Haulage, Specialized Hydraulic Multi-Axle Fleet & Inland River Logistics",
+    "statFleet": "25+ Specialized Vehicles",
+    "statCapacity": "Up to 300 Tons Per Move",
+    "desc": "Operating as VisionTech's integrated logistics backbone, Swadesh Carrying Agency guarantees self-reliant transport of heavy power transformers, turbines, and oversized construction cargo across all national highways and river waterways in Bangladesh."
+  },
+  "investors": {
+    "headline": "Strategic Investment Proposal: Power, Logistics & Turnkey Infrastructure",
+    "targetCapital": "$5,000,000 USD",
+    "projectedRoi": "22% - 28% IRR",
+    "status": "Active Capital Round Open for Accredited Strategic Partners"
+  }
+}
