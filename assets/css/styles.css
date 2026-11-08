@@ -560,10 +560,33 @@ html, body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Ensure images, SVGs and videos never break parent bounds */
-img, video, canvas, svg {
+/* Ensure images, media and canvas never break parent bounds */
+img, video, canvas {
   max-width: 100%;
   height: auto;
+}
+
+/* Explicit bounds for engineering cursor so it NEVER expands */
+.eng-crosshair-wrap {
+  position: fixed !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+  z-index: 999999 !important;
+}
+
+.eng-crosshair-wrap svg {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+}
+
+.eng-hammer-svg {
+  width: 40px !important;
+  height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
 }
 
 /* Table Responsive Scrolling Container */
