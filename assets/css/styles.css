@@ -795,3 +795,9 @@ img, video, canvas {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+/* High-Vibrance Hero Video Brightness Boost */
+#heroBgVideo {
+  filter: brightness(1.25) contrast(1.12) saturate(1.25) !important;
+}
