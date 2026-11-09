@@ -676,3 +676,84 @@ img, video, canvas {
 .animate-fadeIn {
   animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+
+/* ========================================================
+   PREMIUM BUTTON HOVER ANIMATION & GLOW EFFECTS
+   ======================================================== */
+
+/* General Interactive Button Transitions */
+button,
+a.btn-shimmer,
+.open-quote-modal,
+#toggle-management-btn,
+#toggle-advisory-btn,
+a[class*="from-amber"],
+a[class*="bg-amber"],
+a[class*="border-amber"],
+.btn-glow {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              color 0.3s ease,
+              filter 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+/* Ambient Pulse for Primary CTA Buttons */
+@keyframes buttonPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.45), 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(245, 158, 11, 0.75), 0 8px 30px rgba(245, 158, 11, 0.4);
+  }
+}
+
+/* Hover Lift & Radiant Gold Glow for Primary / Amber Buttons */
+button.btn-shimmer:hover,
+a.btn-shimmer:hover,
+button.open-quote-modal:hover,
+a[class*="from-amber"]:hover,
+button[type="submit"]:hover {
+  transform: translateY(-2.5px) scale(1.02);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.55),
+              0 0 50px rgba(245, 158, 11, 0.25),
+              0 12px 25px -5px rgba(0, 0, 0, 0.4);
+  filter: brightness(1.08);
+  animation: buttonPulseGlow 2s infinite ease-in-out;
+}
+
+/* Hover Glow for Dark / Outline Buttons (like "View All...", "Inspect Advisors", etc.) */
+#toggle-management-btn:hover,
+#toggle-advisory-btn:hover,
+button[class*="border-amber"]:hover,
+a[class*="border-amber"]:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.4),
+              0 0 40px rgba(245, 158, 11, 0.15),
+              inset 0 0 14px rgba(245, 158, 11, 0.12);
+  border-color: rgba(251, 191, 36, 0.85) !important;
+  color: #ffffff !important;
+}
+
+/* Interactive Close Buttons Hover Effect */
+button.close-quote-modal:hover,
+button.close-project-modal:hover {
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.45);
+  border-color: rgba(245, 158, 11, 0.7) !important;
+  color: #fbbf24 !important;
+}
+
+/* Active Click Feedback (Depression / Press effect) */
+button:active,
+a.btn-shimmer:active,
+.open-quote-modal:active,
+#toggle-management-btn:active,
+#toggle-advisory-btn:active {
+  transform: translateY(1px) scale(0.98) !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4) !important;
+}
