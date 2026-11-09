@@ -142,7 +142,7 @@ html {
   display: flex;
   overflow: hidden;
   user-select: none;
-  gap: 2rem;
+  gap: 3rem;
   mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
@@ -152,13 +152,13 @@ html {
   flex-shrink: 0;
   justify-content: space-around;
   min-width: 100%;
-  gap: 2rem;
-  animation: scroll-marquee 28s linear infinite;
+  gap: 3rem;
+  animation: scroll-marquee 32s linear infinite;
 }
 
 @keyframes scroll-marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to { transform: translateX(calc(-100% - 3rem)); }
 }
 
 .marquee-container:hover .marquee-content {
