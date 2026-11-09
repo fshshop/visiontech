@@ -4,10 +4,15 @@
     "tagline": "Civil & Electro-Mechanical Solutions",
     "subtitle": "A TRUSTED EPC PARTNER IN CIVIL & ELECTRO-MECHANICAL INFRASTRUCTURE",
     "hqAddress": "Corporate HQ: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217",
-    "phone": "+88 01730 335002",
-    "email": "info@visiontech-bd.com",
-    "regInfo": "Govt. Reg. Limited Company \u2022 ISO & EHS Compliant",
-    "logoUrl": "assets/images/logo.png"
+    "phone": "+88 01711 336533 / +88 01328 952275",
+    "email": "info@visiontech-bd.com, visiontech.ceo@gmail.com",
+    "regInfo": "Inc: C-202337/2025 • BIN: 007106124-0401 • TIN: 747413942028",
+    "logoUrl": "assets/images/logo.png",
+    "landline": "+8802 224 458478",
+    "bankDetails": [
+      "AB Bank PLC, Islami Banking Branch, Kakrail, Dhaka (A/C: 1361119383001)",
+      "NCC Bank PLC, 51 Gulshan Avenue, Dhaka (A/C: 0012-0210028116)"
+    ]
   },
   "hero": {
     "badge": "CIVIL & ELECTRO-MECHANICAL EPC LEADER",
@@ -89,43 +94,83 @@
   "projects": [
     {
       "id": 1,
-      "title": "400/230/132kV GIS Grid Substation Project",
+      "title": "New Bibiyana 230/132/33kV GIS Grid Substation Land Development Work",
       "client": "Power Grid Company of Bangladesh (PGCB)",
-      "category": "Substations",
-      "location": "Dhaka Region",
-      "value": "Turnkey EPC Subcontract",
+      "category": "Substations & Land Development",
+      "location": "Nabiganj, Hobiganj",
+      "value": "BDT 45,000,000.00 Approx",
       "img": "assets/images/project-bhulta-400kv.jpg",
-      "scope": "Civil foundations, control building construction, GIS equipment erection, transformer bay earthing, and drainage infrastructure."
+      "scope": "Turnkey land development, deep compaction, site leveling, grading, and perimeter flood containment for 230/132/33kV GIS switchyard under PGCB with CCCE-ETERN-FEPEC Consortium."
     },
     {
       "id": 2,
-      "title": "360 MW Combined Cycle Power Plant Foundations",
-      "client": "Haripur / Strategic Consortium Partner",
+      "title": "DPDC Underground Cable Line (Package-2 Lot-15)",
+      "client": "Dhaka Power Distribution Company (DPDC)",
+      "category": "Transmission",
+      "location": "Signboard to Siddhirganj, Dhaka",
+      "value": "BDT 18,300,000.00",
+      "img": "assets/images/project-cable-slab.jpg",
+      "scope": "Urban underground cable line construction, duct bank installation, joint bay chambers, and precast protection slabs with TBEA Co. Ltd."
+    },
+    {
+      "id": 3,
+      "title": "Land Development at Moulovibazar Palli Biddyut Samity-6",
+      "client": "Bangladesh Rural Electrification Board (BREB) / Energypac",
+      "category": "Land Development",
+      "location": "Athangiri, Kagabola, Moulovibazar",
+      "value": "BDT 11,200,000.00",
+      "img": "assets/images/project-site-work.jpg",
+      "scope": "Land Development with proper mechanical compaction, leveling & dressing for rural power network substation expansion (DNE DMCS)."
+    },
+    {
+      "id": 4,
+      "title": "Kaliganj 132/33kV AIS Substation Graveling Works",
+      "client": "Power Grid Company of Bangladesh (PGCB)",
+      "category": "Substations",
+      "location": "Kaliganj, Jhenaidah",
+      "value": "BDT 10,600,000.00",
+      "img": "assets/images/project-electrical-mep.jpg",
+      "scope": "Supply & Laying of Graveling Work for Kaliganj 132/33kV AIS Substation under PGCB with CCCE-ETERN-FEPEC Consortium and Alvee Construction."
+    },
+    {
+      "id": 5,
+      "title": "PTC PLC Corporate Facility Renovation & Upgradation",
+      "client": "Petroleum Transmission Company PLC (PTC PLC - BPC)",
+      "category": "Civil & MEP Renovation",
+      "location": "Dhaka Headquarters",
+      "value": "BDT 7,250,000.00",
+      "img": "assets/images/project-building-renovation.jpg",
+      "scope": "Comprehensive turnkey civil, sanitary, electrical, glass partition, executive interior, kitchen cabinetry, AC systems, and CCTV surveillance."
+    },
+    {
+      "id": 6,
+      "title": "Bangladesh Supreme Court Interior Architecture & Fabrication",
+      "client": "Bangladesh Supreme Court",
+      "category": "Interior Architecture",
+      "location": "Supreme Court, Dhaka",
+      "value": "BDT 850,000.00",
+      "img": "assets/images/project-office-interior.jpg",
+      "scope": "Acoustic wood paneling, executive chamber fabrication, custom architectural fittings, and judicial chamber renovation."
+    },
+    {
+      "id": 7,
+      "title": "Bheramara 360MW Combined Cycle Power Plant Civil Works",
+      "client": "PGCB / Energypac Engineering Ltd.",
       "category": "Power Plants",
-      "location": "Narayanganj",
+      "location": "Bheramara, Kushtia",
       "value": "Major Civil Works",
       "img": "assets/images/project-bheramara-360mw.jpg",
       "scope": "Heavy machinery foundations, dynamic load vibration absorption pits, circulating cooling water trenches, and auxiliary steel structural framing."
     },
     {
-      "id": 3,
-      "title": "132kV Underground Transmission Cable Route Protection",
-      "client": "Dhaka Power Distribution Company (DPDC)",
-      "category": "Transmission",
-      "location": "Metropolitan Dhaka",
-      "value": "Safety & Trenching Contract",
-      "img": "assets/images/project-cable-slab.jpg",
-      "scope": "Trench excavation in dense urban corridors, RCC duct bank placement, and installation of 100,000+ pcs proprietary precast interlocking protection slabs."
-    },
-    {
-      "id": 4,
-      "title": "Heavy Industrial Pre-Engineered Steel Manufacturing Facility",
-      "client": "Premier Industrial Group",
-      "category": "PEB Steel",
-      "location": "Gazipur Industrial Zone",
-      "value": "Full PEB Turnkey",
+      "id": 8,
+      "title": "Industrial Perimeter Boundary Wall & Electromechanical Works",
+      "client": "Onin Textile Mills",
+      "category": "PEB & Industrial Civil",
+      "location": "Industrial Zone",
+      "value": "BDT 12,600,000.00",
       "img": "assets/images/project-site-work.jpg",
-      "scope": "Clear-span PEB steel building design, fabrication, on-site erection, heavy overhead crane girder installation, and high-spec industrial flooring."
+      "scope": "Deep-foundation reinforced concrete industrial security boundary wall, integrated drainage systems, high-voltage plant power distribution, and lighting."
     }
   ],
   "sisterConcern": {
@@ -148,21 +193,21 @@
       {
         "id": 1,
         "title": "Corporate Fact Sheet & Profile",
-        "size": "PDF \u2022 2.4 MB",
+        "size": "PDF • 2.4 MB",
         "desc": "Official engineering credentials, management profile, bank solvency certificates, and company registry.",
         "fileUrl": "assets/docs/VisionTech-Corporate-Profile.pdf"
       },
       {
         "id": 2,
         "title": "EPC Turnkey Capabilities Deck",
-        "size": "PDF \u2022 4.1 MB",
+        "size": "PDF • 4.1 MB",
         "desc": "132/33kV substations, underground transmission cable laying methods, and civil construction machinery.",
         "fileUrl": "assets/docs/VisionTech-EPC-Capabilities.pdf"
       },
       {
         "id": 3,
         "title": "Swadesh Carrying Logistics Deck",
-        "size": "PDF \u2022 1.8 MB",
+        "size": "PDF • 1.8 MB",
         "desc": "Specialized multi-axle trailer fleet, river barge charters, and heavy cargo transit insurance policies.",
         "fileUrl": "assets/docs/Swadesh-Logistics-Brochure.pdf"
       }
