@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Hero Background Video Autoplay Safety (for local file:/// and web protocols)
+window.currentVideoSpeed = 0.85;
+
 function initHeroVideo() {
   const video = document.getElementById('heroBgVideo');
   if (!video) return;
@@ -26,7 +28,7 @@ function initHeroVideo() {
   video.playsInline = true;
 
   // Ultra-calm engineering playback speed (0.15x) so fast-forward timelapse moves gracefully
-  const TARGET_SPEED = 0.15;
+  const TARGET_SPEED = window.currentVideoSpeed || 0.85;
   const applyRate = () => {
     try {
       if (video.playbackRate !== TARGET_SPEED) {
@@ -662,11 +664,16 @@ async function syncLiveCMS() {
 
     // 2. Sync Hero Section Video & Pacing
     if (data.hero) {
+      if (data.hero.videoSpeed) {
+        window.currentVideoSpeed = parseFloat(data.hero.videoSpeed);
+      }
       const v = document.getElementById('heroBgVideo');
       if (v) {
-        if (data.hero.videoSpeed) {
-          const sp = parseFloat(data.hero.videoSpeed);
-          v.playbackRate = sp;
+        if (data.hero.videoUrl && !v.querySelector('source[src="' + data.hero.videoUrl + '"]')) {
+          v.src = data.hero.videoUrl;
+        }
+        if (window.currentVideoSpeed) {
+          v.playbackRate = window.currentVideoSpeed;
         }
       }
     }
