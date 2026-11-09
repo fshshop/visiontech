@@ -354,196 +354,86 @@ function initBackToTop() {
 }
 
 // ========================================================
-// COMPACT ENGINEERING CROSSHAIR & BUTTON HAMMER ENGINE
-// No Outer Circles & Interactive Hammer Strike Animation
+// MODERN STYLISH EXECUTIVE CURSOR ENGINE
+// Preserves normal responsive system cursor with a sleek gold trailing ring
 // ========================================================
 function initCustomCursor() {
   if (window.matchMedia('(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)').matches) {
     return;
   }
 
-  if (document.getElementById('engCursorWrap')) {
-    return;
+  let follower = document.getElementById('stylishCursor');
+  if (!follower) {
+    follower = document.createElement('div');
+    follower.className = 'stylish-cursor-follower';
+    follower.id = 'stylishCursor';
+    document.body.appendChild(follower);
   }
 
-  document.body.classList.add('has-eng-cursor');
-
-  const wrap = document.createElement('div');
-  wrap.className = 'eng-crosshair-wrap';
-  wrap.id = 'engCursorWrap';
-
-  // Compact 24x24 SVG Crosshair (No circles!) + Construction Hammer (36x36)
-  wrap.innerHTML = `
-    <!-- 1. Sleek Compact Crosshair (24x24) -->
-    <div class="eng-reticle-box" id="engReticleBox">
-      <svg class="eng-crosshair-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="chGold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fef08a"/>
-            <stop offset="50%" stop-color="#fbbf24"/>
-            <stop offset="100%" stop-color="#f59e0b"/>
-          </linearGradient>
-        </defs>
-
-        <!-- North Arm -->
-        <g id="engArmN">
-          <line x1="12" y1="9" x2="12" y2="1" stroke="rgba(255, 255, 255, 0.95)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="10.5" y1="6" x2="13.5" y2="6" stroke="#fbbf24" stroke-width="0.8"/>
-          <line x1="10" y1="3" x2="14" y2="3" stroke="#fbbf24" stroke-width="0.8"/>
-        </g>
-
-        <!-- South Arm -->
-        <g id="engArmS">
-          <line x1="12" y1="15" x2="12" y2="23" stroke="rgba(255, 255, 255, 0.95)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="10.5" y1="18" x2="13.5" y2="18" stroke="#fbbf24" stroke-width="0.8"/>
-          <line x1="10" y1="21" x2="14" y2="21" stroke="#fbbf24" stroke-width="0.8"/>
-        </g>
-
-        <!-- West Arm -->
-        <g id="engArmW">
-          <line x1="9" y1="12" x2="1" y2="12" stroke="rgba(255, 255, 255, 0.95)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="6" y1="10.5" x2="6" y2="13.5" stroke="#fbbf24" stroke-width="0.8"/>
-          <line x1="3" y1="10" x2="3" y2="14" stroke="#fbbf24" stroke-width="0.8"/>
-        </g>
-
-        <!-- East Arm -->
-        <g id="engArmE">
-          <line x1="15" y1="12" x2="23" y2="12" stroke="rgba(255, 255, 255, 0.95)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="18" y1="10.5" x2="18" y2="13.5" stroke="#fbbf24" stroke-width="0.8"/>
-          <line x1="21" y1="10" x2="21" y2="14" stroke="#fbbf24" stroke-width="0.8"/>
-        </g>
-
-        <!-- Center Golden Bead -->
-        <g id="engCenterDot">
-          <circle cx="12" cy="12" r="1.6" fill="url(#chGold)"/>
-          <circle cx="12" cy="12" r="0.6" fill="#ffffff"/>
-        </g>
-      </svg>
-    </div>
-
-    <!-- 2. Construction Hammer (Strikes down repeatedly on buttons) -->
-    <div class="eng-hammer-box" id="engHammerBox">
-      <svg viewBox="0 0 36 36" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="hSteel" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ffffff"/>
-            <stop offset="40%" stop-color="#cbd5e1"/>
-            <stop offset="80%" stop-color="#64748b"/>
-            <stop offset="100%" stop-color="#334155"/>
-          </linearGradient>
-          <linearGradient id="hGold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fef08a"/>
-            <stop offset="50%" stop-color="#fbbf24"/>
-            <stop offset="100%" stop-color="#b45309"/>
-          </linearGradient>
-          <linearGradient id="hWood" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#d97706"/>
-            <stop offset="40%" stop-color="#92400e"/>
-            <stop offset="100%" stop-color="#451a03"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Handle (wooden grip) -->
-        <path d="M12 14 L28 30 A 2 2 0 0 1 25 33 L9 17 Z" fill="url(#hWood)" stroke="#1e1b4b" stroke-width="0.5"/>
-        <line x1="20" y1="23" x2="23" y2="26" stroke="#fde68a" stroke-width="0.8" opacity="0.6"/>
-        <line x1="23" y1="26" x2="26" y2="29" stroke="#fde68a" stroke-width="0.8" opacity="0.6"/>
-
-        <!-- Gold Collar Mount -->
-        <rect x="8" y="13" width="5" height="5" rx="1" fill="url(#hGold)" stroke="#78350f" stroke-width="0.4" transform="rotate(-45 10.5 15.5)"/>
-
-        <!-- Heavy Steel Hammer Head -->
-        <polygon points="5,7 15,3 18,10 8,14" fill="url(#hSteel)" stroke="#0f172a" stroke-width="0.6"/>
-        <!-- Golden Impact Striking Face -->
-        <polygon points="3,8 5,7 8,14 6,15" fill="url(#hGold)" stroke="#78350f" stroke-width="0.5"/>
-        <!-- Back Claw / Peen -->
-        <polygon points="15,3 21,2 20,6 18,10" fill="#475569" stroke="#0f172a" stroke-width="0.5"/>
-      </svg>
-
-      <!-- Impact Flash Sparks -->
-      <div class="hammer-sparks">
-        <span class="spark s1"></span>
-        <span class="spark s2"></span>
-        <span class="spark s3"></span>
-        <span class="spark s4"></span>
-      </div>
-    </div>
-  `;
-
-  document.body.appendChild(wrap);
-
-  const centerDot = document.getElementById('engCenterDot');
-  const armN = document.getElementById('engArmN');
-  const armS = document.getElementById('engArmS');
-  const armW = document.getElementById('engArmW');
-  const armE = document.getElementById('engArmE');
-
+  let mouseX = -100;
+  let mouseY = -100;
+  let followerX = -100;
+  let followerY = -100;
+  let isHovering = false;
   let isVisible = false;
 
-  // Ultra-fast 1:1 Instant Hardware Tracking (Zero Latency / Zero Lag)
   window.addEventListener('mousemove', (e) => {
-    wrap.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
     if (!isVisible) {
       isVisible = true;
-      wrap.classList.add('active');
+      follower.classList.add('is-active');
     }
   }, { passive: true });
 
+  window.addEventListener('mousedown', () => {
+    follower.classList.add('is-clicking');
+  });
+
+  window.addEventListener('mouseup', () => {
+    follower.classList.remove('is-clicking');
+  });
+
   document.addEventListener('mouseleave', () => {
     isVisible = false;
-    wrap.classList.remove('active');
+    follower.classList.remove('is-active');
   });
 
   document.addEventListener('mouseenter', () => {
     isVisible = true;
-    wrap.classList.add('active');
+    follower.classList.add('is-active');
   });
 
-  // Dynamic Hover Delegation: Switches to Hammer when over any button or link
+  // Dynamic hover delegation for links, buttons & clickable elements
   document.addEventListener('mouseover', (e) => {
     const target = e.target;
     if (!target) return;
-
-    const btnTarget = target.closest('a, button, input[type="submit"], input[type="button"], select, [role="button"], .filter-pill, .btn-shimmer, .service-tab-btn, .tab-btn');
-    if (btnTarget) {
-      wrap.classList.add('hover-button');
-      return;
-    }
-
-    const textTarget = target.closest('input[type="text"], input[type="email"], input[type="tel"], textarea');
-    if (textTarget) {
-      wrap.style.opacity = '0.15';
-      return;
-    }
-
-    wrap.classList.remove('hover-button');
-    wrap.style.opacity = '';
-  }, { passive: true });
-
-  document.addEventListener('mouseout', (e) => {
-    const target = e.target;
-    if (!target) return;
-    if (target.closest('input[type="text"], input[type="email"], input[type="tel"], textarea')) {
-      wrap.style.opacity = '';
+    const isInteractive = target.closest('a, button, [role="button"], input[type="submit"], input[type="button"], select, .btn-shimmer, .service-tab-btn, .filter-pill, .cad-mark, .spotlight-card');
+    if (isInteractive) {
+      if (!isHovering) {
+        isHovering = true;
+        follower.classList.add('is-hovering');
+      }
+    } else {
+      if (isHovering) {
+        isHovering = false;
+        follower.classList.remove('is-hovering');
+      }
     }
   }, { passive: true });
 
-  // Continuous optical breathing loop (independent of movement)
-  function renderLoop(now) {
-    if (!wrap.classList.contains('hover-button')) {
-      const breathe = Math.sin(now * 0.003) * 1.2;
-      const dotPulse = 1 + Math.sin(now * 0.004) * 0.15;
-
-      if (armN) armN.setAttribute('transform', `translate(0, ${-breathe})`);
-      if (armS) armS.setAttribute('transform', `translate(0, ${breathe})`);
-      if (armW) armW.setAttribute('transform', `translate(${-breathe}, 0)`);
-      if (armE) armE.setAttribute('transform', `translate(${breathe}, 0)`);
-      if (centerDot) centerDot.setAttribute('transform', `scale(${dotPulse})`);
+  // Ultra-smooth 60/120fps fluid trailing physics loop
+  function loop() {
+    if (isVisible) {
+      // Smooth lerp (linear interpolation)
+      followerX += (mouseX - followerX) * 0.22;
+      followerY += (mouseY - followerY) * 0.22;
+      follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0)`;
     }
-
-    requestAnimationFrame(renderLoop);
+    requestAnimationFrame(loop);
   }
 
-  requestAnimationFrame(renderLoop);
+  requestAnimationFrame(loop);
 }
 
 // Smooth Section Rise-Up on Scroll (Repeatable Two-Way Scroll Reveal)
