@@ -757,3 +757,42 @@ a.btn-shimmer:active,
   transform: translateY(1px) scale(0.98) !important;
   box-shadow: 0 0 12px rgba(245, 158, 11, 0.4) !important;
 }
+
+
+/* ========================================================
+   FOOTER HIGH-TECH SCANNER LASER ANIMATION
+   ======================================================== */
+.footer-scanner-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(245, 158, 11, 0.4) 15%, 
+    rgba(251, 191, 36, 1) 50%, 
+    rgba(56, 189, 248, 0.9) 75%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.9), 0 0 28px rgba(56, 189, 248, 0.7);
+  z-index: 20;
+  pointer-events: none;
+  animation: footerScannerSweep 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes footerScannerSweep {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
