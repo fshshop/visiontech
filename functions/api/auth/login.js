@@ -7,11 +7,15 @@ export async function onRequestPost(context) {
     let validPass = 'admin@visiontech';
 
     if (context.env && context.env.SITE_DATA_KV) {
-      const stored = await context.env.SITE_DATA_KV.get('adminAuth');
-      if (stored) {
-        const auth = JSON.parse(stored);
-        if (auth.username) validUser = auth.username;
-        if (auth.password) validPass = auth.password;
+      try {
+        const stored = await context.env.SITE_DATA_KV.get('adminAuth');
+        if (stored) {
+          const auth = JSON.parse(stored);
+          if (auth.username) validUser = auth.username;
+          if (auth.password) validPass = auth.password;
+        }
+      } catch (kvErr) {
+        console.error('KV auth lookup error:', kvErr);
       }
     }
 

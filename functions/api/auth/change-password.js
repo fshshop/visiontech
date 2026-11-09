@@ -3,7 +3,7 @@ export async function onRequestPost(context) {
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), {
       status: 401,
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     });
   }
 
@@ -12,15 +12,19 @@ export async function onRequestPost(context) {
     if (!newPassword || newPassword.length < 6) {
       return new Response(JSON.stringify({ error: 'Password must be at least 6 characters' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
       });
     }
 
     if (context.env && context.env.SITE_DATA_KV) {
-      await context.env.SITE_DATA_KV.put('adminAuth', JSON.stringify({
-        username: username || 'admin',
-        password: newPassword
-      }));
+      try {
+        await context.env.SITE_DATA_KV.put('adminAuth', JSON.stringify({
+          username: username || 'admin',
+          password: newPassword
+        }));
+      } catch (kvErr) {
+        console.error('KV put adminAuth error:', kvErr);
+      }
     }
 
     return new Response(JSON.stringify({
@@ -35,7 +39,7 @@ export async function onRequestPost(context) {
   } catch (err) {
     return new Response(JSON.stringify({ error: err.message }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     });
   }
 }

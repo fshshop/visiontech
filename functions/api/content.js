@@ -14,7 +14,9 @@ export async function onRequestGet(context) {
         });
       }
     }
-  } catch (e) {}
+  } catch (e) {
+    console.error('KV read error:', e);
+  }
 
   return new Response(JSON.stringify(defaultData), {
     headers: {
@@ -38,7 +40,11 @@ export async function onRequestPost(context) {
     const newContent = await context.request.json();
     const str = JSON.stringify(newContent);
     if (context.env && context.env.SITE_DATA_KV) {
-      await context.env.SITE_DATA_KV.put('siteData', str);
+      try {
+        await context.env.SITE_DATA_KV.put('siteData', str);
+      } catch (kvErr) {
+        console.error('KV write error:', kvErr);
+      }
     }
     return new Response(JSON.stringify({
       success: true,

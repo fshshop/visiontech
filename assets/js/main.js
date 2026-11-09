@@ -648,18 +648,47 @@ function initNavDropdowns() {
 }
 
 
-// Dynamically Synchronize Frontend with CMS Server Data (if API is available)
+// Dynamically Synchronize Frontend with CMS Server Data & Persistent LocalStorage
 async function syncLiveCMS() {
   try {
-    const res = await fetch('/api/content');
-    if (!res.ok) return;
-    const data = await res.json();
+    let data = null;
+    try {
+      const res = await fetch('/api/content?t=' + Date.now());
+      if (res.ok) {
+        data = await res.json();
+      }
+    } catch(e) {}
+
+    // Check localStorage fallback so local edits persist immediately across site
+    const local = localStorage.getItem('vt_live_sitedata');
+    if (local) {
+      try {
+        const parsed = JSON.parse(local);
+        data = Object.assign(data || {}, parsed);
+      } catch(e) {}
+    }
+
+    if (!data) return;
     
-    // 1. Sync General Branding
+    // 1. Sync General Branding & Logo
     if (data.general) {
-      document.querySelectorAll('.site-brand-name').forEach(el => el.textContent = data.general.siteName);
-      document.querySelectorAll('.site-phone').forEach(el => el.textContent = data.general.phone);
-      document.querySelectorAll('.site-email').forEach(el => el.textContent = data.general.email);
+      if (data.general.siteName) {
+        document.querySelectorAll('.site-brand-name').forEach(el => el.textContent = data.general.siteName);
+      }
+      if (data.general.phone) {
+        document.querySelectorAll('.site-phone').forEach(el => el.textContent = data.general.phone);
+      }
+      if (data.general.email) {
+        document.querySelectorAll('.site-email').forEach(el => el.textContent = data.general.email);
+      }
+      if (data.general.hqAddress) {
+        document.querySelectorAll('.site-address').forEach(el => el.textContent = data.general.hqAddress);
+      }
+      if (data.general.logoUrl) {
+        document.querySelectorAll('img[src*="logo.png"], img[alt*="VisionTech Logo"], img.site-logo').forEach(img => {
+          img.src = data.general.logoUrl;
+        });
+      }
     }
 
     // 2. Sync Hero Section Video & Pacing
@@ -675,6 +704,10 @@ async function syncLiveCMS() {
         if (window.currentVideoSpeed) {
           v.playbackRate = window.currentVideoSpeed;
         }
+      }
+      if (data.hero.leadText) {
+        const leadEl = document.querySelector('.hero-lead-text');
+        if (leadEl) leadEl.textContent = data.hero.leadText;
       }
     }
   } catch(e) {
