@@ -81,20 +81,21 @@ function initMobileMenu() {
   });
 }
 
-// Sticky Header with Dynamic Glassmorphism
+// Sticky Header with Dynamic Glassmorphism & Permanent Elevation
 function initStickyHeader() {
   const header = document.getElementById('mainHeader');
   if (!header) return;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      header.classList.add('shadow-2xl', 'bg-slate-950/90', 'backdrop-blur-xl', 'border-amber-500/20');
-      header.classList.remove('bg-slate-950/70', 'border-slate-800');
+  const onScroll = () => {
+    if (window.scrollY > 10) {
+      header.classList.add('is-stuck');
     } else {
-      header.classList.remove('shadow-2xl', 'bg-slate-950/90', 'border-amber-500/20');
-      header.classList.add('bg-slate-950/70', 'border-slate-800');
+      header.classList.remove('is-stuck');
     }
-  });
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
 // Animated Stat Counters
