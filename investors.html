@@ -82,13 +82,16 @@
               <span>About Us</span>
               <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
             </a>
-            <div class="absolute left-0 mt-2 w-64 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
-              <a href="about.html#overview" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Company Overview & Governance</a>
-              <a href="investors.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-amber-400 font-semibold transition">Strategic Investment Proposal</a>
-              <a href="about.html#values" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">VISIONTECH Core Values</a>
-              <a href="about.html#leadership" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Executive Leadership Bench</a>
-              <a href="about.html#advisors" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Distinguished Advisory Board</a>
-              <a href="about.html#ehs" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Zero-Harm EHS Policy</a>
+            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950/95 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="about.html#overview" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">Company Overview</a>
+              <a href="about.html#mission" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">Vision and Mission</a>
+              <a href="about.html#values" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">CORE VALUE</a>
+              <a href="about.html#general-info" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY GENERAL INFORMATION</a>
+              <a href="about.html#organogram" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY ORGANOGRAM</a>
+              <a href="about.html#clients" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">OUR VALUABLE CLIENT</a>
+              <a href="about.html#ehs" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY EHS POLICY</a>
+              <a href="about.html#manpower" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">OUR MANPOWER LIST</a>
+              <a href="about.html#why-vel" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">WHY CHOOSE VEL</a>
             </div>
           </div>
 
@@ -132,7 +135,23 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 text-sm backdrop-blur-2xl">
       <a href="index.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Home</a>
-      <a href="about.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">About Us</a>
+      <div>
+        <div class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 cursor-pointer" onclick="document.getElementById('mobileAboutMenu').classList.toggle('hidden')">
+          <a href="about.html" class="font-medium hover:text-amber-400">About Us</a>
+          <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+        </div>
+        <div id="mobileAboutMenu" class="hidden pl-4 pr-2 py-1.5 space-y-1 text-xs border-l-2 border-amber-500/30 ml-3 mt-1">
+          <a href="about.html#overview" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">Company Overview</a>
+          <a href="about.html#mission" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">Vision and Mission</a>
+          <a href="about.html#values" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">CORE VALUE</a>
+          <a href="about.html#general-info" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">COMPANY GENERAL INFORMATION</a>
+          <a href="about.html#organogram" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">COMPANY ORGANOGRAM</a>
+          <a href="about.html#clients" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">OUR VALUABLE CLIENT</a>
+          <a href="about.html#ehs" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">COMPANY EHS POLICY</a>
+          <a href="about.html#manpower" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">OUR MANPOWER LIST</a>
+          <a href="about.html#why-vel" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">WHY CHOOSE VEL</a>
+        </div>
+      </div>
       <a href="services.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">EPC Services</a>
       <a href="projects.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Projects</a>
       <a href="supply.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Supply & Trading</a>

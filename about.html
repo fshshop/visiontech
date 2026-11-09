@@ -82,13 +82,16 @@
               <span>About Us</span>
               <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
             </a>
-            <div class="absolute left-0 mt-2 w-64 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
-              <a href="about.html#overview" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Company Overview & Governance</a>
-              <a href="investors.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Strategic Investment Proposal</a>
-              <a href="about.html#values" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">VISIONTECH Core Values</a>
-              <a href="about.html#leadership" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Executive Leadership Bench</a>
-              <a href="about.html#advisors" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Distinguished Advisory Board</a>
-              <a href="about.html#ehs" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Zero-Harm EHS Policy</a>
+            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950/95 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              <a href="about.html#overview" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">Company Overview</a>
+              <a href="about.html#mission" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">Vision and Mission</a>
+              <a href="about.html#values" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">CORE VALUE</a>
+              <a href="about.html#general-info" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY GENERAL INFORMATION</a>
+              <a href="about.html#organogram" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY ORGANOGRAM</a>
+              <a href="about.html#clients" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">OUR VALUABLE CLIENT</a>
+              <a href="about.html#ehs" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY EHS POLICY</a>
+              <a href="about.html#manpower" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">OUR MANPOWER LIST</a>
+              <a href="about.html#why-vel" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">WHY CHOOSE VEL</a>
             </div>
           </div>
 
@@ -129,7 +132,23 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 text-sm backdrop-blur-2xl">
       <a href="index.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Home</a>
-      <a href="about.html" class="block px-3 py-2 rounded-xl text-amber-400 bg-amber-500/10 font-semibold">About Us</a>
+      <div>
+        <div class="flex items-center justify-between px-3 py-2 rounded-xl text-amber-400 bg-amber-500/10 font-semibold cursor-pointer" onclick="document.getElementById('mobileAboutMenu').classList.toggle('hidden')">
+          <a href="about.html" class="hover:text-amber-300">About Us</a>
+          <i class="fa-solid fa-chevron-down text-xs text-amber-400"></i>
+        </div>
+        <div id="mobileAboutMenu" class="hidden pl-4 pr-2 py-1.5 space-y-1 text-xs border-l-2 border-amber-500/30 ml-3 mt-1">
+          <a href="about.html#overview" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">Company Overview</a>
+          <a href="about.html#mission" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">Vision and Mission</a>
+          <a href="about.html#values" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">CORE VALUE</a>
+          <a href="about.html#general-info" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">COMPANY GENERAL INFORMATION</a>
+          <a href="about.html#organogram" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">COMPANY ORGANOGRAM</a>
+          <a href="about.html#clients" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">OUR VALUABLE CLIENT</a>
+          <a href="about.html#ehs" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">COMPANY EHS POLICY</a>
+          <a href="about.html#manpower" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">OUR MANPOWER LIST</a>
+          <a href="about.html#why-vel" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">WHY CHOOSE VEL</a>
+        </div>
+      </div>
       <a href="services.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">EPC Services</a>
       <a href="projects.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Projects</a>
       <a href="supply.html" class="block px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800">Supply & Trading</a>
@@ -176,7 +195,7 @@
             Through strategic synergy with sister concern <strong>Swadesh Carrying</strong>, VisionTech unites heavy foundation civil casting, high-voltage substation switchgear setup, and heavy multi-axle port logistics under one coordinated roof.
           </p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div id="mission" class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 scroll-mt-24">
             <div class="spotlight-card p-5 rounded-2xl border border-slate-800">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-2">
                 <i class="fa-solid fa-bullseye"></i>
@@ -200,10 +219,10 @@
         </div>
 
         <!-- Corporate Facts Card -->
-        <div class="lg:col-span-5">
+        <div id="general-info" class="lg:col-span-5 scroll-mt-24">
           <div class="spotlight-card p-6 sm:p-8 rounded-3xl border border-slate-700/80 shadow-2xl space-y-4">
             <h3 class="font-bold text-base text-amber-400 font-display border-b border-slate-800 pb-3 flex items-center gap-2">
-              <i class="fa-solid fa-shield-halved"></i> Corporate Fact & Statutory Register
+              <i class="fa-solid fa-shield-halved"></i> COMPANY GENERAL INFORMATION
             </h3>
 
             <div class="space-y-2.5 text-xs">
@@ -263,6 +282,85 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- CORE VALUE (PDF Page 24) -->
+  <section id="values" class="py-20 bg-brand-void border-b border-slate-800 scroll-mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-mono flex items-center justify-center gap-2">
+          <i class="fa-solid fa-gem"></i> GUIDING PRINCIPLES (PAGE 24)
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+          Our Core Values
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+          The six foundational principles that govern every engineering decision, infrastructure project, and stakeholder relationship at VisionTech Engineering Ltd.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/50 transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h4 class="font-bold text-white text-base font-display">Quality Excellence</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            We are committed to delivering superior engineering and construction solutions with uncompromising quality.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/50 transition">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h4 class="font-bold text-white text-base font-display">Innovation-Driven</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            We embrace modern technologies and innovative practices to meet evolving industry demands.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/50 transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-handshake-angle"></i>
+          </div>
+          <h4 class="font-bold text-white text-base font-display">Client-Centric Approach</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Our services are tailored to fulfill the unique needs of each client with integrity and dedication.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/50 transition">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-stopwatch-20"></i>
+          </div>
+          <h4 class="font-bold text-white text-base font-display">Efficiency & Reliability</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            We ensure timely and cost-effective project delivery through streamlined processes and expert execution.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/50 transition">
+          <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-shield-heart"></i>
+          </div>
+          <h4 class="font-bold text-white text-base font-display">Safety & Sustainability</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            We prioritize safety, environmental responsibility, and long-term sustainability in all our operations.
+          </p>
+        </div>
+
+        <div class="spotlight-card p-6 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/50 transition">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h4 class="font-bold text-white text-base font-display">Teamwork & Professionalism</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Our success is built on collaboration, skilled professionals, and a culture of mutual respect.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -891,7 +989,8 @@
   </section>
 
   <!-- HUMAN CAPITAL & EMPLOYEE SUMMARY: TOTAL 561 (PDF Pages 26-27) -->
-  <section id="workforce" class="py-20 bg-brand-dark border-t border-slate-800">
+  <section id="manpower" class="py-20 bg-brand-dark border-t border-slate-800 scroll-mt-16">
+    <span id="workforce" class="invisible block -mt-24 pt-24"></span>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
@@ -1173,6 +1272,66 @@
 
       </div>
 
+    </div>
+  </section>
+
+
+  <!-- WHY CHOOSE VEL (PDF Page 30) -->
+  <section id="why-vel" class="py-20 bg-brand-surface border-t border-slate-800 scroll-mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5 space-y-5">
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-mono flex items-center gap-2">
+            <i class="fa-solid fa-circle-check"></i> COMPETITIVE EXCELLENCE (PAGE 30)
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white font-display leading-tight">
+            Why Choose VEL?
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            With over 3 decades of experience in the industry, we have a plethora of knowledge and solutions for any project you need. Having worked on multiple high profile projects across Bangladesh, our efficiency and reliability is second to none.
+          </p>
+          <div class="pt-2">
+            <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-display font-bold text-xs uppercase tracking-wider shadow-lg transition">
+              <span>Initiate Project RFQ</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="spotlight-card p-5 rounded-2xl border border-slate-800 space-y-2 hover:border-amber-500/40 transition">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-cubes-stacked"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm font-display">End-to-End EPC Expertise</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Complete turnkey accountability spanning engineering design, strategic procurement, precision civil casting, and electro-mechanical commissioning.</p>
+          </div>
+
+          <div class="spotlight-card p-5 rounded-2xl border border-slate-800 space-y-2 hover:border-blue-500/40 transition">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm font-display">Skilled Engineers & Technicians</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">561+ technical personnel including BUET/CUET graduate engineers, certified 6G welders, and precision substation technicians.</p>
+          </div>
+
+          <div class="spotlight-card p-5 rounded-2xl border border-slate-800 space-y-2 hover:border-emerald-500/40 transition">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm font-display">On-Time Delivery & Budget-Friendly</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Zero timeline compromises, aggressive logistics coordination with sister concern Swadesh Carrying, and transparent cost management.</p>
+          </div>
+
+          <div class="spotlight-card p-5 rounded-2xl border border-slate-800 space-y-2 hover:border-purple-500/40 transition">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm font-display">Strong Safety & Environmental Compliance</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Strict adherence to ISO 9001 and ISO 45001 protocols, zero fatal incident record, and eco-friendly site procedures.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
