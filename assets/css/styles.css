@@ -280,58 +280,12 @@ header nav span {
   }
 
   /* ========================================================
-   MODERN STYLISH EXECUTIVE CURSOR (NATURAL & ELEGANT)
-   Maintains normal cursor usability with a luxury gold trailing accent
+   CLEAN & CRISP STANDARD CURSOR
+   Clean, responsive, distraction-free native pointer
    ======================================================== */
 
-.stylish-cursor-follower {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 28px;
-  height: 28px;
-  margin-top: -14px;
-  margin-left: -14px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(245, 158, 11, 0.65);
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.22);
-  pointer-events: none !important;
-  z-index: 999999;
-  opacity: 0;
-  will-change: transform;
-  transform: translate3d(-100px, -100px, 0);
-  transition: width 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
-              height 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
-              margin 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
-              background-color 0.22s ease,
-              border-color 0.22s ease,
-              box-shadow 0.22s ease,
-              opacity 0.2s ease;
-}
-
-.stylish-cursor-follower.is-active {
-  opacity: 1;
-}
-
-/* Subtle expansion when hovering interactive buttons or links */
-.stylish-cursor-follower.is-hovering {
-  width: 44px;
-  height: 44px;
-  margin-top: -22px;
-  margin-left: -22px;
-  border-color: #f59e0b;
-  background-color: rgba(245, 158, 11, 0.08);
-  box-shadow: 0 0 18px rgba(245, 158, 11, 0.4);
-}
-
-/* Quick responsive click snap */
-.stylish-cursor-follower.is-clicking {
-  transform: scale(0.75);
-}
-
-/* Normal system cursors remain intact everywhere! */
-body, a, button, select, [role="button"] {
-  cursor: auto;
+html, body {
+  cursor: default;
 }
 
 a, button, [role="button"], .btn-shimmer, .service-tab-btn, .filter-pill, input[type="submit"], input[type="button"] {
@@ -340,13 +294,6 @@ a, button, [role="button"], .btn-shimmer, .service-tab-btn, .filter-pill, input[
 
 input[type="text"], input[type="email"], input[type="tel"], textarea {
   cursor: text !important;
-}
-
-/* Disable stylish follower on mobile touch devices */
-@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .stylish-cursor-follower {
-    display: none !important;
-  }
 }
 
 /* ==========================================================================

@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initRFQApiBridge();
   initHeroVideo();
   initNavDropdowns();
-  initCustomCursor();
   initMobileMenu();
   initStickyHeader();
   initScrollSectionRise();
@@ -353,88 +352,6 @@ function initBackToTop() {
   });
 }
 
-// ========================================================
-// MODERN STYLISH EXECUTIVE CURSOR ENGINE
-// Preserves normal responsive system cursor with a sleek gold trailing ring
-// ========================================================
-function initCustomCursor() {
-  if (window.matchMedia('(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)').matches) {
-    return;
-  }
-
-  let follower = document.getElementById('stylishCursor');
-  if (!follower) {
-    follower = document.createElement('div');
-    follower.className = 'stylish-cursor-follower';
-    follower.id = 'stylishCursor';
-    document.body.appendChild(follower);
-  }
-
-  let mouseX = -100;
-  let mouseY = -100;
-  let followerX = -100;
-  let followerY = -100;
-  let isHovering = false;
-  let isVisible = false;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    if (!isVisible) {
-      isVisible = true;
-      follower.classList.add('is-active');
-    }
-  }, { passive: true });
-
-  window.addEventListener('mousedown', () => {
-    follower.classList.add('is-clicking');
-  });
-
-  window.addEventListener('mouseup', () => {
-    follower.classList.remove('is-clicking');
-  });
-
-  document.addEventListener('mouseleave', () => {
-    isVisible = false;
-    follower.classList.remove('is-active');
-  });
-
-  document.addEventListener('mouseenter', () => {
-    isVisible = true;
-    follower.classList.add('is-active');
-  });
-
-  // Dynamic hover delegation for links, buttons & clickable elements
-  document.addEventListener('mouseover', (e) => {
-    const target = e.target;
-    if (!target) return;
-    const isInteractive = target.closest('a, button, [role="button"], input[type="submit"], input[type="button"], select, .btn-shimmer, .service-tab-btn, .filter-pill, .cad-mark, .spotlight-card');
-    if (isInteractive) {
-      if (!isHovering) {
-        isHovering = true;
-        follower.classList.add('is-hovering');
-      }
-    } else {
-      if (isHovering) {
-        isHovering = false;
-        follower.classList.remove('is-hovering');
-      }
-    }
-  }, { passive: true });
-
-  // Ultra-smooth 60/120fps fluid trailing physics loop
-  function loop() {
-    if (isVisible) {
-      // Smooth lerp (linear interpolation)
-      followerX += (mouseX - followerX) * 0.22;
-      followerY += (mouseY - followerY) * 0.22;
-      follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0)`;
-    }
-    requestAnimationFrame(loop);
-  }
-
-  requestAnimationFrame(loop);
-}
 
 // Smooth Section Rise-Up on Scroll (Repeatable Two-Way Scroll Reveal)
 function initScrollSectionRise() {
