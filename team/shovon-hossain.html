@@ -141,17 +141,71 @@
             </div>
           </div>
 
-          <!-- Dropdown EPC Services -->
+          <!-- Dropdown Our Services -->
           <div class="relative group">
-            <a href="../services.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5">
-              <span>EPC Services</span>
+            <a href="../services.html"" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 font-medium">
+              <span>Our Services</span>
               <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
             </a>
-            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
-              <a href="../services.html#power" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">132/33kV Substations &amp; Cable Laying</a>
-              <a href="../services.html#civil" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Heavy Civil Infrastructure &amp; Foundations</a>
-              <a href="../services.html#mep" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Electro-Mechanical (MEP) &amp; Interior</a>
-              <a href="../services.html#industrial" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Pre-Engineered Steel Buildings (PEB)</a>
+            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950/95 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              
+              <!-- 1. EPC with Flyout Submenu -->
+              <div class="relative group/epc nav-flyout-container">
+                <a href="../services.html"#epc" class="px-3 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 text-xs text-amber-400 hover:bg-slate-800/90 hover:border-amber-500/50 transition font-bold flex items-center justify-between">
+                  <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-helmet-safety text-amber-400"></i>
+                    <span>EPC (Turnkey Solutions)</span>
+                  </span>
+                  <i class="fa-solid fa-chevron-right text-[10px] text-amber-400 group-hover/epc:translate-x-0.5 transition-transform"></i>
+                </a>
+
+                <!-- Right-side Flyout Submenu (Zero-Gap Continuous Hit Box) -->
+                <div class="nav-flyout-menu absolute left-full -top-2 pl-3 hidden group-hover/epc:block z-50">
+                  <div class="w-64 rounded-2xl bg-slate-950/95 border border-amber-500/40 shadow-2xl p-2 backdrop-blur-2xl">
+                    <div class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold border-b border-slate-800 mb-1 flex items-center justify-between">
+                      <span>EPC Verticals</span>
+                      <i class="fa-solid fa-layer-group text-[9px]"></i>
+                    </div>
+                    <a href="../services.html"#energy-power" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-medium flex items-center gap-2">
+                      <i class="fa-solid fa-bolt text-amber-400 text-[11px] w-4"></i>
+                      <span>Energy &amp; Power</span>
+                    </a>
+                    <a href="../services.html"#industrial-manufacturing" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-medium flex items-center gap-2">
+                      <i class="fa-solid fa-industry text-amber-400 text-[11px] w-4"></i>
+                      <span>Industrial &amp; Manufacturing</span>
+                    </a>
+                    <a href="../services.html"#renewable-energy" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-medium flex items-center gap-2">
+                      <i class="fa-solid fa-solar-panel text-amber-400 text-[11px] w-4"></i>
+                      <span>Renewable Energy</span>
+                    </a>
+                    <a href="../services.html"#infrastructure-transportation" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-medium flex items-center gap-2">
+                      <i class="fa-solid fa-road text-amber-400 text-[11px] w-4"></i>
+                      <span>Infrastructure &amp; Transportation</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="my-1.5 border-t border-slate-800/80"></div>
+
+              <!-- 2. Supply & Trading -->
+              <a href="../supply.html"" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium flex items-center justify-between">
+                <span class="flex items-center gap-2">
+                  <i class="fa-solid fa-boxes-packing text-amber-400/80"></i>
+                  <span>Supply &amp; Trading</span>
+                </span>
+                <span class="text-[10px] text-slate-500 font-mono">Equipment</span>
+              </a>
+
+              <!-- 3. Transport & Handling -->
+              <a href="../sister-concern.html"" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium flex items-center justify-between">
+                <span class="flex items-center gap-2">
+                  <i class="fa-solid fa-truck-moving text-amber-400/80"></i>
+                  <span>Transport &amp; Handling</span>
+                </span>
+                <span class="text-[10px] text-slate-500 font-mono">Heavy Lift</span>
+              </a>
+
             </div>
           </div>
 

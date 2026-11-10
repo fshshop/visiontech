@@ -131,17 +131,71 @@
             </div>
           </div>
 
-          <!-- Dropdown EPC Services -->
+          <!-- Dropdown Our Services -->
           <div class="relative group">
-            <a href="services.html" class="px-4 py-2 rounded-xl text-amber-400 bg-amber-500/10 border border-amber-500/30 font-semibold transition flex items-center gap-1.5">
-              <span>EPC Services</span>
+            <a href="services.html" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 font-medium">
+              <span>Our Services</span>
               <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
             </a>
-            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
-              <a href="services.html#power" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">132/33kV Substations & Cable Laying</a>
-              <a href="services.html#civil" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Heavy Civil Infrastructure & Foundations</a>
-              <a href="services.html#mep" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Electro-Mechanical (MEP) & Interior</a>
-              <a href="services.html#industrial" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition">Pre-Engineered Steel Buildings (PEB)</a>
+            <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950/95 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
+              
+              <!-- 1. EPC with Flyout Submenu -->
+              <div class="relative group/epc nav-flyout-container">
+                <a href="services.html#epc" class="px-3 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 text-xs text-amber-400 hover:bg-slate-800/90 hover:border-amber-500/50 transition font-bold flex items-center justify-between">
+                  <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-helmet-safety text-amber-400"></i>
+                    <span>EPC (Turnkey Solutions)</span>
+                  </span>
+                  <i class="fa-solid fa-chevron-right text-[10px] text-amber-400 group-hover/epc:translate-x-0.5 transition-transform"></i>
+                </a>
+
+                <!-- Right-side Flyout Submenu (Zero-Gap Continuous Hit Box) -->
+                <div class="nav-flyout-menu absolute left-full -top-2 pl-3 hidden group-hover/epc:block z-50">
+                  <div class="w-64 rounded-2xl bg-slate-950/95 border border-amber-500/40 shadow-2xl p-2 backdrop-blur-2xl">
+                    <div class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold border-b border-slate-800 mb-1 flex items-center justify-between">
+                      <span>EPC Verticals</span>
+                      <i class="fa-solid fa-layer-group text-[9px]"></i>
+                    </div>
+                    <a href="services.html#energy-power" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-medium flex items-center gap-2">
+                      <i class="fa-solid fa-bolt text-amber-400 text-[11px] w-4"></i>
+                      <span>Energy &amp; Power</span>
+                    </a>
+                    <a href="services.html#industrial-manufacturing" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-medium flex items-center gap-2">
+                      <i class="fa-solid fa-industry text-amber-400 text-[11px] w-4"></i>
+                      <span>Industrial &amp; Manufacturing</span>
+                    </a>
+                    <a href="services.html#renewable-energy" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-medium flex items-center gap-2">
+                      <i class="fa-solid fa-solar-panel text-amber-400 text-[11px] w-4"></i>
+                      <span>Renewable Energy</span>
+                    </a>
+                    <a href="services.html#infrastructure-transportation" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-medium flex items-center gap-2">
+                      <i class="fa-solid fa-road text-amber-400 text-[11px] w-4"></i>
+                      <span>Infrastructure &amp; Transportation</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="my-1.5 border-t border-slate-800/80"></div>
+
+              <!-- 2. Supply & Trading -->
+              <a href="supply.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium flex items-center justify-between">
+                <span class="flex items-center gap-2">
+                  <i class="fa-solid fa-boxes-packing text-amber-400/80"></i>
+                  <span>Supply &amp; Trading</span>
+                </span>
+                <span class="text-[10px] text-slate-500 font-mono">Equipment</span>
+              </a>
+
+              <!-- 3. Transport & Handling -->
+              <a href="sister-concern.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium flex items-center justify-between">
+                <span class="flex items-center gap-2">
+                  <i class="fa-solid fa-truck-moving text-amber-400/80"></i>
+                  <span>Transport &amp; Handling</span>
+                </span>
+                <span class="text-[10px] text-slate-500 font-mono">Heavy Lift</span>
+              </a>
+
             </div>
           </div>
 
@@ -224,7 +278,41 @@
           <a href="about.html#why-vel" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">WHY CHOOSE VEL</a>
         </div>
       </div>
-      <a href="services.html" class="block px-3 py-2 rounded-xl text-amber-400 bg-amber-500/10 font-semibold">EPC Services</a>
+      <!-- Mobile Our Services Accordion -->
+      <div>
+        <div class="flex items-center justify-between px-3 py-2 rounded-xl text-amber-400 bg-amber-500/10 font-semibold cursor-pointer" onclick="document.getElementById('mobileServicesMenu').classList.toggle('hidden')">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-screwdriver-wrench text-amber-400 text-xs"></i>
+            <span>Our Services</span>
+          </span>
+          <i class="fa-solid fa-chevron-down text-xs text-amber-400"></i>
+        </div>
+        <div id="mobileServicesMenu" class="hidden pl-4 pr-2 py-2 space-y-1.5 text-xs border-l-2 border-amber-500/30 ml-3 mt-1">
+          <div class="px-2 py-1 text-[11px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-helmet-safety text-[10px]"></i> 1. EPC Verticals
+          </div>
+          <a href="services.html#energy-power" class="block py-1 pl-4 pr-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-[10px] text-amber-400/80"></i> Energy &amp; Power
+          </a>
+          <a href="services.html#industrial-manufacturing" class="block py-1 pl-4 pr-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition flex items-center gap-2">
+            <i class="fa-solid fa-industry text-[10px] text-amber-400/80"></i> Industrial &amp; Manufacturing
+          </a>
+          <a href="services.html#renewable-energy" class="block py-1 pl-4 pr-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition flex items-center gap-2">
+            <i class="fa-solid fa-solar-panel text-[10px] text-amber-400/80"></i> Renewable Energy
+          </a>
+          <a href="services.html#infrastructure-transportation" class="block py-1 pl-4 pr-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition flex items-center gap-2">
+            <i class="fa-solid fa-road text-[10px] text-amber-400/80"></i> Infrastructure &amp; Transportation
+          </a>
+          
+          <div class="my-1 border-t border-slate-800"></div>
+          <a href="supply.html" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition flex items-center gap-2 font-medium">
+            <i class="fa-solid fa-boxes-packing text-amber-400/80 text-[11px]"></i> 2. Supply &amp; Trading
+          </a>
+          <a href="sister-concern.html" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition flex items-center gap-2 font-medium">
+            <i class="fa-solid fa-truck-moving text-amber-400/80 text-[11px]"></i> 3. Transport &amp; Handling
+          </a>
+        </div>
+      </div>
       <div>
         <div class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:bg-slate-800 cursor-pointer" onclick="document.getElementById('mobileProjectsMenu').classList.toggle('hidden')">
           <a href="index.html#completed-projects" class="font-medium hover:text-amber-400">Projects</a>
@@ -247,20 +335,33 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-3xl space-y-3">
         <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display flex items-center gap-2">
-          <i class="fa-solid fa-screwdriver-wrench"></i> APPROVED SERVICE ARCHITECTURE
+          <i class="fa-solid fa-screwdriver-wrench"></i> APPROVED CORPORATE CAPABILITIES
         </span>
         <h1 class="text-4xl sm:text-5xl font-black text-white font-display">
-          Turnkey EPC & Engineering Disciplines
+          Our Services
         </h1>
         <p class="text-slate-300 text-base leading-relaxed">
-          From technical design modeling and international factory procurement to site construction, heavy transport, pre-commissioning, and statutory approvals.
+          Integrated turnkey EPC delivery, sovereign equipment supply &amp; trading, and multimodal heavy lift transport across Bangladesh's power, energy, industrial, and infrastructure sectors.
         </p>
+
+        <!-- Quick Jump Navigation Pills -->
+        <div class="flex flex-wrap gap-2.5 pt-4">
+          <a href="#epc" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold hover:bg-amber-500/20 transition">
+            <i class="fa-solid fa-helmet-safety text-[10px]"></i> 1. EPC Solutions
+          </a>
+          <a href="#supply-trading" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-semibold hover:border-amber-400 hover:text-amber-400 transition">
+            <i class="fa-solid fa-boxes-packing text-[10px]"></i> 2. Supply &amp; Trading
+          </a>
+          <a href="#transport-handling" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-semibold hover:border-amber-400 hover:text-amber-400 transition">
+            <i class="fa-solid fa-truck-moving text-[10px]"></i> 3. Transport &amp; Handling
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- EPC TRIAD -->
-  <section class="py-20 bg-brand-surface border-b border-slate-800">
+  <section id="epc" class="py-20 bg-brand-surface border-b border-slate-800 scroll-mt-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
@@ -323,65 +424,217 @@
     </div>
   </section>
 
-  <!-- DETAILED VERTICALS -->
-  <section class="py-20 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+  <!-- DETAILED VERTICALS (Structured per Official Architecture) -->
+  <section class="py-20 bg-brand-dark border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
       
-      <!-- Power -->
-      <div id="power" class="spotlight-card p-8 sm:p-12 rounded-3xl border border-slate-800">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest font-display">DISCIPLINE MATRIX</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-display">1. EPC Turnkey Verticals</h2>
+        <p class="text-slate-400 text-sm">
+          Comprehensive EPC execution across power grids, heavy industrial manufacturing, renewable energy, and transportation corridors.
+        </p>
+      </div>
+
+      <!-- Vertical 1: Energy & Power -->
+      <div id="energy-power" class="spotlight-card p-8 sm:p-12 rounded-3xl border border-slate-800 scroll-mt-24">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div class="lg:col-span-6 space-y-4">
-            <span class="px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider font-display">
-              POWER & TRANSMISSION
-            </span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider font-display">
+              <i class="fa-solid fa-bolt"></i> 1.1 ENERGY &amp; POWER
+            </div>
             <h3 class="text-2xl sm:text-3xl font-bold text-white font-display">
-              400kV, 230kV & 132kV Turnkey GIS Substations & Transmission EPC
+              400kV, 230kV &amp; 132kV Turnkey GIS Substations &amp; Transmission
             </h3>
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              VisionTech and its consortium bench have delivered apex turnkey GIS substation construction across Bangladesh with PGCB and CNTIC—including Bhulta 400/230/132kV, Purbasadipur 230/132kV, Madunaghat 230kV Upgradation, Feni 230/132kV, and the Maijdee 132/33kV coastal cluster. Additionally, we executed DPDC's Signboard to Siddhirganj underground transmission works and delivered 100,000+ certified cable protection slabs (BDT 18.3M).
+              VisionTech delivers apex turnkey GIS and AIS substation construction across Bangladesh with sovereign utilities including PGCB, DPDC, and BREB. Proven benchmarks include Bhulta 400/230/132kV GIS, Purbasadipur 230/132kV, Madunaghat 230kV Upgradation, Feni 230/132kV, and Maijdee 132/33kV. In underground transmission, VEL manufactured and installed 100,000+ certified concrete cable protection slabs (DPDC Signboard to Siddhirganj, BDT 18.3M).
             </p>
             <div class="grid grid-cols-2 gap-3 pt-2 text-xs text-slate-300">
-              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                <strong class="text-amber-400 block mb-1">Cable Protection Slabs</strong>
-                Precast reinforced concrete slabs per DPDC specs
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <strong class="text-amber-400 block mb-1">GIS Control Buildings</strong>
+                Multi-storied reinforced switching stations &amp; basements
               </div>
-              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                <strong class="text-amber-400 block mb-1">Control Buildings</strong>
-                2-Storied reinforced switching stations
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <strong class="text-amber-400 block mb-1">Underground Cable Slabs</strong>
+                Interlocking high-strength precast protection slabs
               </div>
             </div>
           </div>
           <div class="lg:col-span-6 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
-            <img src="assets/images/substation-hero.jpg" alt="Substation Engineering" class="w-full h-80 object-cover">
+            <img src="assets/images/substation-hero.jpg" alt="Energy and Power Engineering" class="w-full h-80 object-cover">
           </div>
         </div>
       </div>
 
-      <!-- Civil -->
-      <div id="civil" class="spotlight-card p-8 sm:p-12 rounded-3xl border border-slate-800">
+      <!-- Vertical 2: Industrial & Manufacturing -->
+      <div id="industrial-manufacturing" class="spotlight-card p-8 sm:p-12 rounded-3xl border border-slate-800 scroll-mt-24">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div class="lg:col-span-6 order-2 lg:order-1 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
-            <img src="assets/images/project-bridge-kanchpur.jpg" alt="Bridge Infrastructure" class="w-full h-80 object-cover">
+            <img src="assets/images/project-electrical-mep.jpg" alt="Industrial and Manufacturing Infrastructure" class="w-full h-80 object-cover">
           </div>
           <div class="lg:col-span-6 order-1 lg:order-2 space-y-4">
-            <span class="px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider font-display">
-              HEAVY CIVIL INFRASTRUCTURE
-            </span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider font-display">
+              <i class="fa-solid fa-industry"></i> 1.2 INDUSTRIAL &amp; MANUFACTURING
+            </div>
             <h3 class="text-2xl sm:text-3xl font-bold text-white font-display">
-              Power Plant Civil Foundations, Highway Bridges & Industrial PEB
+              Heavy Factory Civil, PEB Structures &amp; Industrial MEP Systems
             </h3>
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Proven civil capability spanning Bheramara 360MW Combined Cycle Power Plant civil works, Bibiyana-II 400kV substation foundations, Kanchpur-Meghna-Gumti 2nd Bridges Package PW-01 auxiliary civil construction, PTC PLC (BPC subsidiary) headquarters renovation, and Onin Textile Mills industrial perimeter infrastructure (BDT 12.6M).
+              Complete engineering design and site construction for industrial processing complexes, textile mills, and corporate infrastructure. Key credentials include Onin Textile Mills perimeter security &amp; heavy MEP drainage works (BDT 12.6M), PTC PLC (Bangladesh Petroleum Corporation subsidiary) corporate headquarters renovation, and deep equipment foundation pads engineered for dynamic machinery vibration absorption.
             </p>
             <div class="grid grid-cols-2 gap-3 pt-2 text-xs text-slate-300">
-              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                <strong class="text-blue-400 block mb-1">Bridge Auxiliary</strong>
-                Reinforced concrete, approaches & rehabilitation
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <strong class="text-cyan-400 block mb-1">Pre-Engineered Buildings (PEB)</strong>
+                Long-span structural steel factory bays &amp; warehouses
               </div>
-              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                <strong class="text-blue-400 block mb-1">Heavy Foundations</strong>
-                Machinery vibration isolation pads & piling
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <strong class="text-cyan-400 block mb-1">Industrial MEP Networks</strong>
+                High-capacity busbar trunking, HVAC &amp; fire safety loops
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical 3: Renewable Energy -->
+      <div id="renewable-energy" class="spotlight-card p-8 sm:p-12 rounded-3xl border border-slate-800 scroll-mt-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider font-display">
+              <i class="fa-solid fa-solar-panel"></i> 1.3 RENEWABLE ENERGY
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white font-display">
+              Utility Solar PV Parks, Industrial Rooftops &amp; Grid Tie-in EPC
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Accelerating Bangladesh's clean energy transition through turnkey solar photovoltaic (PV) generation systems. VisionTech integrates ground-mounted solar arrays, industrial net-metered rooftop solar installations, battery energy storage systems (BESS), and specialized step-up substations connecting renewable megawatts smoothly to the national grid.
+            </p>
+            <div class="grid grid-cols-2 gap-3 pt-2 text-xs text-slate-300">
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <strong class="text-emerald-400 block mb-1">Utility &amp; Rooftop Solar</strong>
+                Tier-1 PV modules, string/central inverters &amp; mounting
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <strong class="text-emerald-400 block mb-1">Grid Synchronization</strong>
+                Harmonic filtering, metering &amp; sovereign grid tie-in
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
+            <img src="assets/images/project-control-room.jpg" alt="Renewable Energy Control" class="w-full h-80 object-cover">
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical 4: Infrastructure & Transportation -->
+      <div id="infrastructure-transportation" class="spotlight-card p-8 sm:p-12 rounded-3xl border border-slate-800 scroll-mt-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 order-2 lg:order-1 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
+            <img src="assets/images/project-bridge-kanchpur.jpg" alt="Transportation Infrastructure" class="w-full h-80 object-cover">
+          </div>
+          <div class="lg:col-span-6 order-1 lg:order-2 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider font-display">
+              <i class="fa-solid fa-road"></i> 1.4 INFRASTRUCTURE &amp; TRANSPORTATION
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white font-display">
+              Highway Bridges, Viaducts, Deep Piling &amp; Transport Links
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Execution of mission-critical civil infrastructure that drives national mobility. Our record includes auxiliary civil works on the landmark Kanchpur-Meghna-Gumti 2nd Bridges (Package PW-01), heavy foundation piling, RC box culverts, bridge approach ramps, and deep drainage civil networks built to withstand severe subtropical hydrological conditions.
+            </p>
+            <div class="grid grid-cols-2 gap-3 pt-2 text-xs text-slate-300">
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <strong class="text-blue-400 block mb-1">Bridge Auxiliary Works</strong>
+                Approaches, retaining walls, slope protection &amp; spans
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <strong class="text-blue-400 block mb-1">Heavy Civil Transport Hubs</strong>
+                Port corridors, container yards &amp; terminal aprons
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTIONS 2 & 3: SUPPLY & TRADING & TRANSPORT & HANDLING -->
+  <section class="py-20 bg-brand-surface border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Supply & Trading Showcase -->
+      <div id="supply-trading" class="spotlight-card p-8 sm:p-12 rounded-3xl border border-amber-500/30 bg-gradient-to-b from-slate-900/90 to-brand-surface scroll-mt-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider font-display">
+              <i class="fa-solid fa-boxes-packing"></i> 2. SUPPLY &amp; TRADING
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-black text-white font-display">
+              Power Grid Equipment, Switchgear &amp; High-Voltage Consumables
+            </h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              VisionTech provides authorized international procurement and sovereign trading for primary substation assets. From high-capacity power transformers, 132kV/33kV GIS/AIS switchgear panels, CT/PT instrument transformers, and lightning arresters to precast cable protection slabs and certified capital spares.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-amber-300">Power Transformers</span>
+              <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-amber-300">132kV/33kV GIS Switchgear</span>
+              <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-amber-300">Instrument Transformers (CT/PT)</span>
+              <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-amber-300">Protection Relays</span>
+            </div>
+            <div class="pt-4">
+              <a href="supply.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-display font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] transition">
+                <span>Explore Full Supply &amp; Trading Catalog</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-4 p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 text-center">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-3xl">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h4 class="text-white font-bold font-display text-lg">Verified FAT Testing</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Every equipment package is backed by rigorous Factory Acceptance Testing (FAT), international warranty compliance, and direct manufacturer provenance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transport & Handling Showcase (Swadesh Carrying) -->
+      <div id="transport-handling" class="spotlight-card p-8 sm:p-12 rounded-3xl border border-blue-500/30 bg-gradient-to-b from-slate-900/90 to-brand-surface scroll-mt-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-4 order-2 lg:order-1 p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 text-center">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-3xl">
+              <i class="fa-solid fa-anchor"></i>
+            </div>
+            <h4 class="text-white font-bold font-display text-lg">Sister Concern Integration</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Through sister concern <strong>Swadesh Carrying</strong>, VisionTech commands dedicated hydraulic multi-axles, barge fleet, and heavy jacking equipment.
+            </p>
+          </div>
+          <div class="lg:col-span-8 order-1 lg:order-2 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider font-display">
+              <i class="fa-solid fa-truck-moving"></i> 3. TRANSPORT &amp; HANDLING
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-black text-white font-display">
+              Multimodal Heavy Lift Transport, Jacking &amp; Plinth Placement
+            </h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Specialized logistical execution for oversized, super-heavy power plant transformers, turbines, and industrial machinery. Services include Chattogram/Mongla seaport offloading, riverine barge towing, hydraulic multi-axle overland haulage, civil plinth positioning, dragging, and precision optical alignment.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-blue-300">Hydraulic Multi-Axle Trailers</span>
+              <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-blue-300">Riverine Barge Haulage</span>
+              <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-blue-300">Hydraulic Jacking &amp; Skidding</span>
+              <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-blue-300">Plinth Placement &amp; Alignment</span>
+            </div>
+            <div class="pt-4">
+              <a href="sister-concern.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-display font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] transition">
+                <span>View Swadesh Heavy Lift &amp; Transport Services</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
