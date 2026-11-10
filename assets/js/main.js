@@ -453,6 +453,38 @@ function initNavDropdowns() {
     group.addEventListener('focusin', openMenu);
     group.addEventListener('focusout', closeMenu);
   });
+
+  // Persistent Nested Flyout Submenus (Eliminates Hover-Gap Disconnection)
+  const flyoutContainers = document.querySelectorAll('.nav-flyout-container');
+  flyoutContainers.forEach(container => {
+    const menu = container.querySelector('.nav-flyout-menu');
+    if (!menu) return;
+
+    let flyoutTimer = null;
+
+    const openFlyout = () => {
+      clearTimeout(flyoutTimer);
+      container.classList.add('flyout-active');
+      menu.classList.remove('hidden');
+      menu.style.display = 'block';
+    };
+
+    const closeFlyout = () => {
+      clearTimeout(flyoutTimer);
+      // 320ms grace period ensures cursor moving diagonally never drops hover
+      flyoutTimer = setTimeout(() => {
+        container.classList.remove('flyout-active');
+        menu.classList.add('hidden');
+        menu.style.display = '';
+      }, 320);
+    };
+
+    container.addEventListener('mouseenter', openFlyout);
+    container.addEventListener('mouseleave', closeFlyout);
+
+    menu.addEventListener('mouseenter', openFlyout);
+    menu.addEventListener('mouseleave', closeFlyout);
+  });
 }
 
 

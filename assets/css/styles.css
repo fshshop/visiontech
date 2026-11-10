@@ -799,7 +799,7 @@ a.btn-shimmer:active,
 
 
 /* ========================================================
-   ABOUT US NESTED FLYOUT SUBMENU
+   ABOUT US NESTED FLYOUT SUBMENU & HOVER BRIDGE
    ======================================================== */
 .nav-flyout-container {
   position: relative;
@@ -808,9 +808,27 @@ a.btn-shimmer:active,
   display: none;
   position: absolute;
   left: 100%;
-  top: 0;
-  margin-left: 0.375rem;
+  top: -8px;
+  padding-left: 10px;
+  z-index: 60;
 }
-.nav-flyout-container:hover > .nav-flyout-menu {
-  display: block;
+
+/* Invisible Hit-Area Bridge that keeps hover alive across any gap & diagonal cursor movement */
+.nav-flyout-menu::before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  bottom: -25px;
+  left: -45px;
+  width: 60px;
+  background: transparent;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.nav-flyout-container:hover > .nav-flyout-menu,
+.nav-flyout-container.flyout-active > .nav-flyout-menu,
+.nav-flyout-container:focus-within > .nav-flyout-menu,
+.nav-flyout-menu:hover {
+  display: block !important;
 }

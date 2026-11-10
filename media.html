@@ -38,7 +38,7 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css?v=4.2">
+  <link rel="stylesheet" href="assets/css/styles.css?v=4.3">
 </head>
 <body class="bg-brand-dark text-slate-200 antialiased selection:bg-amber-500 selection:text-slate-950 flex flex-col min-h-screen tech-grid-bg">
 
@@ -99,24 +99,26 @@
                   <i class="fa-solid fa-chevron-right text-[10px] text-amber-400 group-hover/sub:translate-x-0.5 transition-transform"></i>
                 </div>
 
-                <!-- Right-side Flyout Submenu -->
-                <div class="absolute left-full top-0 ml-1.5 w-64 rounded-2xl bg-slate-950/95 border border-amber-500/40 shadow-2xl p-2 hidden group-hover/sub:block nav-flyout-menu backdrop-blur-2xl z-50">
-                  <div class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold border-b border-slate-800 mb-1 flex items-center justify-between">
-                    <span>Leadership Hierarchy</span>
-                    <i class="fa-solid fa-sitemap text-[9px]"></i>
+                <!-- Right-side Flyout Submenu (Zero-Gap Continuous Hit Box) -->
+                <div class="nav-flyout-menu absolute left-full -top-2 pl-3 hidden group-hover/sub:block z-50">
+                  <div class="w-64 rounded-2xl bg-slate-950/95 border border-amber-500/40 shadow-2xl p-2 backdrop-blur-2xl">
+                    <div class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold border-b border-slate-800 mb-1 flex items-center justify-between">
+                      <span>Leadership Hierarchy</span>
+                      <i class="fa-solid fa-sitemap text-[9px]"></i>
+                    </div>
+                    <a href="about.html#leadership" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-semibold flex items-center justify-between">
+                      <span>Board of Directors</span>
+                      <span class="text-[10px] text-amber-400/80 font-mono">3 Members</span>
+                    </a>
+                    <a href="about.html#management-team" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-semibold flex items-center justify-between">
+                      <span>Management Team</span>
+                      <span class="text-[10px] text-slate-400 font-mono">Executive Bench</span>
+                    </a>
+                    <a href="about.html#advisory-team" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-semibold flex items-center justify-between">
+                      <span>Advisory Team</span>
+                      <span class="text-[10px] text-cyan-400/80 font-mono">40+ Yrs Exp</span>
+                    </a>
                   </div>
-                  <a href="about.html#leadership" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-semibold flex items-center justify-between">
-                    <span>Board of Directors</span>
-                    <span class="text-[10px] text-amber-400/80 font-mono">3 Members</span>
-                  </a>
-                  <a href="about.html#management-team" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-semibold flex items-center justify-between">
-                    <span>Management Team</span>
-                    <span class="text-[10px] text-slate-400 font-mono">Executive Bench</span>
-                  </a>
-                  <a href="about.html#advisory-team" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-semibold flex items-center justify-between">
-                    <span>Advisory Team</span>
-                    <span class="text-[10px] text-cyan-400/80 font-mono">40+ Yrs Exp</span>
-                  </a>
                 </div>
               </div>
 
@@ -370,6 +372,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=3.5?v=2.1"></script>
+  <script src="assets/js/main.js?v=4.3"></script>
 </body>
 </html>
