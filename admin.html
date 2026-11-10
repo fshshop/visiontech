@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark h-full">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -39,7 +39,12 @@
   </script>
 
   <style>
-    body {
+    html, body {
+      height: 100%;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
       background-color: #030712;
       color: #f1f5f9;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -88,7 +93,7 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-brand-dark antialiased selection:bg-amber-500 selection:text-slate-950 overflow-x-hidden">
+<body class="h-full h-screen flex flex-col bg-brand-dark antialiased selection:bg-amber-500 selection:text-slate-950 overflow-hidden">
 
   <!-- ================= AUTHENTICATION MODAL (LOGIN) ================= -->
   <div id="loginOverlay" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4">
@@ -160,7 +165,7 @@
   </div>
 
   <!-- ================= TOP NAVIGATION BAR ================= -->
-  <header class="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-3 sm:px-6 py-2.5 flex justify-between items-center">
+  <header class="shrink-0 z-40 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-3 sm:px-6 py-2.5 flex justify-between items-center">
     <div class="flex items-center gap-3">
       <!-- Mobile Sidebar Toggle -->
       <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white active:scale-95 transition" aria-label="Toggle menu">
@@ -250,13 +255,13 @@
   </div>
 
   <!-- ================= MAIN LAYOUT WITH SIDEBAR ================= -->
-  <div class="flex-1 flex overflow-hidden relative">
+  <div class="flex-1 flex overflow-hidden min-h-0 relative">
     
     <!-- Mobile Sidebar Backdrop Overlay -->
     <div id="sidebarBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-30 hidden lg:hidden transition-opacity"></div>
 
     <!-- SIDEBAR NAVIGATION (Desktop & Sliding Mobile Drawer) -->
-    <aside id="adminSidebar" class="fixed lg:static top-0 bottom-0 left-0 z-40 w-64 bg-slate-950 border-r border-slate-800 p-4 space-y-2 flex flex-col justify-between shrink-0 custom-scroll overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+    <aside id="adminSidebar" class="fixed lg:relative top-0 bottom-0 left-0 z-40 w-64 h-full bg-slate-950 border-r border-slate-800 p-4 space-y-2 flex flex-col justify-between shrink-0 custom-scroll overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
       
       <div class="space-y-1">
         <!-- Close button on mobile -->
@@ -343,7 +348,7 @@
     </aside>
 
     <!-- CONTENT EDITING AREA -->
-    <main class="flex-1 p-3.5 sm:p-6 lg:p-8 custom-scroll overflow-y-auto pb-24 lg:pb-8">
+    <main id="adminMainContent" class="flex-1 h-full min-h-0 p-3.5 sm:p-6 lg:p-8 custom-scroll overflow-y-auto pb-28 lg:pb-12">
       
       <!-- Notification Toast -->
       <div id="toastMessage" class="fixed bottom-6 right-6 z-50 px-5 py-3 rounded-2xl bg-emerald-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-2xl transition-all transform translate-y-24 opacity-0 flex items-center gap-2">
@@ -1132,6 +1137,8 @@
       });
 
       closeMobileSidebar();
+      const mainEl = document.getElementById('adminMainContent');
+      if (mainEl) mainEl.scrollTop = 0;
       if (tabId === 'tab-inquiries') loadInquiries();
       if (tabId === 'tab-media') renderMediaLibraryGrid();
     };
