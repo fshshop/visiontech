@@ -38,7 +38,7 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css?v=4.1">
+  <link rel="stylesheet" href="assets/css/styles.css?v=4.2">
 </head>
 <body class="bg-brand-dark text-slate-200 antialiased selection:bg-amber-500 selection:text-slate-950 flex flex-col min-h-screen tech-grid-bg">
 
@@ -74,18 +74,58 @@
               <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
             </a>
             <div class="absolute left-0 mt-2 w-72 rounded-2xl bg-slate-950/95 border border-slate-800 shadow-2xl p-2 hidden group-hover:block backdrop-blur-2xl z-50">
-              <a href="about.html#overview" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">Company Overview</a>
-              <a href="about.html#mission" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">Vision and Mission</a>
-              <a href="about.html#values" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">CORE VALUE</a>
-              <a href="about.html#general-info" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY GENERAL INFORMATION</a>
-              <a href="about.html#organogram" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY ORGANOGRAM</a>
-              <a href="about.html#leadership" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">BOARD OF DIRECTORS</a>
-              <a href="about.html#management-team" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">MANAGEMENT TEAM</a>
-              <a href="about.html#advisory-team" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">ADVISORY TEAM</a>
-              <a href="about.html#clients" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">OUR VALUABLE CLIENT</a>
-              <a href="about.html#ehs" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY EHS POLICY</a>
-              <a href="about.html#manpower" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">OUR MANPOWER LIST</a>
-              <a href="about.html#why-vel" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">WHY CHOOSE VEL</a>
+              <!-- NEW: Who We Are -->
+              <a href="about.html#who-we-are" class="block px-3 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 hover:bg-amber-500/20 text-xs font-bold transition flex items-center justify-between mb-1.5 shadow-sm">
+                <span class="flex items-center gap-2">
+                  <i class="fa-solid fa-users text-amber-400"></i> Who We Are
+                </span>
+                <span class="px-1.5 py-0.5 rounded text-[9px] bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black shadow-sm">NEW</span>
+              </a>
+
+              <a href="about.html#overview" class="block px-3 py-1.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">Company Overview</a>
+              <a href="about.html#mission" class="block px-3 py-1.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">Vision and Mission</a>
+              <a href="about.html#values" class="block px-3 py-1.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">CORE VALUE</a>
+              <a href="about.html#general-info" class="block px-3 py-1.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY GENERAL INFORMATION</a>
+              <a href="about.html#organogram" class="block px-3 py-1.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY ORGANOGRAM</a>
+
+              <div class="my-1 border-t border-slate-800/80"></div>
+
+              <!-- NESTED FLYOUT MENU: Leadership & Teams -->
+              <div class="relative group/sub nav-flyout-container">
+                <div class="px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800/90 text-xs text-amber-400 hover:bg-slate-800/90 hover:border-amber-500/50 transition font-bold flex items-center justify-between cursor-pointer">
+                  <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-user-tie text-amber-400"></i> Board &amp; Leadership Teams
+                  </span>
+                  <i class="fa-solid fa-chevron-right text-[10px] text-amber-400 group-hover/sub:translate-x-0.5 transition-transform"></i>
+                </div>
+
+                <!-- Right-side Flyout Submenu -->
+                <div class="absolute left-full top-0 ml-1.5 w-64 rounded-2xl bg-slate-950/95 border border-amber-500/40 shadow-2xl p-2 hidden group-hover/sub:block nav-flyout-menu backdrop-blur-2xl z-50">
+                  <div class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold border-b border-slate-800 mb-1 flex items-center justify-between">
+                    <span>Leadership Hierarchy</span>
+                    <i class="fa-solid fa-sitemap text-[9px]"></i>
+                  </div>
+                  <a href="about.html#leadership" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-semibold flex items-center justify-between">
+                    <span>Board of Directors</span>
+                    <span class="text-[10px] text-amber-400/80 font-mono">3 Members</span>
+                  </a>
+                  <a href="about.html#management-team" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-semibold flex items-center justify-between">
+                    <span>Management Team</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Executive Bench</span>
+                  </a>
+                  <a href="about.html#advisory-team" class="block px-3 py-2 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 hover:text-amber-400 transition font-semibold flex items-center justify-between">
+                    <span>Advisory Team</span>
+                    <span class="text-[10px] text-cyan-400/80 font-mono">40+ Yrs Exp</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="my-1 border-t border-slate-800/80"></div>
+
+              <a href="about.html#clients" class="block px-3 py-1.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">OUR VALUABLE CLIENT</a>
+              <a href="about.html#ehs" class="block px-3 py-1.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">COMPANY EHS POLICY</a>
+              <a href="about.html#manpower" class="block px-3 py-1.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">OUR MANPOWER LIST</a>
+              <a href="about.html#why-vel" class="block px-3 py-1.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-300 hover:text-amber-400 transition font-medium">WHY CHOOSE VEL</a>
             </div>
           </div>
 
@@ -150,14 +190,32 @@
           <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
         </div>
         <div id="mobileAboutMenu" class="hidden pl-4 pr-2 py-1.5 space-y-1 text-xs border-l-2 border-amber-500/30 ml-3 mt-1">
+          <a href="about.html#who-we-are" class="block py-1.5 px-2 rounded-lg bg-amber-500/10 text-amber-300 font-bold hover:bg-slate-900 transition flex items-center justify-between mb-1">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-users text-amber-400 text-[11px]"></i> Who We Are</span>
+            <span class="px-1.5 py-0.5 rounded text-[8px] bg-amber-400 text-slate-950 font-black">NEW</span>
+          </a>
           <a href="about.html#overview" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">Company Overview</a>
           <a href="about.html#mission" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">Vision and Mission</a>
           <a href="about.html#values" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">CORE VALUE</a>
           <a href="about.html#general-info" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">COMPANY GENERAL INFORMATION</a>
           <a href="about.html#organogram" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">COMPANY ORGANOGRAM</a>
-          <a href="about.html#leadership" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">BOARD OF DIRECTORS</a>
-          <a href="about.html#management-team" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">MANAGEMENT TEAM</a>
-          <a href="about.html#advisory-team" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">ADVISORY TEAM</a>
+          
+          <!-- Mobile Nested Teams Group -->
+          <div class="pt-1.5 pb-1">
+            <div class="px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold flex items-center justify-between">
+              <span>Board &amp; Leadership Teams</span>
+              <i class="fa-solid fa-user-tie text-[10px]"></i>
+            </div>
+            <div class="pl-2 space-y-1 border-l border-amber-500/30 ml-2 mt-1">
+              <a href="about.html#leadership" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 transition flex items-center justify-between">
+                <span>Board of Directors</span>
+                <span class="text-[9px] text-amber-400/70">3 Members</span>
+              </a>
+              <a href="about.html#management-team" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 transition">Management Team</a>
+              <a href="about.html#advisory-team" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 transition">Advisory Team</a>
+            </div>
+          </div>
+
           <a href="about.html#clients" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">OUR VALUABLE CLIENT</a>
           <a href="about.html#ehs" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">COMPANY EHS POLICY</a>
           <a href="about.html#manpower" class="block py-1 px-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">OUR MANPOWER LIST</a>
