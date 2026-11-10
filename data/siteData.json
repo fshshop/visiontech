@@ -168,108 +168,114 @@
   "projects": {
     "completed": [
       {
+        "id": "dpdc-cable-slab",
+        "title": "132/33 kV Underground Cable Protection Slab Works",
+        "client": "DPDC / TBEA CO. LTD. (PACKAGE-2, LOT-15)",
+        "category": "Underground Transmission",
+        "location": "Signboard to Siddhirganj",
+        "value": "BDT 18,300,000",
+        "year": "2026",
+        "status": "Completed (2026)",
+        "img": "assets/images/project-cable-slab.jpg",
+        "scope": "Strengthening of Power System Network under DPDC area. Manufacture, supply, transportation and interlocking installation of reinforced concrete protective slabs for 132/33 kV underground transmission (Signboard to Siddhirganj)."
+      },
+      {
+        "id": "ptc-plc-building",
+        "title": "Corporate Office Building Renovation & Modernization",
+        "client": "PTC PLC (SUBSIDIARY OF BPC)",
+        "category": "Corporate & Industrial Civil",
+        "location": "BPC Headquarters, Dhaka",
+        "value": "BDT 7,250,000",
+        "year": "2025",
+        "status": "Completed (2025)",
+        "img": "assets/images/project-building-renovation.jpg",
+        "scope": "Full-scope turnkey EPC civil works, sanitary systems, modern electrical infrastructure, AC installation, glass partitioning, reception architecture, and CCTV surveillance networks."
+      },
+      {
+        "id": "moulovibazar-land",
+        "title": "Moulovibazar PBS 100% Rural Electrification Land Development",
+        "client": "BREB / ENERGYPAC ENGINEERING LTD.",
+        "category": "Power Distribution & Civil",
+        "location": "Athangiri, Kagabola, Moulovibazar",
+        "value": "BDT 11,200,000",
+        "year": "2021",
+        "status": "Completed (2021)",
+        "img": "assets/images/project-breb-moulovibazar.jpg",
+        "scope": "Distribution Network Expansion at 100% Rural Electrification DNE (DMCS) Moulovibazar-6. Land development with high-density soil compaction, precision leveling, dressing, and civil foundation preparation."
+      },
+      {
         "id": "bhulta-400kv",
         "title": "Bhulta 400/230/132kV Turnkey GIS Substation Civil Works",
-        "client": "PGCB / CNTIC Turnkey Package",
+        "client": "PGCB / CNTIC TURNKEY PACKAGE",
         "category": "400/230/132kV GIS",
         "location": "Bhulta, Narayanganj",
         "value": "Consortium Scale",
-        "img": "assets/images/bhulta_test.jpg",
-        "scope": "Complete civil execution of 400kV & 230kV GIS Control Room Buildings, heavy transformer foundations, cable trenches, internal roads, and switchyard graveling for PGCB's apex national grid hub.",
-        "status": "Completed"
+        "year": "Completed",
+        "status": "Completed",
+        "img": "assets/images/project-bhulta-400kv.jpg",
+        "scope": "Complete civil execution of 400kV & 230kV GIS Control Room Buildings, heavy transformer foundations, cable trenches, internal roads, and switchyard graveling for PGCB's apex national grid hub."
       },
       {
         "id": "purbasadipur-230kv",
         "title": "Purbasadipur 230/132kV & 132/33kV GIS Substation",
-        "client": "PGCB / CNTIC (Package 1.1)",
+        "client": "PGCB / CNTIC (PACKAGE 1.1)",
         "category": "230/132kV Turnkey",
         "location": "Dinajpur",
         "value": "National Grid Hub",
+        "year": "Completed",
+        "status": "Completed",
         "img": "assets/images/project-purbasadipur.jpg",
-        "scope": "Full civil scope including 230kV & 132kV GIS control buildings, transformer foundations, piling works, cable trenches, internal roads, and switchyard finishing.",
-        "status": "Completed"
+        "scope": "Full civil scope including 230kV & 132kV GIS control buildings, transformer foundations, piling works, cable trenches, internal roads, and switchyard finishing."
       },
       {
         "id": "bheramara-360mw",
         "title": "Bheramara 360MW Combined Cycle Power Plant Civil Works",
-        "client": "PGCB / Energypac Engineering Ltd.",
+        "client": "PGCB / ENERGYPAC ENGINEERING LTD.",
         "category": "360 MW Combined Cycle",
         "location": "Bheramara, Kushtia",
         "value": "Major Power Hub",
-        "img": "assets/images/project-bheramara.jpg",
-        "scope": "Complete civil infrastructure works, heavy equipment foundations, pump houses, cable trenches, and auxiliary power generation structures for national base-load power.",
-        "status": "Completed"
-      },
-      {
-        "id": "dpdc-cable-slabs",
-        "title": "132/33 kV Underground Cable Protection Slab Works",
-        "client": "DPDC / TBEA CO. LTD. (Package-2, Lot-15)",
-        "category": "Underground Transmission",
-        "location": "Signboard to Siddhirganj",
-        "value": "BDT 18,300,000",
-        "img": "assets/images/project-cable-slabs.jpg",
-        "scope": "Strengthening of Power System Network under DPDC area. Manufacture, supply, transportation and interlocking installation of reinforced concrete protective slabs for 132/33 kV underground transmission.",
-        "status": "Completed"
-      },
-      {
-        "id": "ptc-plc-renovation",
-        "title": "Corporate Office Building Renovation & Modernization",
-        "client": "PTC PLC (Subsidiary of Bangladesh Petroleum Corporation)",
-        "category": "Corporate & Industrial Civil",
-        "location": "BPC Headquarters, Dhaka",
-        "value": "BDT 7,250,000",
-        "img": "assets/images/project-ptc-building.jpg",
-        "scope": "Full-scope turnkey EPC civil works, sanitary systems, modern electrical infrastructure, AC installation, glass partitioning, reception architecture, and CCTV surveillance networks.",
-        "status": "Completed"
-      },
-      {
-        "id": "onin-textile-mills",
-        "title": "Industrial Perimeter Boundary Wall & MEP Works",
-        "client": "Onin Textile Mills Ltd.",
-        "category": "Industrial Infrastructure",
-        "location": "Industrial Zone",
-        "value": "BDT 12,600,000",
-        "img": "assets/images/project-textile-mill.jpg",
-        "scope": "Main contractor executing deep foundation boundary enclosures, soil compaction, storm drainage channels, security cable networks, and outdoor industrial lighting.",
-        "status": "Completed"
+        "year": "Completed",
+        "status": "Completed",
+        "img": "assets/images/project-bheramara-360mw.jpg",
+        "scope": "Complete civil infrastructure works, heavy equipment foundations, pump houses, cable trenches, and auxiliary power generation structures for national base-load power."
       }
     ],
     "running": [
       {
-        "id": "maijdee-132kv",
-        "title": "Maijdee 132/33kV Coastal Cluster Substation Expansion",
-        "client": "PGCB Coastal Grid Program",
-        "category": "132/33kV Substation",
-        "location": "Maijdee, Noakhali",
-        "value": "Active Execution",
-        "progress": "72%",
-        "img": "assets/images/substation-hero.jpg",
-        "scope": "Expanding transformation capacity with 2x 80/120MVA power transformers, structural steel gantries, GIS bays, and storm-surge elevated foundation plinths.",
-        "status": "Active / Running"
+        "id": "bibiyana-230kv",
+        "title": "New Bibiyana 230/132/33kV GIS Substation Land Development",
+        "client": "PGCB / CCCE-ETERN-FEPEC CONSORTIUM (CONTRACT: PGCB/GTOG/01)",
+        "category": "230/132/33kV GIS Substation",
+        "location": "New Bibiyana, Nabiganj, Hobiganj",
+        "value": "BDT 45,000,000 Approx.",
+        "progress": "78%",
+        "status": "Running Project",
+        "img": "assets/images/project-bibiyana-230kv.jpg",
+        "scope": "Power Grid Network Strengthening Project under PGCB. Turnkey land development, deep compaction, site leveling & grading, sub-base preparation, and switchyard formation for 230/132/33kV GIS Substation."
       },
       {
-        "id": "feni-extension",
-        "title": "Feni 230/132kV Substation Bay Extension Works",
-        "client": "Consortium Grid Program",
-        "category": "230kV Bay Extension",
-        "location": "Feni",
-        "value": "Ongoing",
+        "id": "kaliganj-ais",
+        "title": "Kaliganj 132/33 KV AIS Substation Graveling & Yard Works",
+        "client": "PGCB / CCCE-ETERN-FEPEC / ALVEE (CONTRACT: PGCB/GTOG/01)",
+        "category": "132/33 KV AIS Substation",
+        "location": "Kaligonj, Jhenaidah",
+        "value": "BDT 10,600,000",
         "progress": "65%",
-        "img": "assets/images/feni_test.jpg",
-        "scope": "Construction of two 230kV line bays, relay room modernization, earthing mesh enhancement, and secondary protection wiring integration.",
-        "status": "Active / Running"
+        "status": "Running Project",
+        "img": "assets/images/project-kaliganj-132kv.jpg",
+        "scope": "Power Grid Network Strengthening Project under PGCB. Supply and precision laying of switchyard graveling work, drainage conduits, and civil auxiliary works for Kaliganj 132/33 KV AIS Substation."
       },
       {
-        "id": "underground-cable-phase2",
-        "title": "Underground Transmission Cable Protection Slabs Phase-2",
-        "client": "Urban Utility Network",
-        "category": "Underground Infrastructure",
-        "location": "Dhaka South Corridor",
-        "value": "BDT 22,000,000",
+        "id": "transmission-cable-slabs-phase3",
+        "title": "132/33kV Transmission Cable Protection Slab Installation",
+        "client": "DPDC / TBEA CO. LTD. (PACKAGE-2 EXTENSION)",
+        "category": "Underground Transmission",
+        "location": "Signboard to Siddhirganj Corridor",
+        "value": "Active Transmission Package",
         "progress": "50%",
-        "img": "assets/images/project-control-room.jpg",
-        "scope": "High-volume precision casting, curing, laboratory quality testing, and route placement of precast interlocking cable warning slabs.",
-        "status": "Active / Running"
+        "status": "Running Project",
+        "img": "assets/images/project-cable-slab.jpg",
+        "scope": "Continuous high-volume precision casting, certified quality testing, multi-ton transport, and sequential interlocking installation of protective concrete slabs along active underground transmission lines."
       }
     ]
   },

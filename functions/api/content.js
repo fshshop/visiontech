@@ -5,13 +5,32 @@ export async function onRequestGet(context) {
     if (context.env && context.env.SITE_DATA_KV) {
       const stored = await context.env.SITE_DATA_KV.get('siteData');
       if (stored) {
-        return new Response(stored, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Cache-Control': 'no-store, no-cache, must-revalidate'
+        try {
+          const parsed = JSON.parse(stored);
+          const merged = Object.assign({}, defaultData, parsed);
+
+          // Defensive migration: ensure projects has both completed and running registers
+          if (!merged.projects || Array.isArray(merged.projects) || !merged.projects.completed || !Array.isArray(merged.projects.completed) || merged.projects.completed.length === 0) {
+            merged.projects = defaultData.projects;
           }
-        });
+          if (!merged.projects.running || !Array.isArray(merged.projects.running) || merged.projects.running.length === 0) {
+            merged.projects.running = defaultData.projects.running;
+          }
+
+          if (!merged.whoWeAre) merged.whoWeAre = defaultData.whoWeAre;
+          if (!merged.ourServices) merged.ourServices = defaultData.ourServices;
+          if (!merged.leadership) merged.leadership = defaultData.leadership;
+
+          return new Response(JSON.stringify(merged), {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Cache-Control': 'no-store, no-cache, must-revalidate'
+            }
+          });
+        } catch (jsonErr) {
+          console.error('JSON parse error from KV:', jsonErr);
+        }
       }
     }
   } catch (e) {

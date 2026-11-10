@@ -661,6 +661,38 @@ async function syncLiveCMS() {
       });
     }
 
+    // 7. Sync Projects (Completed & Running)
+    if (data.projects && !Array.isArray(data.projects)) {
+      if (Array.isArray(data.projects.completed)) {
+        const compCards = document.querySelectorAll('#completed-projects .project-card');
+        data.projects.completed.forEach((proj, idx) => {
+          const card = compCards[idx];
+          if (card && proj) {
+            const titleEl = card.querySelector('h3, h4');
+            if (titleEl && proj.title) titleEl.textContent = proj.title;
+            const imgEl = card.querySelector('img');
+            if (imgEl && proj.img) imgEl.src = proj.img;
+            const scopeEl = card.querySelector('p');
+            if (scopeEl && proj.scope) scopeEl.textContent = proj.scope;
+          }
+        });
+      }
+      if (Array.isArray(data.projects.running)) {
+        const runCards = document.querySelectorAll('#running-projects .project-card');
+        data.projects.running.forEach((proj, idx) => {
+          const card = runCards[idx];
+          if (card && proj) {
+            const titleEl = card.querySelector('h3, h4');
+            if (titleEl && proj.title) titleEl.textContent = proj.title;
+            const imgEl = card.querySelector('img');
+            if (imgEl && proj.img) imgEl.src = proj.img;
+            const scopeEl = card.querySelector('p');
+            if (scopeEl && proj.scope) scopeEl.textContent = proj.scope;
+          }
+        });
+      }
+    }
+
   } catch(e) {
     // Static fallback continues smoothly
   }
