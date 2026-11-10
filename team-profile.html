@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionTech Leadership Profile</title>
+  <script>
+    // Smart router: Redirect ?id=xxx to team/xxx.html or fallback to about.html#leadership
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const validIds = [
+      'aminul-hoque',
+      'belal-hossain',
+      'atiqur-rahman',
+      'anisuzzaman',
+      'anamul-hoque',
+      'sabina-easmin',
+      'shovon-hossain',
+      'sanjida-sarker',
+      'aminul-islam-mukul',
+      'abdur-razzak',
+      'khandoker-abul-hossain',
+      'omar-faruk'
+    ];
+
+    if (id && validIds.includes(id)) {
+      window.location.replace('team/' + id + '.html');
+    } else {
+      window.location.replace('about.html#leadership');
+    }
+  </script>
+</head>
+<body style="background:#030712; color:#fff; font-family:sans-serif; text-align:center; padding-top:20vh;">
+  <p>Loading Leadership Profile...</p>
+</body>
+</html>
