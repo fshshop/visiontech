@@ -489,6 +489,7 @@ function initNavDropdowns() {
 
 
 // Dynamically Synchronize Frontend with CMS Server Data & Persistent LocalStorage
+// Dynamically Synchronize Frontend with CMS Edge Data & Persistent LocalStorage
 async function syncLiveCMS() {
   try {
     let data = null;
@@ -510,48 +511,158 @@ async function syncLiveCMS() {
 
     if (!data) return;
     
-    // 1. Sync General Branding & Logo
+    // 1. Sync General Branding & Logos
     if (data.general) {
-      if (data.general.siteName) {
-        document.querySelectorAll('.site-brand-name').forEach(el => el.textContent = data.general.siteName);
+      const g = data.general;
+      if (g.siteName) {
+        document.querySelectorAll('.site-brand-name').forEach(el => el.textContent = g.siteName);
       }
-      if (data.general.phone) {
-        document.querySelectorAll('.site-phone').forEach(el => el.textContent = data.general.phone);
+      if (g.phonePrimary || g.phone) {
+        const p = g.phonePrimary || g.phone;
+        document.querySelectorAll('.site-phone').forEach(el => el.textContent = p);
+        document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+          if (el.getAttribute('data-sync') !== 'false') el.href = 'tel:' + p.replace(/[^0-9+]/g, '');
+        });
       }
-      if (data.general.email) {
-        document.querySelectorAll('.site-email').forEach(el => el.textContent = data.general.email);
+      if (g.emailPrimary || g.email) {
+        const em = g.emailPrimary || g.email;
+        document.querySelectorAll('.site-email').forEach(el => el.textContent = em);
+        document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+          if (el.getAttribute('data-sync') !== 'false') el.href = 'mailto:' + em.split(',')[0].trim();
+        });
       }
-      if (data.general.hqAddress) {
-        document.querySelectorAll('.site-address').forEach(el => el.textContent = data.general.hqAddress);
+      if (g.hqAddress) {
+        document.querySelectorAll('.site-address, .site-hq-address').forEach(el => el.textContent = g.hqAddress);
       }
-      if (data.general.logoUrl) {
+      if (g.regInfo) {
+        document.querySelectorAll('.site-reg-info').forEach(el => el.textContent = g.regInfo);
+      }
+      if (g.topNotice) {
+        document.querySelectorAll('.site-top-notice').forEach(el => el.textContent = g.topNotice);
+      }
+      if (g.logoUrl) {
         document.querySelectorAll('img[src*="logo.png"], img[alt*="VisionTech Logo"], img.site-logo').forEach(img => {
-          img.src = data.general.logoUrl;
+          img.src = g.logoUrl;
+        });
+      }
+      if (g.faviconUrl) {
+        document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]').forEach(l => {
+          l.href = g.faviconUrl;
         });
       }
     }
 
     // 2. Sync Hero Section Video & Pacing
     if (data.hero) {
-      if (data.hero.videoSpeed) {
-        window.currentVideoSpeed = parseFloat(data.hero.videoSpeed);
+      const h = data.hero;
+      if (h.videoSpeed) {
+        window.currentVideoSpeed = parseFloat(h.videoSpeed);
       }
       const v = document.getElementById('heroBgVideo');
       if (v) {
-        if (data.hero.videoUrl && !v.querySelector('source[src="' + data.hero.videoUrl + '"]')) {
-          v.src = data.hero.videoUrl;
+        if (h.videoUrl) {
+          const currentSrc = v.currentSrc || v.src;
+          if (!currentSrc.includes(h.videoUrl)) {
+            v.src = h.videoUrl;
+          }
         }
         if (window.currentVideoSpeed) {
           v.playbackRate = window.currentVideoSpeed;
         }
       }
-      if (data.hero.leadText) {
-        const leadEl = document.querySelector('.hero-lead-text');
-        if (leadEl) leadEl.textContent = data.hero.leadText;
+      if (h.leadText) {
+        document.querySelectorAll('.hero-lead-text').forEach(el => el.textContent = h.leadText);
+      }
+      if (h.badge) {
+        document.querySelectorAll('.hero-badge').forEach(el => el.textContent = h.badge);
       }
     }
+
+    // 3. Sync Key Stats
+    if (Array.isArray(data.stats) && data.stats.length > 0) {
+      const statEls = document.querySelectorAll('.counter-val, [data-target]');
+      data.stats.forEach((st, idx) => {
+        if (statEls[idx]) {
+          statEls[idx].textContent = st.value;
+          statEls[idx].setAttribute('data-target', st.value);
+        }
+      });
+    }
+
+    // 4. Sync Who We Are Section
+    if (data.whoWeAre) {
+      const w = data.whoWeAre;
+      const wwaContainer = document.getElementById('who-we-are-content');
+      if (wwaContainer) {
+        let tagsHtml = '';
+        if (Array.isArray(w.capabilities)) {
+          tagsHtml = '<div class="flex flex-wrap gap-2 py-1">' +
+            w.capabilities.map(cap => `<span class="px-3 py-1 rounded-lg bg-slate-800/90 border border-slate-700/80 text-xs font-mono text-amber-300"><i class="fa-solid fa-check text-[10px] mr-1 text-amber-400"></i> ${cap}</span>`).join('') +
+            '</div>';
+        }
+        wwaContainer.innerHTML = `
+          <div class="p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-start gap-3.5">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+              <i class="fa-solid fa-bolt-lightning text-base"></i>
+            </div>
+            <p class="text-amber-200 font-semibold text-base sm:text-lg leading-snug">
+              ${w.callout || 'VEL is working as EPC contractor in power sector & Industrial area.'}
+            </p>
+          </div>
+          <p class="text-slate-300 leading-relaxed">${w.para1 || ''}</p>
+          ${tagsHtml}
+          <p class="text-slate-300 leading-relaxed">${w.para2 || ''}</p>
+          <p class="text-slate-300 leading-relaxed">${w.para3 || ''}</p>
+        `;
+      }
+    }
+
+    // 5. Sync Our Services Verticals
+    if (data.ourServices && data.ourServices.epcVerticals) {
+      const epc = data.ourServices.epcVerticals;
+      const syncVert = (id, obj) => {
+        const el = document.getElementById(id);
+        if (el && obj) {
+          const h3 = el.querySelector('h3');
+          if (h3 && obj.title) h3.textContent = obj.title;
+          const p = el.querySelector('p');
+          if (p && obj.desc) p.textContent = obj.desc;
+          const img = el.querySelector('img');
+          if (img && obj.img) img.src = obj.img;
+        }
+      };
+      syncVert('energy-power', epc.energyPower);
+      syncVert('industrial-manufacturing', epc.industrialManufacturing);
+      syncVert('renewable-energy', epc.renewableEnergy);
+      syncVert('infrastructure-transportation', epc.infrastructureTransportation);
+    }
+
+    // 6. Sync Leadership Team Cards (about.html & index.html)
+    if (data.leadership) {
+      const allMembers = [
+        ...(data.leadership.board || []),
+        ...(data.leadership.management || []),
+        ...(data.leadership.advisory || [])
+      ];
+
+      allMembers.forEach(m => {
+        // Find links or images pointing to this member
+        document.querySelectorAll(`a[href*="${m.id}.html"]`).forEach(link => {
+          const card = link.closest('.spotlight-card');
+          if (card) {
+            const nameEl = card.querySelector('h4');
+            if (nameEl && m.name) nameEl.textContent = m.name;
+            const imgEl = card.querySelector('img');
+            if (imgEl && m.img) imgEl.src = m.img;
+            const bioEl = card.querySelector('p');
+            if (bioEl && m.shortBio) bioEl.textContent = m.shortBio;
+          }
+        });
+      });
+    }
+
   } catch(e) {
-    // Offline / Static fallback continues smoothly
+    // Static fallback continues smoothly
   }
 }
 

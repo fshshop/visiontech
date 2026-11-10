@@ -3,239 +3,461 @@
     "siteName": "VisionTech Engineering Ltd.",
     "tagline": "Civil & Electro-Mechanical Solutions",
     "subtitle": "A TRUSTED EPC PARTNER IN CIVIL & ELECTRO-MECHANICAL INFRASTRUCTURE",
-    "hqAddress": "Corporate HQ: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217",
-    "phone": "+88 01711 336533 / +88 01328 952275",
-    "email": "info@visiontech-bd.com, visiontech.ceo@gmail.com",
-    "regInfo": "Inc: C-202337/2025 • BIN: 007106124-0401 • TIN: 747413942028",
-    "logoUrl": "assets/images/logo.png",
+    "topNotice": "Headquarters: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217",
+    "phonePrimary": "+88 01730 335002",
+    "phoneSecondary": "+88 01711 336533",
+    "phoneTertiary": "+88 01328 952275",
     "landline": "+8802 224 458478",
-    "bankDetails": [
-      "AB Bank PLC, Islami Banking Branch, Kakrail, Dhaka (A/C: 1361119383001)",
-      "NCC Bank PLC, 51 Gulshan Avenue, Dhaka (A/C: 0012-0210028116)"
-    ]
+    "emailPrimary": "info@visiontech-bd.com",
+    "emailSecondary": "visiontech.ceo@gmail.com",
+    "hqAddress": "Corporate Headquarters: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217",
+    "regAddress": "Registered Office: 23/2-C, Shah Ali Bagh, Mirpur-1, Dhaka-1216",
+    "regInfo": "Inc: C-202337/2025 • VAT (BIN): 007106124-0401 • TIN: 747413942028 • Zero-Harm EHS Standard",
+    "logoUrl": "assets/images/logo.png",
+    "faviconUrl": "assets/images/favicon.png",
+    "linkedinUrl": "https://linkedin.com",
+    "facebookUrl": "https://facebook.com",
+    "quoteBtnText": "Request Tender Quote"
   },
   "hero": {
     "badge": "CIVIL & ELECTRO-MECHANICAL EPC LEADER",
     "titlePart1": "A Trusted EPC Partner in",
     "titleGradient": "Civil & Electro-Mechanical",
     "titlePart2": "Solutions.",
-    "leadText": "VisionTech Engineering Ltd. (VEL) is a dynamic EPC contractor delivering turnkey engineering, 132/33kV power substations, underground transmission cable protection, and heavy logistics for government utilities and private industrial leaders across Bangladesh.",
+    "leadText": "VisionTech Engineering Ltd. (VEL) is a dynamic EPC contractor delivering excellence across 400kV/230kV/132kV power grid substations, underground transmission cable infrastructure, heavy civil foundations, and industrial electro-mechanical systems throughout Bangladesh.",
+    "primaryCtaText": "Explore EPC Services",
+    "primaryCtaLink": "services.html",
+    "secondaryCtaText": "View Project Master Register",
+    "secondaryCtaLink": "projects.html",
     "videoUrl": "assets/videos/hero-engineering-bg.mp4",
     "videoPoster": "assets/videos/building_poster.jpg",
     "videoSpeed": 0.85,
-    "featureCard1": {
-      "icon": "fa-bolt-lightning",
-      "title": "Electro-Mechanical",
-      "subtitle": "132/33kV Grids & MEP"
-    },
-    "featureCard2": {
-      "icon": "fa-trowel-bricks",
-      "title": "Heavy Civil",
-      "subtitle": "Deep Foundations & PEB"
-    },
-    "featureCard3": {
-      "icon": "fa-truck-ramp-box",
-      "title": "Heavy Cargo",
-      "subtitle": "Swadesh Carrying Fleet"
-    }
+    "availableVideos": [
+      {
+        "name": "Hero Engineering Background",
+        "url": "assets/videos/hero-engineering-bg.mp4"
+      },
+      {
+        "name": "Substation Aerial Construction",
+        "url": "assets/videos/construction-workers.mp4"
+      },
+      {
+        "name": "City Workers & Infrastructure",
+        "url": "assets/videos/city-workers.mp4"
+      },
+      {
+        "name": "Engineer Walking On-Site",
+        "url": "assets/videos/worker-walking.mp4"
+      }
+    ]
   },
   "stats": [
     {
-      "value": "40+",
-      "label": "Grid Substations Delivered",
-      "sub": "400kV / 230kV / 132kV / 33kV"
-    },
-    {
-      "value": "360 MW",
-      "label": "Power Plant Civil Works",
-      "sub": "Combined Cycle & Heavy Industrial"
+      "value": "400/230/132kV",
+      "label": "High-Voltage Substations",
+      "sub": "Turnkey GIS & AIS construction across national grid hubs (Bhulta, Purbasadipur, Feni, Madunaghat)",
+      "icon": "fa-bolt-lightning"
     },
     {
       "value": "100,000+",
-      "label": "Pcs Precast Cable Slabs",
-      "sub": "Underground Transmission Safety"
+      "label": "Cable Protection Slabs",
+      "sub": "Certified precast interlocking slabs manufactured & installed for DPDC underground transmission",
+      "icon": "fa-shield-halved"
     },
     {
-      "value": "100%",
-      "label": "EHS Compliance Track Record",
-      "sub": "Zero-Loss-Time Incident Mandate"
+      "value": "40+ Years",
+      "label": "Advisory Leadership",
+      "sub": "Former Chief Engineers & General Managers from DPDC, Energypac & international mega-projects",
+      "icon": "fa-user-tie"
+    },
+    {
+      "value": "100% Zero-Harm",
+      "label": "EHS Safety Record",
+      "sub": "Strict zero-fatality EHS standard with sovereign compliance across all active EPC sites",
+      "icon": "fa-award"
     }
   ],
-  "services": [
-    {
-      "id": "power",
-      "title": "132/33kV Substations & Cable Laying",
-      "desc": "Turnkey transmission grid substations, GIS/AIS installations, high-voltage underground cable trenching, jointing, and precast protection slabs.",
-      "icon": "fa-bolt-lightning",
-      "badge": "High Voltage"
+  "whoWeAre": {
+    "badge": "WHO WE ARE • VISIONTECH ENGINEERING LTD.",
+    "headline": "Who We Are",
+    "callout": "VEL is working as EPC contractor in power sector & Industrial area.",
+    "para1": "Since 2023, VisionTech Engineering Ltd. began its journey with a strong foundation of extensive professional experience in engineering, power, infrastructure and project implementation. Over the years, the company has evolved into a trusted EPC contractor, expanding its capabilities across Civil, Electro-Mechanical, Power & Energy, Infrastructure, Structural Steel, MEP and Industrial services.",
+    "capabilities": [
+      "Civil",
+      "Electro-Mechanical",
+      "Power & Energy",
+      "Infrastructure",
+      "Structural Steel",
+      "MEP",
+      "Industrial Services"
+    ],
+    "para2": "Through successful project execution, strategic partnerships and a commitment to quality, innovation, safety and client satisfaction, VisionTech has steadily strengthened its position in Bangladesh’s engineering and construction sector.",
+    "para3": "Today, VisionTech continues to grow with a clear vision of becoming a leading engineering and construction company, contributing to the sustainable development of Bangladesh."
+  },
+  "ourServices": {
+    "heroBadge": "APPROVED CORPORATE CAPABILITIES",
+    "heroTitle": "Our Services",
+    "heroDesc": "Integrated turnkey EPC delivery, sovereign equipment supply & trading, and multimodal heavy lift transport across Bangladesh's power, energy, industrial, and infrastructure sectors.",
+    "epcVerticals": {
+      "energyPower": {
+        "title": "400kV, 230kV & 132kV Turnkey GIS Substations & Transmission",
+        "badge": "1.1 ENERGY & POWER",
+        "desc": "VisionTech delivers apex turnkey GIS and AIS substation construction across Bangladesh with sovereign utilities including PGCB, DPDC, and BREB. Proven benchmarks include Bhulta 400/230/132kV GIS, Purbasadipur 230/132kV, Madunaghat 230kV Upgradation, Feni 230/132kV, and Maijdee 132/33kV. In underground transmission, VEL manufactured and installed 100,000+ certified concrete cable protection slabs (DPDC Signboard to Siddhirganj, BDT 18.3M).",
+        "img": "assets/images/substation-hero.jpg",
+        "feature1Title": "GIS Control Buildings",
+        "feature1Desc": "Multi-storied reinforced switching stations & basements",
+        "feature2Title": "Underground Cable Slabs",
+        "feature2Desc": "Interlocking high-strength precast protection slabs"
+      },
+      "industrialManufacturing": {
+        "title": "Heavy Factory Civil, PEB Structures & Industrial MEP Systems",
+        "badge": "1.2 INDUSTRIAL & MANUFACTURING",
+        "desc": "Complete engineering design and site construction for industrial processing complexes, textile mills, and corporate infrastructure. Key credentials include Onin Textile Mills perimeter security & heavy MEP drainage works (BDT 12.6M), PTC PLC (Bangladesh Petroleum Corporation subsidiary) corporate headquarters renovation, and deep equipment foundation pads engineered for dynamic machinery vibration absorption.",
+        "img": "assets/images/project-electrical-mep.jpg",
+        "feature1Title": "Pre-Engineered Buildings (PEB)",
+        "feature1Desc": "Long-span structural steel factory bays & warehouses",
+        "feature2Title": "Industrial MEP Networks",
+        "feature2Desc": "High-capacity busbar trunking, HVAC & fire safety loops"
+      },
+      "renewableEnergy": {
+        "title": "Utility Solar PV Parks, Industrial Rooftops & Grid Tie-in EPC",
+        "badge": "1.3 RENEWABLE ENERGY",
+        "desc": "Accelerating Bangladesh's clean energy transition through turnkey solar photovoltaic (PV) generation systems. VisionTech integrates ground-mounted solar arrays, industrial net-metered rooftop solar installations, battery energy storage systems (BESS), and specialized step-up substations connecting renewable megawatts smoothly to the national grid.",
+        "img": "assets/images/project-control-room.jpg",
+        "feature1Title": "Utility & Rooftop Solar",
+        "feature1Desc": "Tier-1 PV modules, string/central inverters & mounting",
+        "feature2Title": "Grid Synchronization",
+        "feature2Desc": "Harmonic filtering, metering & sovereign grid tie-in"
+      },
+      "infrastructureTransportation": {
+        "title": "Highway Bridges, Viaducts, Deep Piling & Transport Links",
+        "badge": "1.4 INFRASTRUCTURE & TRANSPORTATION",
+        "desc": "Execution of mission-critical civil infrastructure that drives national mobility. Our record includes auxiliary civil works on the landmark Kanchpur-Meghna-Gumti 2nd Bridges (Package PW-01), heavy foundation piling, RC box culverts, bridge approach ramps, and deep drainage civil networks built to withstand severe subtropical hydrological conditions.",
+        "img": "assets/images/project-bridge-kanchpur.jpg",
+        "feature1Title": "Bridge Auxiliary Works",
+        "feature1Desc": "Approaches, retaining walls, slope protection & spans",
+        "feature2Title": "Heavy Civil Transport Hubs",
+        "feature2Desc": "Port corridors, container yards & terminal aprons"
+      }
     },
-    {
-      "id": "civil",
-      "title": "Heavy Civil Infrastructure & Foundations",
-      "desc": "Deep pile foundations, heavy equipment machine foundations, water reservoirs, drainage retaining structures, and national bridge auxiliary civil works.",
-      "icon": "fa-trowel-bricks",
-      "badge": "Heavy Civil"
+    "supplyTrading": {
+      "title": "Power Grid Equipment, Switchgear & High-Voltage Consumables",
+      "badge": "2. SUPPLY & TRADING",
+      "desc": "VisionTech provides authorized international procurement and sovereign trading for primary substation assets. From high-capacity power transformers, 132kV/33kV GIS/AIS switchgear panels, CT/PT instrument transformers, and lightning arresters to precast cable protection slabs and certified capital spares.",
+      "catalogLink": "supply.html",
+      "highlights": [
+        "Power Transformers",
+        "132kV/33kV GIS Switchgear",
+        "Instrument Transformers (CT/PT)",
+        "Protection Relays"
+      ]
     },
-    {
-      "id": "mep",
-      "title": "Electro-Mechanical (MEP) & Interior",
-      "desc": "Industrial HVAC ventilation, electrical busbar trunking, emergency power generation synchronization, fire hydrant protection, and corporate fit-outs.",
-      "icon": "fa-gears",
-      "badge": "Industrial MEP"
-    },
-    {
-      "id": "industrial",
-      "title": "Pre-Engineered Steel Buildings (PEB)",
-      "desc": "Heavy structural steel fabrication, industrial multi-story factories, logistics warehouses, and large-span covered warehouses built to international ASTM standards.",
-      "icon": "fa-industry",
-      "badge": "PEB Steel"
+    "transportHandling": {
+      "title": "Multimodal Heavy Lift Transport, Jacking & Plinth Placement",
+      "badge": "3. TRANSPORT & HANDLING",
+      "desc": "Specialized logistical execution for oversized, super-heavy power plant transformers, turbines, and industrial machinery through sister concern Swadesh Carrying. Services include seaport offloading, riverine barge towing, hydraulic multi-axle overland haulage, civil plinth positioning, dragging, and precision optical alignment.",
+      "fleetLink": "sister-concern.html",
+      "highlights": [
+        "Hydraulic Multi-Axle Trailers",
+        "Riverine Barge Haulage",
+        "Hydraulic Jacking & Skidding",
+        "Plinth Placement & Alignment"
+      ]
     }
-  ],
-  "projects": [
-    {
-      "id": 1,
-      "title": "New Bibiyana 230/132/33kV GIS Grid Substation Land Development Work",
-      "client": "Power Grid Company of Bangladesh (PGCB)",
-      "category": "Substations & Land Development",
-      "location": "Nabiganj, Hobiganj",
-      "value": "BDT 45,000,000.00 Approx",
-      "img": "assets/images/project-bhulta-400kv.jpg",
-      "scope": "Turnkey land development, deep compaction, site leveling, grading, and perimeter flood containment for 230/132/33kV GIS switchyard under PGCB with CCCE-ETERN-FEPEC Consortium."
-    },
-    {
-      "id": 2,
-      "title": "DPDC Underground Cable Line (Package-2 Lot-15)",
-      "client": "Dhaka Power Distribution Company (DPDC)",
-      "category": "Transmission",
-      "location": "Signboard to Siddhirganj, Dhaka",
-      "value": "BDT 18,300,000.00",
-      "img": "assets/images/project-cable-slab.jpg",
-      "scope": "Urban underground cable line construction, duct bank installation, joint bay chambers, and precast protection slabs with TBEA Co. Ltd."
-    },
-    {
-      "id": 3,
-      "title": "Land Development at Moulovibazar Palli Biddyut Samity-6",
-      "client": "Bangladesh Rural Electrification Board (BREB) / Energypac",
-      "category": "Land Development",
-      "location": "Athangiri, Kagabola, Moulovibazar",
-      "value": "BDT 11,200,000.00",
-      "img": "assets/images/project-site-work.jpg",
-      "scope": "Land Development with proper mechanical compaction, leveling & dressing for rural power network substation expansion (DNE DMCS)."
-    },
-    {
-      "id": 4,
-      "title": "Kaliganj 132/33kV AIS Substation Graveling Works",
-      "client": "Power Grid Company of Bangladesh (PGCB)",
-      "category": "Substations",
-      "location": "Kaliganj, Jhenaidah",
-      "value": "BDT 10,600,000.00",
-      "img": "assets/images/project-electrical-mep.jpg",
-      "scope": "Supply & Laying of Graveling Work for Kaliganj 132/33kV AIS Substation under PGCB with CCCE-ETERN-FEPEC Consortium and Alvee Construction."
-    },
-    {
-      "id": 5,
-      "title": "PTC PLC Corporate Facility Renovation & Upgradation",
-      "client": "Petroleum Transmission Company PLC (PTC PLC - BPC)",
-      "category": "Civil & MEP Renovation",
-      "location": "Dhaka Headquarters",
-      "value": "BDT 7,250,000.00",
-      "img": "assets/images/project-building-renovation.jpg",
-      "scope": "Comprehensive turnkey civil, sanitary, electrical, glass partition, executive interior, kitchen cabinetry, AC systems, and CCTV surveillance."
-    },
-    {
-      "id": 6,
-      "title": "Bangladesh Supreme Court Interior Architecture & Fabrication",
-      "client": "Bangladesh Supreme Court",
-      "category": "Interior Architecture",
-      "location": "Supreme Court, Dhaka",
-      "value": "BDT 850,000.00",
-      "img": "assets/images/project-office-interior.jpg",
-      "scope": "Acoustic wood paneling, executive chamber fabrication, custom architectural fittings, and judicial chamber renovation."
-    },
-    {
-      "id": 7,
-      "title": "Bheramara 360MW Combined Cycle Power Plant Civil Works",
-      "client": "PGCB / Energypac Engineering Ltd.",
-      "category": "Power Plants",
-      "location": "Bheramara, Kushtia",
-      "value": "Major Civil Works",
-      "img": "assets/images/project-bheramara-360mw.jpg",
-      "scope": "Heavy machinery foundations, dynamic load vibration absorption pits, circulating cooling water trenches, and auxiliary steel structural framing."
-    },
-    {
-      "id": 8,
-      "title": "Industrial Perimeter Boundary Wall & Electromechanical Works",
-      "client": "Onin Textile Mills",
-      "category": "PEB & Industrial Civil",
-      "location": "Industrial Zone",
-      "value": "BDT 12,600,000.00",
-      "img": "assets/images/project-site-work.jpg",
-      "scope": "Deep-foundation reinforced concrete industrial security boundary wall, integrated drainage systems, high-voltage plant power distribution, and lighting."
-    }
-  ],
+  },
+  "projects": {
+    "completed": [
+      {
+        "id": "bhulta-400kv",
+        "title": "Bhulta 400/230/132kV Turnkey GIS Substation Civil Works",
+        "client": "PGCB / CNTIC Turnkey Package",
+        "category": "400/230/132kV GIS",
+        "location": "Bhulta, Narayanganj",
+        "value": "Consortium Scale",
+        "img": "assets/images/bhulta_test.jpg",
+        "scope": "Complete civil execution of 400kV & 230kV GIS Control Room Buildings, heavy transformer foundations, cable trenches, internal roads, and switchyard graveling for PGCB's apex national grid hub.",
+        "status": "Completed"
+      },
+      {
+        "id": "purbasadipur-230kv",
+        "title": "Purbasadipur 230/132kV & 132/33kV GIS Substation",
+        "client": "PGCB / CNTIC (Package 1.1)",
+        "category": "230/132kV Turnkey",
+        "location": "Dinajpur",
+        "value": "National Grid Hub",
+        "img": "assets/images/project-purbasadipur.jpg",
+        "scope": "Full civil scope including 230kV & 132kV GIS control buildings, transformer foundations, piling works, cable trenches, internal roads, and switchyard finishing.",
+        "status": "Completed"
+      },
+      {
+        "id": "bheramara-360mw",
+        "title": "Bheramara 360MW Combined Cycle Power Plant Civil Works",
+        "client": "PGCB / Energypac Engineering Ltd.",
+        "category": "360 MW Combined Cycle",
+        "location": "Bheramara, Kushtia",
+        "value": "Major Power Hub",
+        "img": "assets/images/project-bheramara.jpg",
+        "scope": "Complete civil infrastructure works, heavy equipment foundations, pump houses, cable trenches, and auxiliary power generation structures for national base-load power.",
+        "status": "Completed"
+      },
+      {
+        "id": "dpdc-cable-slabs",
+        "title": "132/33 kV Underground Cable Protection Slab Works",
+        "client": "DPDC / TBEA CO. LTD. (Package-2, Lot-15)",
+        "category": "Underground Transmission",
+        "location": "Signboard to Siddhirganj",
+        "value": "BDT 18,300,000",
+        "img": "assets/images/project-cable-slabs.jpg",
+        "scope": "Strengthening of Power System Network under DPDC area. Manufacture, supply, transportation and interlocking installation of reinforced concrete protective slabs for 132/33 kV underground transmission.",
+        "status": "Completed"
+      },
+      {
+        "id": "ptc-plc-renovation",
+        "title": "Corporate Office Building Renovation & Modernization",
+        "client": "PTC PLC (Subsidiary of Bangladesh Petroleum Corporation)",
+        "category": "Corporate & Industrial Civil",
+        "location": "BPC Headquarters, Dhaka",
+        "value": "BDT 7,250,000",
+        "img": "assets/images/project-ptc-building.jpg",
+        "scope": "Full-scope turnkey EPC civil works, sanitary systems, modern electrical infrastructure, AC installation, glass partitioning, reception architecture, and CCTV surveillance networks.",
+        "status": "Completed"
+      },
+      {
+        "id": "onin-textile-mills",
+        "title": "Industrial Perimeter Boundary Wall & MEP Works",
+        "client": "Onin Textile Mills Ltd.",
+        "category": "Industrial Infrastructure",
+        "location": "Industrial Zone",
+        "value": "BDT 12,600,000",
+        "img": "assets/images/project-textile-mill.jpg",
+        "scope": "Main contractor executing deep foundation boundary enclosures, soil compaction, storm drainage channels, security cable networks, and outdoor industrial lighting.",
+        "status": "Completed"
+      }
+    ],
+    "running": [
+      {
+        "id": "maijdee-132kv",
+        "title": "Maijdee 132/33kV Coastal Cluster Substation Expansion",
+        "client": "PGCB Coastal Grid Program",
+        "category": "132/33kV Substation",
+        "location": "Maijdee, Noakhali",
+        "value": "Active Execution",
+        "progress": "72%",
+        "img": "assets/images/substation-hero.jpg",
+        "scope": "Expanding transformation capacity with 2x 80/120MVA power transformers, structural steel gantries, GIS bays, and storm-surge elevated foundation plinths.",
+        "status": "Active / Running"
+      },
+      {
+        "id": "feni-extension",
+        "title": "Feni 230/132kV Substation Bay Extension Works",
+        "client": "Consortium Grid Program",
+        "category": "230kV Bay Extension",
+        "location": "Feni",
+        "value": "Ongoing",
+        "progress": "65%",
+        "img": "assets/images/feni_test.jpg",
+        "scope": "Construction of two 230kV line bays, relay room modernization, earthing mesh enhancement, and secondary protection wiring integration.",
+        "status": "Active / Running"
+      },
+      {
+        "id": "underground-cable-phase2",
+        "title": "Underground Transmission Cable Protection Slabs Phase-2",
+        "client": "Urban Utility Network",
+        "category": "Underground Infrastructure",
+        "location": "Dhaka South Corridor",
+        "value": "BDT 22,000,000",
+        "progress": "50%",
+        "img": "assets/images/project-control-room.jpg",
+        "scope": "High-volume precision casting, curing, laboratory quality testing, and route placement of precast interlocking cable warning slabs.",
+        "status": "Active / Running"
+      }
+    ]
+  },
+  "leadership": {
+    "board": [
+      {
+        "id": "aminul-hoque",
+        "name": "Engr. S. M. Aminul Hoque",
+        "role": "CHAIRMAN",
+        "degree": "B.Sc. Engg. in EEE (CUEI), FIEB-6723",
+        "specialization": "Mega High-Voltage Projects (30+ Yrs Exp)",
+        "shortBio": "Over three decades of premier leadership in mega engineering sales, high-voltage contracts, and quality systems across South Asia.",
+        "img": "assets/images/team/aminul_hoque.jpg",
+        "profileUrl": "team/aminul-hoque.html"
+      },
+      {
+        "id": "belal-hossain",
+        "name": "Engr. Khondaker Belal Hossain",
+        "role": "MANAGING DIRECTOR",
+        "degree": "B.Sc. Engg. in ME (CUET)",
+        "specialization": "Grid Substations & Heavy Foundations (28+ Yrs Exp)",
+        "shortBio": "Specialist in mechanical systems, heavy foundations, grid substation execution, and professional EPC project management.",
+        "img": "assets/images/team/belal_hossain.jpg",
+        "profileUrl": "team/belal-hossain.html"
+      },
+      {
+        "id": "atiqur-rahman",
+        "name": "Md. Atiqur Rahman",
+        "role": "DIRECTOR / CEO",
+        "degree": "MBA, University of Dhaka",
+        "specialization": "Turnkey EPC Strategy & Contracts (22+ Yrs Exp)",
+        "shortBio": "Strategic leadership of civil and electro-mechanical operations, contract management, QA/QC, and EHS compliance.",
+        "img": "assets/images/team/atiqur_rahman.jpg",
+        "profileUrl": "team/atiqur-rahman.html"
+      }
+    ],
+    "management": [
+      {
+        "id": "anisuzzaman",
+        "name": "Sharif Mohammad Anisuzzaman",
+        "role": "Director (Technical)",
+        "degree": "B.Sc. Engg. in EEE (BUET), MBA (DU), MIEB",
+        "specialization": "Substations & Transmission Auditing (25+ Yrs Exp)",
+        "shortBio": "25+ years in power substations, transmission lines, project auditing, and engineering governance.",
+        "img": "assets/images/team/anisuzzaman.jpg",
+        "profileUrl": "team/anisuzzaman.html"
+      },
+      {
+        "id": "anamul-hoque",
+        "name": "S. M. Anamul Hoque",
+        "role": "Director (Business Development)",
+        "degree": "B.Sc. Engg. in ME (AUST)",
+        "specialization": "Project Sales & Client Relations (18+ Yrs Exp)",
+        "shortBio": "Extensive experience in high-voltage product sales, client relationship management, and commercial EPC expansion.",
+        "img": "assets/images/team/anamul_hoque.jpg",
+        "profileUrl": "team/anamul-hoque.html"
+      },
+      {
+        "id": "sabina-easmin",
+        "name": "Sabina Easmin",
+        "role": "Marketing Manager",
+        "degree": "B.Sc. (DU), EMBA in Marketing (DU)",
+        "specialization": "Institutional Tender Strategy (15+ Yrs Exp)",
+        "shortBio": "15+ years in engineering marketing, tender submission strategy, and sovereign procurement client liaison.",
+        "img": "assets/images/team/sabina_easmin.jpg",
+        "profileUrl": "team/sabina-easmin.html"
+      },
+      {
+        "id": "shovon-hossain",
+        "name": "Md. Shovon Hossain",
+        "role": "Finance & Accounts Manager",
+        "degree": "M.Com (Accounting), CA (CC)",
+        "specialization": "Financial Governance & Audit (12+ Yrs Exp)",
+        "shortBio": "Specialized in project financial structuring, corporate tax compliance, banking instruments, and fiduciary accounting.",
+        "img": "assets/images/team/shovon_hossain.jpg",
+        "profileUrl": "team/shovon-hossain.html"
+      },
+      {
+        "id": "sanjida-sarker",
+        "name": "Sanjida Sarker",
+        "role": "HR & Admin Manager",
+        "degree": "MBA in HRM (Southeast University)",
+        "specialization": "Workforce & Compliance Management (10+ Yrs Exp)",
+        "shortBio": "Directs human resource deployment, talent acquisition, labor compliance, administrative operations, and site welfare.",
+        "img": "assets/images/team/sanjida_sarker.jpg",
+        "profileUrl": "team/sanjida-sarker.html"
+      }
+    ],
+    "advisory": [
+      {
+        "id": "aminul-islam-mukul",
+        "name": "Engr. Aminul Islam Mukul",
+        "role": "Honorable Advisor - Mega Projects",
+        "degree": "B.Sc. Engg. (BUET), M.Sc. Engg. (BUET), PGD",
+        "specialization": "Power Sector Authority (Ex-Chief Engineer DPDC)",
+        "shortBio": "Ex-Chief Engineer at DPDC with 30+ years leading multi-hundred million dollar substation and underground network projects.",
+        "img": "assets/images/team/aminul_islam_mukul.jpg",
+        "profileUrl": "team/aminul-islam-mukul.html"
+      },
+      {
+        "id": "abdur-razzak",
+        "name": "Engr. Md Abdur Razzak",
+        "role": "Honorable Advisor - Project Sales",
+        "degree": "B.Sc. Engg. (CUET), FIEB",
+        "specialization": "Energy Solutions & Sourcing (Ex-GM Energypac)",
+        "shortBio": "Former GM (Private Sales) at Energypac Engineering Ltd. 30+ years delivering premier energy solutions across public and private sectors.",
+        "img": "assets/images/team/abdur_razzak.jpg",
+        "profileUrl": "team/abdur-razzak.html"
+      },
+      {
+        "id": "khandoker-abul-hossain",
+        "name": "Engr. Dr. Khandoker Abul Hossain",
+        "role": "Honorable Advisor",
+        "degree": "B.Sc. (CUET), PhD (Canada), P.Eng. (Alberta)",
+        "specialization": "Mechanical & Thermal Systems (25+ Yrs Exp)",
+        "shortBio": "Senior engineering specialist at Vista Project Canada, McDermott USA, Saipem Canada; former faculty at CUET and Memorial University.",
+        "img": "assets/images/team/khandoker_abul_hossain.jpg",
+        "profileUrl": "team/khandoker-abul-hossain.html"
+      },
+      {
+        "id": "omar-faruk",
+        "name": "Mohammad Omar Faruk",
+        "role": "Honorable Advisor Finance",
+        "degree": "FCA, CIPFA (AFFIL)",
+        "specialization": "Strategic Finance & Audit (24+ Yrs Exp)",
+        "shortBio": "Chartered Accountant with 24 years in financial operations, TAX & VAT compliance, ERP automation, and institutional governance.",
+        "img": "assets/images/team/omar_faruk.jpg",
+        "profileUrl": "team/omar-faruk.html"
+      }
+    ]
+  },
   "sisterConcern": {
     "name": "Swadesh Carrying Agency",
-    "subtitle": "Heavy Haulage, Specialized Hydraulic Multi-Axle Fleet & Inland River Logistics",
+    "subtitle": "Heavy Haulage, Specialized Hydraulic Multi-Axle Fleet & Inland Riverine Barge Logistics",
     "statFleet": "25+ Specialized Vehicles",
     "statCapacity": "Up to 300 Tons Per Move",
-    "desc": "Operating as VisionTech's integrated logistics backbone, Swadesh Carrying Agency guarantees self-reliant transport of heavy power transformers, turbines, and oversized construction cargo across all national highways and river waterways in Bangladesh."
-  },
-  "investors": {
-    "headline": "Strategic Investment Proposal: Power, Logistics & Turnkey Infrastructure",
-    "targetCapital": "$5,000,000 USD",
-    "projectedRoi": "22% - 28% IRR",
-    "status": "Active Capital Round Open for Accredited Strategic Partners"
+    "desc": "Operating as VisionTech's integrated logistics backbone, Swadesh Carrying commands specialized multi-axle modular trailers, heavy-lift tug-barges, and precision jacking-skidding systems. Swadesh guarantees zero-damage overland and inland riverine haulage of 400kV transformers, turbines, and oversized industrial capital assets from Chattogram and Mongla seaports to remote substation sites nationwide.",
+    "features": [
+      "Heavy Lift Seaport Offloading",
+      "Inland Riverine Barge Haulage",
+      "Hydraulic Multi-Axle Transport",
+      "On-Site Plinth Placement & Skidding"
+    ]
   },
   "mediaSection": {
     "headline": "Publications, Brochures & Site Gallery",
-    "leadText": "Download official EPC pre-qualification dossiers, equipment specifications, and inspect our active high-voltage substation project gallery.",
+    "leadText": "Download official EPC pre-qualification dossiers, equipment specifications, and inspect verified field execution photographs.",
     "brochures": [
       {
-        "id": 1,
-        "title": "Corporate Fact Sheet & Profile",
-        "size": "PDF • 2.4 MB",
-        "desc": "Official engineering credentials, management profile, bank solvency certificates, and company registry.",
+        "title": "VisionTech Corporate Profile & EPC Capabilities Dossier",
+        "size": "PDF • 4.8 MB",
         "fileUrl": "assets/docs/VisionTech-Corporate-Profile.pdf"
       },
       {
-        "id": 2,
-        "title": "EPC Turnkey Capabilities Deck",
-        "size": "PDF • 4.1 MB",
-        "desc": "132/33kV substations, underground transmission cable laying methods, and civil construction machinery.",
-        "fileUrl": "assets/docs/VisionTech-EPC-Capabilities.pdf"
+        "title": "132/33kV Precast Cable Protection Slab Specifications",
+        "size": "PDF • 2.1 MB",
+        "fileUrl": "assets/docs/Cable-Protection-Slab-Specs.pdf"
       },
       {
-        "id": 3,
-        "title": "Swadesh Carrying Logistics Deck",
-        "size": "PDF • 1.8 MB",
-        "desc": "Specialized multi-axle trailer fleet, river barge charters, and heavy cargo transit insurance policies.",
-        "fileUrl": "assets/docs/Swadesh-Logistics-Brochure.pdf"
+        "title": "Swadesh Carrying Heavy Haulage Equipment Register",
+        "size": "PDF • 3.4 MB",
+        "fileUrl": "assets/docs/Swadesh-Heavy-Haulage-Fleet.pdf"
       }
     ],
     "gallery": [
       {
-        "title": "Bhulta 400kV Substation Earthwork",
-        "img": "assets/images/project-bhulta-400kv.jpg"
+        "title": "Bhulta 400kV Substation Piling",
+        "img": "assets/images/bhulta_test.jpg"
       },
       {
-        "title": "Bheramara 360MW Turbine Foundation",
-        "img": "assets/images/project-bheramara-360mw.jpg"
-      },
-      {
-        "title": "High Voltage Cable Protection Slabs",
-        "img": "assets/images/project-cable-slab.jpg"
-      },
-      {
-        "title": "Madunaghat Switchgear Erection",
-        "img": "assets/images/project-madunaghat.jpg"
-      },
-      {
-        "title": "Maijdee GIS Control Center",
-        "img": "assets/images/project-maijdee-gis.jpg"
-      },
-      {
-        "title": "Purbasadipur Transformer Rigging",
+        "title": "Purbasadipur GIS Switchyard",
         "img": "assets/images/project-purbasadipur.jpg"
+      },
+      {
+        "title": "Bheramara Combined Cycle Plant",
+        "img": "assets/images/project-bheramara.jpg"
+      },
+      {
+        "title": "Underground Cable Slab Laying",
+        "img": "assets/images/project-cable-slabs.jpg"
+      },
+      {
+        "title": "PTC PLC Corporate Renovation",
+        "img": "assets/images/project-ptc-building.jpg"
+      },
+      {
+        "title": "Onin Textile Mills Perimeter",
+        "img": "assets/images/project-textile-mill.jpg"
       }
     ]
   },

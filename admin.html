@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>VisionTech Control Suite | Master EPC Management Portal</title>
   
   <!-- Fonts & Tailwind -->
@@ -15,6 +15,7 @@
   
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -57,6 +58,13 @@
     .custom-scroll::-webkit-scrollbar-thumb:hover {
       background: #f59e0b;
     }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
     input, textarea, select {
       background-color: #050b14 !important;
       border: 1px solid #1e293b !important;
@@ -68,13 +76,23 @@
       box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2) !important;
       outline: none !important;
     }
+    .nav-tab.active {
+      background-color: rgba(245, 158, 11, 0.15) !important;
+      color: #f59e0b !important;
+      border-color: rgba(245, 158, 11, 0.4) !important;
+    }
+    .mobile-tab-btn.active {
+      background-color: #f59e0b !important;
+      color: #030712 !important;
+      font-weight: 700 !important;
+    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-brand-dark antialiased selection:bg-amber-500 selection:text-slate-950">
+<body class="min-h-screen flex flex-col bg-brand-dark antialiased selection:bg-amber-500 selection:text-slate-950 overflow-x-hidden">
 
   <!-- ================= AUTHENTICATION MODAL (LOGIN) ================= -->
   <div id="loginOverlay" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4">
-    <div class="w-full max-w-md p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl relative overflow-hidden">
+    <div class="w-full max-w-md p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl relative overflow-hidden">
       <div class="absolute -top-20 -right-20 w-44 h-44 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -bottom-20 -left-20 w-44 h-44 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -83,8 +101,8 @@
           <img id="loginLogoPreview" src="assets/images/logo.png" alt="Logo" class="h-8 w-auto">
         </div>
         <div>
-          <h2 class="text-lg font-bold font-display text-white">VisionTech Admin</h2>
-          <p class="text-xs text-amber-400 font-semibold uppercase tracking-wider">Master EPC Management Portal</p>
+          <h2 class="text-base sm:text-lg font-bold font-display text-white">VisionTech Admin</h2>
+          <p class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider">Master EPC Management Portal</p>
         </div>
       </div>
 
@@ -108,7 +126,7 @@
         <div id="loginError" class="text-xs text-rose-400 font-semibold hidden"></div>
 
         <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-display font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 transition transform active:scale-95">
-          <i class="fa-solid fa-key mr-1.5"></i> Authenticate & Enter CMS
+          <i class="fa-solid fa-key mr-1.5"></i> Authenticate &amp; Enter CMS
         </button>
       </form>
     </div>
@@ -116,148 +134,216 @@
 
   <!-- ================= IMAGE PICKER GALLERY MODAL ================= -->
   <div id="imagePickerModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="w-full max-w-4xl max-h-[85vh] flex flex-col p-6 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl relative text-white">
+    <div class="w-full max-w-4xl max-h-[85vh] flex flex-col p-4 sm:p-6 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl relative text-white">
       <div class="flex justify-between items-center pb-4 border-b border-slate-800">
         <div>
           <h3 class="text-base font-bold text-white font-display flex items-center gap-2">
             <i class="fa-solid fa-images text-amber-400"></i>
-            <span>Select Image from Authentic Project Gallery</span>
+            <span>Select Image from Project Gallery</span>
           </h3>
-          <p class="text-xs text-slate-400">Click any photograph to instantly assign it to the selected item.</p>
+          <p class="text-xs text-slate-400">Click any photograph to instantly assign it to the selected element.</p>
         </div>
         <button id="closeImagePicker" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <div id="galleryGrid" class="flex-1 overflow-y-auto custom-scroll py-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <!-- Filter/Search Bar in Picker -->
+      <div class="py-3 border-b border-slate-800 flex gap-2">
+        <input type="text" id="gallerySearchInput" placeholder="Filter images by filename (e.g. substation, team, cable, bhulta)..." class="w-full px-3 py-2 rounded-xl text-xs text-white">
+      </div>
+
+      <div id="galleryGrid" class="flex-1 overflow-y-auto custom-scroll py-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
         <!-- Rendered dynamically -->
       </div>
     </div>
   </div>
 
   <!-- ================= TOP NAVIGATION BAR ================= -->
-  <header class="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-4 sm:px-8 py-3 flex justify-between items-center">
-    <div class="flex items-center gap-4">
-      <button id="sidebarToggle" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
-        <i class="fa-solid fa-bars"></i>
+  <header class="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-3 sm:px-6 py-2.5 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <!-- Mobile Sidebar Toggle -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white active:scale-95 transition" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars text-sm"></i>
       </button>
 
-      <div class="flex items-center gap-3">
-        <div class="bg-white p-1.5 rounded-xl shadow-md">
-          <img id="navLogoPreview" src="assets/images/logo.png" alt="Logo" class="h-7 w-auto">
+      <div class="flex items-center gap-2.5">
+        <div class="bg-white p-1 rounded-xl shadow-md shrink-0">
+          <img id="navLogoPreview" src="assets/images/logo.png" alt="Logo" class="h-6 sm:h-7 w-auto">
         </div>
         <div>
-          <h1 class="text-sm font-bold font-display text-white flex items-center gap-2">
+          <h1 class="text-xs sm:text-sm font-bold font-display text-white flex items-center gap-1.5">
             <span>VisionTech Control Suite</span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">v5.0 Pro</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">v6.0 Pro</span>
           </h1>
-          <p class="text-[11px] text-slate-400 hidden sm:block">Civil & Electro-Mechanical Infrastructure CMS</p>
+          <p class="text-[10px] text-slate-400 hidden sm:block">Full Site Visual &amp; Content Management Engine</p>
         </div>
       </div>
     </div>
 
     <!-- Quick Actions Header -->
-    <div class="flex items-center gap-2 sm:gap-3">
-      <!-- Quick Logo Shortcut -->
-      <button onclick="switchTab('tab-general')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 hover:text-white transition hidden md:flex items-center gap-1.5">
-        <i class="fa-solid fa-id-card text-amber-400 text-xs"></i>
-        <span>Change Logo</span>
-      </button>
-
-      <!-- Quick Password Shortcut -->
-      <button onclick="switchTab('tab-security')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 hover:text-white transition hidden md:flex items-center gap-1.5">
-        <i class="fa-solid fa-key text-rose-400 text-xs"></i>
-        <span>Password</span>
-      </button>
-
+    <div class="flex items-center gap-1.5 sm:gap-2.5">
       <!-- Public Site Link -->
-      <a href="/" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5">
+      <a href="index.html" target="_blank" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5">
         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-sky-400"></i>
-        <span class="hidden sm:inline">View Website</span>
+        <span class="hidden md:inline">View Site</span>
       </a>
 
-      <!-- Save Changes Button -->
-      <button id="saveGlobalBtn" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition flex items-center gap-1.5">
-        <i class="fa-solid fa-floppy-disk"></i>
-        <span>Save Changes</span>
+      <!-- Backup JSON -->
+      <button onclick="exportSiteBackup()" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 hover:text-white transition hidden sm:flex items-center gap-1.5" title="Export Backup JSON">
+        <i class="fa-solid fa-download text-[10px] text-amber-400"></i>
+        <span class="hidden lg:inline">Backup</span>
+      </button>
+
+      <!-- Save Changes Button (Header) -->
+      <button id="saveGlobalBtn" class="px-3 sm:px-4 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition flex items-center gap-1.5 active:scale-95">
+        <i class="fa-solid fa-floppy-disk text-xs"></i>
+        <span class="hidden xs:inline">Save Changes</span>
+        <span class="xs:hidden">Save</span>
       </button>
 
       <!-- Logout Button -->
       <button id="logoutBtn" class="p-2 rounded-xl bg-slate-900 hover:bg-rose-950/40 border border-slate-800 hover:border-rose-800 text-slate-400 hover:text-rose-400 transition" title="Logout">
-        <i class="fa-solid fa-power-off text-sm"></i>
+        <i class="fa-solid fa-power-off text-xs"></i>
       </button>
     </div>
   </header>
 
+  <!-- ================= MOBILE HORIZONTAL SCROLLABLE TAB BAR ================= -->
+  <div class="lg:hidden bg-slate-950 border-b border-slate-800/90 px-3 py-2 overflow-x-auto no-scrollbar flex items-center gap-2 shrink-0">
+    <button onclick="switchTab('tab-general')" class="mobile-tab-btn active px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-sliders text-[10px] mr-1"></i> Branding
+    </button>
+    <button onclick="switchTab('tab-hero')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-film text-[10px] mr-1"></i> Hero
+    </button>
+    <button onclick="switchTab('tab-stats')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-chart-line text-[10px] mr-1"></i> Stats
+    </button>
+    <button onclick="switchTab('tab-whoweare')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-users text-[10px] mr-1"></i> Who We Are
+    </button>
+    <button onclick="switchTab('tab-services')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-helmet-safety text-[10px] mr-1"></i> Services
+    </button>
+    <button onclick="switchTab('tab-projects')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-city text-[10px] mr-1"></i> Projects
+    </button>
+    <button onclick="switchTab('tab-leadership')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-user-tie text-[10px] mr-1"></i> Leadership
+    </button>
+    <button onclick="switchTab('tab-sister')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-truck-moving text-[10px] mr-1"></i> Swadesh
+    </button>
+    <button onclick="switchTab('tab-media')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-photo-film text-[10px] mr-1"></i> Media
+    </button>
+    <button onclick="switchTab('tab-inquiries')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-inbox text-[10px] mr-1"></i> Inquiries
+    </button>
+    <button onclick="switchTab('tab-security')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-shield-halved text-[10px] mr-1"></i> Password
+    </button>
+    <button onclick="switchTab('tab-backup')" class="mobile-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-900 text-slate-300 border border-slate-800 transition">
+      <i class="fa-solid fa-database text-[10px] mr-1"></i> Backup
+    </button>
+  </div>
+
   <!-- ================= MAIN LAYOUT WITH SIDEBAR ================= -->
-  <div class="flex-1 flex overflow-hidden">
+  <div class="flex-1 flex overflow-hidden relative">
     
-    <!-- SIDEBAR NAVIGATION -->
-    <aside id="adminSidebar" class="w-64 bg-slate-950/80 border-r border-slate-800 p-4 space-y-2 flex flex-col justify-between shrink-0 custom-scroll overflow-y-auto">
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div id="sidebarBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-30 hidden lg:hidden transition-opacity"></div>
+
+    <!-- SIDEBAR NAVIGATION (Desktop & Sliding Mobile Drawer) -->
+    <aside id="adminSidebar" class="fixed lg:static top-0 bottom-0 left-0 z-40 w-64 bg-slate-950 border-r border-slate-800 p-4 space-y-2 flex flex-col justify-between shrink-0 custom-scroll overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+      
       <div class="space-y-1">
+        <!-- Close button on mobile -->
+        <div class="flex justify-between items-center lg:hidden pb-3 mb-2 border-b border-slate-800">
+          <span class="text-xs font-bold text-white uppercase tracking-wider font-display">Navigation Menu</span>
+          <button id="closeSidebarBtn" class="p-1.5 rounded-lg bg-slate-900 text-slate-400 hover:text-white">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+
         <div class="text-[10px] uppercase font-bold text-slate-500 tracking-wider px-3 mb-2">Editor Modules</div>
 
-        <button data-tab="tab-general" class="nav-tab active w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition text-left bg-amber-500/10 text-amber-400 border border-amber-500/30">
-          <i class="fa-solid fa-sliders w-4 text-center"></i>
-          <span>Global Branding & Logo</span>
+        <button data-tab="tab-general" class="nav-tab active w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition text-left border border-transparent">
+          <i class="fa-solid fa-sliders w-4 text-center text-amber-400"></i>
+          <span>Global Branding &amp; Logo</span>
         </button>
 
-        <button data-tab="tab-hero" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+        <button data-tab="tab-hero" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
           <i class="fa-solid fa-film w-4 text-center text-sky-400"></i>
-          <span>Hero Video & Headlines</span>
+          <span>Hero Video &amp; Narrative</span>
         </button>
 
-        <button data-tab="tab-stats" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
-          <i class="fa-solid fa-chart-line w-4 text-center text-amber-400"></i>
+        <button data-tab="tab-stats" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-chart-line w-4 text-center text-emerald-400"></i>
           <span>Engineering Track Record</span>
         </button>
 
-        <button data-tab="tab-services" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
-          <i class="fa-solid fa-bolt w-4 text-center text-sky-400"></i>
-          <span>EPC Services (Power/Civil)</span>
+        <button data-tab="tab-whoweare" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-users w-4 text-center text-amber-300"></i>
+          <span>Who We Are Narrative</span>
         </button>
 
-        <button data-tab="tab-projects" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+        <button data-tab="tab-services" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-helmet-safety w-4 text-center text-sky-400"></i>
+          <span>Our Services (EPC/Supply)</span>
+        </button>
+
+        <button data-tab="tab-projects" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
           <i class="fa-solid fa-city w-4 text-center text-amber-400"></i>
-          <span>Landmark Projects Portfolio</span>
+          <span>Projects (Completed &amp; Running)</span>
         </button>
 
-        <button data-tab="tab-media" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
-          <i class="fa-solid fa-photo-film w-4 text-center text-emerald-400"></i>
-          <span>Media, Gallery & Brochures</span>
+        <button data-tab="tab-leadership" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-user-tie w-4 text-center text-purple-400"></i>
+          <span>Leadership (12 Profiles)</span>
         </button>
 
-        <button data-tab="tab-sister" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
-          <i class="fa-solid fa-truck-monster w-4 text-center text-orange-400"></i>
-          <span>Swadesh Logistics Fleet</span>
+        <button data-tab="tab-sister" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-truck-moving w-4 text-center text-orange-400"></i>
+          <span>Swadesh Carrying Logistics</span>
         </button>
 
-        <button data-tab="tab-security" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
-          <i class="fa-solid fa-shield-halved w-4 text-center text-rose-400"></i>
-          <span>Security & Password</span>
+        <button data-tab="tab-media" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-photo-film w-4 text-center text-cyan-400"></i>
+          <span>Media, Gallery &amp; Brochures</span>
         </button>
 
-        <button data-tab="tab-inquiries" class="nav-tab w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+        <button data-tab="tab-inquiries" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
           <i class="fa-solid fa-inbox w-4 text-center text-indigo-400"></i>
           <span>Tender Inquiries (RFQ)</span>
+        </button>
+
+        <button data-tab="tab-security" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-shield-halved w-4 text-center text-rose-400"></i>
+          <span>Security &amp; Password</span>
+        </button>
+
+        <button data-tab="tab-backup" class="nav-tab w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition text-left border border-transparent">
+          <i class="fa-solid fa-database w-4 text-center text-emerald-400"></i>
+          <span>Data Backup &amp; Restore</span>
         </button>
       </div>
 
       <div class="p-3 rounded-2xl bg-slate-900/60 border border-slate-800/80 text-[11px] text-slate-400 space-y-1">
         <div class="flex justify-between items-center">
           <span>Engine</span>
-          <span class="text-amber-400 font-mono">Cloudflare Pages Edge</span>
+          <span class="text-amber-400 font-mono">Edge Dynamic CMS</span>
         </div>
         <div class="flex justify-between items-center">
-          <span>Mode</span>
-          <span class="text-emerald-400 font-mono">Full Dynamic CMS</span>
+          <span>Status</span>
+          <span class="text-emerald-400 font-mono">Synced &bull; v6.0</span>
         </div>
       </div>
     </aside>
 
     <!-- CONTENT EDITING AREA -->
-    <main class="flex-1 p-4 sm:p-8 custom-scroll overflow-y-auto">
+    <main class="flex-1 p-3.5 sm:p-6 lg:p-8 custom-scroll overflow-y-auto pb-24 lg:pb-8">
       
       <!-- Notification Toast -->
       <div id="toastMessage" class="fixed bottom-6 right-6 z-50 px-5 py-3 rounded-2xl bg-emerald-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-2xl transition-all transform translate-y-24 opacity-0 flex items-center gap-2">
@@ -268,75 +354,116 @@
       <!-- ================= TAB 1: GLOBAL BRANDING & LOGO ================= -->
       <div id="tab-general" class="tab-panel space-y-6">
         <div class="border-b border-slate-800 pb-4">
-          <h2 class="text-xl font-bold font-display text-white">Global Branding, Official Logo & HQ</h2>
-          <p class="text-xs text-slate-400">Update company logo, legal registry, headquarters address, phone numbers, and official emails.</p>
-        </div>
-
-        <!-- LOGO MANAGER BOX -->
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
-          <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
-            <i class="fa-solid fa-id-card"></i> Website Master Logo Manager
-          </h3>
-          <div class="flex flex-col sm:flex-row items-center gap-6">
-            <div class="flex flex-col items-center gap-2">
-              <div class="bg-white p-3 rounded-2xl shadow-xl border border-white/20 shrink-0">
-                <img id="logoEditorPreview" src="assets/images/logo.png" alt="VisionTech Logo Preview" class="h-16 w-auto object-contain">
-              </div>
-              <span class="text-[10px] text-slate-400">Current Header Logo</span>
-            </div>
-            
-            <div class="space-y-3 flex-1 w-full">
-              <label class="block text-xs font-semibold text-slate-300">Choose or Upload New Logo (PNG / SVG / JPG)</label>
-              
-              <div class="flex flex-wrap gap-2">
-                <button type="button" onclick="document.getElementById('logoUploadInput').click()" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition">
-                  <i class="fa-solid fa-upload"></i> Upload from Computer
-                </button>
-                <input type="file" id="logoUploadInput" accept="image/*" class="hidden">
-
-                <button type="button" onclick="openLogoGalleryPicker()" class="px-4 py-2 rounded-xl bg-sky-500/15 border border-sky-500/30 hover:bg-sky-500/25 text-sky-400 font-bold text-xs flex items-center gap-1.5 transition">
-                  <i class="fa-solid fa-images"></i> Select from Server Gallery
-                </button>
-              </div>
-
-              <div>
-                <label class="block text-[11px] font-semibold text-slate-400 mb-1">Direct Logo URL or Path</label>
-                <input type="text" id="cfgLogoUrl" class="w-full px-3 py-1.5 rounded-xl text-xs font-mono text-slate-300">
-              </div>
-            </div>
-          </div>
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Global Identity, Branding &amp; Contacts</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Edit company credentials, phone numbers, official emails, corporate logos, and notices.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider">Company Identity</h3>
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider font-display flex items-center gap-2">
+              <i class="fa-solid fa-building"></i> Company Identity &amp; Notices
+            </h3>
+
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Company Official Name</label>
-              <input type="text" id="cfgSiteName" class="w-full px-4 py-2.5 rounded-xl text-sm">
+              <input type="text" id="cfgSiteName" class="w-full px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white">
             </div>
+
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Tagline</label>
-              <input type="text" id="cfgTagline" class="w-full px-4 py-2.5 rounded-xl text-sm">
+              <input type="text" id="cfgTagline" class="w-full px-3 py-2 rounded-xl text-xs text-white">
             </div>
+
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Government Reg & Certifications</label>
-              <input type="text" id="cfgRegInfo" class="w-full px-4 py-2.5 rounded-xl text-sm">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Corporate Subtitle (Header Badge)</label>
+              <input type="text" id="cfgSubtitle" class="w-full px-3 py-2 rounded-xl text-xs text-white">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Top Bar Announcement / Headquarters Notice</label>
+              <input type="text" id="cfgTopNotice" class="w-full px-3 py-2 rounded-xl text-xs text-white">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Registration &amp; Statutory Credentials</label>
+              <input type="text" id="cfgRegInfo" class="w-full px-3 py-2 rounded-xl text-xs font-mono text-amber-300">
             </div>
           </div>
 
-          <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">Contact & Headquarters</h3>
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Headquarters Address</label>
-              <input type="text" id="cfgHqAddress" class="w-full px-4 py-2.5 rounded-xl text-sm">
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider font-display flex items-center gap-2">
+              <i class="fa-solid fa-phone"></i> Contact Details &amp; Addresses
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Primary Mobile / WhatsApp</label>
+                <input type="text" id="cfgPhonePrimary" class="w-full px-3 py-2 rounded-xl text-xs font-mono text-white">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Secondary Mobile</label>
+                <input type="text" id="cfgPhoneSecondary" class="w-full px-3 py-2 rounded-xl text-xs font-mono text-white">
+              </div>
             </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Primary Hotline</label>
-              <input type="text" id="cfgPhone" class="w-full px-4 py-2.5 rounded-xl text-sm">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Official Landline</label>
+                <input type="text" id="cfgLandline" class="w-full px-3 py-2 rounded-xl text-xs font-mono text-white">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Primary Email</label>
+                <input type="email" id="cfgEmailPrimary" class="w-full px-3 py-2 rounded-xl text-xs font-mono text-white">
+              </div>
             </div>
+
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Official Inquiry Email</label>
-              <input type="email" id="cfgEmail" class="w-full px-4 py-2.5 rounded-xl text-sm">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Corporate Headquarters (HQ Address)</label>
+              <textarea id="cfgHqAddress" rows="2" class="w-full px-3 py-2 rounded-xl text-xs text-white"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Registered Office Address</label>
+              <textarea id="cfgRegAddress" rows="2" class="w-full px-3 py-2 rounded-xl text-xs text-white"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo & Branding Image Customizer -->
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider font-display flex items-center gap-2">
+            <i class="fa-solid fa-image"></i> Official Logo &amp; Favicon Asset Control
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div class="flex items-center gap-4">
+              <div class="w-28 h-20 bg-white rounded-2xl p-2 flex items-center justify-center border border-slate-700 shadow-lg shrink-0">
+                <img id="logoLivePreview" src="assets/images/logo.png" alt="Current Logo" class="max-h-full max-w-full object-contain">
+              </div>
+              <div class="space-y-2 flex-1">
+                <label class="block text-xs font-semibold text-slate-300">Logo Image Path / URL</label>
+                <div class="flex gap-2">
+                  <input type="text" id="cfgLogoUrl" class="w-full px-3 py-2 rounded-xl text-xs text-white font-mono">
+                  <button type="button" onclick="pickImageForInput('cfgLogoUrl', 'logoLivePreview')" class="px-3 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold hover:bg-amber-500/20 shrink-0">
+                    <i class="fa-solid fa-images mr-1"></i> Pick
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 bg-slate-950 rounded-2xl p-2 flex items-center justify-center border border-slate-700 shadow-lg shrink-0">
+                <img id="faviconLivePreview" src="assets/images/favicon.png" alt="Favicon" class="w-8 h-8 object-contain">
+              </div>
+              <div class="space-y-2 flex-1">
+                <label class="block text-xs font-semibold text-slate-300">Favicon Path / URL</label>
+                <div class="flex gap-2">
+                  <input type="text" id="cfgFaviconUrl" class="w-full px-3 py-2 rounded-xl text-xs text-white font-mono">
+                  <button type="button" onclick="pickImageForInput('cfgFaviconUrl', 'faviconLivePreview')" class="px-3 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold hover:bg-amber-500/20 shrink-0">
+                    <i class="fa-solid fa-images mr-1"></i> Pick
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -345,646 +472,878 @@
       <!-- ================= TAB 2: HERO VIDEO & HEADLINES ================= -->
       <div id="tab-hero" class="tab-panel hidden space-y-6">
         <div class="border-b border-slate-800 pb-4">
-          <h2 class="text-xl font-bold font-display text-white">Hero Section Video & Cinematic Speed</h2>
-          <p class="text-xs text-slate-400">Civil & Electro-Mechanical infrastructure video backdrop, playback speed, and lead headlines.</p>
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Hero Section &amp; Background Video Engine</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Configure homepage headline typography, call to action buttons, and background video pacing.</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider">Video Configuration</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-7 space-y-4 p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider font-display">Headline Copy &amp; CTAs</h3>
+
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Background Video Path</label>
-              <input type="text" id="cfgVideoUrl" class="w-full px-4 py-2.5 rounded-xl text-sm font-mono text-xs">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Upper Badge Tag</label>
+              <input type="text" id="cfgHeroBadge" class="w-full px-3 py-2 rounded-xl text-xs text-amber-300 font-mono">
             </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Video Playback Speed</label>
-              <div class="flex items-center gap-4">
-                <input type="range" id="cfgVideoSpeed" min="0.10" max="1.0" step="0.05" class="w-full accent-amber-500">
-                <span id="videoSpeedDisplay" class="font-mono text-amber-400 font-bold text-sm min-w-16">0.85x</span>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Title Part 1</label>
+                <input type="text" id="cfgTitlePart1" class="w-full px-3 py-2 rounded-xl text-xs text-white font-bold">
               </div>
-              <p class="text-[11px] text-slate-400 mt-1">Recommended: 0.85x for smooth, cinematic high-voltage EPC infrastructure playback.</p>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Title Gradient Focus</label>
+                <input type="text" id="cfgTitleGradient" class="w-full px-3 py-2 rounded-xl text-xs text-amber-400 font-bold">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Title Part 2</label>
+                <input type="text" id="cfgTitlePart2" class="w-full px-3 py-2 rounded-xl text-xs text-white font-bold">
+              </div>
             </div>
-            <div class="pt-2">
-              <label class="block text-xs font-semibold text-slate-300 mb-2">Upload New Video Clip</label>
-              <input type="file" id="heroVideoUploadInput" accept="video/mp4" class="block w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400 cursor-pointer">
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Hero Lead Narrative Paragraph</label>
+              <textarea id="cfgHeroLead" rows="3" class="w-full px-3 py-2 rounded-xl text-xs text-slate-200 leading-relaxed"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Primary CTA Button Label</label>
+                <input type="text" id="cfgPrimaryCtaText" class="w-full px-3 py-2 rounded-xl text-xs text-white">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Primary CTA Target Link</label>
+                <input type="text" id="cfgPrimaryCtaLink" class="w-full px-3 py-2 rounded-xl text-xs font-mono text-amber-300">
+              </div>
             </div>
           </div>
 
-          <div class="space-y-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">Headlines & Narrative</h3>
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Top Badge Label</label>
-              <input type="text" id="cfgHeroBadge" class="w-full px-4 py-2.5 rounded-xl text-sm">
+          <!-- Video Engine Settings -->
+          <div class="lg:col-span-5 space-y-4 p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider font-display flex items-center gap-2">
+              <i class="fa-solid fa-play"></i> Background Video Engine
+            </h3>
+
+            <!-- Video Player Preview -->
+            <div class="aspect-video rounded-xl overflow-hidden border border-slate-700 bg-slate-950 relative">
+              <video id="heroVideoPreview" autoplay loop muted playsinline class="w-full h-full object-cover">
+                <source id="heroVideoPreviewSrc" src="assets/videos/hero-engineering-bg.mp4" type="video/mp4">
+              </video>
             </div>
+
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Lead Narrative Text</label>
-              <textarea id="cfgHeroLead" rows="5" class="w-full px-4 py-2.5 rounded-xl text-sm"></textarea>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Select Preset Video</label>
+              <select id="cfgPresetVideoSelect" onchange="selectPresetVideo(this.value)" class="w-full px-3 py-2 rounded-xl text-xs text-white">
+                <option value="assets/videos/hero-engineering-bg.mp4">Engineering Grid Background (Default)</option>
+                <option value="assets/videos/construction-workers.mp4">Aerial Substation Construction</option>
+                <option value="assets/videos/city-workers.mp4">Infrastructure Operations</option>
+                <option value="assets/videos/worker-walking.mp4">Field Engineering Supervision</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Video Source URL / Path</label>
+              <input type="text" id="cfgVideoUrl" class="w-full px-3 py-2 rounded-xl text-xs text-white font-mono">
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-xs font-semibold text-slate-300">Cinematic Pacing / Video Playback Speed</label>
+                <span id="speedValueLabel" class="text-xs font-bold text-amber-400 font-mono">0.85x</span>
+              </div>
+              <input type="range" id="cfgVideoSpeed" min="0.4" max="1.5" step="0.05" value="0.85" oninput="updateVideoSpeed(this.value)" class="w-full accent-amber-500 cursor-pointer">
+              <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                <span>0.4x (Slow-Mo)</span>
+                <span>0.85x (Cinematic)</span>
+                <span>1.5x (Fast)</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ================= TAB 3: ENGINEERING TRACK RECORD (STATS) ================= -->
+      <!-- ================= TAB 3: ENGINEERING TRACK RECORD ================= -->
       <div id="tab-stats" class="tab-panel hidden space-y-6">
-        <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 border-b border-slate-800 pb-4">
           <div>
-            <h2 class="text-xl font-bold font-display text-white">Engineering Track Record & Statistics</h2>
-            <p class="text-xs text-slate-400">Edit key landmark infrastructure metrics shown on website hero and about sections.</p>
+            <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Key Statistics &amp; Engineering Track Record</h2>
+            <p class="text-xs sm:text-sm text-slate-400">Edit the high-impact metrics showcased in the homepage benchmark row.</p>
           </div>
-          <button id="addStatBtn" class="px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 hover:bg-amber-400 transition">
-            <i class="fa-solid fa-plus"></i> Add Metric
+          <button type="button" id="addStatBtn" class="px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 font-display font-bold text-xs uppercase tracking-wider transition self-start sm:self-auto flex items-center gap-1.5">
+            <i class="fa-solid fa-plus"></i> Add New Metric
           </button>
         </div>
 
-        <div id="statsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <!-- Dynamically populated -->
+        <div id="statsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Rendered dynamically -->
         </div>
       </div>
 
-      <!-- ================= TAB 4: EPC SERVICES ================= -->
-      <div id="tab-services" class="tab-panel hidden space-y-6">
-        <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
-          <div>
-            <h2 class="text-xl font-bold font-display text-white">EPC Services Catalog</h2>
-            <p class="text-xs text-slate-400">Manage 132/33kV substations, heavy civil engineering, industrial MEP, and PEB steel structures.</p>
-          </div>
-          <button id="addServiceBtn" class="px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 hover:bg-amber-400 transition">
-            <i class="fa-solid fa-plus"></i> Add Service
-          </button>
-        </div>
-
-        <div id="servicesList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <!-- Dynamically populated -->
-        </div>
-      </div>
-
-      <!-- ================= TAB 5: LANDMARK PROJECTS ================= -->
-      <div id="tab-projects" class="tab-panel hidden space-y-6">
-        <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
-          <div>
-            <h2 class="text-xl font-bold font-display text-white">Landmark Projects Portfolio</h2>
-            <p class="text-xs text-slate-400">Comprehensive project manager with 1-click photo picker and direct computer upload.</p>
-          </div>
-          <button id="addProjectBtn" class="px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 hover:bg-amber-400 transition">
-            <i class="fa-solid fa-plus"></i> Add Project
-          </button>
-        </div>
-
-        <div id="projectsList" class="space-y-4">
-          <!-- Dynamically populated -->
-        </div>
-      </div>
-
-      <!-- ================= TAB 6: MEDIA, BROCHURES & SITE GALLERY ================= -->
-      <div id="tab-media" class="tab-panel hidden space-y-8">
+      <!-- ================= TAB 4: WHO WE ARE NARRATIVE ================= -->
+      <div id="tab-whoweare" class="tab-panel hidden space-y-6">
         <div class="border-b border-slate-800 pb-4">
-          <h2 class="text-xl font-bold font-display text-white">Media, Brochures & Site Photography Manager</h2>
-          <p class="text-xs text-slate-400">Manage corporate downloadable brochures, live engineering photography, and media library.</p>
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Who We Are — Official Corporate Narrative</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Edit the dedicated Who We Are section text, highlighted callout, capabilities tags, and historical narrative.</p>
         </div>
 
-        <!-- Section 1: Corporate Literature & Brochures -->
-        <div class="space-y-4">
-          <div class="flex justify-between items-center">
-            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
-              <i class="fa-solid fa-file-pdf"></i> Downloadable Corporate Literature & Decks
-            </h3>
-            <button id="addBrochureBtn" class="px-3 py-1 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 hover:bg-amber-500/25 text-xs font-bold flex items-center gap-1">
-              <i class="fa-solid fa-plus"></i> Add Brochure
-            </button>
-          </div>
-
-          <div id="brochuresList" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Dynamically populated -->
-          </div>
-        </div>
-
-        <!-- Section 2: Live Engineering Site Photography -->
-        <div class="space-y-4 pt-4 border-t border-slate-800">
-          <div class="flex justify-between items-center">
-            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider flex items-center gap-2">
-              <i class="fa-solid fa-camera"></i> Live Engineering Site Photography Gallery
-            </h3>
-            <button id="addSitePhotoBtn" class="px-3 py-1 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-400 hover:bg-sky-500/25 text-xs font-bold flex items-center gap-1">
-              <i class="fa-solid fa-plus"></i> Add Site Photo
-            </button>
-          </div>
-
-          <div id="sitePhotosList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <!-- Dynamically populated -->
-          </div>
-        </div>
-
-        <!-- Section 3: Universal Asset Library Browser -->
-        <div class="space-y-4 pt-4 border-t border-slate-800">
-          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-2">
-            <i class="fa-solid fa-images"></i> Project & Equipment Photography Library
-          </h3>
-          <p class="text-xs text-slate-400">All available authentic photography across the server. Click to copy path or use in projects.</p>
-          <div id="mediaLibraryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <!-- Dynamically populated -->
-          </div>
-        </div>
-
-        <!-- Section 4: Universal File Uploader -->
-        <div class="p-8 rounded-2xl bg-slate-900/60 border border-dashed border-slate-700 text-center space-y-4">
-          <div class="w-14 h-14 mx-auto rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
-            <i class="fa-solid fa-cloud-arrow-up"></i>
-          </div>
-          <div>
-            <h3 class="text-sm font-bold text-white">Upload Any Media or Document</h3>
-            <p class="text-xs text-slate-400">Supported: MP4, JPG, PNG, WEBP, PDF</p>
-          </div>
-          <input type="file" id="genericUploadInput" class="hidden">
-          <button onclick="document.getElementById('genericUploadInput').click()" class="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition">
-            Browse Computer Files
-          </button>
-          <div id="uploadResult" class="text-xs text-emerald-400 font-mono"></div>
-        </div>
-      </div>
-
-      <!-- ================= TAB 7: SWADESH LOGISTICS FLEET ================= -->
-      <div id="tab-sister" class="tab-panel hidden space-y-6">
-        <div class="border-b border-slate-800 pb-4">
-          <h2 class="text-xl font-bold font-display text-white">Sister Concern: Swadesh Carrying Agency</h2>
-          <p class="text-xs text-slate-400">Heavy haulage, multi-axle hydraulic trailers, and specialized river logistics fleet.</p>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4 max-w-3xl">
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Sister Concern Official Name</label>
-            <input type="text" id="cfgSisterName" class="w-full px-4 py-2.5 rounded-xl text-sm">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Specialization Subtitle</label>
-            <input type="text" id="cfgSisterSubtitle" class="w-full px-4 py-2.5 rounded-xl text-sm">
-          </div>
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-5">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Fleet Capacity Metric</label>
-              <input type="text" id="cfgSisterFleet" class="w-full px-4 py-2.5 rounded-xl text-sm">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Badge Tag</label>
+              <input type="text" id="cfgWwaBadge" class="w-full px-3 py-2 rounded-xl text-xs text-amber-400 font-mono">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Max Move Weight (Tons)</label>
-              <input type="text" id="cfgSisterCapacity" class="w-full px-4 py-2.5 rounded-xl text-sm">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Headline</label>
+              <input type="text" id="cfgWwaHeadline" class="w-full px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-white">
             </div>
           </div>
+
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Operations Narrative</label>
-            <textarea id="cfgSisterDesc" rows="4" class="w-full px-4 py-2.5 rounded-xl text-sm"></textarea>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Featured Highlight Callout Banner</label>
+            <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30">
+              <input type="text" id="cfgWwaCallout" class="w-full px-3 py-2 rounded-xl text-sm font-bold text-amber-200">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Historical Narrative Paragraph (Since 2023...)</label>
+            <textarea id="cfgWwaPara1" rows="3" class="w-full px-3 py-2 rounded-xl text-xs sm:text-sm text-slate-200 leading-relaxed"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Core Capabilities Tags (Comma-separated)</label>
+            <input type="text" id="cfgWwaCapabilities" class="w-full px-3 py-2 rounded-xl text-xs font-mono text-amber-300">
+            <p class="text-[10px] text-slate-500 mt-1">Example: Civil, Electro-Mechanical, Power &amp; Energy, Infrastructure, Structural Steel, MEP, Industrial Services</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Execution &amp; Strategic Partnerships Paragraph</label>
+            <textarea id="cfgWwaPara2" rows="3" class="w-full px-3 py-2 rounded-xl text-xs sm:text-sm text-slate-200 leading-relaxed"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Future Growth &amp; Vision Paragraph</label>
+            <textarea id="cfgWwaPara3" rows="3" class="w-full px-3 py-2 rounded-xl text-xs sm:text-sm text-slate-200 leading-relaxed"></textarea>
           </div>
         </div>
       </div>
 
-      <!-- ================= TAB 8: SECURITY & PASSWORD ================= -->
-      <div id="tab-security" class="tab-panel hidden space-y-6">
+      <!-- ================= TAB 5: OUR SERVICES (EPC/SUPPLY/TRANSPORT) ================= -->
+      <div id="tab-services" class="tab-panel hidden space-y-6">
         <div class="border-b border-slate-800 pb-4">
-          <h2 class="text-xl font-bold font-display text-white">Security & Admin Password Manager</h2>
-          <p class="text-xs text-slate-400">Change your administrative password securely. New password takes effect immediately.</p>
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Our Services &amp; Disciplines Architecture</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Edit the 4 EPC verticals (Energy, Industrial, Renewable, Infrastructure), Supply &amp; Trading, and Transport &amp; Handling.</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4 max-w-md">
-          <form id="changePasswordForm" class="space-y-4">
+        <div class="space-y-6">
+          <!-- 1.1 Energy & Power -->
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+            <div class="flex items-center gap-2 text-amber-400 font-bold text-sm uppercase tracking-wider font-display border-b border-slate-800 pb-2">
+              <i class="fa-solid fa-bolt"></i> 1.1 Energy &amp; Power Substation EPC
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Vertical Title</label>
+                  <input type="text" id="svcEnergyTitle" class="w-full px-3 py-2 rounded-xl text-xs font-bold text-white">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Description Scope</label>
+                  <textarea id="svcEnergyDesc" rows="3" class="w-full px-3 py-2 rounded-xl text-xs text-slate-300"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Feature 1</label>
+                    <input type="text" id="svcEnergyF1" class="w-full px-2.5 py-1.5 rounded-lg text-xs text-amber-300">
+                  </div>
+                  <div>
+                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Feature 2</label>
+                    <input type="text" id="svcEnergyF2" class="w-full px-2.5 py-1.5 rounded-lg text-xs text-amber-300">
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="block text-[11px] font-semibold text-slate-300">Vertical Photograph</label>
+                <div class="h-36 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 relative group">
+                  <img id="svcEnergyImgPrev" src="assets/images/substation-hero.jpg" class="w-full h-full object-cover">
+                  <button type="button" onclick="pickImageForInput('svcEnergyImg', 'svcEnergyImgPrev')" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-bold text-amber-400">
+                    <i class="fa-solid fa-images mr-1"></i> Pick Image
+                  </button>
+                </div>
+                <input type="text" id="svcEnergyImg" class="w-full px-3 py-1.5 rounded-lg text-xs font-mono text-white">
+              </div>
+            </div>
+          </div>
+
+          <!-- 1.2 Industrial & Manufacturing -->
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+            <div class="flex items-center gap-2 text-cyan-400 font-bold text-sm uppercase tracking-wider font-display border-b border-slate-800 pb-2">
+              <i class="fa-solid fa-industry"></i> 1.2 Industrial &amp; Manufacturing
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Vertical Title</label>
+                  <input type="text" id="svcIndTitle" class="w-full px-3 py-2 rounded-xl text-xs font-bold text-white">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Description Scope</label>
+                  <textarea id="svcIndDesc" rows="3" class="w-full px-3 py-2 rounded-xl text-xs text-slate-300"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Feature 1</label>
+                    <input type="text" id="svcIndF1" class="w-full px-2.5 py-1.5 rounded-lg text-xs text-cyan-300">
+                  </div>
+                  <div>
+                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Feature 2</label>
+                    <input type="text" id="svcIndF2" class="w-full px-2.5 py-1.5 rounded-lg text-xs text-cyan-300">
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="block text-[11px] font-semibold text-slate-300">Vertical Photograph</label>
+                <div class="h-36 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 relative group">
+                  <img id="svcIndImgPrev" src="assets/images/project-electrical-mep.jpg" class="w-full h-full object-cover">
+                  <button type="button" onclick="pickImageForInput('svcIndImg', 'svcIndImgPrev')" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-bold text-cyan-400">
+                    <i class="fa-solid fa-images mr-1"></i> Pick Image
+                  </button>
+                </div>
+                <input type="text" id="svcIndImg" class="w-full px-3 py-1.5 rounded-lg text-xs font-mono text-white">
+              </div>
+            </div>
+          </div>
+
+          <!-- 1.3 Renewable Energy -->
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+            <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm uppercase tracking-wider font-display border-b border-slate-800 pb-2">
+              <i class="fa-solid fa-solar-panel"></i> 1.3 Renewable Energy &amp; Solar EPC
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Vertical Title</label>
+                  <input type="text" id="svcRenewTitle" class="w-full px-3 py-2 rounded-xl text-xs font-bold text-white">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Description Scope</label>
+                  <textarea id="svcRenewDesc" rows="3" class="w-full px-3 py-2 rounded-xl text-xs text-slate-300"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Feature 1</label>
+                    <input type="text" id="svcRenewF1" class="w-full px-2.5 py-1.5 rounded-lg text-xs text-emerald-300">
+                  </div>
+                  <div>
+                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Feature 2</label>
+                    <input type="text" id="svcRenewF2" class="w-full px-2.5 py-1.5 rounded-lg text-xs text-emerald-300">
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="block text-[11px] font-semibold text-slate-300">Vertical Photograph</label>
+                <div class="h-36 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 relative group">
+                  <img id="svcRenewImgPrev" src="assets/images/project-control-room.jpg" class="w-full h-full object-cover">
+                  <button type="button" onclick="pickImageForInput('svcRenewImg', 'svcRenewImgPrev')" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-bold text-emerald-400">
+                    <i class="fa-solid fa-images mr-1"></i> Pick Image
+                  </button>
+                </div>
+                <input type="text" id="svcRenewImg" class="w-full px-3 py-1.5 rounded-lg text-xs font-mono text-white">
+              </div>
+            </div>
+          </div>
+
+          <!-- 1.4 Infrastructure & Transportation -->
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+            <div class="flex items-center gap-2 text-blue-400 font-bold text-sm uppercase tracking-wider font-display border-b border-slate-800 pb-2">
+              <i class="fa-solid fa-road"></i> 1.4 Infrastructure &amp; Transportation
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Vertical Title</label>
+                  <input type="text" id="svcInfraTitle" class="w-full px-3 py-2 rounded-xl text-xs font-bold text-white">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Description Scope</label>
+                  <textarea id="svcInfraDesc" rows="3" class="w-full px-3 py-2 rounded-xl text-xs text-slate-300"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Feature 1</label>
+                    <input type="text" id="svcInfraF1" class="w-full px-2.5 py-1.5 rounded-lg text-xs text-blue-300">
+                  </div>
+                  <div>
+                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Feature 2</label>
+                    <input type="text" id="svcInfraF2" class="w-full px-2.5 py-1.5 rounded-lg text-xs text-blue-300">
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="block text-[11px] font-semibold text-slate-300">Vertical Photograph</label>
+                <div class="h-36 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 relative group">
+                  <img id="svcInfraImgPrev" src="assets/images/project-bridge-kanchpur.jpg" class="w-full h-full object-cover">
+                  <button type="button" onclick="pickImageForInput('svcInfraImg', 'svcInfraImgPrev')" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-bold text-blue-400">
+                    <i class="fa-solid fa-images mr-1"></i> Pick Image
+                  </button>
+                </div>
+                <input type="text" id="svcInfraImg" class="w-full px-3 py-1.5 rounded-lg text-xs font-mono text-white">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 6: PROJECTS (COMPLETED & RUNNING) ================= -->
+      <div id="tab-projects" class="tab-panel hidden space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Project Master Portfolio Manager</h2>
+            <p class="text-xs sm:text-sm text-slate-400">Manage verified Completed Projects and active Running Projects independently.</p>
+          </div>
+          <div class="flex gap-2">
+            <button type="button" onclick="addNewProject('completed')" class="px-3.5 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 font-display font-bold text-xs uppercase tracking-wider transition flex items-center gap-1.5">
+              <i class="fa-solid fa-plus"></i> Add Completed
+            </button>
+            <button type="button" onclick="addNewProject('running')" class="px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 font-display font-bold text-xs uppercase tracking-wider transition flex items-center gap-1.5">
+              <i class="fa-solid fa-plus"></i> Add Running
+            </button>
+          </div>
+        </div>
+
+        <!-- Section 1: Completed Projects -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <h3 class="text-base font-bold text-white font-display flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              <span>1. Completed Projects Master Register</span>
+            </h3>
+            <span id="completedCountBadge" class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">6 Projects</span>
+          </div>
+          <div id="completedProjectsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Section 2: Running Projects -->
+        <div class="space-y-4 pt-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <h3 class="text-base font-bold text-white font-display flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+              <span>2. Running &amp; Active Projects</span>
+            </h3>
+            <span id="runningCountBadge" class="text-xs font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">3 Projects</span>
+          </div>
+          <div id="runningProjectsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 7: LEADERSHIP & TEAM PROFILES ================= -->
+      <div id="tab-leadership" class="tab-panel hidden space-y-8">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Leadership Bench &amp; Executive Profiles (12 Profiles)</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Edit titles, credentials, specialized degrees, portraits, and messages for Board, Management, and Advisory teams.</p>
+        </div>
+
+        <!-- Tier 1: Board of Directors -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <h3 class="text-base font-bold text-amber-400 font-display flex items-center gap-2">
+              <i class="fa-solid fa-crown"></i> 1. Board of Directors (3 Members)
+            </h3>
+          </div>
+          <div id="boardContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Tier 2: Management Team -->
+        <div class="space-y-4 pt-4">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <h3 class="text-base font-bold text-sky-400 font-display flex items-center gap-2">
+              <i class="fa-solid fa-briefcase"></i> 2. Management Team (5 Members)
+            </h3>
+          </div>
+          <div id="managementContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Tier 3: Advisory Team -->
+        <div class="space-y-4 pt-4">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <h3 class="text-base font-bold text-emerald-400 font-display flex items-center gap-2">
+              <i class="fa-solid fa-graduation-cap"></i> 3. Advisory Team (4 Members)
+            </h3>
+          </div>
+          <div id="advisoryContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 8: SISTER CONCERN (SWADESH CARRYING) ================= -->
+      <div id="tab-sister" class="tab-panel hidden space-y-6">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Sister Concern — Swadesh Carrying Agency</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Edit integrated logistics fleet specs, heavy haulage capacity, and maritime port operations.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Admin Username</label>
-              <input type="text" id="secUsername" value="admin" readonly class="w-full px-4 py-2.5 rounded-xl text-sm opacity-70 cursor-not-allowed">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Company Name</label>
+              <input type="text" id="cfgSisterName" class="w-full px-3 py-2 rounded-xl text-sm font-bold text-white">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">New Password</label>
-              <input type="password" id="secNewPassword" required minlength="6" placeholder="Enter new password (min 6 chars)" class="w-full px-4 py-2.5 rounded-xl text-sm">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Subtitle</label>
+              <input type="text" id="cfgSisterSubtitle" class="w-full px-3 py-2 rounded-xl text-xs text-slate-300">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Fleet Metric</label>
+              <input type="text" id="cfgSisterFleet" class="w-full px-3 py-2 rounded-xl text-xs font-mono text-amber-300">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Payload Capacity Metric</label>
+              <input type="text" id="cfgSisterCapacity" class="w-full px-3 py-2 rounded-xl text-xs font-mono text-amber-300">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Logistics Narrative &amp; Seaport Operations</label>
+            <textarea id="cfgSisterDesc" rows="4" class="w-full px-3 py-2 rounded-xl text-xs sm:text-sm text-slate-200 leading-relaxed"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 9: MEDIA, GALLERY & BROCHURES ================= -->
+      <div id="tab-media" class="tab-panel hidden space-y-8">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Media Library, Video Catalog &amp; PDF Brochures</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Manage downloadable pre-qualification dossiers, project photo gallery, and media assets.</p>
+        </div>
+
+        <!-- PDF Brochures -->
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+          <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider font-display flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf"></i> Downloadable Technical Brochures (PDF)
+            </h3>
+            <button type="button" id="addBrochureBtn" class="px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold hover:bg-amber-500/20">
+              <i class="fa-solid fa-plus mr-1"></i> Add Dossier
+            </button>
+          </div>
+          <div id="brochuresContainer" class="space-y-3">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Site Photo Gallery -->
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+          <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider font-display flex items-center gap-2">
+              <i class="fa-solid fa-images"></i> Project Gallery Photographs
+            </h3>
+            <button type="button" id="addSitePhotoBtn" class="px-3 py-1.5 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold hover:bg-sky-500/20">
+              <i class="fa-solid fa-plus mr-1"></i> Add Photo
+            </button>
+          </div>
+          <div id="sitePhotosContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Full Image Browser Grid -->
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider font-display flex items-center gap-2">
+            <i class="fa-solid fa-folder-open"></i> Full Workspace Image Asset Browser (63 Files)
+          </h3>
+          <p class="text-xs text-slate-400">Click any photograph to copy its path directly to clipboard.</p>
+          <div id="mediaLibraryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 max-h-96 overflow-y-auto custom-scroll p-1">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 10: TENDER INQUIRIES (RFQ) ================= -->
+      <div id="tab-inquiries" class="tab-panel hidden space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Live Tender Quotations &amp; RFQ Inquiries</h2>
+            <p class="text-xs sm:text-sm text-slate-400">Review requests for tender quotes transmitted from the website modal and contact forms.</p>
+          </div>
+          <button type="button" onclick="loadInquiries()" class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-1.5 self-start sm:self-auto">
+            <i class="fa-solid fa-arrows-rotate"></i> Refresh
+          </button>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800 overflow-hidden bg-slate-900/60">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs text-slate-300">
+              <thead class="bg-slate-950 text-slate-400 font-mono uppercase text-[10px] tracking-wider border-b border-slate-800">
+                <tr>
+                  <th class="p-3.5">Date</th>
+                  <th class="p-3.5">Client &amp; Org</th>
+                  <th class="p-3.5">Contact</th>
+                  <th class="p-3.5">Discipline</th>
+                  <th class="p-3.5">Scope / Message</th>
+                </tr>
+              </thead>
+              <tbody id="inquiriesTableBody" class="divide-y divide-slate-800/60">
+                <tr><td colspan="5" class="p-6 text-center text-slate-500">Loading incoming inquiries...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 11: SECURITY & PASSWORD ================= -->
+      <div id="tab-security" class="tab-panel hidden space-y-6">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Security &amp; Admin Access Credentials</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Update master admin credentials and edge authorization tokens.</p>
+        </div>
+
+        <div class="max-w-md p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+          <form id="changePasswordForm" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">New Admin Password</label>
+              <input type="password" id="secNewPassword" required minlength="6" placeholder="Enter at least 6 characters" class="w-full px-3 py-2 rounded-xl text-white text-xs">
             </div>
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Confirm New Password</label>
-              <input type="password" id="secConfirmPassword" required minlength="6" placeholder="Re-type new password" class="w-full px-4 py-2.5 rounded-xl text-sm">
+              <input type="password" id="secConfirmPassword" required minlength="6" placeholder="Re-type password" class="w-full px-3 py-2 rounded-xl text-white text-xs">
             </div>
-            <div id="passwordMsg" class="text-xs font-semibold hidden"></div>
-            <button type="submit" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition">
-              <i class="fa-solid fa-lock mr-1"></i> Update Admin Password
+            <div id="passwordMsg" class="text-xs hidden"></div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 text-white font-display font-bold text-xs uppercase tracking-wider transition">
+              <i class="fa-solid fa-lock mr-1.5"></i> Update Master Password
             </button>
           </form>
         </div>
       </div>
 
-      <!-- ================= TAB 9: RFQ INQUIRIES ================= -->
-      <div id="tab-inquiries" class="tab-panel hidden space-y-6">
+      <!-- ================= TAB 12: DATA BACKUP & RESTORE ================= -->
+      <div id="tab-backup" class="tab-panel hidden space-y-6">
         <div class="border-b border-slate-800 pb-4">
-          <h2 class="text-xl font-bold font-display text-white">Tender RFQ & Client Inquiries Inbox</h2>
-          <p class="text-xs text-slate-400">Live stream of official quotation submissions received from website forms.</p>
+          <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Data Backup, JSON Import &amp; Disaster Recovery</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Download snapshot backups of all website content or restore previous configurations in one click.</p>
         </div>
 
-        <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-950/60">
-          <table class="w-full text-left text-xs">
-            <thead class="bg-slate-900 text-amber-400 font-bold uppercase tracking-wider border-b border-slate-800">
-              <tr>
-                <th class="p-3.5">Date</th>
-                <th class="p-3.5">Name / Company</th>
-                <th class="p-3.5">Email & Phone</th>
-                <th class="p-3.5">Service Requested</th>
-                <th class="p-3.5">Project Details</th>
-              </tr>
-            </thead>
-            <tbody id="inquiriesTableBody" class="divide-y divide-slate-800 text-slate-300">
-              <!-- Dynamically populated -->
-            </tbody>
-          </table>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider font-display flex items-center gap-2">
+              <i class="fa-solid fa-download"></i> Export Backup Snapshot (JSON)
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Download the entire active website database (branding, hero, stats, who we are, services, 12 leadership profiles, projects, and media) as a single portable JSON file.
+            </p>
+            <button type="button" onclick="exportSiteBackup()" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-display font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 shadow-lg shadow-amber-500/20">
+              <i class="fa-solid fa-file-arrow-down"></i> Download siteData-backup.json
+            </button>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+            <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider font-display flex items-center gap-2">
+              <i class="fa-solid fa-upload"></i> Restore / Import Backup (JSON)
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Upload a previously exported backup file to immediately restore and synchronize all content across the live website.
+            </p>
+            <input type="file" id="importJsonFileInput" accept=".json" class="hidden" onchange="importSiteBackup(event)">
+            <button type="button" onclick="document.getElementById('importJsonFileInput').click()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-sky-400 font-display font-bold text-xs uppercase tracking-wider transition flex items-center gap-2">
+              <i class="fa-solid fa-file-arrow-up"></i> Select JSON File to Restore
+            </button>
+          </div>
         </div>
       </div>
 
     </main>
   </div>
 
-  <!-- JavaScript Admin Logic -->
-  <script>
-    // Built-in Complete Dataset from VisionTech Official Archives
-    const DEFAULT_DATA = {
-      general: {
-        siteName: "VisionTech Engineering Ltd.",
-        tagline: "Civil & Electro-Mechanical Solutions",
-        subtitle: "A TRUSTED EPC PARTNER IN CIVIL & ELECTRO-MECHANICAL INFRASTRUCTURE",
-        hqAddress: "Corporate HQ: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217",
-        phone: "+88 01711 336533 / +88 01328 952275",
-        email: "info@visiontech-bd.com, visiontech.ceo@gmail.com",
-        regInfo: "Inc: C-202337/2025 • BIN: 007106124-0401 • TIN: 747413942028",
-        logoUrl: "assets/images/logo.png"
-      },
-      hero: {
-        badge: "CIVIL & ELECTRO-MECHANICAL EPC LEADER",
-        leadText: "VisionTech Engineering Ltd. (VEL) is a dynamic EPC contractor delivering turnkey engineering, 132/33kV power substations, underground transmission cable protection, and heavy logistics for government utilities and private industrial leaders across Bangladesh.",
-        videoUrl: "assets/videos/hero-engineering-bg.mp4",
-        videoSpeed: 0.85
-      },
-      stats: [
-        { value: "40+", label: "Grid Substations Delivered", sub: "400kV / 230kV / 132kV / 33kV" },
-        { value: "360 MW", label: "Power Plant Civil Works", sub: "Combined Cycle & Heavy Industrial" },
-        { value: "100,000+", label: "Pcs Precast Cable Slabs", sub: "Underground Transmission Safety" },
-        { value: "100%", label: "EHS Compliance Track Record", sub: "Zero-Loss-Time Incident Mandate" }
-      ],
-      services: [
-        {
-          id: "power",
-          badge: "High Voltage",
-          title: "132/33kV Substations & Cable Laying",
-          desc: "Turnkey transmission grid substations, GIS/AIS installations, high-voltage underground cable trenching, jointing, and precast protection slabs."
-        },
-        {
-          id: "civil",
-          badge: "Heavy Civil",
-          title: "Heavy Civil Infrastructure & Foundations",
-          desc: "Deep pile foundations, heavy equipment machine foundations, water reservoirs, drainage retaining structures, and national bridge auxiliary civil works."
-        },
-        {
-          id: "mep",
-          badge: "Industrial MEP",
-          title: "Electro-Mechanical (MEP) & Interior",
-          desc: "Industrial HVAC ventilation, electrical busbar trunking, emergency power generation synchronization, fire hydrant protection, and corporate fit-outs."
-        },
-        {
-          id: "industrial",
-          badge: "PEB Steel",
-          title: "Pre-Engineered Steel Buildings (PEB)",
-          desc: "Heavy structural steel fabrication, industrial multi-story factories, logistics warehouses, and large-span covered warehouses built to international ASTM standards."
-        }
-      ],
-      projects: [
-        {
-          id: 1,
-          title: "New Bibiyana 230/132/33kV GIS Grid Substation Land Development Work",
-          client: "Power Grid Company of Bangladesh (PGCB)",
-          category: "Substations & Land Development",
-          location: "Nabiganj, Hobiganj",
-          img: "assets/images/project-bhulta-400kv.jpg",
-          scope: "Turnkey land development, deep compaction, site leveling, grading, and perimeter flood containment for 230/132/33kV GIS switchyard under PGCB with CCCE-ETERN-FEPEC Consortium."
-        },
-        {
-          id: 2,
-          title: "DPDC Underground Cable Line (Package-2 Lot-15)",
-          client: "Dhaka Power Distribution Company (DPDC)",
-          category: "Transmission",
-          location: "Signboard to Siddhirganj, Dhaka",
-          img: "assets/images/project-cable-slab.jpg",
-          scope: "Urban underground cable line construction, duct bank installation, joint bay chambers, and precast protection slabs with TBEA Co. Ltd."
-        },
-        {
-          id: 3,
-          title: "Kaliganj 132/33kV AIS Grid Substation Graveling & Electromechanical",
-          client: "Power Grid Company of Bangladesh (PGCB)",
-          category: "Substations",
-          location: "Kaliganj, Gazipur",
-          img: "assets/images/project-electrical-mep.jpg",
-          scope: "Supply & Laying of Graveling Work for Kaliganj 132/33kV AIS Substation under PGCB with CCCE-ETERN-FEPEC Consortium and Alvee Construction."
-        },
-        {
-          id: 4,
-          title: "Bheramara 360MW Combined Cycle Power Plant Civil Works",
-          client: "PGCB / Energypac Engineering Ltd.",
-          category: "Power Plants",
-          location: "Bheramara, Kushtia",
-          img: "assets/images/project-bheramara-360mw.jpg",
-          scope: "Heavy machinery foundations, dynamic load vibration absorption pits, circulating cooling water trenches, and auxiliary steel structural framing."
-        },
-        {
-          id: 5,
-          title: "PTC PLC Corporate Facility Renovation & Upgradation",
-          client: "Petroleum Transmission Company PLC (PTC PLC - BPC)",
-          category: "Civil & MEP Renovation",
-          location: "Dhaka Headquarters",
-          img: "assets/images/project-building-renovation.jpg",
-          scope: "Comprehensive turnkey civil, sanitary, electrical, glass partition, executive interior, kitchen cabinetry, AC systems, and CCTV surveillance."
-        },
-        {
-          id: 6,
-          title: "Crane Rigging & GIS Switchgear Busbar Installation",
-          client: "Power Grid Company of Bangladesh (PGCB)",
-          category: "Electro-Mechanical",
-          location: "National Power Grid",
-          img: "assets/extracted_media/image88.jpeg",
-          scope: "Heavy mobile crane rigging, high-precision SF6 GIS busbar alignment, pressure testing, and energized commissioning."
-        }
-      ],
-      sisterConcern: {
-        name: "Swadesh Carrying Agency",
-        subtitle: "Heavy Haulage, Specialized Hydraulic Multi-Axle Fleet & Inland River Logistics",
-        statFleet: "25+ Specialized Vehicles",
-        statCapacity: "Up to 300 Tons Per Move",
-        desc: "Operating as VisionTech's integrated logistics backbone, Swadesh Carrying Agency guarantees self-reliant transport of heavy power transformers, turbines, and oversized construction cargo across all national highways and river waterways in Bangladesh."
-      },
-      mediaSection: {
-        brochures: [
-          {
-            title: "Corporate Fact Sheet & Profile",
-            size: "PDF • 2.4 MB",
-            fileUrl: "assets/docs/VisionTech-Corporate-Profile.pdf"
-          },
-          {
-            title: "EPC Turnkey Capabilities Deck",
-            size: "PDF • 4.1 MB",
-            fileUrl: "assets/docs/VisionTech-EPC-Capabilities.pdf"
-          },
-          {
-            title: "Swadesh Carrying Logistics Deck",
-            size: "PDF • 1.8 MB",
-            fileUrl: "assets/docs/Swadesh-Logistics-Brochure.pdf"
-          }
-        ],
-        gallery: [
-          { title: "Bhulta 400kV Substation Earthwork", img: "assets/images/project-bhulta-400kv.jpg" },
-          { title: "Bheramara 360MW Turbine Foundation", img: "assets/images/project-bheramara-360mw.jpg" },
-          { title: "High Voltage Cable Protection Slabs", img: "assets/images/project-cable-slab.jpg" },
-          { title: "Madunaghat Switchgear Erection", img: "assets/images/project-madunaghat.jpg" },
-          { title: "Maijdee GIS Control Center", img: "assets/images/project-maijdee-gis.jpg" },
-          { title: "SF6 GIS Switchgear Busbar Rigging", img: "assets/extracted_media/image88.jpeg" }
-        ]
-      }
-    };
+  <!-- ================= MOBILE FLOATING STICKY SAVE BAR ================= -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-slate-950/95 border-t border-slate-800 p-3 flex justify-between items-center backdrop-blur-xl">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+      <span class="text-xs font-semibold text-slate-300">Live Editor Active</span>
+    </div>
+    <button onclick="document.getElementById('saveGlobalBtn').click()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/30 transition flex items-center gap-1.5 active:scale-95">
+      <i class="fa-solid fa-floppy-disk"></i>
+      <span>Save All Changes</span>
+    </button>
+  </div>
 
-    // Authentic Built-In Project Photo Catalog for Instant Selection
-    const BUILTIN_PHOTOS = [
-      { name: "SF6 GIS Switchgear Busbar Rigging", path: "assets/extracted_media/image88.jpeg" },
-      { name: "Bhulta 400kV Substation Yard", path: "assets/images/project-bhulta-400kv.jpg" },
-      { name: "Bheramara 360MW Power Plant", path: "assets/images/project-bheramara-360mw.jpg" },
-      { name: "Engineers & Cable Slab Production", path: "assets/extracted_media/image51.jpeg" },
-      { name: "Multi-Story GIS Control Building", path: "assets/extracted_media/image102.jpeg" },
-      { name: "Feni GIS Substation 230/132kV", path: "assets/images/project-feni-gis.jpg" },
-      { name: "Madunaghat 400kV Substation Bay", path: "assets/images/project-madunaghat.jpg" },
-      { name: "Maijdee GIS Substation", path: "assets/images/project-maijdee-gis.jpg" },
-      { name: "Purbasadipur Substation Switchyard", path: "assets/images/project-purbasadipur.jpg" },
-      { name: "Precast Cable Protection Slab", path: "assets/images/project-cable-slab.jpg" },
-      { name: "Substation Control Room Building", path: "assets/images/project-control-room.jpg" },
-      { name: "Switchgear Erection Site", path: "assets/images/project-switchgear-site.jpg" },
-      { name: "Transformer Yard Heavy Rigging", path: "assets/images/project-transformer-yard.jpg" },
-      { name: "Heavy Haulage Multi-Axle Move", path: "assets/images/project-heavy-lift.jpg" },
-      { name: "Substation Landmark Aerial View", path: "assets/images/substation-hero.jpg" },
-      { name: "Kanchpur Bridge Auxiliary Civil", path: "assets/images/project-bridge-kanchpur.jpg" },
-      { name: "Electrical MEP Installation", path: "assets/images/project-electrical-mep.jpg" },
-      { name: "BREB Substation Turnkey", path: "assets/images/project-substation-breb.jpg" },
-      { name: "Civil Foundation & Deep Work", path: "assets/images/project-site-work.jpg" },
-      { name: "Corporate Interior & Fit-Out", path: "assets/images/project-office-interior.jpg" },
-      { name: "Industrial Steel PEB Warehouse", path: "assets/images/project-building-renovation.jpg" },
-      { name: "Toolbox Safety Briefing at 230kV Yard", path: "assets/extracted_media/image98.jpeg" },
-      { name: "Cable Trench Shuttering & Rebar", path: "assets/extracted_media/image94.jpeg" },
-      { name: "Transformer Yard Gantry Structure", path: "assets/extracted_media/image37.jpeg" }
-    ];
+  <!-- ================= JAVASCRIPT CMS ENGINE ================= -->
+  <script>
+    // Embedded authentic defaults & gallery
+    const DEFAULT_DATA = {"general": {"siteName": "VisionTech Engineering Ltd.", "tagline": "Civil & Electro-Mechanical Solutions", "subtitle": "A TRUSTED EPC PARTNER IN CIVIL & ELECTRO-MECHANICAL INFRASTRUCTURE", "topNotice": "Headquarters: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217", "phonePrimary": "+88 01730 335002", "phoneSecondary": "+88 01711 336533", "phoneTertiary": "+88 01328 952275", "landline": "+8802 224 458478", "emailPrimary": "info@visiontech-bd.com", "emailSecondary": "visiontech.ceo@gmail.com", "hqAddress": "Corporate Headquarters: 284, Boro Mogbazar (2nd Fl.), Dhaka-1217", "regAddress": "Registered Office: 23/2-C, Shah Ali Bagh, Mirpur-1, Dhaka-1216", "regInfo": "Inc: C-202337/2025 • VAT (BIN): 007106124-0401 • TIN: 747413942028 • Zero-Harm EHS Standard", "logoUrl": "assets/images/logo.png", "faviconUrl": "assets/images/favicon.png", "linkedinUrl": "https://linkedin.com", "facebookUrl": "https://facebook.com", "quoteBtnText": "Request Tender Quote"}, "hero": {"badge": "CIVIL & ELECTRO-MECHANICAL EPC LEADER", "titlePart1": "A Trusted EPC Partner in", "titleGradient": "Civil & Electro-Mechanical", "titlePart2": "Solutions.", "leadText": "VisionTech Engineering Ltd. (VEL) is a dynamic EPC contractor delivering excellence across 400kV/230kV/132kV power grid substations, underground transmission cable infrastructure, heavy civil foundations, and industrial electro-mechanical systems throughout Bangladesh.", "primaryCtaText": "Explore EPC Services", "primaryCtaLink": "services.html", "secondaryCtaText": "View Project Master Register", "secondaryCtaLink": "projects.html", "videoUrl": "assets/videos/hero-engineering-bg.mp4", "videoPoster": "assets/videos/building_poster.jpg", "videoSpeed": 0.85, "availableVideos": [{"name": "Hero Engineering Background", "url": "assets/videos/hero-engineering-bg.mp4"}, {"name": "Substation Aerial Construction", "url": "assets/videos/construction-workers.mp4"}, {"name": "City Workers & Infrastructure", "url": "assets/videos/city-workers.mp4"}, {"name": "Engineer Walking On-Site", "url": "assets/videos/worker-walking.mp4"}]}, "stats": [{"value": "400/230/132kV", "label": "High-Voltage Substations", "sub": "Turnkey GIS & AIS construction across national grid hubs (Bhulta, Purbasadipur, Feni, Madunaghat)", "icon": "fa-bolt-lightning"}, {"value": "100,000+", "label": "Cable Protection Slabs", "sub": "Certified precast interlocking slabs manufactured & installed for DPDC underground transmission", "icon": "fa-shield-halved"}, {"value": "40+ Years", "label": "Advisory Leadership", "sub": "Former Chief Engineers & General Managers from DPDC, Energypac & international mega-projects", "icon": "fa-user-tie"}, {"value": "100% Zero-Harm", "label": "EHS Safety Record", "sub": "Strict zero-fatality EHS standard with sovereign compliance across all active EPC sites", "icon": "fa-award"}], "whoWeAre": {"badge": "WHO WE ARE • VISIONTECH ENGINEERING LTD.", "headline": "Who We Are", "callout": "VEL is working as EPC contractor in power sector & Industrial area.", "para1": "Since 2023, VisionTech Engineering Ltd. began its journey with a strong foundation of extensive professional experience in engineering, power, infrastructure and project implementation. Over the years, the company has evolved into a trusted EPC contractor, expanding its capabilities across Civil, Electro-Mechanical, Power & Energy, Infrastructure, Structural Steel, MEP and Industrial services.", "capabilities": ["Civil", "Electro-Mechanical", "Power & Energy", "Infrastructure", "Structural Steel", "MEP", "Industrial Services"], "para2": "Through successful project execution, strategic partnerships and a commitment to quality, innovation, safety and client satisfaction, VisionTech has steadily strengthened its position in Bangladesh’s engineering and construction sector.", "para3": "Today, VisionTech continues to grow with a clear vision of becoming a leading engineering and construction company, contributing to the sustainable development of Bangladesh."}, "ourServices": {"heroBadge": "APPROVED CORPORATE CAPABILITIES", "heroTitle": "Our Services", "heroDesc": "Integrated turnkey EPC delivery, sovereign equipment supply & trading, and multimodal heavy lift transport across Bangladesh's power, energy, industrial, and infrastructure sectors.", "epcVerticals": {"energyPower": {"title": "400kV, 230kV & 132kV Turnkey GIS Substations & Transmission", "badge": "1.1 ENERGY & POWER", "desc": "VisionTech delivers apex turnkey GIS and AIS substation construction across Bangladesh with sovereign utilities including PGCB, DPDC, and BREB. Proven benchmarks include Bhulta 400/230/132kV GIS, Purbasadipur 230/132kV, Madunaghat 230kV Upgradation, Feni 230/132kV, and Maijdee 132/33kV. In underground transmission, VEL manufactured and installed 100,000+ certified concrete cable protection slabs (DPDC Signboard to Siddhirganj, BDT 18.3M).", "img": "assets/images/substation-hero.jpg", "feature1Title": "GIS Control Buildings", "feature1Desc": "Multi-storied reinforced switching stations & basements", "feature2Title": "Underground Cable Slabs", "feature2Desc": "Interlocking high-strength precast protection slabs"}, "industrialManufacturing": {"title": "Heavy Factory Civil, PEB Structures & Industrial MEP Systems", "badge": "1.2 INDUSTRIAL & MANUFACTURING", "desc": "Complete engineering design and site construction for industrial processing complexes, textile mills, and corporate infrastructure. Key credentials include Onin Textile Mills perimeter security & heavy MEP drainage works (BDT 12.6M), PTC PLC (Bangladesh Petroleum Corporation subsidiary) corporate headquarters renovation, and deep equipment foundation pads engineered for dynamic machinery vibration absorption.", "img": "assets/images/project-electrical-mep.jpg", "feature1Title": "Pre-Engineered Buildings (PEB)", "feature1Desc": "Long-span structural steel factory bays & warehouses", "feature2Title": "Industrial MEP Networks", "feature2Desc": "High-capacity busbar trunking, HVAC & fire safety loops"}, "renewableEnergy": {"title": "Utility Solar PV Parks, Industrial Rooftops & Grid Tie-in EPC", "badge": "1.3 RENEWABLE ENERGY", "desc": "Accelerating Bangladesh's clean energy transition through turnkey solar photovoltaic (PV) generation systems. VisionTech integrates ground-mounted solar arrays, industrial net-metered rooftop solar installations, battery energy storage systems (BESS), and specialized step-up substations connecting renewable megawatts smoothly to the national grid.", "img": "assets/images/project-control-room.jpg", "feature1Title": "Utility & Rooftop Solar", "feature1Desc": "Tier-1 PV modules, string/central inverters & mounting", "feature2Title": "Grid Synchronization", "feature2Desc": "Harmonic filtering, metering & sovereign grid tie-in"}, "infrastructureTransportation": {"title": "Highway Bridges, Viaducts, Deep Piling & Transport Links", "badge": "1.4 INFRASTRUCTURE & TRANSPORTATION", "desc": "Execution of mission-critical civil infrastructure that drives national mobility. Our record includes auxiliary civil works on the landmark Kanchpur-Meghna-Gumti 2nd Bridges (Package PW-01), heavy foundation piling, RC box culverts, bridge approach ramps, and deep drainage civil networks built to withstand severe subtropical hydrological conditions.", "img": "assets/images/project-bridge-kanchpur.jpg", "feature1Title": "Bridge Auxiliary Works", "feature1Desc": "Approaches, retaining walls, slope protection & spans", "feature2Title": "Heavy Civil Transport Hubs", "feature2Desc": "Port corridors, container yards & terminal aprons"}}, "supplyTrading": {"title": "Power Grid Equipment, Switchgear & High-Voltage Consumables", "badge": "2. SUPPLY & TRADING", "desc": "VisionTech provides authorized international procurement and sovereign trading for primary substation assets. From high-capacity power transformers, 132kV/33kV GIS/AIS switchgear panels, CT/PT instrument transformers, and lightning arresters to precast cable protection slabs and certified capital spares.", "catalogLink": "supply.html", "highlights": ["Power Transformers", "132kV/33kV GIS Switchgear", "Instrument Transformers (CT/PT)", "Protection Relays"]}, "transportHandling": {"title": "Multimodal Heavy Lift Transport, Jacking & Plinth Placement", "badge": "3. TRANSPORT & HANDLING", "desc": "Specialized logistical execution for oversized, super-heavy power plant transformers, turbines, and industrial machinery through sister concern Swadesh Carrying. Services include seaport offloading, riverine barge towing, hydraulic multi-axle overland haulage, civil plinth positioning, dragging, and precision optical alignment.", "fleetLink": "sister-concern.html", "highlights": ["Hydraulic Multi-Axle Trailers", "Riverine Barge Haulage", "Hydraulic Jacking & Skidding", "Plinth Placement & Alignment"]}}, "projects": {"completed": [{"id": "bhulta-400kv", "title": "Bhulta 400/230/132kV Turnkey GIS Substation Civil Works", "client": "PGCB / CNTIC Turnkey Package", "category": "400/230/132kV GIS", "location": "Bhulta, Narayanganj", "value": "Consortium Scale", "img": "assets/images/bhulta_test.jpg", "scope": "Complete civil execution of 400kV & 230kV GIS Control Room Buildings, heavy transformer foundations, cable trenches, internal roads, and switchyard graveling for PGCB's apex national grid hub.", "status": "Completed"}, {"id": "purbasadipur-230kv", "title": "Purbasadipur 230/132kV & 132/33kV GIS Substation", "client": "PGCB / CNTIC (Package 1.1)", "category": "230/132kV Turnkey", "location": "Dinajpur", "value": "National Grid Hub", "img": "assets/images/project-purbasadipur.jpg", "scope": "Full civil scope including 230kV & 132kV GIS control buildings, transformer foundations, piling works, cable trenches, internal roads, and switchyard finishing.", "status": "Completed"}, {"id": "bheramara-360mw", "title": "Bheramara 360MW Combined Cycle Power Plant Civil Works", "client": "PGCB / Energypac Engineering Ltd.", "category": "360 MW Combined Cycle", "location": "Bheramara, Kushtia", "value": "Major Power Hub", "img": "assets/images/project-bheramara.jpg", "scope": "Complete civil infrastructure works, heavy equipment foundations, pump houses, cable trenches, and auxiliary power generation structures for national base-load power.", "status": "Completed"}, {"id": "dpdc-cable-slabs", "title": "132/33 kV Underground Cable Protection Slab Works", "client": "DPDC / TBEA CO. LTD. (Package-2, Lot-15)", "category": "Underground Transmission", "location": "Signboard to Siddhirganj", "value": "BDT 18,300,000", "img": "assets/images/project-cable-slabs.jpg", "scope": "Strengthening of Power System Network under DPDC area. Manufacture, supply, transportation and interlocking installation of reinforced concrete protective slabs for 132/33 kV underground transmission.", "status": "Completed"}, {"id": "ptc-plc-renovation", "title": "Corporate Office Building Renovation & Modernization", "client": "PTC PLC (Subsidiary of Bangladesh Petroleum Corporation)", "category": "Corporate & Industrial Civil", "location": "BPC Headquarters, Dhaka", "value": "BDT 7,250,000", "img": "assets/images/project-ptc-building.jpg", "scope": "Full-scope turnkey EPC civil works, sanitary systems, modern electrical infrastructure, AC installation, glass partitioning, reception architecture, and CCTV surveillance networks.", "status": "Completed"}, {"id": "onin-textile-mills", "title": "Industrial Perimeter Boundary Wall & MEP Works", "client": "Onin Textile Mills Ltd.", "category": "Industrial Infrastructure", "location": "Industrial Zone", "value": "BDT 12,600,000", "img": "assets/images/project-textile-mill.jpg", "scope": "Main contractor executing deep foundation boundary enclosures, soil compaction, storm drainage channels, security cable networks, and outdoor industrial lighting.", "status": "Completed"}], "running": [{"id": "maijdee-132kv", "title": "Maijdee 132/33kV Coastal Cluster Substation Expansion", "client": "PGCB Coastal Grid Program", "category": "132/33kV Substation", "location": "Maijdee, Noakhali", "value": "Active Execution", "progress": "72%", "img": "assets/images/substation-hero.jpg", "scope": "Expanding transformation capacity with 2x 80/120MVA power transformers, structural steel gantries, GIS bays, and storm-surge elevated foundation plinths.", "status": "Active / Running"}, {"id": "feni-extension", "title": "Feni 230/132kV Substation Bay Extension Works", "client": "Consortium Grid Program", "category": "230kV Bay Extension", "location": "Feni", "value": "Ongoing", "progress": "65%", "img": "assets/images/feni_test.jpg", "scope": "Construction of two 230kV line bays, relay room modernization, earthing mesh enhancement, and secondary protection wiring integration.", "status": "Active / Running"}, {"id": "underground-cable-phase2", "title": "Underground Transmission Cable Protection Slabs Phase-2", "client": "Urban Utility Network", "category": "Underground Infrastructure", "location": "Dhaka South Corridor", "value": "BDT 22,000,000", "progress": "50%", "img": "assets/images/project-control-room.jpg", "scope": "High-volume precision casting, curing, laboratory quality testing, and route placement of precast interlocking cable warning slabs.", "status": "Active / Running"}]}, "leadership": {"board": [{"id": "aminul-hoque", "name": "Engr. S. M. Aminul Hoque", "role": "CHAIRMAN", "degree": "B.Sc. Engg. in EEE (CUEI), FIEB-6723", "specialization": "Mega High-Voltage Projects (30+ Yrs Exp)", "shortBio": "Over three decades of premier leadership in mega engineering sales, high-voltage contracts, and quality systems across South Asia.", "img": "assets/images/team/aminul_hoque.jpg", "profileUrl": "team/aminul-hoque.html"}, {"id": "belal-hossain", "name": "Engr. Khondaker Belal Hossain", "role": "MANAGING DIRECTOR", "degree": "B.Sc. Engg. in ME (CUET)", "specialization": "Grid Substations & Heavy Foundations (28+ Yrs Exp)", "shortBio": "Specialist in mechanical systems, heavy foundations, grid substation execution, and professional EPC project management.", "img": "assets/images/team/belal_hossain.jpg", "profileUrl": "team/belal-hossain.html"}, {"id": "atiqur-rahman", "name": "Md. Atiqur Rahman", "role": "DIRECTOR / CEO", "degree": "MBA, University of Dhaka", "specialization": "Turnkey EPC Strategy & Contracts (22+ Yrs Exp)", "shortBio": "Strategic leadership of civil and electro-mechanical operations, contract management, QA/QC, and EHS compliance.", "img": "assets/images/team/atiqur_rahman.jpg", "profileUrl": "team/atiqur-rahman.html"}], "management": [{"id": "anisuzzaman", "name": "Sharif Mohammad Anisuzzaman", "role": "Director (Technical)", "degree": "B.Sc. Engg. in EEE (BUET), MBA (DU), MIEB", "specialization": "Substations & Transmission Auditing (25+ Yrs Exp)", "shortBio": "25+ years in power substations, transmission lines, project auditing, and engineering governance.", "img": "assets/images/team/anisuzzaman.jpg", "profileUrl": "team/anisuzzaman.html"}, {"id": "anamul-hoque", "name": "S. M. Anamul Hoque", "role": "Director (Business Development)", "degree": "B.Sc. Engg. in ME (AUST)", "specialization": "Project Sales & Client Relations (18+ Yrs Exp)", "shortBio": "Extensive experience in high-voltage product sales, client relationship management, and commercial EPC expansion.", "img": "assets/images/team/anamul_hoque.jpg", "profileUrl": "team/anamul-hoque.html"}, {"id": "sabina-easmin", "name": "Sabina Easmin", "role": "Marketing Manager", "degree": "B.Sc. (DU), EMBA in Marketing (DU)", "specialization": "Institutional Tender Strategy (15+ Yrs Exp)", "shortBio": "15+ years in engineering marketing, tender submission strategy, and sovereign procurement client liaison.", "img": "assets/images/team/sabina_easmin.jpg", "profileUrl": "team/sabina-easmin.html"}, {"id": "shovon-hossain", "name": "Md. Shovon Hossain", "role": "Finance & Accounts Manager", "degree": "M.Com (Accounting), CA (CC)", "specialization": "Financial Governance & Audit (12+ Yrs Exp)", "shortBio": "Specialized in project financial structuring, corporate tax compliance, banking instruments, and fiduciary accounting.", "img": "assets/images/team/shovon_hossain.jpg", "profileUrl": "team/shovon-hossain.html"}, {"id": "sanjida-sarker", "name": "Sanjida Sarker", "role": "HR & Admin Manager", "degree": "MBA in HRM (Southeast University)", "specialization": "Workforce & Compliance Management (10+ Yrs Exp)", "shortBio": "Directs human resource deployment, talent acquisition, labor compliance, administrative operations, and site welfare.", "img": "assets/images/team/sanjida_sarker.jpg", "profileUrl": "team/sanjida-sarker.html"}], "advisory": [{"id": "aminul-islam-mukul", "name": "Engr. Aminul Islam Mukul", "role": "Honorable Advisor - Mega Projects", "degree": "B.Sc. Engg. (BUET), M.Sc. Engg. (BUET), PGD", "specialization": "Power Sector Authority (Ex-Chief Engineer DPDC)", "shortBio": "Ex-Chief Engineer at DPDC with 30+ years leading multi-hundred million dollar substation and underground network projects.", "img": "assets/images/team/aminul_islam_mukul.jpg", "profileUrl": "team/aminul-islam-mukul.html"}, {"id": "abdur-razzak", "name": "Engr. Md Abdur Razzak", "role": "Honorable Advisor - Project Sales", "degree": "B.Sc. Engg. (CUET), FIEB", "specialization": "Energy Solutions & Sourcing (Ex-GM Energypac)", "shortBio": "Former GM (Private Sales) at Energypac Engineering Ltd. 30+ years delivering premier energy solutions across public and private sectors.", "img": "assets/images/team/abdur_razzak.jpg", "profileUrl": "team/abdur-razzak.html"}, {"id": "khandoker-abul-hossain", "name": "Engr. Dr. Khandoker Abul Hossain", "role": "Honorable Advisor", "degree": "B.Sc. (CUET), PhD (Canada), P.Eng. (Alberta)", "specialization": "Mechanical & Thermal Systems (25+ Yrs Exp)", "shortBio": "Senior engineering specialist at Vista Project Canada, McDermott USA, Saipem Canada; former faculty at CUET and Memorial University.", "img": "assets/images/team/khandoker_abul_hossain.jpg", "profileUrl": "team/khandoker-abul-hossain.html"}, {"id": "omar-faruk", "name": "Mohammad Omar Faruk", "role": "Honorable Advisor Finance", "degree": "FCA, CIPFA (AFFIL)", "specialization": "Strategic Finance & Audit (24+ Yrs Exp)", "shortBio": "Chartered Accountant with 24 years in financial operations, TAX & VAT compliance, ERP automation, and institutional governance.", "img": "assets/images/team/omar_faruk.jpg", "profileUrl": "team/omar-faruk.html"}]}, "sisterConcern": {"name": "Swadesh Carrying Agency", "subtitle": "Heavy Haulage, Specialized Hydraulic Multi-Axle Fleet & Inland Riverine Barge Logistics", "statFleet": "25+ Specialized Vehicles", "statCapacity": "Up to 300 Tons Per Move", "desc": "Operating as VisionTech's integrated logistics backbone, Swadesh Carrying commands specialized multi-axle modular trailers, heavy-lift tug-barges, and precision jacking-skidding systems. Swadesh guarantees zero-damage overland and inland riverine haulage of 400kV transformers, turbines, and oversized industrial capital assets from Chattogram and Mongla seaports to remote substation sites nationwide.", "features": ["Heavy Lift Seaport Offloading", "Inland Riverine Barge Haulage", "Hydraulic Multi-Axle Transport", "On-Site Plinth Placement & Skidding"]}, "mediaSection": {"headline": "Publications, Brochures & Site Gallery", "leadText": "Download official EPC pre-qualification dossiers, equipment specifications, and inspect verified field execution photographs.", "brochures": [{"title": "VisionTech Corporate Profile & EPC Capabilities Dossier", "size": "PDF • 4.8 MB", "fileUrl": "assets/docs/VisionTech-Corporate-Profile.pdf"}, {"title": "132/33kV Precast Cable Protection Slab Specifications", "size": "PDF • 2.1 MB", "fileUrl": "assets/docs/Cable-Protection-Slab-Specs.pdf"}, {"title": "Swadesh Carrying Heavy Haulage Equipment Register", "size": "PDF • 3.4 MB", "fileUrl": "assets/docs/Swadesh-Heavy-Haulage-Fleet.pdf"}], "gallery": [{"title": "Bhulta 400kV Substation Piling", "img": "assets/images/bhulta_test.jpg"}, {"title": "Purbasadipur GIS Switchyard", "img": "assets/images/project-purbasadipur.jpg"}, {"title": "Bheramara Combined Cycle Plant", "img": "assets/images/project-bheramara.jpg"}, {"title": "Underground Cable Slab Laying", "img": "assets/images/project-cable-slabs.jpg"}, {"title": "PTC PLC Corporate Renovation", "img": "assets/images/project-ptc-building.jpg"}, {"title": "Onin Textile Mills Perimeter", "img": "assets/images/project-textile-mill.jpg"}]}, "adminAuth": {"username": "admin", "passwordHash": ""}};
+    const BUILTIN_PHOTOS = [{"name": "footer-power-grid.jpg", "path": "assets/images/footer-power-grid.jpg"}, {"name": "project-bheramara-360mw.jpg", "path": "assets/images/project-bheramara-360mw.jpg"}, {"name": "project-bhulta-400kv.jpg", "path": "assets/images/project-bhulta-400kv.jpg"}, {"name": "project-bibiyana-230kv.jpg", "path": "assets/images/project-bibiyana-230kv.jpg"}, {"name": "project-breb-moulovibazar.jpg", "path": "assets/images/project-breb-moulovibazar.jpg"}, {"name": "project-bridge-kanchpur.jpg", "path": "assets/images/project-bridge-kanchpur.jpg"}, {"name": "project-building-renovation.jpg", "path": "assets/images/project-building-renovation.jpg"}, {"name": "project-cable-slab.jpg", "path": "assets/images/project-cable-slab.jpg"}, {"name": "project-control-room.jpg", "path": "assets/images/project-control-room.jpg"}, {"name": "project-electrical-mep.jpg", "path": "assets/images/project-electrical-mep.jpg"}, {"name": "project-feni-gis.jpg", "path": "assets/images/project-feni-gis.jpg"}, {"name": "project-heavy-lift.jpg", "path": "assets/images/project-heavy-lift.jpg"}, {"name": "project-kaliganj-132kv.jpg", "path": "assets/images/project-kaliganj-132kv.jpg"}, {"name": "project-madunaghat.jpg", "path": "assets/images/project-madunaghat.jpg"}, {"name": "project-maijdee-gis.jpg", "path": "assets/images/project-maijdee-gis.jpg"}, {"name": "project-office-interior.jpg", "path": "assets/images/project-office-interior.jpg"}, {"name": "project-purbasadipur.jpg", "path": "assets/images/project-purbasadipur.jpg"}, {"name": "project-site-work.jpg", "path": "assets/images/project-site-work.jpg"}, {"name": "project-substation-breb.jpg", "path": "assets/images/project-substation-breb.jpg"}, {"name": "project-supreme-court.jpg", "path": "assets/images/project-supreme-court.jpg"}, {"name": "project-switchgear-site.jpg", "path": "assets/images/project-switchgear-site.jpg"}, {"name": "project-transformer-yard.jpg", "path": "assets/images/project-transformer-yard.jpg"}, {"name": "substation-hero.jpg", "path": "assets/images/substation-hero.jpg"}, {"name": "abdur_razzak.jpg", "path": "assets/images/team/abdur_razzak.jpg"}, {"name": "aminul_hoque.jpg", "path": "assets/images/team/aminul_hoque.jpg"}, {"name": "aminul_islam_mukul.jpg", "path": "assets/images/team/aminul_islam_mukul.jpg"}, {"name": "anamul_hoque.jpg", "path": "assets/images/team/anamul_hoque.jpg"}, {"name": "anisuzzaman.jpg", "path": "assets/images/team/anisuzzaman.jpg"}, {"name": "atiqur_rahman.jpg", "path": "assets/images/team/atiqur_rahman.jpg"}, {"name": "belal_hossain.jpg", "path": "assets/images/team/belal_hossain.jpg"}, {"name": "khandoker_abul_hossain.jpg", "path": "assets/images/team/khandoker_abul_hossain.jpg"}, {"name": "omar_faruk.jpg", "path": "assets/images/team/omar_faruk.jpg"}, {"name": "sabina_easmin.jpg", "path": "assets/images/team/sabina_easmin.jpg"}, {"name": "sanjida_sarker.jpg", "path": "assets/images/team/sanjida_sarker.jpg"}, {"name": "shovon_hossain.jpg", "path": "assets/images/team/shovon_hossain.jpg"}, {"name": "VISIONTECH ENGINEERING LTD. - visual selection 1.png", "path": "assets/images/VISIONTECH ENGINEERING LTD. - visual selection 1.png"}, {"name": "VISIONTECH ENGINEERING LTD. - visual selection 2.png", "path": "assets/images/VISIONTECH ENGINEERING LTD. - visual selection 2.png"}, {"name": "VISIONTECH ENGINEERING LTD. - visual selection 3.png", "path": "assets/images/VISIONTECH ENGINEERING LTD. - visual selection 3.png"}, {"name": "VISIONTECH ENGINEERING LTD. - visual selection 4.png", "path": "assets/images/VISIONTECH ENGINEERING LTD. - visual selection 4.png"}, {"name": "VISIONTECH ENGINEERING LTD. - visual selection 5.png", "path": "assets/images/VISIONTECH ENGINEERING LTD. - visual selection 5.png"}, {"name": "VISIONTECH ENGINEERING LTD. - visual selection 6.png", "path": "assets/images/VISIONTECH ENGINEERING LTD. - visual selection 6.png"}, {"name": "VISIONTECH ENGINEERING LTD. - visual selection 7.png", "path": "assets/images/VISIONTECH ENGINEERING LTD. - visual selection 7.png"}, {"name": "assurance.png", "path": "assets/images/clients/assurance.png"}, {"name": "beximco.png", "path": "assets/images/clients/beximco.png"}, {"name": "bpdb.png", "path": "assets/images/clients/bpdb.png"}, {"name": "breb.png", "path": "assets/images/clients/breb.png"}, {"name": "ccce.png", "path": "assets/images/clients/ccce.png"}, {"name": "dpdc.png", "path": "assets/images/clients/dpdc.png"}, {"name": "nesco.png", "path": "assets/images/clients/nesco.png"}, {"name": "petrobangla.png", "path": "assets/images/clients/petrobangla.png"}, {"name": "pgcb.png", "path": "assets/images/clients/pgcb.png"}, {"name": "ptc.png", "path": "assets/images/clients/ptc.png"}, {"name": "supreme_court.png", "path": "assets/images/clients/supreme_court.png"}, {"name": "tbea.png", "path": "assets/images/clients/tbea.png"}, {"name": "logo.png", "path": "assets/images/logo.png"}, {"name": "master_logo.png", "path": "assets/images/master_logo.png"}, {"name": "visual-1.png", "path": "assets/images/visual-1.png"}, {"name": "visual-2.png", "path": "assets/images/visual-2.png"}, {"name": "visual-3.png", "path": "assets/images/visual-3.png"}, {"name": "visual-4.png", "path": "assets/images/visual-4.png"}, {"name": "visual-5.png", "path": "assets/images/visual-5.png"}, {"name": "visual-6.png", "path": "assets/images/visual-6.png"}, {"name": "visual-7.png", "path": "assets/images/visual-7.png"}];
 
     let siteData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-    let authToken = localStorage.getItem('vt_admin_token') || '';
-    let galleryCallback = null;
+    let authToken = localStorage.getItem('vt_auth_token') || '';
+    let currentPickerTarget = null;
+    let currentPickerPreview = null;
 
-    // Auto-enter if previously logged in
-    if (authToken) {
-      document.getElementById('loginOverlay').classList.add('hidden');
-      loadContent();
-      loadInquiries();
+    // Mobile Sidebar Drawer Controller
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const adminSidebar = document.getElementById('adminSidebar');
+    const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+
+    function openMobileSidebar() {
+      adminSidebar.classList.remove('-translate-x-full');
+      sidebarBackdrop.classList.remove('hidden');
     }
 
-    // Login Form with Offline & Server Dual Fallback
-    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    function closeMobileSidebar() {
+      adminSidebar.classList.add('-translate-x-full');
+      sidebarBackdrop.classList.add('hidden');
+    }
+
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileSidebar);
+    if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeMobileSidebar);
+    if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeMobileSidebar);
+
+    // Tab Switching
+    window.switchTab = function(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      const activePanel = document.getElementById(tabId);
+      if (activePanel) activePanel.classList.remove('hidden');
+
+      // Update Desktop Sidebar
+      document.querySelectorAll('.nav-tab').forEach(b => {
+        if (b.getAttribute('data-tab') === tabId) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+
+      // Update Mobile Tab Scroller
+      document.querySelectorAll('.mobile-tab-btn').forEach(b => {
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(tabId)) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+
+      closeMobileSidebar();
+      if (tabId === 'tab-inquiries') loadInquiries();
+      if (tabId === 'tab-media') renderMediaLibraryGrid();
+    };
+
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab');
+        if (tab) switchTab(tab);
+      });
+    });
+
+    // Auth Initialization
+    const loginOverlay = document.getElementById('loginOverlay');
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+
+    if (authToken) {
+      loginOverlay.classList.add('hidden');
+    }
+
+    loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const user = document.getElementById('loginUsername').value.trim();
-      const pass = document.getElementById('loginPassword').value.trim();
-      const errBox = document.getElementById('loginError');
+      const u = document.getElementById('loginUsername').value.trim();
+      const p = document.getElementById('loginPassword').value.trim();
 
-      // Check stored custom password or default
-      const savedPass = localStorage.getItem('vt_admin_password') || 'admin@visiontech';
+      const storedPass = localStorage.getItem('vt_admin_password') || 'admin@visiontech';
+      if (u === 'admin' && p === storedPass) {
+        authToken = btoa(JSON.stringify({ user: u, exp: Date.now() + 86400000 * 7 }));
+        localStorage.setItem('vt_auth_token', authToken);
+        loginOverlay.classList.add('hidden');
+        showToast('Authenticated successfully! Welcome, Admin.');
+        return;
+      }
 
+      // Edge API fallback
       try {
         const res = await fetch('/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username: user, password: pass })
+          body: JSON.stringify({ username: u, password: p })
         });
         const data = await res.json();
-        if (data.success) {
+        if (data.success && data.token) {
           authToken = data.token;
-          localStorage.setItem('vt_admin_token', authToken);
-          document.getElementById('loginOverlay').classList.add('hidden');
-          loadContent();
-          loadInquiries();
-          return;
+          localStorage.setItem('vt_auth_token', authToken);
+          loginOverlay.classList.add('hidden');
+          showToast('Authenticated with Cloudflare Edge!');
+        } else {
+          loginError.textContent = data.error || 'Invalid credentials';
+          loginError.classList.remove('hidden');
         }
       } catch (err) {
-        // Fallback to local authentication so admin is NEVER blocked
-      }
-
-      if (user === 'admin' && pass === savedPass) {
-        authToken = btoa(JSON.stringify({ user: 'admin', exp: Date.now() + 604800000 }));
-        localStorage.setItem('vt_admin_token', authToken);
-        document.getElementById('loginOverlay').classList.add('hidden');
-        loadContent();
-        loadInquiries();
-      } else {
-        errBox.textContent = 'Invalid username or password';
-        errBox.classList.remove('hidden');
+        loginError.textContent = 'Invalid username or password.';
+        loginError.classList.remove('hidden');
       }
     });
 
     document.getElementById('logoutBtn').addEventListener('click', () => {
-      localStorage.removeItem('vt_admin_token');
-      location.reload();
+      localStorage.removeItem('vt_auth_token');
+      authToken = '';
+      loginOverlay.classList.remove('hidden');
+      showToast('Logged out of CMS.');
     });
 
-    document.getElementById('sidebarToggle').addEventListener('click', () => {
-      const sb = document.getElementById('adminSidebar');
-      sb.classList.toggle('hidden');
-    });
-
-    // Tab Navigation
-    function switchTab(tabId) {
-      document.querySelectorAll('.nav-tab').forEach(b => {
-        b.classList.remove('active', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/30');
-        b.classList.add('text-slate-400', 'border-transparent');
-        if (b.getAttribute('data-tab') === tabId) {
-          b.classList.add('active', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/30');
-          b.classList.remove('text-slate-400', 'border-transparent');
+    // Initialize Data from Edge KV or LocalStorage
+    async function initCMSData() {
+      try {
+        const res = await fetch('/api/content?t=' + Date.now());
+        if (res.ok) {
+          const edgeData = await res.json();
+          siteData = Object.assign(siteData, edgeData);
         }
-      });
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
-      const activePanel = document.getElementById(tabId);
-      if (activePanel) {
-        activePanel.classList.remove('hidden');
-      }
-    }
-    window.switchTab = switchTab;
+      } catch(e) {}
 
-    document.querySelectorAll('.nav-tab').forEach(btn => {
-      btn.addEventListener('click', () => {
-        switchTab(btn.getAttribute('data-tab'));
-      });
-    });
-
-    // Load Data
-    async function loadContent() {
-      // 1. Start with verified defaults
-      siteData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-
-      // 2. Overlay persistent local storage
-      const localSaved = localStorage.getItem('vt_live_sitedata');
-      if (localSaved) {
+      const local = localStorage.getItem('vt_live_sitedata');
+      if (local) {
         try {
-          const parsed = JSON.parse(localSaved);
+          const parsed = JSON.parse(local);
           siteData = Object.assign(siteData, parsed);
         } catch(e) {}
       }
 
-      // 3. Overlay server KV if available
-      try {
-        const res = await fetch('/api/content?t=' + Date.now());
-        if (res.ok) {
-          const serverData = await res.json();
-          if (serverData && typeof serverData === 'object') {
-            siteData = Object.assign(siteData, serverData);
-          }
-        }
-      } catch (err) {}
-
-      populateFields();
+      populateAllForms();
     }
 
-    function populateFields() {
-      // General & Logo
-      if (siteData.general) {
-        document.getElementById('cfgSiteName').value = siteData.general.siteName || '';
-        document.getElementById('cfgTagline').value = siteData.general.tagline || '';
-        document.getElementById('cfgRegInfo').value = siteData.general.regInfo || '';
-        document.getElementById('cfgHqAddress').value = siteData.general.hqAddress || '';
-        document.getElementById('cfgPhone').value = siteData.general.phone || '';
-        document.getElementById('cfgEmail').value = siteData.general.email || '';
-        document.getElementById('cfgLogoUrl').value = siteData.general.logoUrl || 'assets/images/logo.png';
-        if (siteData.general.logoUrl) {
-          document.getElementById('logoEditorPreview').src = siteData.general.logoUrl;
-          document.getElementById('navLogoPreview').src = siteData.general.logoUrl;
-          document.getElementById('loginLogoPreview').src = siteData.general.logoUrl;
-        }
+    function populateAllForms() {
+      // 1. General
+      const g = siteData.general || {};
+      document.getElementById('cfgSiteName').value = g.siteName || '';
+      document.getElementById('cfgTagline').value = g.tagline || '';
+      document.getElementById('cfgSubtitle').value = g.subtitle || '';
+      document.getElementById('cfgTopNotice').value = g.topNotice || '';
+      document.getElementById('cfgRegInfo').value = g.regInfo || '';
+      document.getElementById('cfgPhonePrimary').value = g.phonePrimary || g.phone || '';
+      document.getElementById('cfgPhoneSecondary').value = g.phoneSecondary || '';
+      document.getElementById('cfgLandline').value = g.landline || '';
+      document.getElementById('cfgEmailPrimary').value = g.emailPrimary || g.email || '';
+      document.getElementById('cfgHqAddress').value = g.hqAddress || '';
+      document.getElementById('cfgRegAddress').value = g.regAddress || '';
+      document.getElementById('cfgLogoUrl').value = g.logoUrl || 'assets/images/logo.png';
+      document.getElementById('cfgFaviconUrl').value = g.faviconUrl || 'assets/images/favicon.png';
+      document.getElementById('logoLivePreview').src = g.logoUrl || 'assets/images/logo.png';
+      document.getElementById('navLogoPreview').src = g.logoUrl || 'assets/images/logo.png';
+      document.getElementById('faviconLivePreview').src = g.faviconUrl || 'assets/images/favicon.png';
+
+      // 2. Hero
+      const h = siteData.hero || {};
+      document.getElementById('cfgHeroBadge').value = h.badge || '';
+      document.getElementById('cfgTitlePart1').value = h.titlePart1 || '';
+      document.getElementById('cfgTitleGradient').value = h.titleGradient || '';
+      document.getElementById('cfgTitlePart2').value = h.titlePart2 || '';
+      document.getElementById('cfgHeroLead').value = h.leadText || '';
+      document.getElementById('cfgPrimaryCtaText').value = h.primaryCtaText || '';
+      document.getElementById('cfgPrimaryCtaLink').value = h.primaryCtaLink || '';
+      document.getElementById('cfgVideoUrl').value = h.videoUrl || '';
+      if (h.videoSpeed) {
+        document.getElementById('cfgVideoSpeed').value = h.videoSpeed;
+        document.getElementById('speedValueLabel').textContent = h.videoSpeed + 'x';
+        updateVideoSpeed(h.videoSpeed);
       }
 
-      // Hero
-      if (siteData.hero) {
-        document.getElementById('cfgVideoUrl').value = siteData.hero.videoUrl || 'assets/videos/hero-engineering-bg.mp4';
-        const speed = siteData.hero.videoSpeed || 0.85;
-        document.getElementById('cfgVideoSpeed').value = speed;
-        document.getElementById('videoSpeedDisplay').textContent = speed + 'x';
-        document.getElementById('cfgHeroBadge').value = siteData.hero.badge || '';
-        document.getElementById('cfgHeroLead').value = siteData.hero.leadText || '';
-      }
-
-      // Sister Concern
-      if (siteData.sisterConcern) {
-        document.getElementById('cfgSisterName').value = siteData.sisterConcern.name || '';
-        document.getElementById('cfgSisterSubtitle').value = siteData.sisterConcern.subtitle || '';
-        document.getElementById('cfgSisterFleet').value = siteData.sisterConcern.statFleet || '';
-        document.getElementById('cfgSisterCapacity').value = siteData.sisterConcern.statCapacity || '';
-        document.getElementById('cfgSisterDesc').value = siteData.sisterConcern.desc || '';
-      }
-
+      // 3. Stats
       renderStats();
-      renderServices();
-      renderProjects();
-      renderMediaSection();
-      renderMediaLibraryGrid();
-    }
 
-    // Logo Upload & Picker handlers
-    document.getElementById('logoUploadInput').addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (evt) => {
-        siteData.general = siteData.general || {};
-        siteData.general.logoUrl = evt.target.result;
-        document.getElementById('cfgLogoUrl').value = evt.target.result;
-        document.getElementById('logoEditorPreview').src = evt.target.result;
-        document.getElementById('navLogoPreview').src = evt.target.result;
-        showToast('Logo updated! Click Save Changes to apply everywhere.');
-      };
-      reader.readAsDataURL(file);
-    });
+      // 4. Who We Are
+      const w = siteData.whoWeAre || {};
+      document.getElementById('cfgWwaBadge').value = w.badge || '';
+      document.getElementById('cfgWwaHeadline').value = w.headline || '';
+      document.getElementById('cfgWwaCallout').value = w.callout || '';
+      document.getElementById('cfgWwaPara1').value = w.para1 || '';
+      document.getElementById('cfgWwaCapabilities').value = (w.capabilities || []).join(', ');
+      document.getElementById('cfgWwaPara2').value = w.para2 || '';
+      document.getElementById('cfgWwaPara3').value = w.para3 || '';
 
-    document.getElementById('cfgLogoUrl').addEventListener('input', (e) => {
-      const val = e.target.value.trim();
-      if (val) {
-        siteData.general = siteData.general || {};
-        siteData.general.logoUrl = val;
-        document.getElementById('logoEditorPreview').src = val;
-        document.getElementById('navLogoPreview').src = val;
+      // 5. Services
+      const epc = (siteData.ourServices && siteData.ourServices.epcVerticals) || {};
+      if (epc.energyPower) {
+        document.getElementById('svcEnergyTitle').value = epc.energyPower.title || '';
+        document.getElementById('svcEnergyDesc').value = epc.energyPower.desc || '';
+        document.getElementById('svcEnergyF1').value = epc.energyPower.feature1Title || '';
+        document.getElementById('svcEnergyF2').value = epc.energyPower.feature2Title || '';
+        document.getElementById('svcEnergyImg').value = epc.energyPower.img || '';
+        document.getElementById('svcEnergyImgPrev').src = epc.energyPower.img || 'assets/images/substation-hero.jpg';
       }
-    });
+      if (epc.industrialManufacturing) {
+        document.getElementById('svcIndTitle').value = epc.industrialManufacturing.title || '';
+        document.getElementById('svcIndDesc').value = epc.industrialManufacturing.desc || '';
+        document.getElementById('svcIndF1').value = epc.industrialManufacturing.feature1Title || '';
+        document.getElementById('svcIndF2').value = epc.industrialManufacturing.feature2Title || '';
+        document.getElementById('svcIndImg').value = epc.industrialManufacturing.img || '';
+        document.getElementById('svcIndImgPrev').src = epc.industrialManufacturing.img || 'assets/images/project-electrical-mep.jpg';
+      }
+      if (epc.renewableEnergy) {
+        document.getElementById('svcRenewTitle').value = epc.renewableEnergy.title || '';
+        document.getElementById('svcRenewDesc').value = epc.renewableEnergy.desc || '';
+        document.getElementById('svcRenewF1').value = epc.renewableEnergy.feature1Title || '';
+        document.getElementById('svcRenewF2').value = epc.renewableEnergy.feature2Title || '';
+        document.getElementById('svcRenewImg').value = epc.renewableEnergy.img || '';
+        document.getElementById('svcRenewImgPrev').src = epc.renewableEnergy.img || 'assets/images/project-control-room.jpg';
+      }
+      if (epc.infrastructureTransportation) {
+        document.getElementById('svcInfraTitle').value = epc.infrastructureTransportation.title || '';
+        document.getElementById('svcInfraDesc').value = epc.infrastructureTransportation.desc || '';
+        document.getElementById('svcInfraF1').value = epc.infrastructureTransportation.feature1Title || '';
+        document.getElementById('svcInfraF2').value = epc.infrastructureTransportation.feature2Title || '';
+        document.getElementById('svcInfraImg').value = epc.infrastructureTransportation.img || '';
+        document.getElementById('svcInfraImgPrev').src = epc.infrastructureTransportation.img || 'assets/images/project-bridge-kanchpur.jpg';
+      }
 
-    window.openLogoGalleryPicker = () => {
-      openGalleryModal((path) => {
-        siteData.general = siteData.general || {};
-        siteData.general.logoUrl = path;
-        document.getElementById('cfgLogoUrl').value = path;
-        document.getElementById('logoEditorPreview').src = path;
-        document.getElementById('navLogoPreview').src = path;
-        showToast('Logo selected from gallery!');
-      });
-    };
+      // 6. Projects
+      renderProjects();
 
-    document.getElementById('cfgVideoSpeed').addEventListener('input', (e) => {
-      document.getElementById('videoSpeedDisplay').textContent = e.target.value + 'x';
-    });
+      // 7. Leadership
+      renderLeadership();
+
+      // 8. Sister Concern
+      const s = siteData.sisterConcern || {};
+      document.getElementById('cfgSisterName').value = s.name || '';
+      document.getElementById('cfgSisterSubtitle').value = s.subtitle || '';
+      document.getElementById('cfgSisterFleet').value = s.statFleet || '';
+      document.getElementById('cfgSisterCapacity').value = s.statCapacity || '';
+      document.getElementById('cfgSisterDesc').value = s.desc || '';
+
+      // 9. Media & Brochures
+      renderMediaSection();
+    }
 
     // Render Stats
     function renderStats() {
-      const container = document.getElementById('statsList');
+      const container = document.getElementById('statsContainer');
       container.innerHTML = '';
       (siteData.stats || []).forEach((st, idx) => {
         const card = document.createElement('div');
-        card.className = 'stat-card p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3';
+        card.className = 'stat-card p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3';
         card.innerHTML = `
           <div class="flex justify-between items-center">
-            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Metric #${idx + 1}</span>
-            <button onclick="deleteStat(${idx})" class="text-rose-400 hover:text-rose-300 text-xs font-semibold"><i class="fa-solid fa-trash"></i> Delete</button>
+            <span class="text-xs font-bold text-amber-400 font-mono">Metric #${idx+1}</span>
+            <button type="button" onclick="deleteStat(${idx})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i></button>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[10px] font-bold text-slate-400 mb-1">Value (e.g. 400kV, 100k+)</label>
+              <input type="text" class="stat-val-input w-full px-2.5 py-1.5 rounded-lg text-xs font-bold text-amber-400" value="${st.value || ''}">
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold text-slate-400 mb-1">Label</label>
+              <input type="text" class="stat-label-input w-full px-2.5 py-1.5 rounded-lg text-xs font-semibold text-white" value="${st.label || ''}">
+            </div>
           </div>
           <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Primary Value</label>
-            <input type="text" class="stat-val-input w-full px-3 py-2 rounded-xl text-lg font-bold text-amber-400 font-display" value="${st.value || ''}">
-          </div>
-          <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Headline Label</label>
-            <input type="text" class="stat-label-input w-full px-3 py-2 rounded-xl text-sm font-semibold text-white" value="${st.label || ''}">
-          </div>
-          <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Scope / Subtitle</label>
-            <input type="text" class="stat-sub-input w-full px-3 py-2 rounded-xl text-xs text-slate-300" value="${st.sub || ''}">
+            <label class="block text-[10px] font-bold text-slate-400 mb-1">Subtitle / Context</label>
+            <input type="text" class="stat-sub-input w-full px-2.5 py-1.5 rounded-lg text-xs text-slate-300" value="${st.sub || ''}">
           </div>
         `;
         container.appendChild(card);
@@ -998,225 +1357,206 @@
 
     document.getElementById('addStatBtn').addEventListener('click', () => {
       siteData.stats = siteData.stats || [];
-      siteData.stats.push({ value: "50+", label: "Engineering Milestone", sub: "National Infrastructure Project" });
+      siteData.stats.push({ value: "100%", label: "Turnkey Quality Compliance", sub: "Engineered to sovereign utility standards" });
       renderStats();
     });
 
-    // Render Services
-    function renderServices() {
-      const container = document.getElementById('servicesList');
+    // Render Projects (Completed & Running Separately)
+    function renderProjects() {
+      const pData = siteData.projects || {};
+      const completed = pData.completed || [];
+      const running = pData.running || [];
+
+      document.getElementById('completedCountBadge').textContent = completed.length + ' Projects';
+      document.getElementById('runningCountBadge').textContent = running.length + ' Projects';
+
+      const compContainer = document.getElementById('completedProjectsContainer');
+      compContainer.innerHTML = '';
+      completed.forEach((proj, idx) => {
+        compContainer.appendChild(createProjectCard(proj, idx, 'completed'));
+      });
+
+      const runContainer = document.getElementById('runningProjectsContainer');
+      runContainer.innerHTML = '';
+      running.forEach((proj, idx) => {
+        runContainer.appendChild(createProjectCard(proj, idx, 'running'));
+      });
+    }
+
+    function createProjectCard(proj, idx, type) {
+      const card = document.createElement('div');
+      card.className = `project-card p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3.5 relative ${type==='running' ? 'border-amber-500/30' : ''}`;
+      card.innerHTML = `
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold ${type==='running' ? 'text-amber-400' : 'text-emerald-400'} font-mono">
+            ${type==='running' ? '<i class="fa-solid fa-clock mr-1"></i> Running #' + (idx+1) : '<i class="fa-solid fa-circle-check mr-1"></i> Completed #' + (idx+1)}
+          </span>
+          <button type="button" onclick="deleteProject('${type}', ${idx})" class="text-rose-400 hover:text-rose-300 text-xs px-2 py-1"><i class="fa-solid fa-trash"></i></button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+          <div class="sm:col-span-4">
+            <div class="h-28 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 relative group">
+              <img id="${type}_projPrev_${idx}" src="${proj.img || 'assets/images/logo.png'}" class="w-full h-full object-cover">
+              <button type="button" onclick="pickImageForInput('${type}_projImg_${idx}', '${type}_projPrev_${idx}')" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-[10px] font-bold text-amber-400">
+                <i class="fa-solid fa-images mr-1"></i> Change Image
+              </button>
+            </div>
+            <input type="text" id="${type}_projImg_${idx}" class="project-img-input w-full px-2 py-1 rounded text-[10px] font-mono mt-1.5" value="${proj.img || ''}">
+          </div>
+
+          <div class="sm:col-span-8 space-y-2">
+            <div>
+              <label class="block text-[10px] font-bold text-slate-400 mb-0.5">Project Title</label>
+              <input type="text" class="project-title-input w-full px-2.5 py-1.5 rounded-lg text-xs font-bold text-white" value="${proj.title || ''}">
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[10px] font-bold text-slate-400 mb-0.5">Client / Contract</label>
+                <input type="text" class="project-client-input w-full px-2 py-1 rounded-lg text-[11px] text-amber-400" value="${proj.client || ''}">
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-slate-400 mb-0.5">Value (BDT / Scale)</label>
+                <input type="text" class="project-value-input w-full px-2 py-1 rounded-lg text-[11px] text-slate-300" value="${proj.value || ''}">
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[10px] font-bold text-slate-400 mb-0.5">Category</label>
+                <input type="text" class="project-cat-input w-full px-2 py-1 rounded-lg text-[11px] text-sky-400" value="${proj.category || ''}">
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-slate-400 mb-0.5">Location</label>
+                <input type="text" class="project-loc-input w-full px-2 py-1 rounded-lg text-[11px] text-slate-300" value="${proj.location || ''}">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-bold text-slate-400 mb-0.5">Scope of Work</label>
+          <textarea class="project-scope-input w-full px-2.5 py-1.5 rounded-lg text-xs text-slate-300 leading-relaxed" rows="2">${proj.scope || ''}</textarea>
+        </div>
+      `;
+      return card;
+    }
+
+    window.addNewProject = (type) => {
+      siteData.projects = siteData.projects || { completed: [], running: [] };
+      siteData.projects[type] = siteData.projects[type] || [];
+      siteData.projects[type].unshift({
+        id: "proj-" + Date.now(),
+        title: "New Turnkey Project Execution",
+        client: "Sovereign Utility Client",
+        category: "EPC Turnkey",
+        location: "Bangladesh Grid Hub",
+        value: "Active Tender",
+        img: "assets/images/substation-hero.jpg",
+        scope: "Complete engineering design, procurement, site mobilization and commissioning."
+      });
+      renderProjects();
+    };
+
+    window.deleteProject = (type, idx) => {
+      siteData.projects[type].splice(idx, 1);
+      renderProjects();
+    };
+
+    // Render Leadership (Board, Management, Advisory)
+    function renderLeadership() {
+      const lead = siteData.leadership || {};
+      renderTeamSection('boardContainer', lead.board || [], 'board');
+      renderTeamSection('managementContainer', lead.management || [], 'management');
+      renderTeamSection('advisoryContainer', lead.advisory || [], 'advisory');
+    }
+
+    function renderTeamSection(containerId, members, tier) {
+      const container = document.getElementById(containerId);
       container.innerHTML = '';
-      (siteData.services || []).forEach((srv, idx) => {
+      members.forEach((m, idx) => {
         const card = document.createElement('div');
-        card.className = 'service-card p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3';
+        card.className = `team-card p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3 relative`;
         card.innerHTML = `
-          <div class="flex justify-between items-center">
-            <input type="text" class="service-badge-input w-1/2 px-2.5 py-1 rounded-lg text-xs font-bold text-amber-400 uppercase tracking-wider" value="${srv.badge || 'EPC Service'}">
-            <button onclick="deleteService(${idx})" class="text-rose-400 hover:text-rose-300 text-xs font-semibold"><i class="fa-solid fa-trash"></i> Delete</button>
+          <div class="flex items-center gap-3">
+            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-400 bg-slate-950 shrink-0 relative group">
+              <img id="${tier}_prev_${idx}" src="${m.img || 'assets/images/team/aminul_hoque.jpg'}" class="w-full h-full object-cover">
+              <button type="button" onclick="pickImageForInput('${tier}_img_${idx}', '${tier}_prev_${idx}')" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-[9px] font-bold text-amber-400">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="flex-1 min-w-0">
+              <label class="block text-[9px] font-bold text-slate-400">Full Name</label>
+              <input type="text" class="team-name-input w-full px-2 py-1 rounded text-xs font-bold text-white" value="${m.name || ''}">
+              <input type="text" class="team-role-input w-full px-2 py-0.5 rounded text-[11px] font-semibold text-amber-400 mt-1" value="${m.role || ''}">
+            </div>
+          </div>
+          <input type="hidden" id="${tier}_img_${idx}" class="team-img-input" value="${m.img || ''}">
+          <div>
+            <label class="block text-[9px] font-bold text-slate-400">Degrees &amp; Credentials</label>
+            <input type="text" class="team-degree-input w-full px-2 py-1 rounded text-[11px] font-mono text-slate-300" value="${m.degree || ''}">
           </div>
           <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Service Title</label>
-            <input type="text" class="service-title-input w-full px-3 py-2 rounded-xl text-sm font-bold text-white" value="${srv.title || ''}">
+            <label class="block text-[9px] font-bold text-slate-400">Specialization &amp; Experience</label>
+            <input type="text" class="team-spec-input w-full px-2 py-1 rounded text-[11px] text-sky-400" value="${m.specialization || ''}">
           </div>
           <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Scope Description</label>
-            <textarea rows="3" class="service-desc-input w-full px-3 py-2 rounded-xl text-xs text-slate-300">${srv.desc || ''}</textarea>
+            <label class="block text-[9px] font-bold text-slate-400">Short Bio / Leadership Summary</label>
+            <textarea class="team-bio-input w-full px-2 py-1 rounded text-xs text-slate-300 leading-snug" rows="2">${m.shortBio || ''}</textarea>
+          </div>
+          <div class="pt-1 flex justify-between items-center text-[10px]">
+            <a href="${m.profileUrl || '#'}" target="_blank" class="text-amber-400 hover:underline flex items-center gap-1 font-semibold">
+              <span>View Profile Page</span> <i class="fa-solid fa-arrow-right text-[8px]"></i>
+            </a>
+            <span class="text-slate-500 font-mono">${m.id}</span>
           </div>
         `;
         container.appendChild(card);
       });
     }
 
-    window.deleteService = (idx) => {
-      siteData.services.splice(idx, 1);
-      renderServices();
-    };
-
-    document.getElementById('addServiceBtn').addEventListener('click', () => {
-      siteData.services = siteData.services || [];
-      siteData.services.push({
-        id: 'service-' + Date.now(),
-        badge: 'EPC Division',
-        title: 'New Infrastructure Service',
-        desc: 'Comprehensive engineering scope description goes here.'
-      });
-      renderServices();
-    });
-
-    // Render Projects with Ultra-Simple 1-Click Photo Picker & Direct Upload
-    function renderProjects() {
-      const container = document.getElementById('projectsList');
-      container.innerHTML = '';
-      (siteData.projects || []).forEach((prj, idx) => {
-        const item = document.createElement('div');
-        item.className = 'project-card p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col md:flex-row gap-6 items-start';
-        item.innerHTML = `
-          <div class="w-full md:w-64 shrink-0 space-y-3">
-            <div class="relative group rounded-xl overflow-hidden border border-slate-700 bg-slate-950 h-40">
-              <img id="projectImgPreview_${idx}" src="${prj.img || 'assets/images/logo.png'}" onerror="this.src='assets/images/logo.png'" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2 p-2">
-                <button type="button" onclick="openProjectGalleryPicker(${idx})" class="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 shadow">
-                  <i class="fa-solid fa-images"></i> Change Photo
-                </button>
-              </div>
-            </div>
-
-            <div class="flex gap-2">
-              <button onclick="openProjectGalleryPicker(${idx})" type="button" class="flex-1 py-2 px-2 rounded-xl bg-amber-500/15 border border-amber-500/30 hover:bg-amber-500/25 text-amber-400 font-bold text-[11px] flex items-center justify-center gap-1.5 transition">
-                <i class="fa-solid fa-photo-film"></i> Pick Photo
-              </button>
-              <button onclick="triggerProjectDirectUpload(${idx})" type="button" class="flex-1 py-2 px-2 rounded-xl bg-sky-500/15 border border-sky-500/30 hover:bg-sky-500/25 text-sky-400 font-bold text-[11px] flex items-center justify-center gap-1.5 transition">
-                <i class="fa-solid fa-upload"></i> Upload
-              </button>
-            </div>
-            
-            <input type="file" id="directUploadInput_${idx}" accept="image/*" class="hidden" onchange="handleProjectDirectUpload(event, ${idx})">
-            <div>
-              <label class="block text-[10px] text-slate-500 font-semibold mb-0.5">Image URL / Path</label>
-              <input type="text" class="project-img-input w-full px-2 py-1 rounded-lg text-[10px] font-mono text-slate-300" value="${prj.img || ''}" oninput="document.getElementById('projectImgPreview_${idx}').src = this.value">
-            </div>
-          </div>
-
-          <div class="flex-1 space-y-3 w-full">
-            <div class="flex justify-between items-center gap-4">
-              <div class="flex-1">
-                <label class="block text-[11px] font-semibold text-slate-400 mb-1">Project Landmark Title</label>
-                <input type="text" class="project-title-input w-full px-3 py-2 rounded-xl text-sm font-bold text-white" value="${prj.title || ''}">
-              </div>
-              <button onclick="deleteProject(${idx})" class="px-3 py-1.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 hover:bg-rose-500/20 text-xs font-semibold shrink-0">
-                <i class="fa-solid fa-trash"></i> Delete
-              </button>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div>
-                <label class="block text-[11px] font-semibold text-slate-400 mb-1">Client Authority</label>
-                <input type="text" class="project-client-input w-full px-2.5 py-1.5 rounded-xl text-slate-300" value="${prj.client || ''}">
-              </div>
-              <div>
-                <label class="block text-[11px] font-semibold text-slate-400 mb-1">Category / Discipline</label>
-                <input type="text" class="project-category-input w-full px-2.5 py-1.5 rounded-xl text-slate-300" value="${prj.category || ''}">
-              </div>
-              <div>
-                <label class="block text-[11px] font-semibold text-slate-400 mb-1">Location</label>
-                <input type="text" class="project-location-input w-full px-2.5 py-1.5 rounded-xl text-slate-300" value="${prj.location || ''}">
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-[11px] font-semibold text-slate-400 mb-1">Contract Scope & Technical Details</label>
-              <textarea rows="3" class="project-scope-input w-full px-3 py-2 rounded-xl text-xs text-slate-300">${prj.scope || ''}</textarea>
-            </div>
-          </div>
-        `;
-        container.appendChild(item);
-      });
-    }
-
-    window.openProjectGalleryPicker = (idx) => {
-      openGalleryModal((path) => {
-        siteData.projects[idx].img = path;
-        const imgInput = document.querySelectorAll('.project-card')[idx]?.querySelector('.project-img-input');
-        if (imgInput) imgInput.value = path;
-        const imgPrev = document.getElementById('projectImgPreview_' + idx);
-        if (imgPrev) imgPrev.src = path;
-        showToast('Project image selected!');
-      });
-    };
-
-    window.triggerProjectDirectUpload = (idx) => {
-      document.getElementById('directUploadInput_' + idx).click();
-    };
-
-    window.handleProjectDirectUpload = (event, idx) => {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        siteData.projects[idx].img = e.target.result;
-        const imgInput = document.querySelectorAll('.project-card')[idx]?.querySelector('.project-img-input');
-        if (imgInput) imgInput.value = e.target.result;
-        const imgPrev = document.getElementById('projectImgPreview_' + idx);
-        if (imgPrev) imgPrev.src = e.target.result;
-        showToast('Photo uploaded from computer!');
-      };
-      reader.readAsDataURL(file);
-    };
-
-    window.deleteProject = (idx) => {
-      siteData.projects.splice(idx, 1);
-      renderProjects();
-    };
-
-    document.getElementById('addProjectBtn').addEventListener('click', () => {
-      siteData.projects = siteData.projects || [];
-      siteData.projects.unshift({
-        id: Date.now(),
-        title: 'New High-Voltage EPC Substation Project',
-        client: 'Power Grid Company of Bangladesh (PGCB)',
-        category: 'Substations & Civil',
-        location: 'Bangladesh',
-        img: 'assets/images/project-bhulta-400kv.jpg',
-        scope: 'Comprehensive civil foundations, GIS/AIS switchgear erection, transformer bay earthing, and drainage works.'
-      });
-      renderProjects();
-      showToast('New project added at top of list!');
-    });
-
-    // Render Media Section (Brochures & Live Site Photography)
+    // Render Media Section (Brochures & Gallery)
     function renderMediaSection() {
-      siteData.mediaSection = siteData.mediaSection || { brochures: [], gallery: [] };
-      
-      // 1. Brochures
-      const bContainer = document.getElementById('brochuresList');
+      const media = siteData.mediaSection || {};
+      const bContainer = document.getElementById('brochuresContainer');
       bContainer.innerHTML = '';
-      (siteData.mediaSection.brochures || []).forEach((br, idx) => {
-        const card = document.createElement('div');
-        card.className = 'brochure-card p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3';
-        card.innerHTML = `
-          <div class="flex justify-between items-center">
-            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Brochure #${idx+1}</span>
-            <button onclick="deleteBrochure(${idx})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i></button>
+      (media.brochures || []).forEach((b, idx) => {
+        const row = document.createElement('div');
+        row.className = 'brochure-card p-3 rounded-xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center gap-3';
+        row.innerHTML = `
+          <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-file-pdf"></i>
           </div>
-          <div>
-            <label class="block text-[10px] font-bold text-slate-400 mb-1">Document Title</label>
-            <input type="text" class="brochure-title-input w-full px-3 py-1.5 rounded-xl text-xs font-bold text-white" value="${br.title || ''}">
+          <div class="flex-1 w-full space-y-1">
+            <input type="text" class="brochure-title-input w-full px-2 py-1 rounded text-xs font-semibold text-white" value="${b.title || ''}">
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" class="brochure-size-input w-full px-2 py-0.5 rounded text-[10px] font-mono text-slate-400" value="${b.size || ''}">
+              <input type="text" class="brochure-url-input w-full px-2 py-0.5 rounded text-[10px] font-mono text-sky-400" value="${b.fileUrl || ''}">
+            </div>
           </div>
-          <div>
-            <label class="block text-[10px] font-bold text-slate-400 mb-1">File Specs (e.g. PDF • 2.4 MB)</label>
-            <input type="text" class="brochure-size-input w-full px-3 py-1.5 rounded-xl text-xs text-amber-400" value="${br.size || ''}">
-          </div>
-          <div>
-            <label class="block text-[10px] font-bold text-slate-400 mb-1">File Path / URL</label>
-            <input type="text" class="brochure-url-input w-full px-3 py-1.5 rounded-xl text-[11px] font-mono text-slate-300" value="${br.fileUrl || ''}">
-          </div>
+          <button type="button" onclick="deleteBrochure(${idx})" class="text-rose-400 hover:text-rose-300 text-xs px-2"><i class="fa-solid fa-trash"></i></button>
         `;
-        bContainer.appendChild(card);
+        bContainer.appendChild(row);
       });
 
-      // 2. Site Photos
-      const pContainer = document.getElementById('sitePhotosList');
-      pContainer.innerHTML = '';
-      (siteData.mediaSection.gallery || []).forEach((photo, idx) => {
-        const pCard = document.createElement('div');
-        pCard.className = 'sitephoto-card p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3';
-        pCard.innerHTML = `
-          <div class="h-32 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 relative group">
-            <img id="sitePhotoPrev_${idx}" src="${photo.img || 'assets/images/logo.png'}" onerror="this.src='assets/images/logo.png'" class="w-full h-full object-cover">
-            <button onclick="openSitePhotoGalleryPicker(${idx})" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-bold text-amber-400">
-              <i class="fa-solid fa-images mr-1"></i> Pick from Gallery
+      const gContainer = document.getElementById('sitePhotosContainer');
+      gContainer.innerHTML = '';
+      (media.gallery || []).forEach((g, idx) => {
+        const card = document.createElement('div');
+        card.className = 'gallery-card p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-2';
+        card.innerHTML = `
+          <div class="h-28 rounded-lg overflow-hidden border border-slate-700 bg-slate-950 relative group">
+            <img id="gallery_prev_${idx}" src="${g.img || 'assets/images/logo.png'}" class="w-full h-full object-cover">
+            <button type="button" onclick="pickImageForInput('gallery_img_${idx}', 'gallery_prev_${idx}')" class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-bold text-amber-400">
+              <i class="fa-solid fa-images mr-1"></i> Pick Image
             </button>
           </div>
-          <div>
-            <label class="block text-[10px] font-bold text-slate-400 mb-1">Caption Title</label>
-            <div class="flex gap-2">
-              <input type="text" class="photo-title-input w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold text-white" value="${photo.title || ''}">
-              <button onclick="deleteSitePhoto(${idx})" class="text-rose-400 hover:text-rose-300 text-xs px-2 shrink-0"><i class="fa-solid fa-trash"></i></button>
-            </div>
-            <input type="hidden" class="photo-img-input" value="${photo.img || ''}">
+          <input type="hidden" id="gallery_img_${idx}" class="gallery-img-input" value="${g.img || ''}">
+          <div class="flex gap-2">
+            <input type="text" class="gallery-title-input w-full px-2 py-1 rounded text-xs font-semibold text-white" value="${g.title || ''}">
+            <button type="button" onclick="deleteGalleryPhoto(${idx})" class="text-rose-400 hover:text-rose-300 text-xs px-1.5"><i class="fa-solid fa-trash"></i></button>
           </div>
         `;
-        pContainer.appendChild(pCard);
+        gContainer.appendChild(card);
       });
     }
 
@@ -1225,59 +1565,45 @@
       renderMediaSection();
     };
 
-    window.deleteSitePhoto = (idx) => {
-      siteData.mediaSection.gallery.splice(idx, 1);
-      renderMediaSection();
-    };
-
     document.getElementById('addBrochureBtn').addEventListener('click', () => {
       siteData.mediaSection.brochures = siteData.mediaSection.brochures || [];
       siteData.mediaSection.brochures.push({
         title: "New Technical Specification Dossier",
-        size: "PDF • 3.0 MB",
+        size: "PDF • 3.2 MB",
         fileUrl: "assets/docs/VisionTech-Corporate-Profile.pdf"
       });
       renderMediaSection();
     });
 
+    window.deleteGalleryPhoto = (idx) => {
+      siteData.mediaSection.gallery.splice(idx, 1);
+      renderMediaSection();
+    };
+
     document.getElementById('addSitePhotoBtn').addEventListener('click', () => {
       siteData.mediaSection.gallery = siteData.mediaSection.gallery || [];
       siteData.mediaSection.gallery.push({
-        title: "Live Substation Project Construction",
-        img: "assets/images/project-bhulta-400kv.jpg"
+        title: "Substation GIS Construction Works",
+        img: "assets/images/substation-hero.jpg"
       });
       renderMediaSection();
     });
 
-    window.openSitePhotoGalleryPicker = (idx) => {
-      openGalleryModal((path) => {
-        siteData.mediaSection.gallery[idx].img = path;
-        const photoCard = document.querySelectorAll('.sitephoto-card')[idx];
-        if (photoCard) {
-          const inp = photoCard.querySelector('.photo-img-input');
-          if (inp) inp.value = path;
-        }
-        const prev = document.getElementById('sitePhotoPrev_' + idx);
-        if (prev) prev.src = path;
-        showToast('Site photo updated!');
-      });
-    };
-
-    // Render Media Library Grid in Media tab
+    // Render Full Image Asset Grid
     function renderMediaLibraryGrid() {
       const container = document.getElementById('mediaLibraryGrid');
       if (!container) return;
       container.innerHTML = '';
       BUILTIN_PHOTOS.forEach(photo => {
         const el = document.createElement('div');
-        el.className = 'group rounded-xl overflow-hidden border border-slate-800 bg-slate-950 p-2 space-y-2';
+        el.className = 'group rounded-xl overflow-hidden border border-slate-800 bg-slate-950 p-2 space-y-1.5 cursor-pointer hover:border-amber-400 transition';
         el.innerHTML = `
           <div class="aspect-video rounded-lg overflow-hidden relative">
             <img src="${photo.path}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
           </div>
-          <p class="text-[10px] font-bold text-white truncate" title="${photo.name}">${photo.name}</p>
-          <button type="button" onclick="copyPathToClipboard('${photo.path}')" class="w-full py-1 rounded bg-slate-900 hover:bg-slate-800 text-[10px] text-amber-400 font-semibold border border-slate-700 flex items-center justify-center gap-1">
-            <i class="fa-solid fa-copy text-[9px]"></i> Copy Path
+          <p class="text-[9px] font-bold text-white truncate" title="${photo.name}">${photo.name}</p>
+          <button type="button" onclick="copyPathToClipboard('${photo.path}')" class="w-full py-1 rounded bg-slate-900 hover:bg-slate-800 text-[9px] text-amber-400 font-semibold border border-slate-700 flex items-center justify-center gap-1">
+            <i class="fa-solid fa-copy text-[8px]"></i> Copy
           </button>
         `;
         container.appendChild(el);
@@ -1289,16 +1615,22 @@
       showToast('Copied: ' + path);
     };
 
-    // Open Gallery Modal
-    function openGalleryModal(cb) {
-      galleryCallback = cb;
+    // Universal Image Picker Modal
+    window.pickImageForInput = function(inputId, previewImgId) {
+      currentPickerTarget = inputId;
+      currentPickerPreview = previewImgId;
       const modal = document.getElementById('imagePickerModal');
       const grid = document.getElementById('galleryGrid');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
 
+      renderPickerGrid(BUILTIN_PHOTOS);
+    };
+
+    function renderPickerGrid(photos) {
+      const grid = document.getElementById('galleryGrid');
       grid.innerHTML = '';
-      BUILTIN_PHOTOS.forEach(img => {
+      photos.forEach(img => {
         const thumb = document.createElement('div');
         thumb.className = 'group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-950 cursor-pointer hover:border-amber-400 transition aspect-video';
         thumb.innerHTML = `
@@ -1307,83 +1639,85 @@
           <div class="absolute bottom-1.5 left-2 right-2 text-[10px] font-bold text-white truncate">${img.name}</div>
         `;
         thumb.addEventListener('click', () => {
-          if (galleryCallback) galleryCallback(img.path);
-          closeGallery();
+          if (currentPickerTarget) {
+            const inp = document.getElementById(currentPickerTarget);
+            if (inp) inp.value = img.path;
+          }
+          if (currentPickerPreview) {
+            const prev = document.getElementById(currentPickerPreview);
+            if (prev) prev.src = img.path;
+          }
+          closePickerModal();
+          showToast('Image assigned: ' + img.name);
         });
         grid.appendChild(thumb);
       });
     }
 
-    function closeGallery() {
+    document.getElementById('gallerySearchInput').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = BUILTIN_PHOTOS.filter(p => p.name.toLowerCase().includes(q) || p.path.toLowerCase().includes(q));
+      renderPickerGrid(filtered);
+    });
+
+    function closePickerModal() {
       const modal = document.getElementById('imagePickerModal');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
     }
-    document.getElementById('closeImagePicker').addEventListener('click', closeGallery);
+    document.getElementById('closeImagePicker').addEventListener('click', closePickerModal);
 
-    // Change Password Handler
-    document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const newPass = document.getElementById('secNewPassword').value.trim();
-      const confPass = document.getElementById('secConfirmPassword').value.trim();
-      const msg = document.getElementById('passwordMsg');
+    // Video Speed & Preset Switcher
+    window.updateVideoSpeed = function(speed) {
+      const v = document.getElementById('heroVideoPreview');
+      if (v) v.playbackRate = parseFloat(speed);
+      document.getElementById('speedValueLabel').textContent = speed + 'x';
+    };
 
-      if (newPass !== confPass) {
-        msg.textContent = 'Passwords do not match!';
-        msg.className = 'text-xs font-semibold text-rose-400 block';
-        return;
+    window.selectPresetVideo = function(url) {
+      document.getElementById('cfgVideoUrl').value = url;
+      const v = document.getElementById('heroVideoPreview');
+      if (v) {
+        v.src = url;
+        v.play();
       }
+      showToast('Video preview updated: ' + url);
+    };
 
-      // 1. Immediately store in persistent browser storage
-      localStorage.setItem('vt_admin_password', newPass);
-
-      // 2. Persist to server KV
-      try {
-        await fetch('/api/auth/change-password', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + authToken
-          },
-          body: JSON.stringify({ newPassword: newPass, username: 'admin' })
-        });
-      } catch (err) {}
-
-      msg.textContent = 'Password successfully updated! Next login will require this password.';
-      msg.className = 'text-xs font-semibold text-emerald-400 block';
-      showToast('Admin password updated successfully!');
-      document.getElementById('secNewPassword').value = '';
-      document.getElementById('secConfirmPassword').value = '';
-    });
-
-    // Save All Changes to Server & Persistent LocalStorage
+    // ================= SAVE ALL CHANGES ENGINE =================
     document.getElementById('saveGlobalBtn').addEventListener('click', async () => {
+      const btn = document.getElementById('saveGlobalBtn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i> Saving...';
+
       // 1. Scrape General
       siteData.general = siteData.general || {};
       siteData.general.siteName = document.getElementById('cfgSiteName').value.trim();
       siteData.general.tagline = document.getElementById('cfgTagline').value.trim();
+      siteData.general.subtitle = document.getElementById('cfgSubtitle').value.trim();
+      siteData.general.topNotice = document.getElementById('cfgTopNotice').value.trim();
       siteData.general.regInfo = document.getElementById('cfgRegInfo').value.trim();
+      siteData.general.phonePrimary = document.getElementById('cfgPhonePrimary').value.trim();
+      siteData.general.phoneSecondary = document.getElementById('cfgPhoneSecondary').value.trim();
+      siteData.general.landline = document.getElementById('cfgLandline').value.trim();
+      siteData.general.emailPrimary = document.getElementById('cfgEmailPrimary').value.trim();
       siteData.general.hqAddress = document.getElementById('cfgHqAddress').value.trim();
-      siteData.general.phone = document.getElementById('cfgPhone').value.trim();
-      siteData.general.email = document.getElementById('cfgEmail').value.trim();
-      siteData.general.logoUrl = document.getElementById('cfgLogoUrl').value.trim() || siteData.general.logoUrl;
+      siteData.general.regAddress = document.getElementById('cfgRegAddress').value.trim();
+      siteData.general.logoUrl = document.getElementById('cfgLogoUrl').value.trim();
+      siteData.general.faviconUrl = document.getElementById('cfgFaviconUrl').value.trim();
 
       // 2. Scrape Hero
       siteData.hero = siteData.hero || {};
+      siteData.hero.badge = document.getElementById('cfgHeroBadge').value.trim();
+      siteData.hero.titlePart1 = document.getElementById('cfgTitlePart1').value.trim();
+      siteData.hero.titleGradient = document.getElementById('cfgTitleGradient').value.trim();
+      siteData.hero.titlePart2 = document.getElementById('cfgTitlePart2').value.trim();
+      siteData.hero.leadText = document.getElementById('cfgHeroLead').value.trim();
+      siteData.hero.primaryCtaText = document.getElementById('cfgPrimaryCtaText').value.trim();
+      siteData.hero.primaryCtaLink = document.getElementById('cfgPrimaryCtaLink').value.trim();
       siteData.hero.videoUrl = document.getElementById('cfgVideoUrl').value.trim();
       siteData.hero.videoSpeed = parseFloat(document.getElementById('cfgVideoSpeed').value);
-      siteData.hero.badge = document.getElementById('cfgHeroBadge').value.trim();
-      siteData.hero.leadText = document.getElementById('cfgHeroLead').value.trim();
 
-      // 3. Scrape Sister Concern
-      siteData.sisterConcern = siteData.sisterConcern || {};
-      siteData.sisterConcern.name = document.getElementById('cfgSisterName').value.trim();
-      siteData.sisterConcern.subtitle = document.getElementById('cfgSisterSubtitle').value.trim();
-      siteData.sisterConcern.statFleet = document.getElementById('cfgSisterFleet').value.trim();
-      siteData.sisterConcern.statCapacity = document.getElementById('cfgSisterCapacity').value.trim();
-      siteData.sisterConcern.desc = document.getElementById('cfgSisterDesc').value.trim();
-
-      // 4. Scrape Stats directly from DOM
+      // 3. Scrape Stats
       const statCards = document.querySelectorAll('.stat-card');
       const newStats = [];
       statCards.forEach(c => {
@@ -1395,36 +1729,115 @@
       });
       if (newStats.length > 0) siteData.stats = newStats;
 
-      // 5. Scrape Services directly from DOM
-      const serviceCards = document.querySelectorAll('.service-card');
-      const newServices = [];
-      serviceCards.forEach(c => {
-        newServices.push({
-          badge: c.querySelector('.service-badge-input')?.value || 'EPC',
-          title: c.querySelector('.service-title-input')?.value || '',
-          desc: c.querySelector('.service-desc-input')?.value || ''
-        });
-      });
-      if (newServices.length > 0) siteData.services = newServices;
+      // 4. Scrape Who We Are
+      siteData.whoWeAre = siteData.whoWeAre || {};
+      siteData.whoWeAre.badge = document.getElementById('cfgWwaBadge').value.trim();
+      siteData.whoWeAre.headline = document.getElementById('cfgWwaHeadline').value.trim();
+      siteData.whoWeAre.callout = document.getElementById('cfgWwaCallout').value.trim();
+      siteData.whoWeAre.para1 = document.getElementById('cfgWwaPara1').value.trim();
+      siteData.whoWeAre.capabilities = document.getElementById('cfgWwaCapabilities').value.split(',').map(s => s.trim()).filter(Boolean);
+      siteData.whoWeAre.para2 = document.getElementById('cfgWwaPara2').value.trim();
+      siteData.whoWeAre.para3 = document.getElementById('cfgWwaPara3').value.trim();
 
-      // 6. Scrape Projects directly from DOM
-      const projectCards = document.querySelectorAll('.project-card');
-      const newProjects = [];
-      projectCards.forEach((c, idx) => {
-        newProjects.push({
-          id: siteData.projects[idx]?.id || Date.now() + idx,
+      // 5. Scrape Services
+      siteData.ourServices = siteData.ourServices || { epcVerticals: {} };
+      siteData.ourServices.epcVerticals = siteData.ourServices.epcVerticals || {};
+      siteData.ourServices.epcVerticals.energyPower = {
+        title: document.getElementById('svcEnergyTitle').value.trim(),
+        badge: "1.1 ENERGY & POWER",
+        desc: document.getElementById('svcEnergyDesc').value.trim(),
+        feature1Title: document.getElementById('svcEnergyF1').value.trim(),
+        feature2Title: document.getElementById('svcEnergyF2').value.trim(),
+        img: document.getElementById('svcEnergyImg').value.trim()
+      };
+      siteData.ourServices.epcVerticals.industrialManufacturing = {
+        title: document.getElementById('svcIndTitle').value.trim(),
+        badge: "1.2 INDUSTRIAL & MANUFACTURING",
+        desc: document.getElementById('svcIndDesc').value.trim(),
+        feature1Title: document.getElementById('svcIndF1').value.trim(),
+        feature2Title: document.getElementById('svcIndF2').value.trim(),
+        img: document.getElementById('svcIndImg').value.trim()
+      };
+      siteData.ourServices.epcVerticals.renewableEnergy = {
+        title: document.getElementById('svcRenewTitle').value.trim(),
+        badge: "1.3 RENEWABLE ENERGY",
+        desc: document.getElementById('svcRenewDesc').value.trim(),
+        feature1Title: document.getElementById('svcRenewF1').value.trim(),
+        feature2Title: document.getElementById('svcRenewF2').value.trim(),
+        img: document.getElementById('svcRenewImg').value.trim()
+      };
+      siteData.ourServices.epcVerticals.infrastructureTransportation = {
+        title: document.getElementById('svcInfraTitle').value.trim(),
+        badge: "1.4 INFRASTRUCTURE & TRANSPORTATION",
+        desc: document.getElementById('svcInfraDesc').value.trim(),
+        feature1Title: document.getElementById('svcInfraF1').value.trim(),
+        feature2Title: document.getElementById('svcInfraF2').value.trim(),
+        img: document.getElementById('svcInfraImg').value.trim()
+      };
+
+      // 6. Scrape Projects
+      const compCards = document.querySelectorAll('#completedProjectsContainer .project-card');
+      const newCompleted = [];
+      compCards.forEach((c, idx) => {
+        newCompleted.push({
+          id: siteData.projects.completed[idx]?.id || 'comp-' + idx,
           title: c.querySelector('.project-title-input')?.value || '',
           client: c.querySelector('.project-client-input')?.value || '',
-          category: c.querySelector('.project-category-input')?.value || '',
-          location: c.querySelector('.project-location-input')?.value || '',
+          value: c.querySelector('.project-value-input')?.value || '',
+          category: c.querySelector('.project-cat-input')?.value || '',
+          location: c.querySelector('.project-loc-input')?.value || '',
           scope: c.querySelector('.project-scope-input')?.value || '',
-          img: c.querySelector('.project-img-input')?.value || 'assets/images/logo.png'
+          img: c.querySelector('.project-img-input')?.value || 'assets/images/logo.png',
+          status: 'Completed'
         });
       });
-      if (newProjects.length > 0) siteData.projects = newProjects;
+      siteData.projects.completed = newCompleted;
 
-      // 7. Scrape Brochures directly from DOM
-      siteData.mediaSection = siteData.mediaSection || {};
+      const runCards = document.querySelectorAll('#runningProjectsContainer .project-card');
+      const newRunning = [];
+      runCards.forEach((c, idx) => {
+        newRunning.push({
+          id: siteData.projects.running[idx]?.id || 'run-' + idx,
+          title: c.querySelector('.project-title-input')?.value || '',
+          client: c.querySelector('.project-client-input')?.value || '',
+          value: c.querySelector('.project-value-input')?.value || '',
+          category: c.querySelector('.project-cat-input')?.value || '',
+          location: c.querySelector('.project-loc-input')?.value || '',
+          scope: c.querySelector('.project-scope-input')?.value || '',
+          img: c.querySelector('.project-img-input')?.value || 'assets/images/substation-hero.jpg',
+          status: 'Active / Running'
+        });
+      });
+      siteData.projects.running = newRunning;
+
+      // 7. Scrape Leadership
+      const scrapeTier = (containerId, arr) => {
+        const cards = document.querySelectorAll('#' + containerId + ' .team-card');
+        cards.forEach((c, idx) => {
+          if (arr[idx]) {
+            arr[idx].name = c.querySelector('.team-name-input')?.value || arr[idx].name;
+            arr[idx].role = c.querySelector('.team-role-input')?.value || arr[idx].role;
+            arr[idx].degree = c.querySelector('.team-degree-input')?.value || arr[idx].degree;
+            arr[idx].specialization = c.querySelector('.team-spec-input')?.value || arr[idx].specialization;
+            arr[idx].shortBio = c.querySelector('.team-bio-input')?.value || arr[idx].shortBio;
+            arr[idx].img = c.querySelector('.team-img-input')?.value || arr[idx].img;
+          }
+        });
+      };
+      siteData.leadership = siteData.leadership || {};
+      scrapeTier('boardContainer', siteData.leadership.board || []);
+      scrapeTier('managementContainer', siteData.leadership.management || []);
+      scrapeTier('advisoryContainer', siteData.leadership.advisory || []);
+
+      // 8. Scrape Sister Concern
+      siteData.sisterConcern = siteData.sisterConcern || {};
+      siteData.sisterConcern.name = document.getElementById('cfgSisterName').value.trim();
+      siteData.sisterConcern.subtitle = document.getElementById('cfgSisterSubtitle').value.trim();
+      siteData.sisterConcern.statFleet = document.getElementById('cfgSisterFleet').value.trim();
+      siteData.sisterConcern.statCapacity = document.getElementById('cfgSisterCapacity').value.trim();
+      siteData.sisterConcern.desc = document.getElementById('cfgSisterDesc').value.trim();
+
+      // 9. Scrape Brochures & Gallery
       const brochureCards = document.querySelectorAll('.brochure-card');
       const newBrochures = [];
       brochureCards.forEach(c => {
@@ -1436,21 +1849,20 @@
       });
       siteData.mediaSection.brochures = newBrochures;
 
-      // 8. Scrape Site Photos directly from DOM
-      const photoCards = document.querySelectorAll('.sitephoto-card');
-      const newPhotos = [];
-      photoCards.forEach(c => {
-        newPhotos.push({
-          title: c.querySelector('.photo-title-input')?.value || '',
-          img: c.querySelector('.photo-img-input')?.value || ''
+      const galleryCards = document.querySelectorAll('.gallery-card');
+      const newGallery = [];
+      galleryCards.forEach(c => {
+        newGallery.push({
+          title: c.querySelector('.gallery-title-input')?.value || '',
+          img: c.querySelector('.gallery-img-input')?.value || ''
         });
       });
-      siteData.mediaSection.gallery = newPhotos;
+      siteData.mediaSection.gallery = newGallery;
 
-      // 9. INSTANT SAVE TO LOCAL STORAGE (Guarantees data is never lost on refresh)
+      // 10. SAVE TO LOCAL STORAGE (Guarantees immediate site synchronization)
       localStorage.setItem('vt_live_sitedata', JSON.stringify(siteData));
 
-      // 10. Persist to Cloudflare KV Edge
+      // 11. Persist to Cloudflare KV Edge
       try {
         await fetch('/api/content', {
           method: 'POST',
@@ -1462,61 +1874,104 @@
         });
       } catch (err) {}
 
-      showToast('All changes permanently saved and live!');
+      btn.innerHTML = '<i class="fa-solid fa-floppy-disk text-xs"></i> <span>Save Changes</span>';
+      showToast('All changes permanently saved and live across the website!');
     });
 
-    // Generic file upload
-    document.getElementById('genericUploadInput').addEventListener('change', async (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
+    // Password Change Form
+    document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nPass = document.getElementById('secNewPassword').value.trim();
+      const cPass = document.getElementById('secConfirmPassword').value.trim();
+      const msg = document.getElementById('passwordMsg');
 
-      const reader = new FileReader();
-      reader.onload = (evt) => {
-        BUILTIN_PHOTOS.unshift({
-          name: file.name,
-          path: evt.target.result
+      if (nPass !== cPass) {
+        msg.textContent = 'Passwords do not match!';
+        msg.className = 'text-xs font-semibold text-rose-400 block';
+        return;
+      }
+
+      localStorage.setItem('vt_admin_password', nPass);
+      try {
+        await fetch('/api/auth/change-password', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + authToken
+          },
+          body: JSON.stringify({ newPassword: nPass, username: 'admin' })
         });
-        renderMediaLibraryGrid();
-        document.getElementById('uploadResult').textContent = 'Loaded and added to media library: ' + file.name;
-        showToast('File added to gallery: ' + file.name);
-      };
-      reader.readAsDataURL(file);
+      } catch(err) {}
+
+      msg.textContent = 'Master password updated successfully! Next login requires this password.';
+      msg.className = 'text-xs font-semibold text-emerald-400 block';
+      showToast('Master admin password updated!');
+      document.getElementById('secNewPassword').value = '';
+      document.getElementById('secConfirmPassword').value = '';
     });
 
-    // Video specific upload
-    document.getElementById('heroVideoUploadInput').addEventListener('change', async (e) => {
-      const file = e.target.files[0];
+    // Backup & Restore
+    window.exportSiteBackup = function() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(siteData, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", "VisionTech_SiteData_Backup_" + new Date().toISOString().slice(0, 10) + ".json");
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast('Backup JSON downloaded successfully!');
+    };
+
+    window.importSiteBackup = function(event) {
+      const file = event.target.files[0];
       if (!file) return;
-      document.getElementById('cfgVideoUrl').value = 'assets/videos/' + file.name;
-      showToast('Video path set: assets/videos/' + file.name);
-    });
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (imported && (imported.general || imported.hero)) {
+            siteData = imported;
+            localStorage.setItem('vt_live_sitedata', JSON.stringify(siteData));
+            populateAllForms();
+            showToast('Backup successfully imported & synchronized!');
+          } else {
+            alert('Invalid backup file structure.');
+          }
+        } catch(err) {
+          alert('Failed to parse JSON file.');
+        }
+      };
+      reader.readAsText(file);
+    };
 
     // Load Inquiries
     async function loadInquiries() {
+      const tbody = document.getElementById('inquiriesTableBody');
       try {
         const res = await fetch('/api/inquiries', {
           headers: { 'Authorization': 'Bearer ' + authToken }
         });
         const inquiries = await res.json();
-        const tbody = document.getElementById('inquiriesTableBody');
         tbody.innerHTML = '';
         if (!Array.isArray(inquiries) || inquiries.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="5" class="p-4 text-center text-slate-500">No inquiry submissions recorded yet.</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="5" class="p-6 text-center text-slate-500 font-medium">No tender RFQ inquiries recorded yet.</td></tr>';
           return;
         }
         inquiries.forEach(inq => {
           const tr = document.createElement('tr');
-          tr.className = 'hover:bg-slate-900/50 transition';
+          tr.className = 'hover:bg-slate-900/60 transition';
           tr.innerHTML = `
-            <td class="p-3.5 font-mono text-slate-400">${new Date(inq.date).toLocaleDateString()}</td>
-            <td class="p-3.5 font-bold text-white">${inq.name || 'Anonymous'} <div class="text-[10px] text-slate-400 font-normal">${inq.company || ''}</div></td>
-            <td class="p-3.5 text-amber-400">${inq.email || ''} <div class="text-[10px] text-slate-300">${inq.phone || ''}</div></td>
-            <td class="p-3.5"><span class="px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 text-[10px]">${inq.service || 'EPC RFQ'}</span></td>
-            <td class="p-3.5 max-w-xs truncate">${inq.message || inq.scope || '-'}</td>
+            <td class="p-3.5 font-mono text-slate-400 whitespace-nowrap">${new Date(inq.date || Date.now()).toLocaleDateString()}</td>
+            <td class="p-3.5 font-bold text-white">${inq.name || 'Corporate Inquirer'} <div class="text-[10px] text-slate-400 font-normal">${inq.company || ''}</div></td>
+            <td class="p-3.5 text-amber-400 font-mono">${inq.email || ''} <div class="text-[10px] text-slate-300 font-sans">${inq.phone || ''}</div></td>
+            <td class="p-3.5"><span class="px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 text-[10px] whitespace-nowrap">${inq.service || 'EPC RFQ'}</span></td>
+            <td class="p-3.5 text-slate-300 max-w-xs truncate">${inq.message || inq.scope || '-'}</td>
           `;
           tbody.appendChild(tr);
         });
-      } catch (err) {}
+      } catch(err) {
+        tbody.innerHTML = '<tr><td colspan="5" class="p-6 text-center text-slate-500 font-medium">No tender submissions recorded yet.</td></tr>';
+      }
     }
 
     function showToast(text) {
@@ -1527,6 +1982,11 @@
         toast.classList.add('translate-y-24', 'opacity-0');
       }, 3500);
     }
+
+    // Boot
+    window.addEventListener('DOMContentLoaded', () => {
+      initCMSData();
+    });
   </script>
 </body>
 </html>
